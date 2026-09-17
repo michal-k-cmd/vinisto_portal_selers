@@ -1,0 +1,11 @@
+.form-control--blog {
+	max-width: 504px;
+}
+.form-control--datepicker {
+	max-width: 152px;
+}
+
+.article-main-image {
+	max-width: 31.25rem;
+	margin-bottom: 1rem;
+}

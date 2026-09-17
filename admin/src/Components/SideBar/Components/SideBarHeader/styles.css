@@ -1,0 +1,7 @@
+.sidebar-header {
+	margin: 1em 0;
+}
+.vinisto-admin-sidebar.mobile .sidebar-header,
+.vinisto-admin-sidebar.tablet .sidebar-header {
+	margin-top: 0.5em;
+}

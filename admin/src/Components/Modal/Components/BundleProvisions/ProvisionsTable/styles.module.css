@@ -1,0 +1,12 @@
+.provisionsTable td {
+	font-size: 0.875rem;
+}
+
+.provisionFee {
+	font-size: 0.75rem;
+	margin-left: 1.25rem;
+}
+
+.lightText {
+	color: rgb(147, 127, 161);
+}

@@ -1,0 +1,101 @@
+.products-navbar.navbar {
+	height: var(--vinisto-main-menu-desktop-height);
+	--hover-trapezoid-top-coords: 50% 0%, 50% 0%;
+}
+
+.products-navbar.navbar .nav-item .nav-link {
+	font-size: 0.875rem;
+	line-height: 1.125rem;
+	color: rgb(var(--vinisto-color-white));
+	padding: 0.75rem 0;
+	text-align: center;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	height: 100%;
+	font-weight: 400;
+	position: relative;
+}
+
+.products-navbar.navbar .nav-item.nav-item-bold .nav-link {
+	font-weight: 600;
+}
+
+.products-navbar.navbar > .navbar-nav > .nav-item .nav-link:hover {
+	background-color: rgba(var(--vinisto-color-light-green), 1) !important;
+	color: rgb(var(--vinisto-color-darker-gray)) !important;
+}
+
+.products-navbar.navbar .nav-item .nav-link span {
+	line-height: 1;
+}
+
+.products-navbar.navbar .nav-item.is-open > .nav-link {
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.products-navbar.navbar .nav-item.is-open .products-submenu {
+	display: flex;
+}
+
+.products-navbar.navbar .nav-item .products-submenu .nav-item .nav-link {
+	display: flex;
+	max-width: unset;
+}
+
+.products-navbar.navbar .nav-item:first-child > .nav-link {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-wine-red));
+}
+
+.products-navbar.navbar:hover .nav-item:first-child > .nav-link:hover {
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.products-navbar.navbar > .navbar-nav > .nav-item::before {
+	display: none;
+}
+
+.products-navbar.navbar > .navbar-nav > .nav-item.is-open::before {
+	display: block;
+	content: '';
+	position: fixed;
+	top: var(--header-height);
+	left: 0;
+	width: 100%;
+	height: calc(100vh - var(--header-height));
+	background-color: rgba(var(--vinisto-color-black), 0.3);
+	z-index: -2;
+	pointer-events: none;
+}
+
+.products-navbar.navbar .nav-item.has-children:after {
+	display: none;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	clip-path: polygon(var(--hover-trapezoid-top-coords), 100% 100%, 0% 100%);
+}
+
+.products-navbar.navbar .nav-item.has-children:hover:after {
+	display: block;
+	z-index: 10;
+}
+
+.products-navbar.navbar .nav-item.has-children:hover + .nav-item {
+	pointer-events: none;
+}
+
+.products-navbar.navbar .products-submenu {
+	display: none;
+	z-index: -1;
+	max-height: calc(100vh - var(--header-height));
+	overflow-y: auto;
+	background-color: #fdfefa;
+}

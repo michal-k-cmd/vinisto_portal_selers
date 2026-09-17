@@ -1,0 +1,35 @@
+.vinisto-rating {
+	display: inline-flex;
+	gap: 0.1875rem;
+	position: relative;
+	text-align: left;
+}
+
+.vinisto-rating__ico-wrap {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	line-height: 0;
+}
+
+.vinisto-rating__ico {
+	overflow: hidden;
+	position: absolute;
+	line-height: 0;
+}
+
+.vinisto-rating--large {
+	gap: 0.5rem;
+}
+
+.vinisto-rating--large .vinisto-rating-ico {
+	width: auto;
+	height: 22px;
+}
+
+@media (max-width: 1199.98px) {
+	.vinisto-rating__ico-wrap svg {
+		height: 0.875rem;
+		width: auto;
+	}
+}

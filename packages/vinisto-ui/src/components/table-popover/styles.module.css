@@ -1,0 +1,27 @@
+.vinistoAdminPopover {
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-dark));
+	padding: 10px;
+	max-width: 400px;
+}
+
+.rule {
+	display: flex;
+}
+
+.popover {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	min-width: 200px;
+}
+
+.rule:hover .popover {
+	display: block;
+}
+
+:global(.table-responsive tbody > tr:nth-last-child(-n + 4)) .popover {
+	top: auto;
+	bottom: 0;
+}

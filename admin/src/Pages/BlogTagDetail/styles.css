@@ -1,0 +1,16 @@
+.category-detail-list {
+	display: grid;
+	grid-template-columns: 295px 1fr;
+}
+
+.category-detail__heading {
+	font-size: 1rem;
+	font-weight: 700;
+	margin-top: 1.5rem;
+}
+
+@media (max-width: 767.98px) {
+	.category-detail-list {
+		grid-template-columns: 1fr;
+	}
+}

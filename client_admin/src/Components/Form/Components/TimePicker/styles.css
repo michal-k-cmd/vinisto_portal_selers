@@ -1,0 +1,9 @@
+.admin-date-picker {
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 0) !important;
+	border: 1px solid #ced4da;
+}
+
+.date-picker-container {
+	display: flex;
+	flex-direction: column;
+}

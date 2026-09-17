@@ -1,0 +1,13 @@
+.columns {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 1em;
+	gap: 3em;
+}
+
+@media (max-width: 768px) {
+	.columns {
+		flex-direction: column;
+		gap: 0.5rem !important;
+	}
+}

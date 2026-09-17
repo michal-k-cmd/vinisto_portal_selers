@@ -1,0 +1,46 @@
+.adminBar {
+	padding: 8px 16px;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	background: #f7f7f7;
+	box-sizing: border-box;
+}
+
+.title {
+	font-weight: 500;
+}
+
+.label {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.labelText {
+	white-space: nowrap;
+}
+
+.select {
+	padding: 2px 4px;
+}
+
+.copyButton {
+	padding: 4px 8px;
+	font-size: 13px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: #ffffff;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.copyButton:hover {
+	background: #f0f0f0;
+}
+
+.hint {
+	font-size: 12px;
+	color: #555;
+}

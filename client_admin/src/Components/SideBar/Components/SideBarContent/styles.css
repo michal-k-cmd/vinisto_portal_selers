@@ -1,0 +1,17 @@
+.sidebar-content {
+	width: 100%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	padding-top: 8px;
+}
+
+.sidebar-content > div {
+	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
+}

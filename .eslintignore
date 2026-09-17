@@ -1,0 +1,9 @@
+/**/node_modules
+/**/coverage
+/**/dist
+/**/build
+
+# dot-files (except for .eslintrc.*), as well as dot-folders and their contents, are ignored by default
+!/**/.prettierrc.js
+!/**/.stylelintrc.js
+/**/*.js

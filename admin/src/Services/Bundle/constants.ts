@@ -1,0 +1,25 @@
+const PRODUCT_API_BASE_URI = `product-api`;
+
+const LIST_API_ENDPOINT = `${PRODUCT_API_BASE_URI}/bundles/get-bundles`;
+const AUTOCOMPLETE_API_ENDPOINT = `${PRODUCT_API_BASE_URI}/bundles/get-autocomplete-names`;
+const BUNDLES_URI = `${PRODUCT_API_BASE_URI}/bundles`;
+const APPLICATION_LOG_URI = `${PRODUCT_API_BASE_URI}/application-log`;
+
+const WAREHOUSE_API_ENDPOINT = `warehouse-api/warehouse/bundles/GetWarehouseItemsQuantities`;
+const SET_IS_TEMPORARY_UNAVAILABLE_ENDPOINT = `set-temporary-unavailability`;
+const SET_IS_GIFT_ENDPOINT = `set-is-gift`;
+const SET_IS_APPROVED_ENDPOINT = `set-is-approved`;
+
+const AUTOCOMPLETE_LIMIT = 100;
+
+export {
+	LIST_API_ENDPOINT,
+	AUTOCOMPLETE_API_ENDPOINT,
+	BUNDLES_URI,
+	APPLICATION_LOG_URI,
+	WAREHOUSE_API_ENDPOINT,
+	SET_IS_TEMPORARY_UNAVAILABLE_ENDPOINT,
+	SET_IS_GIFT_ENDPOINT,
+	AUTOCOMPLETE_LIMIT,
+	SET_IS_APPROVED_ENDPOINT,
+};

@@ -1,0 +1,18 @@
+.vinisto-chart__wrapper {
+	background-color: rgb(var(--vinisto-color-blue));
+	border-radius: var(--vinisto-radius-big);
+	height: 100%;
+}
+
+.vinisto-chart__wrapper:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.vinisto-chart__container {
+	background-color: rgb(var(--vinisto-color-blue));
+	width: 100%;
+}
+
+.vinisto-chart__line {
+	height: 90px !important;
+}

@@ -1,0 +1,188 @@
+.wrapper {
+	position: fixed;
+	width: 100%;
+	background: white;
+	padding: 0.5rem 0;
+	top: 0;
+	left: 0;
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	transform: translateY(-100%);
+	opacity: 0;
+	border-bottom: 1px solid black;
+}
+
+.wrapper.visible {
+	transform: translateY(0);
+	opacity: 1;
+	z-index: 11;
+}
+
+.wrapper > :global(.container) {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.wrapper > :global(.container) > div {
+	display: flex;
+	align-items: center;
+}
+
+.wrapper > :global(.container) > div:first-child {
+	gap: 0.5rem;
+}
+
+.wrapper > :global(.container) > div:last-child {
+	gap: 1.75rem;
+}
+
+.quantityBoxWrapper {
+	max-width: 26rem;
+}
+
+.productImage {
+	max-height: 62px;
+	object-fit: contain;
+}
+
+.productInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.productInfo > div:first-child {
+	display: flex;
+	gap: 0.125rem;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.productInfo > div:first-child :global(.vinisto-wine__variety__text) {
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #4d4d4ebf;
+}
+
+.productTitle {
+	font-weight: 600;
+	font-size: 1rem;
+	color: #4d4d4e;
+}
+
+.stock {
+	font-size: 0.75rem;
+}
+
+.textGreen {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.quantityBox {
+	display: flex;
+	flex-direction: row !important;
+	justify-self: end;
+	width: 28.5rem;
+	position: relative;
+}
+
+.floatingProductDetailQuantityBox {
+	min-height: 48px;
+}
+
+.basketShortcut {
+	align-self: stretch;
+}
+
+.quantityBoxPopover {
+	position: fixed !important;
+	z-index: 10000 !important;
+	left: unset !important;
+	right: 30%;
+	top: 4rem !important;
+	transform: none !important;
+}
+
+.quantityBox .bundlePriceWrapper {
+	display: flex;
+	flex-direction: column;
+	color: #4d4d4e;
+	gap: 0.0625rem;
+	font-family: var(--font-family-ubuntu);
+}
+
+.quantityBox :global(.addToCartDetailButton) {
+	font-size: 1.125rem;
+	line-height: 1.25;
+	padding: 0.75rem 1rem;
+	text-transform: uppercase;
+}
+
+.bundlePriceWrapper .oldPrice {
+	text-decoration: line-through;
+	font-size: 0.75rem;
+}
+
+.bundlePriceWrapper .mainPriceWrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.bundlePriceWrapper .mainPrice {
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: rgb(var(--vinisto-color-red));
+	font-weight: 500;
+	line-height: 1;
+}
+
+.bundlePriceWrapper .percentageDiscount {
+	font-size: 0.8125rem;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-wine-red));
+	padding: 0.1875rem 0.3125rem;
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.bundlePriceWrapper .priceWithoutVat {
+	font-size: 0.75rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.vinistoPlusPrice {
+	background-color: rgb(var(--vinisto-color-light-wine-gray));
+	border: 1px dashed rgb(var(--vinisto-color-wine-red));
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto;
+	gap: 0 1.25rem;
+	grid-template-areas:
+		'image priceWithVat'
+		'image price';
+	align-items: center;
+	padding: 0.4375rem 1.25rem;
+}
+
+.vinistoPlusImg {
+	grid-area: image;
+	height: 1.875rem;
+}
+
+.vinistoPlusPrice .mainPriceWrapper {
+	grid-area: priceWithVat;
+}
+
+.vinistoPlusPrice .priceWithoutVat {
+	grid-area: price;
+	white-space: nowrap;
+}
+
+@media (max-width: 1199.98px) {
+	.wrapper {
+		display: none;
+	}
+}

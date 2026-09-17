@@ -1,0 +1,79 @@
+import { VinistoHelperDllEnumsUserUserRights } from '@/api-types/user-api';
+
+export const RIGHTS_LABELS: Partial<
+	Record<VinistoHelperDllEnumsUserUserRights, string>
+> = {
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_USER]:
+		'permissions.userAdminUser',
+	[VinistoHelperDllEnumsUserUserRights.USER_SUPPLIER]:
+		'permissions.userSupplier',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_CATEGORY]:
+		'permissions.userAdminCategory',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_EVALUATION]:
+		'permissions.userAdminEvaluation',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN]: 'permissions.userAdmin',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_PRODUCT]:
+		'permissions.userAdminProduct',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_BUNDLE]:
+		'permissions.userAdminBundle',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_HOMEPAGE]:
+		'permissions.userAdminHomepage',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_TAG]:
+		'permissions.userAdminTag',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_SPECIFICATION]:
+		'permissions.userAdminSpecification',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_IMAGE]:
+		'permissions.userAdminImage',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_ORDER]:
+		'permissions.userAdminOrder',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_WAREHOUSE]:
+		'permissions.userAdminWarehouse',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_CACHE]:
+		'permissions.userAdminCache',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_FEE_RULE]:
+		'permissions.userAdminFeeRule',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_SUPPLIER_CERTIFICATES]:
+		'permissions.userAdminSupplierCertificates',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_FEE_RECORD]:
+		'permissions.userAdminFeeRecord',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_DISCOUNT]:
+		'permissions.userAdminDiscount',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_BILLING]:
+		'permissions.userAdminBilling',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_IMPORTER]:
+		'permissions.userAdminImporter',
+	[VinistoHelperDllEnumsUserUserRights.USER_FLEXI_BEE_EXPORT_ADMIN]:
+		'permissions.userFlexiBeeExportAdmin',
+	[VinistoHelperDllEnumsUserUserRights.USER_BANNER_EDITOR]:
+		'permissions.userBannerEditor',
+	[VinistoHelperDllEnumsUserUserRights.USER_COUPON_EDITOR]:
+		'permissions.userCouponEditor',
+	[VinistoHelperDllEnumsUserUserRights.USER_ORDER_STORNO]:
+		'permissions.userOrderStorno',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_CMS]:
+		'permissions.userAdminCms',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_STOCKING]:
+		'permissions.userAdminStocking',
+	[VinistoHelperDllEnumsUserUserRights.USER_RUN_CRON]:
+		'permissions.userRunCron',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_CMS_TAGS]:
+		'permissions.userAdminCmsTags',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_GIFT_RULE]:
+		'permissions.userAdminGiftRule',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_PERMISSION]:
+		'permissions.userAdminPermission',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_SUPPLIER_TAGS]:
+		'permissions.userAdminSupplierTags',
+	[VinistoHelperDllEnumsUserUserRights.USER_SELLER_COUPON_EDITOR]:
+		'permissions.userSellerCouponEditor',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_DYNAMIC_FEE_RULE]:
+		'permissions.userAdminDynamicFeeRule',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_ORDER_FEES]:
+		'permissions.userAdminOrderFees',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_SUBSCRIPTION]:
+		'permissions.userAdminSubscription',
+	[VinistoHelperDllEnumsUserUserRights.USER_ESHOP_ADMIN_TOOLBAR]:
+		'permissions.userEshopAdminToolbar',
+	[VinistoHelperDllEnumsUserUserRights.USER_ADMIN_CONTRACT_WITHDRAWAL_REQUEST]:
+		'permissions.userAdminContractWithdrawalRequest',
+};

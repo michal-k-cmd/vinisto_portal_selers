@@ -1,0 +1,21 @@
+.row_wrapper {
+	display: flex;
+	max-width: 500px;
+	flex-wrap: nowrap;
+	gap: 1rem;
+}
+
+.max_width_quarter {
+	flex-basis: 25%;
+	flex-shrink: 0;
+}
+
+.fieldset_header {
+	font-size: 1.2em;
+}
+
+.align_button {
+	display: flex;
+	margin-bottom: 23px;
+	margin-top: auto;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" data-name="Vrstva 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #911442;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <path id="Path_2152" data-name="Path 2152" class="cls-1" d="m30.93,17.24l-4.35,2.53c-.77.45-1.72.45-2.48,0l-4.37-2.53c-.77-.45-1.24-1.27-1.24-2.16v-5.06c0-.89.47-1.71,1.24-2.16l4.36-2.53c.77-.45,1.72-.45,2.48,0l4.36,2.53c.77.45,1.24,1.26,1.24,2.15v5.05c0,.89-.47,1.72-1.24,2.16h0Z"/>
+  <path id="Path_2155" data-name="Path 2155" class="cls-1" d="m29.68,23.95h-9.36c-3.87,0-7.02,3.14-7.02,7.02v14.04h23.39v-14.04c0-3.87-3.14-7.01-7.02-7.02Z"/>
+</svg>

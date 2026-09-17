@@ -1,0 +1,21 @@
+.wrapper {
+	position: relative;
+	background-color: rgb(var(--vinisto-color-white));
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	width: calc(100% - 2rem);
+	margin: 0 auto 0.4375rem auto;
+}
+
+.flag {
+	margin-left: 0.5rem;
+}
+
+.name {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.5rem 0.5625rem;
+	width: 100%;
+}

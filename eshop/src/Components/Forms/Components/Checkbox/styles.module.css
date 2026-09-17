@@ -1,0 +1,67 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.checkboxInput {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+
+.checkboxInput:checked ~ .checkboxSpan {
+	border-color: rgb(var(--vinisto-color-green));
+}
+
+.checkboxInput:checked ~ .checkboxSpan::after {
+	display: block;
+}
+
+.checkboxSpan {
+	--checkbox-size: 0.875rem;
+	position: relative;
+	display: inline-block;
+	width: var(--checkbox-size);
+	height: var(--checkbox-size);
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-lighter-gray2));
+	border-radius: 0;
+	box-shadow: none;
+	transition: box-shadow 0.3s ease-in-out;
+	flex-shrink: 0;
+	cursor: pointer;
+}
+
+.checkboxSpan::after {
+	content: url('/assets/images/check-green-small.svg');
+	display: none;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 0.875rem;
+	width: 0.875rem;
+}
+
+.label {
+	line-height: 0.6875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+	.wrapper:hover .checkboxSpan {
+		border-color: rgb(var(--vinisto-color-darker-gray));
+	}
+}
+
+@media (max-width: 1199.98px) {
+	.label {
+		font-size: 0.75rem;
+	}
+}

@@ -1,0 +1,52 @@
+.priceBadgeWrap {
+	display: flex;
+	gap: 0;
+	position: absolute;
+	padding: 0;
+	border: none;
+	right: 0;
+}
+
+.priceBadge {
+	color: rgba(var(--vinisto-color-red));
+	font-size: 0.8125rem;
+
+	font-weight: 500;
+	background: rgb(var(--vinisto-color-white));
+	padding: 0.125rem 0.25rem;
+}
+
+.badgeLeft,
+.badgeRight {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	width: auto;
+	overflow: visible;
+	line-height: 1;
+}
+
+.badgeLeft {
+	right: 100%;
+}
+
+.badgeRight {
+	left: 100%;
+	rotate: 180deg;
+}
+
+.badgeLeft path,
+.badgeRight path {
+	fill: rgb(var(--vinisto-color-white));
+}
+
+@media (max-width: 1199.98px) {
+	.priceBadgeWrap {
+		right: unset;
+		position: relative;
+	}
+
+	.priceBadge {
+		font-size: 0.625rem;
+	}
+}

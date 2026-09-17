@@ -1,0 +1,17 @@
+.assigned-bundle-list__edit--btn {
+	background-color: transparent;
+	border: none;
+	color: rgb(var(--vinisto-color));
+}
+
+.difference-green {
+	color: green !important;
+}
+
+.difference-red {
+	color: red !important;
+}
+
+.bg_warning {
+	background-color: rgba(var(--vinisto-color-flag-warning), 0.1);
+}

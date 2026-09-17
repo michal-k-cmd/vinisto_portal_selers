@@ -1,0 +1,10 @@
+.wrapper {
+	width: 100%;
+	margin-bottom: 0.625rem;
+}
+
+.checkbox {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+}

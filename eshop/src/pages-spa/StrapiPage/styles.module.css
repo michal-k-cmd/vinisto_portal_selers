@@ -1,0 +1,14 @@
+.shareLink {
+	margin: 0;
+	padding-right: 1rem;
+}
+
+.newsletterContainer {
+	margin-bottom: 4.375rem;
+}
+
+@media (max-width: 1199.98px) {
+	.shareLink {
+		display: none;
+	}
+}

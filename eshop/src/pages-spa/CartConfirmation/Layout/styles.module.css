@@ -1,0 +1,53 @@
+.subtitle {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 1.25rem;
+}
+
+.addresses {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+@media (max-width: 1199.98px) {
+	.addresses {
+		padding: 0.8125rem 0.5rem;
+		background-color: rgb(var(--vinisto-color-lighter-gray));
+		margin-bottom: 1.875rem;
+	}
+
+	.subtitle {
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.addresses {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media print {
+	.b2bPrintLayout.b2bPrintLayout > :first-child {
+		order: 1;
+	}
+
+	.b2bPrintLayout.b2bPrintLayout > :nth-child(2) {
+		order: 2;
+	}
+
+	.b2bPrintHidden {
+		display: none;
+	}
+
+	.b2bPrintAddresses {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		padding: 0;
+		margin-bottom: 0.875rem;
+		background-color: transparent;
+	}
+}

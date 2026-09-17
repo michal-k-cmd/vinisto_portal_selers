@@ -1,0 +1,175 @@
+.textRed500 {
+	color: #f56565;
+}
+
+.flexColGap60 {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+
+.flexColGap5 {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.flexColGap25 {
+	display: flex;
+	flex-direction: column;
+	gap: 2.5px;
+}
+
+.dropzoneContainer {
+	cursor: pointer;
+	border: 2px dashed #e5e7eb;
+	border-radius: 3px;
+	padding: 20px;
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+}
+
+.textH3Smaller {
+	font-size: 1.25rem; /* Adjust based on your design */
+}
+
+.textH2 {
+	font-size: 1.5rem; /* Adjust based on your design */
+}
+
+.flexColGap2 {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.mdFlexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+.textHighlight {
+	color: rgb(var(--vinisto-color));
+}
+
+h3.textHighlight {
+	font-size: 1.25rem;
+}
+
+.px11 {
+	padding-left: 11px;
+	padding-right: 11px;
+}
+
+.wFull {
+	width: 100%;
+}
+
+.hidden {
+	display: none;
+}
+
+.buttonsWrap {
+	display: flex;
+	gap: 4rem;
+	margin-top: 0.5rem;
+	justify-content: center;
+}
+
+.deleteAllButton {
+	background-color: #f56565;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.uploadButton {
+	background-color: rgb(var(--vinisto-color-green));
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	cursor: pointer;
+	min-width: 200px;
+	font-weight: 500;
+}
+
+.uploadButton:disabled {
+	background-color: #e5e7eb;
+	color: #a0aec0;
+	cursor: not-allowed;
+}
+
+.grid {
+	display: grid;
+	gap: 2rem;
+	list-style: none;
+	padding: 0;
+	max-width: 1000px;
+}
+
+.gridCols1 {
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.gridCols2Sm {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gridCols3Md {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.gridCols4Lg {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gridCols6Xl {
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.relative {
+	position: relative;
+}
+
+.rounded3 {
+	border-radius: 3px;
+}
+
+.shadowCard {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.absolute {
+	position: absolute;
+}
+
+.left0 {
+	left: 0;
+}
+
+.top0 {
+	top: 0;
+}
+
+.p2 {
+	padding: 2px;
+}
+
+.hAuto {
+	height: auto;
+}
+
+.textDescShort {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.pt1 {
+	padding-top: 1px;
+}

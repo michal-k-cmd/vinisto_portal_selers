@@ -1,0 +1,360 @@
+import AdminListPage from 'Components/AdminListPage';
+import useAdminTable from 'Hooks/useAdminTable';
+import { API_METHOD } from 'Hooks/useAdminTable/constants';
+import useTableSchema from 'Hooks/useTableSchema';
+import { TableSchema } from 'Hooks/useTableSchema/interfaces';
+import { useContext, useEffect, useMemo } from 'react';
+import { LocalizationContext } from 'Services/LocalizationService';
+import { dayjsInstance as dayjs } from 'Services/Date';
+import { AdminTableFilterType } from 'Components/AdminTable/constants';
+import { AuthenticationContext } from 'Services/AuthenticationService/context';
+import { APPLICATION_LOG_URI } from 'Services/Bundle/constants';
+import { RANGE_DATE_FILTER_DELIMITER } from 'Components/AdminTable/Filters/RangeDate/constants';
+import { VinistoHelperDllEnumsActionLogApplicationLogType } from 'vinisto_api_client/src/api-types/product-api/';
+import cx from 'classnames';
+import { getVatValue } from 'vinisto_shared/src/price';
+import { Link } from 'react-router-dom';
+
+import { LogTableRow } from './interfaces';
+import {
+	ACTION_TRANSLATIONS_MAP,
+	BundleActionType,
+	FILTER_COLUMN_MAP,
+	logListTableKeys,
+	PRICE_LEVEL_TRANSLATIONS_MAP,
+	SORTING_COLUMN_MAP,
+} from './constants';
+import {
+	getDiscountPercentage,
+	getRoundedPriceWithVat,
+	getUniqueUserEmails,
+	showSign,
+} from './helpers';
+import styles from './styles.module.css';
+
+const AllBundleMovementsPage = () => {
+	const { useFormatMessage, activeCurrency } = useContext(LocalizationContext);
+	const authenticationContext = useContext(AuthenticationContext);
+	const { loginHash } = authenticationContext.vinistoUser;
+	const t = useFormatMessage();
+
+	const getTableSchema = useTableSchema<LogTableRow>();
+	const { fetchData, handlers, state, pageNumber, pageCount } =
+		useAdminTable<LogTableRow>();
+
+	const uniqueUserEmails = useMemo(() => {
+		return getUniqueUserEmails(state.data);
+	}, [state.data]);
+
+	const tableSchema: TableSchema<LogTableRow> = [
+		{
+			id: logListTableKeys.TIME,
+			header: `${t({ id: 'admin.logList.eventDateTime' })}`,
+			accessorFn: (row) => {
+				return dayjs.unix(row.time).format(`${t({ id: 'admin.dateFormat' })}`);
+			},
+			meta: {
+				filterType: AdminTableFilterType.RANGE_DATE,
+			},
+			cell: (context) => {
+				return dayjs
+					.unix(context.row.original.time)
+					.format(`${t({ id: 'admin.dateTimeFormat' })}`);
+			},
+		},
+		{
+			id: logListTableKeys.BUNDLE_NAME,
+			header: `${t({ id: 'admin.allBundleMovements.bundleName' })}`,
+			accessorFn: (row) => row.bundleName,
+			cell: (context) => {
+				const row = context.row.original;
+				if (row.itemId) {
+					return (
+						<Link to={`/bundle-detail/${row.itemId}`}>
+							{row.bundleName || row.itemId}
+						</Link>
+					);
+				}
+				return row.bundleName || '-';
+			},
+			enableColumnFilter: true,
+			enableSorting: false,
+			meta: {
+				filterType: AdminTableFilterType.TEXT,
+			},
+		},
+		{
+			id: logListTableKeys.ACTION,
+			header: `${t({ id: 'admin.logList.eventType' })}`,
+			accessorFn: (row) => row.action,
+			cell: (context) => {
+				const row = context.row.original;
+				const eventType = row.action as BundleActionType;
+
+				if (
+					eventType ===
+					VinistoHelperDllEnumsActionLogApplicationLogType.BUNDLE_PRICE_ADDED
+				) {
+					const isOldPrice = typeof row.oldPriceValue === 'number';
+
+					if (!isOldPrice) {
+						return t(
+							{ id: 'admin.logList.PriceAdded.base' },
+							{
+								priceType: `${t({
+									id: row.priceDiscountType ? 'discount' : 'price',
+								})}`,
+								price: (
+									<strong
+										className={cx(styles.price, {
+											[styles.discount]: !!row.priceDiscountType,
+										})}
+									>
+										{getRoundedPriceWithVat(
+											row.newPriceValue ?? 0,
+											getVatValue(row.newPriceVat)
+										)}
+									</strong>
+								),
+								currency: (
+									<strong
+										className={cx(styles.price, {
+											[styles.discount]: !!row.priceDiscountType,
+										})}
+									>
+										{activeCurrency.currency}
+									</strong>
+								),
+								vat: getVatValue(row.newPriceVat),
+							}
+						);
+					}
+
+					const discountPercentage = Math.round(
+						getDiscountPercentage(
+							getRoundedPriceWithVat(
+								row.oldPriceValue ?? 0,
+								getVatValue(row.oldPriceVat)
+							),
+							getRoundedPriceWithVat(
+								row.newPriceValue ?? 0,
+								getVatValue(row.newPriceVat)
+							)
+						)
+					);
+
+					return t(
+						{ id: 'admin.logList.PriceAdded.difference' },
+						{
+							priceType: `${t({
+								id: row.priceDiscountType ? 'discount' : 'price',
+							})}`,
+							price: (
+								<strong
+									className={cx(styles.price, {
+										[styles.discount]: !!row.priceDiscountType,
+									})}
+								>
+									{getRoundedPriceWithVat(
+										row.newPriceValue ?? 0,
+										getVatValue(row.newPriceVat)
+									)}
+								</strong>
+							),
+							currency: (
+								<strong
+									className={cx(styles.price, {
+										[styles.discount]: !!row.priceDiscountType,
+									})}
+								>
+									{activeCurrency.currency}
+								</strong>
+							),
+							vat: getVatValue(row.newPriceVat),
+							difference: showSign(discountPercentage),
+							oldPrice: (
+								<strong
+									className={cx(styles.price, {
+										[styles.discount]: !!row.priceDiscountType,
+									})}
+								>
+									{getRoundedPriceWithVat(
+										row.oldPriceValue ?? 0,
+										getVatValue(row.oldPriceVat)
+									)}
+								</strong>
+							),
+							oldVat: getVatValue(row.oldPriceVat),
+						}
+					);
+				}
+
+				if (
+					eventType ===
+					VinistoHelperDllEnumsActionLogApplicationLogType.BUNDLE_PRICE_REMOVED
+				) {
+					return t(
+						{ id: 'admin.logList.PriceRemoved' },
+						{
+							priceType: `${t({
+								id: row.priceDiscountType ? 'discount' : 'price',
+							})}`,
+							price: (
+								<strong
+									className={cx(styles.price, {
+										[styles.discount]: !!row.priceDiscountType,
+									})}
+								>
+									{getRoundedPriceWithVat(
+										row.oldPriceValue ?? 0,
+										getVatValue(row.oldPriceVat)
+									)}
+								</strong>
+							),
+							currency: (
+								<strong
+									className={cx(styles.price, {
+										[styles.discount]: !!row.priceDiscountType,
+									})}
+								>
+									{activeCurrency.currency}
+								</strong>
+							),
+							vat: getVatValue(row.oldPriceVat),
+						}
+					);
+				}
+
+				// Handle BUNDLE_PRICE_CHANGED_BY_IMPORT or any other action type
+				if (ACTION_TRANSLATIONS_MAP[eventType]) {
+					return t({ id: ACTION_TRANSLATIONS_MAP[eventType] });
+				}
+
+				return null as never;
+			},
+			enableColumnFilter: true,
+			enableSorting: false,
+			meta: {
+				filterType: AdminTableFilterType.DROPDOWN,
+				dropDownFilterOptions: Object.entries(ACTION_TRANSLATIONS_MAP).map(
+					([key, value]) => [key, `${t({ id: value })}`]
+				),
+			},
+		},
+		{
+			id: logListTableKeys.PRICE_LEVEL,
+			header: `${t({ id: 'admin.logList.priceType' })}`,
+			accessorKey: logListTableKeys.PRICE_LEVEL,
+			enableColumnFilter: false,
+			enableSorting: false,
+			cell: (context) =>
+				context.row.original.priceLevel
+					? t({
+							id:
+								PRICE_LEVEL_TRANSLATIONS_MAP[
+									context.row.original.priceLevel.toString() as keyof typeof PRICE_LEVEL_TRANSLATIONS_MAP
+								] || 'unknown.priceLevel',
+					  })
+					: '',
+		},
+		{
+			id: logListTableKeys.PRICE_DISCOUNT_TYPE,
+			header: `${t({ id: 'admin.logList.priceType' })}`,
+			accessorKey: logListTableKeys.PRICE_DISCOUNT_TYPE,
+			enableColumnFilter: false,
+			enableSorting: false,
+			cell: (context) => context.row.original.priceDiscountType,
+		},
+		{
+			id: logListTableKeys.USER,
+			header: `${t({ id: 'admin.logList.user' })}`,
+			enableColumnFilter: true,
+			enableSorting: false,
+			accessorFn: (row) => row.user?.email,
+			cell: (context) => {
+				const row = context.row.original;
+
+				return (
+					<Link to={`/user-detail/${row.executorUserId}`}>
+						{row.user?.email || row.executorUserId}
+					</Link>
+				);
+			},
+			meta: {
+				filterType: AdminTableFilterType.DROPDOWN,
+				dropDownFilterOptions: uniqueUserEmails,
+			},
+		},
+	];
+
+	const adminTableSchema = getTableSchema(tableSchema);
+
+	const handleOnTableRowClick = () => undefined;
+
+	useEffect(() => {
+		const apiParams: { key: string; value: string | number | boolean }[] = [
+			{ key: 'limit', value: state.limit },
+			{ key: 'offset', value: state.offset },
+			{ key: 'userLoginHash', value: loginHash },
+		];
+
+		// Set default date range to last 7 days if no time filter is set
+		const hasTimeFilter = state.filters?.some(
+			(filter) => filter.id === logListTableKeys.TIME
+		);
+		if (!hasTimeFilter) {
+			const dateFrom = dayjs().subtract(7, 'days').unix();
+			const dateTo = dayjs().unix();
+			apiParams.push({ key: 'TimeFrom', value: dateFrom });
+			apiParams.push({ key: 'TimeTo', value: dateTo });
+		}
+
+		const [sortByColumn] = state.sorting;
+		if (Object.hasOwn(SORTING_COLUMN_MAP, sortByColumn?.id)) {
+			apiParams.push({
+				key: 'SortingColumn',
+				value: SORTING_COLUMN_MAP[sortByColumn.id],
+			});
+			apiParams.push({ key: 'IsSortingDescending', value: sortByColumn.desc });
+		}
+
+		state.filters?.forEach((filter) => {
+			if (
+				filter.id === logListTableKeys.TIME &&
+				typeof filter.value === 'string'
+			) {
+				const [dateFrom = '', dateTo = ''] = filter.value.split(
+					RANGE_DATE_FILTER_DELIMITER
+				);
+				apiParams.push({ key: 'TimeFrom', value: dateFrom });
+				apiParams.push({ key: 'TimeTo', value: dateTo });
+			} else if (Object.hasOwn(FILTER_COLUMN_MAP, filter.id)) {
+				apiParams.push({
+					key: FILTER_COLUMN_MAP[filter.id],
+					value: filter.value as string | number | boolean,
+				});
+			}
+		});
+
+		fetchData(
+			`${APPLICATION_LOG_URI}/all-bundles`,
+			apiParams,
+			(payload) => payload.applicationLogs,
+			'admin.allBundleMovements.loadingError',
+			API_METHOD.GET
+		);
+	}, [fetchData, state, loginHash]);
+
+	return (
+		<AdminListPage<LogTableRow>
+			adminTableSchema={adminTableSchema}
+			handleOnTableRowClick={handleOnTableRowClick}
+			handlers={handlers}
+			state={state}
+			pageCount={pageCount}
+			pageNumber={pageNumber}
+		/>
+	);
+};
+
+export default AllBundleMovementsPage;

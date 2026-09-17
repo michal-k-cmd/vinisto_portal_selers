@@ -1,0 +1,33 @@
+.vinisto-text__green {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.overview .container {
+	padding-left: 0.5rem;
+}
+.overview .vinisto-form__stats > div {
+	display: flex;
+	align-items: flex-end;
+	margin-top: -0.65rem;
+}
+.overview .vinisto-form__stats > div * {
+	margin-right: 0.25rem;
+}
+.overview .vinisto-overview__table > div {
+	line-height: 3.25rem;
+}
+.overview .card.dashboard-card {
+	min-height: 100px;
+	color: rgb(var(--vinisto-color-white));
+	cursor: pointer;
+	background-color: unset;
+}
+
+.vinisto-card__overview {
+	min-height: 270px;
+}
+
+.card .card {
+	box-shadow: none;
+	border: none;
+}

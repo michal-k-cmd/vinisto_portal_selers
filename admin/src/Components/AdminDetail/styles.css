@@ -1,0 +1,15 @@
+.admin-detail-grid {
+	width: 100%;
+	height: 100%;
+}
+
+.admin-detail-grid .admin-detail-item {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	align-self: center;
+}

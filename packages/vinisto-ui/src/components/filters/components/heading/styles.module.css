@@ -1,0 +1,14 @@
+.legend {
+  float: none;
+  font-size: 1rem;
+  font-family: var(--font-family-roboto);
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(var(--vinisto-color-black), 1);
+  margin-bottom: 0.4rem;
+}
+
+.skeleton {
+  display: flex;
+  width: 40%;
+}

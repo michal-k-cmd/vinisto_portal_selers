@@ -1,0 +1,18 @@
+.defaultLinkStyle {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.defaultLinkStyle:hover {
+	color: darkblue;
+}
+
+.buttonSpacing {
+	margin-left: 1rem;
+	padding-left: 1rem;
+}
+
+.dashSpacing {
+	margin: 0 0.5rem;
+}

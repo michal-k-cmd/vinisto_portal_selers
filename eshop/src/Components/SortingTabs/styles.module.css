@@ -1,0 +1,75 @@
+.sorting {
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 0.25rem;
+}
+
+.sortingButton {
+	flex: 1 1 auto;
+	font-family: var(--font-family-ubuntu);
+	position: relative;
+	display: inline-block;
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+	cursor: pointer;
+	text-align: center;
+	padding: 0.5rem 0.75rem;
+	border-width: 1px;
+  border-style: solid;
+  border-color: rgba(var(--vinisto-color-darker-gray), 0.1);
+	white-space: nowrap;
+	transition-property: color, background-color;
+	transition-duration: 0.3s;
+	transition-timing-function: ease;
+}
+
+.sortingButton::after {
+	display: block;
+  content: attr(data-content);
+  font-weight: 500;
+  height: 0px;
+  color: transparent;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.sortingButton:not(:last-child), .sortingButton:hover:not(.active):not(:last-child) {
+	border-right: none;
+}
+
+.sortingButton:hover,
+.sortingButton.active {
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-selected-green));
+	font-weight: 500;
+	border: none;
+}
+
+
+.sortingButton:hover:not(.active) {
+	border: 1px solid rgb(var(--vinisto-color-selected-green));
+}
+
+.sortingButton.active::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background-color: rgb(var(--vinisto-color-green));
+}
+
+@media (min-width: 1200px) {
+	.sorting {
+		justify-content: flex-start;
+		border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+	}
+
+	.sortingButton {
+		flex: 0 1 auto;
+		font-size: 1rem;
+		padding: 0.75rem 1.125rem;
+	}
+}

@@ -1,0 +1,16 @@
+.saveButton {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	padding: 0.5rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	border: 1px solid rgb(var(--vinisto-color-green));
+}
+
+@media (min-width: 1200px) {
+	.saveButton {
+		font-size: 0.875rem;
+		padding: 0.5rem 0.625rem;
+		line-height: 1;
+	}
+}

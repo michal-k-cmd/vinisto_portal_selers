@@ -1,0 +1,152 @@
+.alice-carousel__stage {
+	display: flex;
+	list-style: none;
+	padding-left: 0;
+}
+
+.alice-carousel__stage-item {
+	padding: 0;
+	flex: 1 0 auto;
+	height: auto;
+}
+
+.alice-carousel__stage-item > .nav-item {
+	height: 100%;
+}
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 0;
+	width: auto !important;
+	padding: 0 !important;
+}
+
+.alice-carousel__prev-btn {
+	right: auto;
+	left: 0;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+	position: absolute;
+	width: 2.625rem;
+	height: 5.25rem;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 100;
+	background-color: rgb(var(--vinisto-color-white));
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMC45NzYiIGhlaWdodD0iMTkuMjM4IiB2aWV3Qm94PSIwIDAgMTAuOTc2IDE5LjIzOCI+CiAgPHBhdGggaWQ9ImZpbHRlcl9kcm9wZG93bl9hcnJvdyIgZD0iTTEzNjMzLjg1LDgwMy42MjdsNi44MjgsNy41LTYuODI4LDcuNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEzNjMxLjczIC04MDEuNTA4KSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjhhOTEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K');
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	border: 2px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+	cursor: pointer;
+	box-shadow: 0px 2px 8px 0px rgba(var(--vinisto-color-black), 0.25);
+	padding: 0;
+	z-index: 1;
+	transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.alice-carousel__prev-btn-item span,
+.alice-carousel__next-btn-item span {
+	display: none;
+}
+
+.alice-carousel__prev-btn-item:hover,
+.alice-carousel__next-btn-item:hover {
+	background-color: rgb(var(--vinisto-color-green));
+	box-shadow: 0px 2px 8px 0px rgba(var(--vinisto-color-black), 0.3);
+	color: rgb(var(--vinisto-color-white));
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMC45NzYiIGhlaWdodD0iMTkuMjM4IiB2aWV3Qm94PSIwIDAgMTAuOTc2IDE5LjIzOCI+Cgk8cGF0aCBpZD0iZmlsdGVyX2Ryb3Bkb3duX2Fycm93IiBkPSJNMTM2MzMuODUsODAzLjYyN2w2LjgyOCw3LjUtNi44MjgsNy41IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTM2MzEuNzMgLTgwMS41MDgpIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIzIi8+Cjwvc3ZnPgo=');
+}
+
+.alice-carousel__prev-btn-item {
+	left: 0.25rem;
+	rotate: 180deg;
+	transform: translateY(50%);
+}
+
+.alice-carousel__next-btn-item {
+	right: 0.25rem;
+}
+
+.__inactive {
+	display: none !important;
+}
+
+.alice-carousel__dots {
+	margin-top: 1rem;
+}
+
+/*
+ * There are some complicated selectors causing buttons sometimes rendering (default) purple.
+ * Using !important prevents this behavior.
+*/
+.alice-carousel__dots .alice-carousel__dots-item {
+	width: 1rem;
+	height: 1rem;
+	background-color: rgb(var(--vinisto-color-white)) !important;
+	border: 1px solid rgba(var(--vinisto-color-dark-gray), 0.5) !important;
+	border-radius: 50%;
+}
+
+.alice-carousel__dots .alice-carousel__dots-item.__active {
+	background-color: rgba(var(--vinisto-color-green), 0.5) !important;
+	border-radius: 50%;
+	border: transparent !important;
+}
+
+.v-carousel-classic__item {
+	width: 100%;
+}
+
+@media (max-width: 1199.98px) {
+	.TopBannerCarousel .alice-carousel__stage-item {
+		padding: 0.5rem 0.5rem 0;
+	}
+
+	.alice-carousel__prev-btn-item,
+	.alice-carousel__next-btn-item {
+		width: 1.875rem;
+		height: 3.75rem;
+		background-size: 0.5rem;
+	}
+}
+
+@media (min-width: 360px) and (max-width: 509.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		max-width: 50%;
+	}
+}
+
+@media (min-width: 510px) and (max-width: 669.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		max-width: 33.33333%;
+	}
+}
+
+@media (min-width: 670px) and (max-width: 819.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		max-width: 25%;
+	}
+}
+
+@media (min-width: 820px) and (max-width: 999.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		max-width: 20%;
+	}
+}
+
+@media (min-width: 1000px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		max-width: 16.66666%;
+	}
+}
+
+@media (max-width: 359.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		max-width: 100%;
+	}
+}

@@ -1,0 +1,96 @@
+.banner {
+	height: calc(100% - 2rem);
+	min-height: 500px;
+	width: 100%;
+	max-width: var(--vinisto-product-box-width);
+	margin: 2rem 0 0;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.overlay {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 0.75rem;
+	text-decoration: none;
+}
+
+.top {
+	flex: 0 0 50%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.bottom {
+	flex: 0 0 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 1.5rem;
+}
+
+.title {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.875rem;
+	font-weight: 700;
+	line-height: 2.1875rem;
+	text-align: center;
+	color: rgb(var(--vinisto-color-white));
+}
+
+.subtitle {
+	flex: 1 1 100%;
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.3125rem;
+	text-align: center;
+	color: rgb(var(--vinisto-color-white));
+}
+
+.button {
+	font-size: 1rem;
+	line-height: 1.125rem;
+	padding: 0.25rem 0.5rem;
+	align-self: flex-end;
+	text-align: center;
+	max-width: 100%;
+	min-width: 9.625rem;
+}
+
+@media (max-width: 1199.98px) {
+	.banner {
+		margin: 1.5rem 0 0;
+		height: calc(100% - 1.5rem);
+		min-width: 9.375rem;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.title {
+		font-size: 1.25rem;
+		line-height: 1.5rem;
+	}
+
+	.button {
+		min-width: 0;
+		width: 100%;
+		font-size: 0.875rem;
+		line-height: 1rem;
+		padding: 0.25rem;
+	}
+}
+
+:global(.banner-image-preview--mobile) .title {
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+
+:global(.banner-image-preview--mobile) .button {
+	min-width: 0;
+	width: 100%;
+	font-size: 0.9375rem;
+	line-height: 1.0625rem;
+}

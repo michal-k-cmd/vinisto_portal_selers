@@ -1,0 +1,26 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	color: rgba(var(--vinisto-color-flag-warning), 1);
+	gap: 0.3rem;
+	width: 100%;
+	padding: 0.5rem;
+	flex-wrap: wrap;
+	justify-content: left;
+	line-height: 1;
+}
+
+.table_cell {
+	background-color: transparent;
+	padding: 0;
+	margin-top: 0.3rem;
+	font-size: 0.875rem;
+}
+
+.warning {
+	font-weight: bold;
+}
+
+.has_background {
+	background-color: rgba(var(--vinisto-color-flag-warning), 0.1);
+}

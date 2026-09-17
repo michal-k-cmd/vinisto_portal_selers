@@ -1,0 +1,47 @@
+.fillWidthWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.halfWidthWrapper {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+
+.carouselWrapper {
+	background-color: rgb(var(--vinisto-color-lighter-gray));
+	padding: 3rem 0;
+}
+
+.carouselWrapper :global(.vinisto-wine__item) {
+	border: 1px solid rgb(225, 221, 228);
+}
+
+.wrapper {
+	position: relative;
+}
+
+.allProductsLinkWrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+.allProductsLink {
+	color: rgb(var(--vinisto-color-green));
+	font-size: 18px;
+	border: 1px solid rgb(var(--vinisto-color-green));
+	padding: 14px;
+	width: 275px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+@media (max-width: 1199.98px) {
+	.mobileWrapper :global(.alice-carousel__prev-btn),
+	.mobileWrapper :global(.alice-carousel__next-btn) {
+		top: 25%;
+	}
+}

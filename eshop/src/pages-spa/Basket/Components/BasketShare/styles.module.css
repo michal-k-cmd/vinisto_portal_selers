@@ -1,0 +1,27 @@
+.share {
+	position: absolute;
+	top: 1.0625rem;
+	right: 0.75rem;
+	z-index: 10;
+}
+
+.shareButton {
+	width: 25px;
+	height: 24px;
+	background-image: url('/assets/images/share-grey.svg');
+	background-repeat: no-repeat;
+	background-size: 25px 24px;
+	vertical-align: sub;
+	border: none;
+	background-color: transparent;
+}
+
+.shareButton:hover {
+	background-image: url('/assets/images/share-green.svg');
+}
+
+@media (max-width: 1199.98px) {
+	.share {
+		display: none;
+	}
+}

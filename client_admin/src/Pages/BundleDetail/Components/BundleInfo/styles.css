@@ -1,0 +1,35 @@
+.heading-col {
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+}
+
+.heading-row h5 {
+	margin-bottom: unset;
+	padding-right: 10px;
+}
+
+.j-align-unset {
+	justify-content: unset !important;
+}
+
+.card-detail {
+	flex-wrap: unset !important;
+	max-height: 600px;
+}
+
+.card-height {
+	max-height: 600px;
+}
+
+.card-width {
+	min-width: 500px;
+}
+
+.vinisto-product-image {
+	width: 300px !important;
+}
+
+.vinisto-product-image__img {
+	max-width: 244px;
+}

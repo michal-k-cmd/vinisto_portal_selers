@@ -1,0 +1,14 @@
+.noProducts {
+	font-family: var(--font-family-roboto);
+	font-weight: 400;
+	font-size: 0.75rem;
+	margin: 1rem 0;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+@media (min-width: 1200px) {
+	.noProducts {
+		font-size: 0.875rem;
+		margin: 2rem 0;
+	}
+}

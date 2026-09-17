@@ -1,0 +1,15 @@
+.editor {
+	padding: 1rem;
+	font-size: 1rem;
+	font-weight: 400;
+	border: 1px solid #ced4da;
+}
+
+.editor:focus-visible,
+.editor:focus {
+	outline: none;
+}
+
+.ctrlPressed .editor a:hover {
+	cursor: pointer;
+}

@@ -1,0 +1,47 @@
+.component {
+	font-family: var(--font-family-ubuntu);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+	padding-block: 1rem;
+	padding-inline: 4.5rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.questionMarkIcon {
+	width: 40px;
+	height: auto;
+	margin-bottom: 0.5rem;
+}
+
+.title {
+	font-size: 1.125rem;
+	font-weight: 300;
+	white-space: pre-line;
+	line-height: 1;
+	margin-bottom: 0.75rem;
+}
+
+.buttons {
+	display: flex;
+	gap: 0.67rem;
+	justify-content: center;
+	margin-bottom: 1.25rem;
+}
+
+.declineButton {
+	flex: 0 1 auto;
+}
+
+.confirmButton {
+	flex: 1 0 120%;
+}
+
+.link {
+	font-size: 0.75rem;
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-green));
+}

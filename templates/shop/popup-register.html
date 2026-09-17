@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./dist/bootstrap.min.css">
+    <link rel="stylesheet" href="./dist/styles.css?cb=1647205455149">
+    <link rel="stylesheet" href="./dist/fonts.css?cb=1647205455149">
+    <title>Vinisto</title>
+</head>
+
+<body>
+    <div class="vinisto-body-overlay"></div>
+    <div class="vinisto-card vinisto-popup">
+        <div class="vinisto-popup__heading-wrap">
+            <h2 class="vinisto-popup__heading">Registrace</h2>
+            <div class="vinisto-popup__close">
+                <img src="./images/close.svg" alt="Zavřít">
+            </div>
+        </div>
+        <form>
+            <label for="login-mail">Váš email</label>
+            <input id="login-mail" type="email" class="form-control vinisto-input" placeholder="Váš e-mail">
+            <label for="login-password">Vaše heslo</label>
+            <div class="position-relative">
+                <input id="login-password" type="password" class="form-control vinisto-input" placeholder="Vaše heslo">
+                <div class="vinisto-popup__show-password">
+                    <img src="./images/password-show.svg" alt="Zobrazit heslo">
+                </div>
+            </div>
+            <label for="login-password-again">Vaše heslo (pro potvrzení)</label>
+            <div class="position-relative">
+                <input id="login-password-again" type="password" class="form-control vinisto-input" placeholder="Vaše heslo">
+                <div class="vinisto-popup__show-password">
+                    <img src="./images/password-show.svg" alt="Zobrazit heslo">
+                </div>
+            </div>
+            <div class="vinisto-popup__checkboxes">
+                <label class="vinisto-popup__checkbox">Přeji si dostávat upozornění na nové zboží, akční nabídky a zajímavé novinky.
+                    <input type="checkbox" checked="checked">
+                    <span class="vinisto-popup__checkmark"></span>
+                </label>
+                <label class="vinisto-popup__checkbox">Souhlasím s Obchodními podmínkami a Zásadami zpracovávání osobních údajů.
+                    <input type="checkbox">
+                    <span class="vinisto-popup__checkmark"></span>
+                </label>
+            </div>
+            <button class="btn vinisto-btn vinisto-popup__btn" type="button">Registrovat se</button>
+        </form>
+        <div class="vinisto-popup__links underline-effect underline-effect--vinisto">
+            <a href="#" class="vinisto-popup__link underline-item">&lt; Zpět</a>
+        </div>
+    </div>
+    <script src="./dist/all.js?cb=1647205455149"></script>
+</body>
+
+</html>

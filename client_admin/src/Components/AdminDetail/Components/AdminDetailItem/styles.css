@@ -1,0 +1,39 @@
+.admin-detail-item .admin-detail-icon {
+	height: 20px;
+	width: 22px;
+	min-width: 22px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	font-size: 16px !important;
+	color: rgb(57, 0, 68);
+}
+
+.admin-detail-item .admin-detail-label {
+	height: 40px;
+	min-width: 260px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	padding-left: 10px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.admin-detail-item .admin-detail-value {
+	min-width: 200px;
+	padding-left: 10px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	align-self: center;
+}

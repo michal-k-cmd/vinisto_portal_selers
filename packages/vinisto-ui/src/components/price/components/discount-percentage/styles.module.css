@@ -1,0 +1,16 @@
+.discountPercentage {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+	width: fit-content;
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+	padding: 0.1875rem 0.375rem;
+}
+
+@media (max-width: 767.98px) {
+	.discountPercentage {
+		font-size: 0.875rem;
+	}
+}

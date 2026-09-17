@@ -1,0 +1,6 @@
+.close {
+	background: transparent;
+	border: 0;
+	z-index: 15;
+	cursor: pointer;
+}

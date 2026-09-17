@@ -1,0 +1,85 @@
+.mainHeader {
+	font-family: var(--font-family-ubuntu);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background-color: rgb(var(--vinisto-color-white));
+	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.mainHeader:global(.hidden) {
+	transform: translateY(-100%);
+	opacity: 0;
+}
+
+.functionButtonWrapper {
+	flex: 0 0 0%;
+	display: flex;
+	align-items: center;
+	padding: 0 0 0 0.75rem;
+}
+
+.searchWrapper {
+	flex: 1 0 0%;
+	display: flex;
+	justify-content: center;
+	padding: 0 0.75rem;
+}
+
+.headerWrapper {
+	display: flex;
+	justify-content: space-between;
+	height: 63px;
+	padding: 0.875rem 0;
+}
+
+.logoWrapper {
+	flex: 0 0 0%;
+	padding: 0 0.75rem;
+}
+
+@media (min-width: 1200px) {
+	.languagesSwitcherCol {
+		position: relative;
+		max-width: 14rem;
+		margin-left: 0.5rem;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		transition: background-color 0.3s ease-in-out;
+	}
+
+	.languagesSwitcherCol:hover {
+		background-color: rgb(var(--vinisto-color-lighter-gray));
+	}
+
+	.languagesSwitcherCol > * {
+		flex: 1 0 0%;
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+	.functionButtonWrapper {
+		padding-right: 0.5rem;
+	}
+
+	.languagesSwitcherCol {
+		margin-left: 0;
+		padding: 0 0 0 0.5rem;
+	}
+}
+
+.b2bLink {
+	background-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-white));
+	padding: 0.2rem 0.4rem;
+	font-size: 0.8125rem;
+	white-space: nowrap;
+}
+
+.b2bLink:hover {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green-hover));
+}

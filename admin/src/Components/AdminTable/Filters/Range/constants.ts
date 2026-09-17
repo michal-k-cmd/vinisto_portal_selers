@@ -1,0 +1,3 @@
+export const RANGE_FILTER_DELIMITER = ':';
+export const RANGE_FILTER_MIN_VALUE = 0;
+export const RANGE_FILTER_MAX_VALUE = Number.MAX_SAFE_INTEGER;

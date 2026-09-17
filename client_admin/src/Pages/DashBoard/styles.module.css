@@ -1,0 +1,96 @@
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto auto auto;
+	gap: 1.5rem;
+	margin: 1.5rem;
+}
+
+.cardA {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.cardB {
+	position: relative;
+	grid-column: 2 / 4;
+	grid-row: 1 / 3;
+}
+
+.cardC {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
+
+.cardD {
+	grid-column: 1 / 4;
+	grid-row: 3 / 4;
+}
+
+.cardA,
+.cardC {
+	min-height: 270px;
+}
+
+.subheading {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.b2wrap {
+	display: flex;
+	justify-content: space-between;
+	width: 120px;
+	flex-shrink: 0;
+}
+
+.b2buttons {
+	display: inline-flex;
+	gap: 0.75rem;
+	margin-left: 2rem;
+}
+
+.b2cButton,
+.b2bButton {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color));
+	border: none;
+	border-radius: 5px;
+	padding: 0.5rem 1rem 0.375rem;
+	font-weight: 700;
+}
+
+.b2cButton.active,
+.b2bButton.active {
+	background-color: var(--button-bg-hover);
+}
+
+.provisionsEdit {
+	font-weight: 400;
+}
+
+.noValues {
+	color: rgb(var(--vinisto-color-dark-gray));
+	padding-bottom: 20px;
+	display: inline-block;
+}
+
+@media (max-width: 1699.98px) {
+	.grid {
+		gap: 1rem;
+		margin: 1rem;
+	}
+}
+
+@media (max-width: 1399.98px) {
+	.grid {
+		display: flex;
+		flex-direction: column;
+		margin: 1rem;
+	}
+	.cardA,
+	.cardC {
+		min-height: 0;
+	}
+}

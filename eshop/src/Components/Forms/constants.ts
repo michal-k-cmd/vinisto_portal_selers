@@ -1,0 +1,7 @@
+export {
+	PHONE_CODES,
+	PHONE_CODE_PREFIX_CHAR,
+	PHONE_CODE_SEPARATOR,
+	DEFAULT_PHONE_CODE,
+	PHONE_FORMAT,
+} from 'Components/Form/constants';

@@ -1,0 +1,18 @@
+.richText {
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.richText p {
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+.richText ol,
+.richText ul {
+	display: inline-block;
+}
+
+.richText li p {
+	display: flex;
+	margin-bottom: 0;
+}

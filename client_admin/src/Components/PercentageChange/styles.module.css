@@ -1,0 +1,30 @@
+.wrapper {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.wrapper.bottom {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	width: auto;
+	font-size: 0.75rem;
+}
+
+.arrowWrap {
+	display: flex;
+	align-items: center;
+}
+
+.wrapper.bottom .arrowWrap {
+	justify-content: center;
+}
+
+.negative {
+	rotate: 180deg;
+	transition: rotate 0.3s ease-in-out;
+}
+
+.negative path {
+	fill: rgb(var(--vinisto-color-error));
+}

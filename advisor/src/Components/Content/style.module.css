@@ -1,0 +1,10 @@
+.wrapper {
+  /*height: 100%;*/
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  display: grid;
+  /*@media (min-width: 420px) {
+    height: 680px;
+  }*/
+}

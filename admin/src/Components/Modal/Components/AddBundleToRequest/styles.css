@@ -1,0 +1,16 @@
+.bundle-to-request-modal {
+	min-width: 100% !important;
+}
+.bundle-to-request-modal__render-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.bundle-to-request-modal__render-form--table {
+	width: 100%;
+}
+
+.bundle-request-modal {
+	min-width: 95% !important;
+	overflow: auto !important;
+}

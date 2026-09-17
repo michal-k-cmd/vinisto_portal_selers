@@ -1,0 +1,28 @@
+.custom-file-upload {
+	border: 1px solid #ccc;
+	display: inline-block;
+	padding: 6px 12px;
+	cursor: pointer;
+}
+
+input[type='file']::file-selector-button {
+	display: none;
+}
+
+input[type='file'] {
+	border: 1px solid rgba(112, 112, 112, 0.3019607843);
+	border-radius: 3px;
+	height: 38px;
+}
+
+input[type='file']::-webkit-file-upload-button {
+	display: block;
+	width: 0;
+	height: 100%;
+	margin-left: -100%;
+	padding-left: 50px;
+}
+
+input[type='file']::-ms-browse {
+	display: none;
+}

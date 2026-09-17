@@ -1,0 +1,162 @@
+.orderGrid {
+	display: grid;
+	grid-template-columns: auto auto;
+	justify-content: space-between;
+	margin-top: 1rem;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.buttons:not(:last-child) {
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+}
+
+.button,
+.linkButton {
+	display: inline-block;
+	flex: 0 0 auto;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-align: center;
+	padding: 0.5rem 3rem;
+	margin: 0.75rem 0;
+	background-color: rgb(var(--vinisto-color-white));
+	transition: background-color 0.3s ease;
+	border: 1px solid rgb(var(--vinisto-color-darker-gray));
+}
+
+.button:hover,
+.linkButton:hover {
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.buyAgainButton {
+	display: inline-block;
+	flex: 0 0 auto;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green));
+	text-align: center;
+	padding: 0.5rem 3rem;
+	margin: 0.75rem 0;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.buyAgainButton:hover {
+	background-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.linkButton {
+	margin-left: auto;
+}
+
+.orderNumber {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-black));
+}
+
+.orderCreatedAtDate {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	color: rgb(var(--vinisto-color-black));
+	font-weight: 400;
+	margin-top: 0.5rem;
+	text-align: right;
+}
+
+.orderState {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.85rem;
+	font-weight: 400;
+	text-align: right;
+}
+
+.orderPriceWrapper {
+	font-family: var(--font-family-roboto);
+	font-weight: 400;
+	font-size: 0.75rem;
+	font-size: 0.75rem;
+	margin-top: 0.5rem;
+}
+
+.orderPrice {
+	font-family: var(--font-family-ubuntu);
+	font-weight: 500;
+	font-size: 0.875rem;
+	color: rgb(var(--vinisto-color-red));
+	font-size: 1rem;
+}
+
+@media (min-width: 1200px) {
+	.orderDesktop {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 18px 0;
+		border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+	}
+
+	.orderDesktop:first-child {
+		padding-top: 0.625rem;
+	}
+
+	.orderDesktop:last-child {
+		border-bottom: none;
+		margin-bottom: 1.75rem;
+	}
+
+	.orderState {
+		flex: 0 0 12.5rem;
+		text-align: center;
+	}
+
+	.orderNumber,
+	.orderState,
+	.orderPrice {
+		font-size: 1.125rem;
+	}
+
+	.orderPrice {
+		margin-left: 0.25rem;
+	}
+
+	.orderCreatedAtDate,
+	.orderPriceWrapper {
+		font-size: 1rem;
+		margin-top: 0;
+	}
+
+	.buttons {
+		flex: 0 0 23.5rem;
+		gap: 1.5rem;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.button,
+	.linkButton,
+	.buyAgainButton {
+		margin: 0;
+		font-size: 1rem;
+		padding: 0.5rem 2rem;
+	}
+
+	.orderNumberLink {
+		color: rgb(var(--vinisto-color-black));
+		text-decoration: underline;
+	}
+
+	.orderNumberLink:hover {
+		color: rgb(var(--vinisto-color-black));
+	}
+}

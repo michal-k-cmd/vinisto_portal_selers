@@ -1,0 +1,7 @@
+node_modules
+coverage
+dist
+build
+
+# disable for now
+**/*.*css

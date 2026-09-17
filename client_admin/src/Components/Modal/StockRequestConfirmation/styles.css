@@ -1,0 +1,8 @@
+.modal-content .modal-body .modal-btn-cancel {
+	width: 140px;
+}
+
+.select-empty-option option:not([value]) {
+	font-style: italic;
+	color: rgb(var(--vinisto-color-dark-gray));
+}

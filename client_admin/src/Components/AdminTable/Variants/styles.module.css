@@ -1,0 +1,22 @@
+.table > tbody > tr:nth-child(odd) > td {
+	--bs-table-accent-bg: rgb(var(--vinisto-light-bg));
+}
+
+.table > tbody > tr:nth-child(even) > td {
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.table > tbody > tr > td {
+	border: none;
+	vertical-align: middle;
+	height: 52px;
+}
+
+.table > :not(:first-child) {
+	border-top: none !important;
+}
+
+.table a {
+	color: rgb(var(--vinisto-color));
+	text-decoration: underline;
+}

@@ -1,0 +1,61 @@
+.register-process__boxes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+.register-process__boxes__box {
+	flex: 0 1 270px;
+	padding: 0.5rem 0.75rem;
+	outline: 1.5px solid rgb(var(--vinisto-color));
+	border-radius: var(--vinisto-radius-small);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transition: box-shadow 300ms ease-in-out;
+	background-color: rgb(var(--vinisto-color-light-gray));
+	text-align: center;
+}
+.register-process__boxes__box:hover {
+	box-shadow: 1px 2px 8px 0 rgba(67, 41, 87, 0.8);
+	background-color: rgb(var(--vinisto-color-white));
+}
+.register-process__boxes__box__info {
+	font-size: 1.25rem;
+	font-weight: 500;
+}
+.register-process__boxes__box.open {
+	flex: 1 1 auto;
+	text-align: left;
+	cursor: default;
+	outline: 1.5px solid rgb(var(--vinisto-color-green));
+	background-color: rgb(var(--vinisto-color-white));
+	box-shadow: none;
+}
+.register-process__boxes__box__selected {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	margin-top: 0.5rem;
+}
+.register-process__boxes__box__selected > div:first-of-type {
+	border-right: 1px solid rgb(var(--vinisto-color-dark-gray));
+	padding-right: 1rem;
+}
+.register-process__boxes__box__selected__times {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding-bottom: 0.75rem;
+}
+.register-process__boxes__box__selected__time {
+	border: 1px solid rgb(var(--vinisto-color));
+	border-radius: var(--vinisto-radius-small);
+	padding: 0 1rem 0.5rem;
+	position: relative;
+}
+.register-process__boxes__box__selected__time__close {
+	position: absolute;
+	top: 0.25rem;
+	right: 0.5rem;
+	cursor: pointer;
+}

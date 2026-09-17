@@ -1,0 +1,52 @@
+.cardsHeader {
+	position: relative;
+	text-align: center;
+}
+
+.vinistoPlusImage {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.subscriptionsClassName.subscriptionsClassName {
+	display: flex;
+	background-size: auto;
+}
+
+.purchasedText {
+	height: 100%;
+	margin: auto;
+}
+
+.moreInfo {
+	margin-left: 1.25rem;
+	color: rgb(var(--vinisto-color-green));
+	font-weight: 300;
+	font-size: 0.875rem;
+}
+
+.noSubscriptions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+@media (min-width: 992px) {
+	.cardsHeader.purchased {
+		min-height: 6.5rem;
+		display: flex;
+	}
+
+	.noSubscriptions {
+		min-height: 9rem;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.vinistoPlusImage {
+		display: none;
+	}
+}

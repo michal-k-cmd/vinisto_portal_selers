@@ -1,0 +1,36 @@
+{
+  "devDependencies": {
+    "@types/facebook-js-sdk": "^3.3.12",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.37.4",
+    "husky": "^9.0.11",
+    "prettier": "^2.8.3",
+    "syncpack": "^12.3.0"
+  },
+  "packageManager": "pnpm@10.6.1",
+  "pnpm": {
+    "overrides": {
+      "react-final-form-listeners@1>react": "18"
+    },
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "@coreui/react@4>@coreui/coreui@4": "4"
+      }
+    }
+  },
+  "scripts": {
+    "prepare": "cd .. && husky frontend/.husky",
+    "start:admin": "cd admin && pnpm start",
+    "start:advisor": "cd advisor && pnpm start",
+    "start:client_admin": "cd client_admin && pnpm start",
+    "start:eshop": "cd eshop && pnpm start",
+    "sync:fix": "syncpack fix-mismatches",
+    "sync:lint": "syncpack lint-semver-ranges",
+    "sync:list": "syncpack list-mismatches"
+  }
+}

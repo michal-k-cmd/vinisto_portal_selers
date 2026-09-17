@@ -1,0 +1,8 @@
+#!/bin/sh
+project=frontend/eshop
+num_changes=$(git diff origin/main --name-only | egrep "^$project" | wc -l)
+if [[ $num_changes -ne 0 ]] ; then
+	cd $project
+	yarn lint-staged --diff origin/main
+fi
+

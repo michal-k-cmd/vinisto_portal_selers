@@ -1,0 +1,83 @@
+.vinisto-card {
+	box-shadow: 1px 2px 8px 0px rgba(67, 41, 87, 0.2);
+	background-color: #ffffff;
+	padding: 0.5rem 1rem;
+}
+
+.vinisto-card__heading {
+	font-size: 1.625rem;
+	margin-bottom: 0;
+	font-weight: 500;
+}
+
+.vinisto-card__top-text {
+	margin: 0.5rem 0;
+}
+
+.vinisto-card--cta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	background-size: cover;
+	transition: transform 200ms ease-in-out;
+}
+.vinisto-card--cta + * {
+	flex: 1 1 100%;
+}
+.vinisto-card--cta:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+.vinisto-card__bottom-link {
+	width: 100%;
+	align-self: flex-end;
+	text-align: right;
+}
+.vinisto-card__bottom-link a {
+	color: #ffffff;
+}
+
+.vinisto-small-banner {
+	padding: 0 !important;
+	overflow: hidden;
+}
+.vinisto-small-banner.vinisto-card {
+	height: 260px;
+}
+.vinisto-small-banner:hover {
+	cursor: pointer;
+}
+.vinisto-small-banner:hover .vinisto-small-banner__cta {
+	background-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.vinisto-small-banner__heading {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	font-size: 1.5rem;
+	padding: 0.5rem 1rem;
+	color: #fff;
+	background-color: rgb(var(--vinisto-color));
+	border-bottom-right-radius: var(--vinisto-radius);
+	font-weight: 500;
+}
+
+.vinisto-small-banner__cta {
+	position: absolute !important;
+	bottom: 0;
+	right: 0;
+	font-size: 1.125rem;
+	color: #fff;
+	padding: 0.75rem 1rem;
+	background-color: rgb(var(--vinisto-color-green));
+	border-top-left-radius: var(--vinisto-radius);
+}
+
+.vinisto-small-banner__img {
+	-o-object-fit: cover;
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}

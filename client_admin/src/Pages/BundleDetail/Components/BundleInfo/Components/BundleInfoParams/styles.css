@@ -1,0 +1,25 @@
+.vinisto-bundle-detail-params {
+	margin: 0.625rem 0;
+	-moz-columns: 2;
+	columns: 2;
+	-moz-column-rule: 1px solid rgba(163, 130, 148, 0.5);
+	column-rule: 1px solid rgba(163, 130, 148, 0.5);
+	-moz-column-gap: 2rem;
+	column-gap: 2rem;
+}
+.vinisto-bundle-detail-params__name {
+	float: left;
+	margin-right: 0.25rem;
+	font-weight: var(--bs-body-font-weight);
+}
+.vinisto-bundle-detail-params__name::after {
+	content: ': ';
+}
+.vinisto-bundle-detail-params__value {
+	margin-bottom: 0;
+	color: rgb(var(--vinisto-color));
+}
+.vinisto-bundle-detail-params__middle {
+	-moz-column-break-after: column;
+	break-after: column;
+}

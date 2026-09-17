@@ -1,0 +1,8 @@
+@media (min-width: 1200px) {
+	.socialMediaLink svg {
+		transition: filter 0.3s ease-in-out;
+	}
+	.socialMediaLink:hover svg {
+		filter: brightness(150%);
+	}
+}

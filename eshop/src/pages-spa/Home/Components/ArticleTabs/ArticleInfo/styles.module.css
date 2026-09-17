@@ -1,0 +1,81 @@
+.blogArticle * {
+	font-size: 1rem;
+	font-weight: 300;
+	padding: 0px;
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: unset;
+	max-width: 100%;
+}
+
+@media (min-width: 1200px) {
+	.blogArticle:hover {
+		box-shadow: 2px 2px 6px 0px rgba(var(--vinisto-color-darker2), 0.4);
+	}
+
+	.blogArticle {
+		padding: 0.25rem 0.75rem 0.75rem;
+	}
+}
+
+.blogArticle figure,
+.blogArticle ol,
+.blogArticle ul,
+.blogArticle li,
+.blogArticle dl,
+.blogArticle dt,
+.blogArticle dd .blogArticle table {
+	display: none !important;
+}
+
+.blogAritcleHeading {
+	font-size: 1.25rem !important;
+	font-weight: 500 !important;
+	font-family: var(--font-family-ubuntu);
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin: 0.75rem 0 0.625rem 0;
+}
+
+.blogArticleInfo {
+	display: flex;
+	font-family: var(--font-family-roboto);
+	flex-wrap: wrap;
+	margin-bottom: 10px;
+}
+
+.blogArticleInfoSeparator {
+	margin: 0 5px;
+}
+
+.articleblogArticleLink {
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-green));
+	font-weight: 500;
+	text-wrap: nowrap;
+	font-size: 1rem;
+}
+
+.blogArticleContent {
+	margin-right: 5px;
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+}
+
+.blogArticleAuthor,
+.blogArticleInfoSeparator,
+.blogArticleDate,
+.blogArticleInfoSeparator,
+.blogArticleReadingTime {
+	text-wrap: nowrap;
+	font-size: 0.875rem;
+}
+
+.blogArticleAuthor {
+	color: rgb(var(--vinisto-color-green));
+	font-weight: 500;
+}
+
+.blogArticleImage {
+	object-fit: cover;
+	aspect-ratio: 159 / 95;
+	width: 100%;
+}

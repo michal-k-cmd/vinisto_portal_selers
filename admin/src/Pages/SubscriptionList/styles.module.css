@@ -1,0 +1,17 @@
+.Active {
+	color: rgb(var(--vinisto-color-green));
+}
+.Inactive {
+	color: rgba(var(--vinisto-color-darker-gray), 0.5);
+}
+.WaitingToPayment,
+.WaitingToEnd {
+	color: rgb(var(--vinisto-color-red));
+}
+
+.Active,
+.Inactive,
+.WaitingToPayment,
+.WaitingToEnd {
+  font-weight: 500;
+}

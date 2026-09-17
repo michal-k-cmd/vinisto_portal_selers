@@ -1,0 +1,97 @@
+.inputWrapper {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.inputWrapper.checkboxWrapper {
+	width: 0.875rem;
+	height: 0.875rem;
+	flex-shrink: 0;
+	margin-right: 0.25rem;
+	overflow: visible;
+}
+
+.input[type='checkbox'] {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	width: 0.875rem;
+	height: 0.875rem;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkboxControl {
+	display: block;
+	height: 0.875rem;
+	width: 0.875rem;
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-lighter-gray2));
+}
+
+.input[type='checkbox'].error + .checkboxControl {
+	border-color: rgb(var(--vinisto-color-error));
+}
+
+.input[type='checkbox']:checked + .checkboxControl {
+	background: url('/assets/images/check-green-slender.svg') center / contain
+		no-repeat;
+	border-color: rgb(var(--vinisto-color-green));
+}
+
+.input[type='checkbox']:focus-visible + .checkboxControl {
+	outline: 1px solid rgb(var(--vinisto-color-darker-gray));
+	outline-offset: 2px;
+}
+
+.input,
+.inputWrapper :global(.PhoneInputInput) {
+	display: block;
+	width: 100%;
+	font-size: 1rem;
+	background-color: rgb(var(--vinisto-color-white));
+	padding: 0.4375rem 0.625rem;
+	box-shadow: none;
+	border: 1px solid rgb(var(--vinisto-color-lighter-gray2));
+	outline: 1px solid transparent;
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-weight: 400;
+}
+
+.input::placeholder,
+.inputWrapper :global(.PhoneInputInput)::placeholder {
+	font-size: 0.6875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.input:focus,
+.input.error:focus,
+.input.success:focus,
+.inputWrapper :global(.PhoneInputInput):focus {
+	border-color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.input.error,
+.inputWrapper.error :global(.PhoneInputInput) {
+	border-color: rgb(var(--vinisto-color-error));
+}
+
+.input.success,
+.inputWrapper.success :global(.PhoneInputInput) {
+	border-color: rgb(var(--vinisto-color-success));
+}
+
+.inputWrapper :global(.PhoneInputCountry) {
+	padding-left: 2px;
+}
+
+.checkIcon {
+	position: absolute;
+	right: 0;
+	top: 55%;
+	transform: translateY(-50%);
+}

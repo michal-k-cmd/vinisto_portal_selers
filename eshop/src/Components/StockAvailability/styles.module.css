@@ -1,0 +1,10 @@
+.isSaleOver,
+.isTemporaryUnavailable {
+	color: rgb(var(--vinisto-color-darker-gray));
+	line-height: inherit;
+}
+
+.isAvailable {
+	color: rgb(var(--vinisto-color-green));
+	line-height: inherit;
+}

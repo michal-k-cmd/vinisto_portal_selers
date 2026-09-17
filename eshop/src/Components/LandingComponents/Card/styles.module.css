@@ -1,0 +1,39 @@
+.card {
+	background-color: rgb(var(--vinisto-color-lighter-gray));
+	padding: 2rem 1.0625rem 1.0625rem;
+}
+
+.title {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 2rem;
+}
+
+.text,
+.text p,
+.text li {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+.imageContainer {
+	max-width: 100%;
+	margin-top: 1.125rem;
+}
+
+.image {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+@media (max-width: 1199.98px) {
+	.card {
+		padding: 1.375rem 0.75rem 0.75rem;
+		margin-bottom: 0.3125rem;
+	}
+}

@@ -1,0 +1,48 @@
+.basketItems {
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+	margin-bottom: 0.625rem;
+}
+
+.mobileHeading {
+	display: block;
+	font-family: var(--font-family-ubuntu);
+	font-size: 1rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-darker-gray));
+	padding: 0;
+	margin-bottom: 0.625rem;
+}
+
+.printOrderNumber {
+	display: none;
+}
+
+@media (min-width: 1200px) {
+	.basketItems {
+		max-height: 50vh;
+		overflow-y: auto;
+	}
+
+	.mobileHeading {
+		display: none;
+	}
+}
+
+@media print {
+	.basketItems {
+		gap: 0;
+		max-height: none;
+		margin-bottom: 0.75rem;
+		overflow: visible;
+	}
+
+	.mobileHeading {
+		display: block;
+	}
+
+	.printOrderNumber {
+		display: inline;
+	}
+}

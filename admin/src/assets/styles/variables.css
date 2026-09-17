@@ -1,0 +1,85 @@
+:root {
+	--bs-body-color: var(--vinisto-color-dark);
+	--bs-body-font-weight: 300;
+
+	--smaller-text: 0.938rem;
+	--bigger-text: 1.063rem;
+
+	--font-family-roboto: 'Roboto', sans-serif;
+	--font-family-ubuntu: 'Ubuntu', sans-serif;
+
+	--vinisto-color: 40, 0, 68;
+	--vinisto-color-black: 0, 0, 0;
+	--vinisto-color-darker: 30, 1, 43;
+	--vinisto-color-darker2: 67, 41, 87;
+	--vinisto-color-green: 104, 169, 16;
+	--vinisto-color-green-hover: 138, 204, 23;
+	--vinisto-color-selected-green: 247, 251, 242;
+	--vinisto-color-dark: 4, 2, 5;
+	--vinisto-color-dark-gray: 112, 112, 112;
+	--vinisto-color-darker-gray: 77, 77, 78;
+	--vinisto-color-darker-gray2: 52, 52, 52;
+	--vinisto-color-light-gray: 249, 246, 247;
+	--vinisto-color-lighter: 57, 0, 68;
+	--vinisto-color-lighter-gray: 246, 246, 246;
+	--vinisto-color-lighter-gray2: 165, 165, 166;
+	--vinisto-color-gold: 199, 171, 89;
+	--vinisto-color-info: 255, 178, 101;
+	--vinisto-color-red: 201, 6, 46;
+	--vinisto-color-red-hover: 225, 47, 84;
+	--vinisto-color-dark-red: 158, 22, 60;
+	--vinisto-color-wine: 98, 7, 46;
+	--vinisto-color-wine-red: 146, 1, 63;
+	--vinisto-color-red-error: 255, 51, 51;
+	--vinisto-color-almost-white: 244, 242, 245;
+	--vinisto-color-almost-white2: 253, 253, 253;
+	--vinisto-color-white: 255, 255, 255;
+	--vinisto-color-error: 255, 0, 0;
+	--vinisto-color-warn: 199, 168, 89;
+	--vinisto-light-bg: 247, 249, 251;
+	--vinisto-color-success: rgb(var(--vinisto-color-green));
+	--vinisto-color-flag-warning: 217, 31, 31;
+	--vinisto-box-shadow: 0px 2px 4px rgba(var(--vinisto-color-black), 0.1),
+		inset 0 2px 4px 0 rgba(var(--vinisto-color-white), 0.75);
+	--vinisto-radius: 0.313rem;
+	--vinisto-radius-big: 0.625rem;
+	--vinisto-line-height: 1.2;
+
+	--vinisto-sidebar-width: 300px;
+
+	/* Bottom boxes height */
+	--vinisto-bottom-navigation-height: 50px;
+	--vinisto-bottom-free-delivery-height: 21px;
+	--vinisto-bottom-navigation-and-free-delivery-height: calc(
+		var(--vinisto-bottom-navigation-height) +
+			var(--vinisto-bottom-free-delivery-height)
+	);
+
+	/* Breakpoints */
+	--vinisto-desktop: 1399.98px;
+	--vinisto-desktop-up: 1400px;
+	--vinisto-tablet: 767.98px;
+	--vinisto-tablet-up: 768px;
+
+	/* Product box */
+	--vinisto-product-box-padding: 0.75rem;
+	--vinisto-product-box-img-height: 240px;
+	--vinisto-product-box-img-height--mobile: 170px;
+	--vinisto-product-box-img-margin-top: -1.5rem;
+
+	/* Input */
+	--vinisto-input-padding-vertical: 0.563rem;
+	--vinisto-input-padding-horizontal: 0.75rem;
+	--vinisto-count-height: 2.25rem;
+
+	/* Header + footer */
+	--header-height: 136.16px;
+	--header-mobile-height: 38px;
+	--footer-mobile-height: 71px;
+	--container-first-level-m-top: 16px;
+
+	/* Z-indexes */
+	--mobile-search-z-index: 100;
+
+	--category-detail-max-width: 892px;
+}

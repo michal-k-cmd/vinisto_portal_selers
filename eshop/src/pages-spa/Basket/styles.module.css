@@ -1,0 +1,49 @@
+.basketContainer.basketContainer {
+	display: flex;
+	gap: 0.5625rem;
+	padding: 0 0.75rem;
+	position: relative;
+}
+
+.mainBasketArea {
+	flex: 1 1 0;
+	width: 100%;
+	max-width: 100%;
+}
+
+.headerContainer {
+	margin: 0.625rem auto 0.625rem;
+}
+
+.backButton {
+	margin-bottom: 1.875rem;
+}
+
+@media (max-width: 1199.98px) {
+	.basketContainer {
+		flex-direction: column;
+		gap: 0;
+	}
+}
+
+:is(.backButton):focus-visible {
+	outline: 2px solid rgba(var(--vinisto-color-green), 0.75);
+}
+
+@media print {
+	.basketContainer {
+		flex-direction: column;
+	}
+	.basketContainer > :nth-child(1) {
+		order: 4;
+	}
+	.basketContainer > :nth-child(2) {
+		order: 1;
+	}
+	.basketContainer > :nth-child(3) {
+		order: 2;
+	}
+	.basketContainer > :nth-child(4) {
+		order: 3;
+	}
+}

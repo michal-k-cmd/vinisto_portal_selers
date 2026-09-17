@@ -1,0 +1,18 @@
+.zipCodeValidationContainer {
+	background-color: rgb(var(--vinisto-color-red-error));
+	border: 1px solid rgb(var(--vinisto-color-red-error));
+	padding: 8px 10px 5px;
+	color: rgb(var(--vinisto-color-white));
+	margin-top: -1rem;
+	margin-bottom: 0.5rem;
+}
+
+.zipCodeValidationContainer .buttonShippingPayment {
+	color: rgb(var(--vinisto-color-white));
+	border: none;
+	text-decoration: underline;
+	display: block;
+	background: none;
+	padding: 0;
+	font-weight: 300;
+}

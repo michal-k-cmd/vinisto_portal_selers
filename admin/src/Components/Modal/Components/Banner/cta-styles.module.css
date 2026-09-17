@@ -1,0 +1,47 @@
+.ctaStyle {
+	padding-block: 0.25rem;
+	padding-inline: 0.5rem;
+	margin-inline: 0.5rem;
+	font-family: var(--font-family-ubuntu);
+	font-weight: 500;
+}
+
+.ctaStyle.Green {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green));
+	border: 1px solid rgb(var(--vinisto-color-green));
+}
+
+.ctaStyle.Burgundy {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-wine-red));
+	border: 1px solid rgb(var(--vinisto-color-wine-red));
+}
+
+.ctaStyle.White {
+	color: rgb(var(--vinisto-color-green));
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-green));
+}
+
+.ctaStyle.Black {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-darker-gray));
+	border: 1px solid rgb(var(--vinisto-color-darker-gray));
+}
+
+.ctaContainer:hover .ctaStyle.Burgundy {
+	background-color: rgb(var(--vinisto-color-wine-hover));
+	border-color: rgb(var(--vinisto-color-wine-hover));
+}
+
+.ctaContainer:hover .ctaStyle.White {
+	color: rgb(var(--vinisto-color-green-hover));
+	background-color: rgb(var(--vinisto-color-white));
+	border-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.ctaContainer:hover .ctaStyle.Black {
+	background-color: rgb(var(--vinisto-color-black));
+	border-color: rgb(var(--vinisto-color-black));
+}

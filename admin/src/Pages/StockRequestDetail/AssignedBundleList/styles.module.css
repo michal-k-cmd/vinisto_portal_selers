@@ -1,0 +1,4 @@
+.productLink,
+.productLink:hover {
+	color: rgb(var(--vinisto-color));
+}

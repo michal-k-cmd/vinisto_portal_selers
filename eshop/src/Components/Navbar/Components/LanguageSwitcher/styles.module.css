@@ -1,0 +1,80 @@
+.openModalButton {
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 0.75rem;
+	font-weight: 400;
+	padding: 0.375rem 0.75rem;
+	margin: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.currency {
+	font-weight: 500;
+}
+
+.texts {
+	display: flex;
+	align-items: center;
+}
+
+.pinpoint {
+	margin-right: 0.5rem;
+}
+
+.arrow {
+	margin-top: -0.125rem;
+}
+
+.arrow path {
+	stroke: rgb(var(--vinisto-color-darker-gray));
+}
+
+.title {
+	margin-right: 0.25rem;
+}
+
+.overflow {
+	overflow: hidden;
+}
+
+@media (min-width: 1200px) {
+	.openModalButton {
+		padding: 0 0.75rem;
+	}
+
+	.texts {
+		display: grid;
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: repeat(2, auto);
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+		text-align: left;
+	}
+
+	.pinpoint {
+		grid-area: 1 / 1 / 3 / 2;
+	}
+
+	.title {
+		grid-area: 1 / 2 / 2 / 3;
+	}
+
+	.currency {
+		grid-area: 2 / 2 / 3 / 3;
+	}
+}
+
+@media (min-width: 1400px) {
+	.currency {
+		font-size: 0.875rem;
+	}
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+	.currency {
+		font-size: 0.75rem;
+	}
+}

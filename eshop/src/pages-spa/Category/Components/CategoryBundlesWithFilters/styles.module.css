@@ -1,0 +1,38 @@
+.filtersCard {
+	font-family: var(--font-family-roboto);
+	padding-top: 0;
+}
+
+.vinistoFilter {
+	flex: 0 0 17.25rem !important;
+	padding-top: 1.25rem;
+}
+
+@media (max-width: 1199.98px) {
+	.filtersCard {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: var(--vinisto-bottom-navigation-and-free-delivery-height);
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+		background-color: rgb(var(--vinisto-color-white));
+		overflow: hidden;
+		z-index: 111;
+	}
+
+	.vinistoFilter {
+		display: block;
+		padding: 0 !important;
+		margin: 0 !important;
+		background-color: rgb(var(--vinisto-color-white));
+	}
+
+	.vinistoFilter
+		:global(.vinisto-btn.vinisto-user-section__menu--mobile__toggle)
+		+ * {
+		padding-top: 0.75rem;
+	}
+}

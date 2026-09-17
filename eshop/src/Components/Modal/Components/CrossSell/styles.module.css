@@ -1,0 +1,139 @@
+.modalHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 0.5625rem;
+}
+
+.header {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.875rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.freeDeliveryWrap {
+	flex: 0 0 50%;
+}
+
+.addedItem {
+	display: grid;
+	grid-template-columns: 4rem 3fr 3.125rem 2fr;
+	grid-template-rows: auto;
+	grid-column-gap: 1.125rem;
+	align-items: center;
+
+	background-color: rgb(var(--vinisto-color-lighter-gray));
+	padding: 1.5rem 2rem 1.5rem;
+	margin-bottom: 0.875rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.title {
+	font-weight: 500;
+}
+
+.added {
+	text-align: right;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-green));
+}
+
+.buttons {
+	display: flex;
+	justify-content: center;
+	gap: 0.6875rem;
+	margin-bottom: 2.375rem;
+	text-align: center;
+}
+
+.continue {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	margin: 0;
+	padding: 0.875rem;
+	min-width: 17.1875rem;
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color-green));
+	border: 1px solid rgb(var(--vinisto-color-green));
+	transition: background-color 300ms ease-in-out, color 300ms ease-in-out,
+		border-color 300ms ease-in-out;
+}
+
+.continue:hover {
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color-green-hover));
+	border-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.goToBasket {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	margin: 0;
+	padding: 0.875rem;
+	min-width: 17.1875rem;
+	background-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-green));
+	text-transform: uppercase;
+	transition: background-color 300ms ease-in-out, color 300ms ease-in-out,
+		border-color 300ms ease-in-out;
+}
+
+.goToBasket:hover {
+	background-color: rgb(var(--vinisto-color-green-hover));
+	color: rgb(var(--vinisto-color-white));
+	border-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.crossSellHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-left: 1.5rem;
+	margin-bottom: 1.125rem;
+}
+
+.crossSellItems {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2.5rem 1.25rem;
+	margin-bottom: 1.5rem;
+}
+
+.crossSellItem {
+	height: 100%;
+}
+
+.crossSellItem :global(.vinisto-wine__item) {
+	height: 100%;
+	border: 1px solid rgba(var(--vinisto-color-purple), 0.1);
+}
+
+.info {
+	color: rgb(var(--vinisto-color-darker-gray));
+	line-height: 0.75rem;
+	margin-top: 0.75rem;
+	font-weight: 300;
+}
+
+.flag {
+	border-radius: 0.1875rem;
+	margin-right: 0.3125rem;
+	vertical-align: middle;
+}
+
+.producerName {
+	font-size: 0.625rem;
+}
+
+.sellerSeparator {
+	margin: 0 0.125rem;
+}
+
+.sellerName {
+	font-size: 0.5625rem;
+}

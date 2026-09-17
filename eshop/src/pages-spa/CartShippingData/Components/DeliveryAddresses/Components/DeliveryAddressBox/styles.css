@@ -1,0 +1,114 @@
+.vinisto-addresses-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1.3125rem;
+}
+
+.vinisto-address {
+	flex: 0 0 250px;
+	border-radius: var(--vinisto-radius-base);
+	color: rgb(var(--vinisto-color-darker-gray));
+	padding: 0.5rem;
+	position: relative;
+	font-size: 0.875rem;
+	font-weight: 300;
+	min-height: 160px;
+	background-color: rgb(var(--vinisto-color-lighter-gray));
+	cursor: pointer;
+	line-height: 2;
+}
+
+.vinisto-address > div:not(.vinisto-address__header) {
+	line-height: 1.5;
+}
+
+.vinisto-address.selected {
+	background-color: rgba(var(--vinisto-color-green), 0.15);
+}
+
+.vinisto-address__check-title-wrap {
+	display: flex;
+	gap: 0.625rem;
+	align-items: center;
+}
+
+.vinisto-address__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.vinisto-address .vinisto-btn {
+	width: 18px;
+	height: 18px;
+	background-color: rgb(var(--vinisto-color-white));
+	display: grid;
+	place-items: center;
+}
+
+.vinisto-address__title {
+	font-weight: 500;
+}
+
+.vinisto-address__edit-delete {
+	display: flex;
+	align-items: center;
+	position: relative;
+	gap: 0.5rem;
+}
+
+.vinisto-address__edit-delete__edit {
+	padding: 0 0.5rem;
+}
+
+.vinisto-address__edit-delete__edit,
+.vinisto-address__edit-delete__close {
+	cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	.vinisto-address {
+		flex: 0 1 calc(50% - 0.5rem);
+	}
+}
+
+.vinisto-shipping__item__radio-check {
+	display: flex;
+	align-items: center;
+}
+
+.vinisto-shipping__item__radio-check__radio {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #a9a9aa;
+	border-radius: 50%;
+	background-color: transparent;
+	cursor: pointer;
+	margin: 0;
+	position: relative;
+	transition: background-color 0.2s, border-color 0.2s;
+}
+
+.vinisto-shipping__item__radio-check__radio:checked {
+	background-color: rgb(var(--vinisto-color-green));
+	border-color: rgb(var(--vinisto-color-green));
+}
+
+.vinisto-shipping__item__radio-check__radio:checked::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	height: 50%;
+	border-radius: 50%;
+	background-color: rgb(var(--vinisto-color-white));
+}

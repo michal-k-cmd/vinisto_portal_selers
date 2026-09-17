@@ -1,0 +1,13 @@
+.home,
+.home a {
+	display: flex;
+	align-items: center;
+}
+
+.h3 {
+	display: inline;
+	font-size: 0.875rem;
+	float: left;
+	margin-right: 0.75rem;
+	margin-top: 0.1875rem;
+}

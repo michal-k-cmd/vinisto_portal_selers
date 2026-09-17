@@ -1,0 +1,60 @@
+.wrapper {
+	margin-top: 0.875rem;
+	margin-left: 1.625rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.checkboxWrapper {
+	display: flex;
+	align-items: center;
+	gap: 1.75rem;
+}
+
+.wrapper > span {
+	font-size: 0.75rem;
+	font-weight: 300;
+}
+
+.checkboxText {
+	font-size: 0.75rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-dark-gray));
+}
+
+.radioOptions {
+	display: flex;
+	justify-content: flex-start;
+	gap: 10px;
+	width: fit-content;
+	margin-left: 2.75rem;
+	margin-top: 0.25rem;
+}
+
+.checkbox {
+	margin-bottom: 0;
+	gap: 2.25rem;
+}
+
+.checkbox span {
+	font-size: 0.75rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-dark-gray));
+}
+
+@media (max-width: 1199.98px) {
+	.wrapper {
+		margin-left: 0.625rem;
+	}
+
+	.checkboxWrapper {
+		gap: 1.25rem;
+	}
+
+	.radioOptions {
+		display: grid;
+		width: calc(100% - 2.5rem);
+		grid-template-columns: repeat(3, 1fr);
+		margin-left: 2.5rem;
+	}
+}

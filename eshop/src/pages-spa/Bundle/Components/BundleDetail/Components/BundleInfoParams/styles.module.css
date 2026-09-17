@@ -1,0 +1,78 @@
+.params {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-bottom: 0.25rem;
+}
+
+.paramName {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+	float: left;
+	text-align: right;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.paramValue {
+	margin-bottom: 0;
+}
+
+.paramValue a,
+.paramValue span {
+	display: inline-block;
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-black));
+	font-size: 0.875rem;
+	font-weight: 400;
+	padding: 0.5rem 0;
+}
+
+.paramMiddle {
+	-moz-column-break-after: column;
+	break-after: column;
+}
+
+.showMore {
+	border: none;
+	padding-left: 0;
+	background-color: transparent;
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-darker-gray));
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0 auto;
+}
+
+.showMoreArrow {
+	transition: transform 0.3s ease-in-out;
+}
+
+.showMore.showLess .showMoreArrow {
+	transform: rotate(180deg);
+}
+
+.showMoreArrow path {
+	stroke: rgb(var(--vinisto-color-darker-gray));
+}
+
+@media (max-width: 1199.98px) {
+	.paramName,
+	.paramValue a {
+		padding: 0.5rem 0;
+		font-size: 0.75rem;
+		line-height: 0.8125rem;
+	}
+
+	.paramName {
+		text-transform: lowercase;
+		padding: 0.5rem;
+	}
+
+	.showMore {
+		font-size: 0.75rem;
+	}
+}

@@ -1,0 +1,19 @@
+.bundleState {
+	line-height: 1.2;
+	padding: 0.25rem 1rem;
+	background-color: rgb(var(--vinisto-color-info));
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-white));
+	border-radius: 0.375rem;
+}
+
+.bundleState:global(.confirmed) {
+	font-weight: var(--bs-body-font-weight);
+	padding: 0;
+	background-color: transparent;
+	color: var(--bs-card-color);
+}
+
+.bundleState:global(.rejected) {
+	background-color: rgb(var(--vinisto-color-error));
+}

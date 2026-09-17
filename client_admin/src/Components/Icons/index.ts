@@ -1,0 +1,14 @@
+export { default as CloseIcon } from './Close';
+export { default as EmailIcon } from './Email';
+export { default as ErrorSmallIcon } from './ErrorSmall';
+export { default as FilterDropdownArrowIcon } from './FilterDropdownArrow';
+export { default as PhoneIcon } from './Phone';
+export { default as SuccessSmallIcon } from './SuccessSmall';
+export { default as VinistoLogoIcon } from './VinistoLogo';
+export { default as VinistoLogoEmblemIcon } from './VinistoLogoEmblem';
+export { default as VinistoLogoEmblemWhiteIcon } from './VinistoLogoEmblemWhite';
+export { default as VinistoLogo } from './VinistoLogo';
+export { default as WarnSmallIcon } from './WarnSmall';
+export { default as EditIcon } from './Edit';
+export { default as LogOutIcon } from './LogOut';
+export { default as ArrowDown } from './ArrowDown';

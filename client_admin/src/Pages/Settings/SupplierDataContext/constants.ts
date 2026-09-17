@@ -1,0 +1,26 @@
+export const FALLBACK_COUNTRY_CODE = 'CZ';
+
+export enum SupplierDataAction {
+	setAll = 'setAll',
+	setSupplierName = 'setSupplierName',
+	setSupplierNameWeb = 'setSupplierNameWeb',
+	setIdNumber = 'setIdNumber',
+	setVatin = 'setVatin',
+	setIsShipping = 'setIsShipping',
+	setStreet = 'setStreet',
+	setLandRegistryNumber = 'setLandRegistryNumber',
+	setHouseNumber = 'setHouseNumber',
+	setZip = 'setZip',
+	setCity = 'setCity',
+	setPhone = 'setPhone',
+	setEmail = 'setEmail',
+	setNote = 'setNote',
+	setTitle = 'setTitle',
+	setCountryCode = 'setCountryCode',
+	setAddressee = 'setAddressee',
+	setWebsite = 'setWebsite',
+	setCompanyDescription = 'setCompanyDescription',
+	setMainProfile = 'setMainProfile',
+	setWineRegion = 'setWineRegion',
+	setBankAccountNumber = 'setBankAccountNumber',
+}

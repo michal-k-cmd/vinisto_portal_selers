@@ -1,0 +1,18 @@
+.checkbox {
+	font-size: 0.6875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	padding: 0 1.25rem;
+}
+
+.sale {
+	color: rgb(var(--vinisto-color-green));
+	font-weight: 500;
+}
+
+@media (max-width: 1199.98px) {
+	.checkbox {
+		font-size: 0.6875rem;
+		padding: 0;
+	}
+}

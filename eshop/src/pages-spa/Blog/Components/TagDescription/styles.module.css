@@ -1,0 +1,47 @@
+.relativeWrap {
+	position: relative;
+}
+
+.categoryDesc {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.3125rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0;
+}
+
+.showMoreBtn {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.3125rem;
+	color: rgb(var(--vinisto-color-green));
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.showMoreBtn:hover {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.showMoreBtn::before {
+	content: '…';
+	padding: 0 0.5rem 0 0.25rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-weight: 400;
+}
+
+@media (max-width: 1199.98px) {
+	.categoryDesc,
+	.showMoreBtn {
+		font-size: 0.875rem;
+		line-height: 1.1875rem;
+	}
+}

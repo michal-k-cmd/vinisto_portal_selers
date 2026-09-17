@@ -1,0 +1,10 @@
+.cartHeader {
+	background-color: rgb(var(--vinisto-color-lighter-gray));
+	padding: 0.625rem 0 0.8125rem;
+}
+
+@media (max-width: 1199.98px) {
+	.cartHeader {
+		padding: 0.375rem 0.75rem 0.5rem;
+	}
+}

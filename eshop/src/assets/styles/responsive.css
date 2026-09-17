@@ -1,0 +1,360 @@
+@media (max-width: 1199.98px) {
+	.desktop-only {
+		display: none !important;
+	}
+}
+
+@media (min-width: 1200px) {
+	.tablet-mobile-only {
+		display: none !important;
+	}
+	.tablet-only {
+		display: none !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.mobile-only {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.mobile-hide {
+		display: none !important;
+	}
+	.tablet-only {
+		display: none !important;
+	}
+}
+
+@media (max-width: 1199.98px) {
+	.function-button-wrapper {
+		padding-right: 0.75rem !important;
+	}
+	.language-switcher {
+		margin-right: 0.75rem !important;
+	}
+}
+
+@media (min-width: 1200px) {
+	#content-wrapper .container {
+		--bs-gutter-x: 0.25rem;
+	}
+	#content-wrapper .col,
+	#content-wrapper .col-1,
+	#content-wrapper .col-2,
+	#content-wrapper .col-3,
+	#content-wrapper .col-4,
+	#content-wrapper .col-5,
+	#content-wrapper .col-6,
+	#content-wrapper .col-7,
+	#content-wrapper .col-8,
+	#content-wrapper .col-9,
+	#content-wrapper .col-10,
+	#content-wrapper .col-11,
+	#content-wrapper .col-12 {
+		--bs-gutter-x: 1rem;
+	}
+}
+
+@media (max-width: 1199.98px) {
+	.vinisto-font-18,
+	.vinisto-font-16 {
+		font-size: 0.875rem;
+	}
+	#content-wrapper .container,
+	#content-wrapper .container-fluid,
+	#content-wrapper .container-xxl,
+	#content-wrapper .container-xl,
+	#content-wrapper .container-lg,
+	#content-wrapper .container-md,
+	#content-wrapper .container-sm {
+		--bs-gutter-x: 0.5rem;
+		padding-right: var(--bs-gutter-x, 0.375rem);
+		padding-left: var(--bs-gutter-x, 0.375rem);
+	}
+	#content-wrapper .row {
+		--bs-gutter-x: 0.5rem;
+	}
+	.vinisto-card.vinisto-card--tablet-mobile-hide {
+		box-shadow: none;
+		height: auto;
+		background-color: transparent;
+		padding: 0;
+	}
+	.vinisto-card__heading {
+		font-size: 1rem;
+	}
+	.cart-wrapper svg {
+		max-height: 21px;
+	}
+	.function-button-wrapper {
+		padding-right: 0.438rem !important;
+	}
+	.row--my-shop {
+		padding: 1rem 0;
+		overflow-x: hidden;
+		margin-top: -1rem;
+		--bs-gutter-x: 1rem;
+	}
+	.col--my-shop {
+		flex: 0 0 auto;
+		width: 50%;
+		height: 200px;
+		max-width: none;
+		--bs-gutter-x: 0.5rem;
+		--bs-gutter-y: 1rem;
+	}
+	.col--my-shop .vinisto-card {
+		height: 200px;
+	}
+	.vinisto-wine__item.vinisto-wine__item {
+		min-width: 9.375rem;
+		margin-top: 1.5rem !important;
+	}
+	.vinisto-wine__item .vinisto-flag {
+		width: 15px;
+		height: 10px;
+		border-radius: 3px;
+		border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.1);
+	}
+	.vinisto-wine__img-label {
+		font-size: 0.75rem;
+		padding: 0.1875rem 0.5rem;
+		height: 30px;
+		line-height: 25px;
+	}
+	.vinisto-wine__img {
+		max-height: var(--vinisto-product-box-img-height--mobile);
+	}
+	.vinisto-wine__name {
+		font-size: 0.875rem;
+	}
+	.vinisto-wine__stock {
+		margin-top: 0.375rem;
+		white-space: nowrap;
+	}
+	.vinisto-wine__review__wrap-count,
+	.vinisto-wine__variety__text,
+	.vinisto-wine__stock {
+		font-size: 0.75rem;
+	}
+	.vinisto-wine__variety__text {
+		min-height: 0.8994rem;
+	}
+	.vinisto-wine__review__wrap-count {
+		padding-top: 1px;
+	}
+	.vinisto-wine__price {
+		font-size: 1.375rem;
+	}
+	.vinisto-wine__count__amount {
+		font-size: 1.0625rem;
+	}
+	.vinisto-wine__bottom-label {
+		font-size: 0.75rem;
+		padding: 0.1875rem 0.5rem;
+	}
+	.vinisto-wine__price--no-vat {
+		font-size: 0.625rem;
+	}
+	.vinisto-wine__add-to-cart__button {
+		font-size: 1.063rem;
+		padding: 0.3125rem;
+	}
+	.vinisto-recension__user__wrap {
+		padding-left: 0.75rem;
+	}
+	.vinisto-shadow {
+		width: 2.625rem;
+	}
+	.vinisto-wide-wine-arrow {
+		width: 1.875rem;
+		height: 1.875rem;
+		border-width: 1px;
+	}
+	.vinisto-wide-wine-arrow svg {
+		height: 0.8125rem;
+	}
+	.vinisto-recension__likes {
+		font-size: 1rem;
+	}
+	.vinisto-recension__likes img,
+	.vinisto-recension__likes svg {
+		height: 20px;
+		max-width: 100%;
+		margin-right: 0.5rem;
+	}
+	.vinisto-recension__approved {
+		font-size: 1rem;
+	}
+	.vinisto-recension__date-likes {
+		font-size: 1rem;
+		margin-bottom: 0.75rem;
+	}
+	.vinisto-recension__stars img,
+	.vinisto-recension__stars svg {
+		height: 19px;
+	}
+	.col--my-shop .vinisto-card__heading {
+		font-size: 1rem;
+	}
+	.vinisto-card__top-text,
+	.vinisto-card__bottom-link,
+	.vinistost-articles__text,
+	.vinisto-review-preview__continue,
+	.vinisto-card__show-more {
+		font-size: 0.875rem;
+	}
+	.vinisto-card__show-more {
+		padding: 0 1rem 0.25rem 1rem;
+		margin-bottom: 0.25rem;
+	}
+	.vinisto-btn--all {
+		font-size: 0.875rem;
+		padding: 0.1875rem 1rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+	.vinisto-articles__img.vinisto-articles__img--left {
+		flex: 1 1 auto;
+	}
+	.vinisto-winery
+		.vinisto-winery__wine-wrap
+		.vinisto-wine__item:nth-child(n + 3) {
+		display: none;
+	}
+	.vinisto-articles__img {
+		flex: 0 0 50%;
+	}
+	.vinisto-recension {
+		flex: 0 0 calc(50% - 16px);
+	}
+	.vinisto-recension .vinisto-wine__item {
+		flex: 0 0 12rem;
+	}
+	.vinisto-card .vinisto-recension:nth-child(n + 3) {
+		display: none;
+	}
+	.vinisto-recension__user img,
+	.vinisto-recension__user svg {
+		width: 40px;
+	}
+	.vinisto-recension__user__profile {
+		font-size: 0.813rem;
+	}
+	.vinisto-address-modal {
+		flex-wrap: wrap;
+	}
+	.vinisto-address-modal__personal,
+	.vinisto-address-modal__company {
+		flex: 1 1 100%;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.vinisto-winery,
+	.vinisto-articles {
+		padding: 0;
+	}
+	.vinisto-articles__img.vinisto-articles__img--left {
+		flex: 1 1 100%;
+	}
+	.vinisto-articles__img.vinisto-articles__img--left {
+		border: none;
+	}
+	.vinisto-winery__wrap {
+		border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.1);
+		border-radius: var(--vinisto-radius-base);
+		padding-bottom: 1rem;
+	}
+	.vinisto-winery .vinisto-winery__wine-wrap {
+		padding-left: 0.875rem;
+		padding-right: 0.875rem;
+		margin-left: -0.5rem;
+	}
+	.vinisto-recension {
+		margin: 0.5rem 0 0;
+	}
+	.vinisto-recension:nth-child(n + 2) {
+		display: none;
+	}
+	.vinisto-articles-wrap {
+		margin: 0;
+		flex-direction: column;
+	}
+	.vinisto-articles__img {
+		flex: 0 0 auto;
+	}
+	.vinisto-articles__article {
+		order: 2;
+	}
+	.function-button-wrapper {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+	.cart-wrapper,
+	.vinisto-user-section-nav-link {
+		margin-left: 0.25rem !important;
+		margin-right: 0.25rem !important;
+	}
+	.cart-wrapper {
+		min-width: 0;
+		padding-right: 0.25rem;
+	}
+}
+
+@media (max-width: 470px) {
+	.cart-wrapper,
+	.vinisto-user-section-nav-link {
+		margin-left: 0.125rem !important;
+		margin-right: 0.125rem !important;
+	}
+	.cart-wrapper {
+		min-width: 0;
+		padding-right: 0.25rem;
+	}
+	.vinisto-wide-wine-tabs .nav-item .nav-link {
+		padding: 0.75rem 2.5rem;
+	}
+}
+
+@media (max-width: 385px) {
+	.col--my-shop {
+		flex: 0 0 auto;
+		width: 100%;
+		height: 121px;
+		--bs-gutter-x: 0.5rem;
+		--bs-gutter-y: 1rem;
+	}
+	.col--my-shop .vinisto-card {
+		height: 121px;
+	}
+}
+
+.vinisto-wide-wine-tabs .slick-slider {
+	overflow: hidden;
+}
+
+.vinisto-wide-wine-tabs .slick-track {
+	display: flex !important;
+	min-width: 100% !important;
+}
+
+.vinisto-wide-wine-tabs .slick-slide {
+	height: inherit !important;
+	flex-grow: 1;
+}
+
+.vinisto-wide-wine-tabs .slick-slide .nav-item {
+	display: block !important;
+	height: 100%;
+}
+
+.vinisto-wide-wine-tabs .slick-slide .nav-item .nav-link {
+	display: block;
+	font-size: 1rem;
+	height: 100%;
+}

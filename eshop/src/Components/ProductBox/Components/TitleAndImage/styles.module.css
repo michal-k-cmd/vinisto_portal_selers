@@ -1,0 +1,7 @@
+.name {
+	font-family: var(--font-family-roboto);
+	font-weight: 500;
+	font-size: 1rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	line-height: 1.3;
+}

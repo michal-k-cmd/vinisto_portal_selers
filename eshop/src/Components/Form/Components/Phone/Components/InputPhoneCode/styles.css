@@ -1,0 +1,39 @@
+.vinisto-code {
+	position: relative;
+}
+
+.vinisto-code__filter-btn {
+	position: relative;
+	z-index: 50;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.375rem 0.75rem 0.375rem 0.375rem;
+	cursor: pointer;
+}
+
+.vinisto-code__filter-list {
+	position: absolute;
+	top: calc(100% - 1.0625rem);
+	left: 0;
+	z-index: 40;
+	width: 100%;
+	padding: 0.875rem 0.375rem 0;
+	border-radius: 0 0 var(--vinisto-radius-big) var(--vinisto-radius-big);
+	background-color: rgb(var(--vinisto-color-white));
+	box-shadow: 0 2px 8px 0 rgba(16, 3, 54, 0.4);
+}
+
+.vinisto-code__filter-list__item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.4375rem 0;
+	border-bottom: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+	color: rgb(var(--vinisto-color));
+	cursor: pointer;
+}
+
+.vinisto-code__filter-list__item:last-of-type {
+	border-bottom: 0;
+}

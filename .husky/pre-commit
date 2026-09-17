@@ -1,0 +1,20 @@
+#cd frontend
+
+#echo "Checking Admin app"
+
+#pnpm --filter vinisto_admin run pre-commit
+
+#echo "Checking Client-admin app"
+
+#pnpm --filter vinisto_client_admin run pre-commit
+
+#echo "Checking Advisor app"
+
+#pnpm --filter vinisto_advisor run pre-commit
+
+#echo "Checking Eshop app"
+
+#pnpm --filter vinisto_eshop run pre-commit
+
+# if you want to test this, uncomment the line below
+# exit 1

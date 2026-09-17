@@ -1,0 +1,4 @@
+export const PRODUCERS_SPECIFICATION_UNIVERSAL_ID = '631576cc4114d721a1d6e553';
+export const CACHE_TIME = 300_000; // 5 minutes
+export const SKELETONS_LETTERS_NUM = 26;
+export const SKELETONS_VALUES_NUM = 12;

@@ -1,0 +1,87 @@
+.mobilePrice {
+	display: none;
+}
+
+.invoice {
+	color: rgb(var(--vinisto-color-green));
+	text-decoration: none;
+}
+
+@media (min-width: 992px) {
+	.billingRow {
+		display: grid;
+		grid-template-columns: 3fr 1fr 1fr 1fr auto;
+		gap: 1rem;
+		align-items: center;
+		padding: 1rem 1.3125rem;
+		border: 1px solid rgb(var(--vinisto-color-lighter-gray));
+		color: rgb(var(--vinisto-color-darker-gray));
+		font-size: 0.875rem;
+		font-weight: 300;
+	}
+
+	.billingRow:not(:last-of-type) {
+		border-bottom: none;
+	}
+
+	.billingStatus {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.invoice:hover {
+		text-decoration: underline;
+	}
+}
+
+@media (max-width: 991.98px) {
+	.mobilePrice {
+		display: inline;
+	}
+
+	.billingRow {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 0.5rem;
+		grid-template-areas:
+			'name date'
+			'price date'
+			'. invoice';
+		padding: 0.5rem 0;
+		font-size: 0.75rem;
+		font-weight: 400;
+		border-bottom: 1px solid rgb(var(--vinisto-color-lighter-gray));
+	}
+
+	.name {
+		grid-area: name;
+	}
+
+	.name strong {
+		font-weight: 400;
+	}
+
+	.billingStatus {
+		grid-area: date;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		text-align: right;
+	}
+
+	.status,
+	.price {
+		color: rgb(var(--vinisto-color-green));
+	}
+
+	.count {
+		display: none;
+	}
+
+	.invoiceWrapper {
+		grid-area: invoice;
+		text-align: right;
+	}
+}

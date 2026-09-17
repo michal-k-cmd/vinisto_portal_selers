@@ -1,0 +1,19 @@
+.headerLabel {
+	color: #937fa1;
+	font: normal 16px/21px var(--font-family-ubuntu);
+}
+
+.headerValue {
+	color: #4d4d4e;
+	font: bold 20px / 27px var(--font-family-ubuntu);
+}
+
+.orderHeader {
+	margin: 0 -1.25rem;
+}
+
+@media (max-width: 768px) {
+	.orderHeader {
+		margin: 0;
+	}
+}

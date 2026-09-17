@@ -1,0 +1,42 @@
+{
+  "market": {
+    "socials": {
+      "x": "vinistocz",
+      "facebook": "vinistocz",
+      "facebookAdmins": "100086488956978",
+      "youtube": "@vinistocz",
+      "instagram": "vinisto_cz",
+      "tiktok": "@vinisto_cz",
+      "linkedin": "vinisto"
+    },
+
+    "bankAccount": "2502332637/2010",
+    "bankAccountEUR": "CZ6655000000000081818137",
+    "clientAdminUrl": "https://prodejce.vinisto.cz/",
+    "customerSupport": {
+      "b2c": {
+        "email": "podpora@vinisto.cz",
+        "phone": "+420488588286"
+      },
+      "b2b": {
+        "email": "somelier@b2b.vinisto.cz",
+        "phone": "+420488388967"
+      },
+      "marketplaceSeller": {
+        "email": "prodejce@vinisto.cz",
+        "phone": "+420606758080"
+      }
+    },
+    "businessCustomerSales": {
+      "email": "obchod@vinisto.cz",
+      "phone": "+420602487345"
+    },
+    "supportAvailability": {
+      "dayStart": 1,
+      "dayEnd": 5,
+      "hourStart": 8,
+      "hourEnd": 20
+    }
+  },
+  "domainName": "vinisto.cz"
+}

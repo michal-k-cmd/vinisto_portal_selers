@@ -1,0 +1,12 @@
+.sidebar-logo {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-decoration: none;
+}
+.sidebar-logo .sidebar-logo-text {
+	font-family: 'Roboto', sans-serif !important;
+	font-weight: bold;
+	color: #fff;
+}

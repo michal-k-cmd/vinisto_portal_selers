@@ -1,0 +1,28 @@
+.checkbox {
+	--checkbox-size: 0.875rem;
+	--border-color: rgb(var(--vinisto-color-lighter-gray2));
+	width: var(--checkbox-size);
+	height: var(--checkbox-size);
+	border: 1px solid var(--border-color);
+	background-color: rgb(var(--vinisto-color-white));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: border-color 0.2s linear;
+}
+
+@media (min-width: 1200px) {
+	.checkbox:hover {
+		--border-color: rgb(var(--vinisto-color-darker-gray));
+	}
+}
+
+.checkbox.checked {
+	--border-color: rgb(var(--vinisto-color-green));
+}
+
+.checkmark {
+	width: var(--checkbox-size);
+	height: var(--checkbox-size);
+}

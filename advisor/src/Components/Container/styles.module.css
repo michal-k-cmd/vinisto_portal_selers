@@ -1,0 +1,7 @@
+.wrapper {
+  background-color: white;
+  position: relative;
+  @media (min-width: 420px) {
+    width: 420px;
+  }
+}

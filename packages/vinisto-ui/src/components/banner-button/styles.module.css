@@ -1,0 +1,63 @@
+.cta {
+	display: inline-block;
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	line-height: 1.25rem;
+	padding: 0.5rem 1.25rem;
+	text-align: center;
+	z-index: 1;
+	transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.Green {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green));
+	border: 1px solid rgb(var(--vinisto-color-green));
+}
+
+.Burgundy {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-wine-red));
+	border: 1px solid rgb(var(--vinisto-color-wine-red));
+}
+
+.White {
+	color: rgb(var(--vinisto-color-green));
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-green));
+}
+
+.Black {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-darker-gray));
+	border: 1px solid rgb(var(--vinisto-color-darker-gray));
+}
+
+.Green.hovered {
+	background-color: rgb(var(--vinisto-color-green-hover));
+	border-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.Burgundy.hovered {
+	background-color: rgb(var(--vinisto-color-wine-hover));
+	border-color: rgb(var(--vinisto-color-wine-hover));
+}
+
+.White.hovered {
+	color: rgb(var(--vinisto-color-green-hover));
+	background-color: rgb(var(--vinisto-color-white));
+	border-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.Black.hovered {
+	background-color: rgb(var(--vinisto-color-black));
+	border-color: rgb(var(--vinisto-color-black));
+}
+
+@media (max-width: 1199.98px) {
+	.cta {
+		font-size: 0.875rem;
+		padding: 0.375rem 0.9375rem;
+	}
+}

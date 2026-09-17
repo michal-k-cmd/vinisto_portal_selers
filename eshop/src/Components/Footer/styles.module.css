@@ -1,0 +1,28 @@
+.chatButton {
+	background-color: transparent;
+	border: none;
+	text-align: left;
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-weight: 500;
+	padding: 0;
+	margin-top: 1rem;
+}
+
+.chatIcon {
+	margin-right: 0.375rem;
+}
+
+.mobileContacts {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1rem;
+	padding: 0 1.5rem;
+}
+
+.mobileContacts.twoColumns {
+	grid-template-columns: repeat(auto-fit, minmax(9.25rem, 1fr));
+}
+
+.phoneLink {
+	white-space: nowrap;
+}

@@ -1,0 +1,57 @@
+import { FC } from 'react';
+
+import { IIconProps } from './Interfaces';
+
+const ContactSmallMailIcon: FC<IIconProps> = ({ className }) => {
+	return (
+		<svg
+			width={47.631}
+			height={55}
+			viewBox="0 0 47.631 55"
+			className={className}
+		>
+			<g transform="translate(-173.843 -589.755)">
+				<path
+					d="M197.659,589.755l-23.816,13.75v27.5l23.816,13.75,23.816-13.75v-27.5Z"
+					fill="#68a910"
+				/>
+				<g transform="translate(183.106 608.046)">
+					<rect
+						width="29.106"
+						height="18.419"
+						rx="1.644"
+						fill="#fff"
+					/>
+					<path
+						d="M212.343,608.2l-11.334,9.117a5.136,5.136,0,0,1-6.438,0L183.237,608.2"
+						transform="translate(-183.237 -608.197)"
+						fill="none"
+						stroke="#68a910"
+						strokeMiterlimit="10"
+						strokeWidth="0.987"
+					/>
+					<line
+						y1="9.302"
+						x2="11.334"
+						transform="translate(0 9.117)"
+						fill="none"
+						stroke="#68a910"
+						strokeMiterlimit="10"
+						strokeWidth="0.987"
+					/>
+					<line
+						x1="11.334"
+						y1="9.302"
+						transform="translate(17.772 9.117)"
+						fill="none"
+						stroke="#68a910"
+						strokeMiterlimit="10"
+						strokeWidth="0.987"
+					/>
+				</g>
+			</g>
+		</svg>
+	);
+};
+
+export default ContactSmallMailIcon;

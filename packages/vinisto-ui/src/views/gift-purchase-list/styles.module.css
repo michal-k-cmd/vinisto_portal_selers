@@ -1,0 +1,37 @@
+.giftWrapper {
+	background-color: rgb(var(--vinisto-color-wine-light-red));
+	padding: 0.75rem 1rem 0.5rem;
+	margin-block: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+	.giftWrapper {
+		margin-inline: 0;
+	}
+}
+
+.listWrapper {
+	margin-inline: 0.75rem;
+}
+
+@media (min-width: 1200px) {
+	.listWrapper {
+		border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+		padding-bottom: 0.75rem;
+		margin-inline: 0;
+	}
+}
+
+.giftHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1200px) {
+	.giftHeading {
+		font-size: 0.875rem;
+	}
+}

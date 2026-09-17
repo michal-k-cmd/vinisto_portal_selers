@@ -1,0 +1,66 @@
+.attributeTabsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tabsWrap {
+  display: flex;
+  gap: 0.625rem;
+	justify-content: center;
+	align-items: center;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab {
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1;
+  padding: 0.4375rem;
+  margin: 0;
+  border: 1px solid rgb(var(--vinisto-color-light-border));
+  background-color: transparent;
+  color: rgb(var(--vinisto-color-darker-gray));
+  display: flex;
+  justify-content: center;
+  min-width: 9.375rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.tab:not(:last-child) {
+  border-right: none;
+}
+
+.active,
+.tab:hover {
+  position: relative;
+  background-color: rgb(var(--vinisto-color-lighter-green));
+  font-weight: 400;
+}
+
+.active::after,
+.tab:hover::after {
+  content: '';
+  display: block;
+  width: calc(100% + 0.125rem);
+  height: 0.125rem;
+  background-color: rgb(var(--vinisto-color-green));
+  position: absolute;
+  bottom: -0.0625rem;
+  left: -0.0625rem;
+}
+
+.name {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+	float: left;
+	text-align: right;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+}
+

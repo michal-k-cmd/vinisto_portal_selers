@@ -1,0 +1,20 @@
+.issueContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 10px;
+  background-color: #fff3cd; /* Light yellow background */
+  border: 1px solid #ffeeba; /* Light yellow border */
+  border-radius: 4px;
+  margin-block: 1rem;
+}
+
+.issueMessage {
+  margin-bottom: 0;
+  color: #72580a; /* Dark yellow text */
+}
+
+.issueIcon {
+  width: 2rem;
+  height: 2rem;
+}

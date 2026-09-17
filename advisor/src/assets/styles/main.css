@@ -1,0 +1,10 @@
+*,
+:after,
+:before {
+	box-sizing: border-box;
+}
+
+button {
+	color: rgb(var(--vinisto-color-black));
+	padding: 0;
+}

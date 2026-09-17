@@ -1,0 +1,53 @@
+.form {
+	margin-top: 1.25rem;
+}
+
+.submitButton {
+	width: 100%;
+	border-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-green));
+	background-color: rgb(var(--vinisto-color-white));
+	padding: 0.8125rem;
+	font-size: 1.125rem;
+	line-height: 1.25rem;
+}
+
+.submitButton:hover {
+	border-color: rgb(var(--vinisto-color-green-hover));
+	color: rgb(var(--vinisto-color-green-hover));
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.label.label {
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin: 0 0 0.5rem 0;
+}
+
+.input.input {
+	border: 1px solid rgb(var(--vinisto-color-white));
+	border-radius: 0.3125rem;
+}
+
+.input.input::placeholder {
+	font-size: 0.75rem;
+	color: rbg(var(--vinisto-color-lighter-gray2));
+}
+
+.input.input:focus {
+	border-color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.wrapper.wrapper {
+	margin-bottom: 2rem;
+}
+
+.wrapper.wrapper.email {
+	margin-bottom: 1.25rem;
+}
+
+@media (max-width: 991.98px) {
+	.label.label {
+		font-size: 0.875rem !important;
+	}
+}

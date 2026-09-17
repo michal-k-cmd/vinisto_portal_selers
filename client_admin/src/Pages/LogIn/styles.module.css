@@ -1,0 +1,43 @@
+.oauthWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 1rem;
+	gap: 1rem;
+}
+
+.oauthTextWrapper {
+	width: 100%;
+	position: relative;
+	text-align: center;
+}
+
+.oauthTextWrapper > span {
+	font-size: 0.875rem;
+	color: rgb(var(--vinisto-color-dark-gray));
+	background-color: white;
+	padding: 0 0.5rem;
+	position: relative;
+}
+
+.oauthTextWrapper::before {
+	content: '';
+	position: absolute;
+	height: 0.0625rem;
+	width: 100%;
+	background-color: rgb(var(--vinisto-color-dark-gray));
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.oauthButtonsWrapper {
+	display: flex;
+	gap: 1rem;
+	width: 100%;
+}
+
+.oauthButtonsWrapper > button {
+	flex: 1;
+	border-radius: var(--vinisto-radius-small);
+}

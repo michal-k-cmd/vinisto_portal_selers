@@ -1,0 +1,25 @@
+.price {
+	text-decoration: line-through;
+	font-size: 0.8125rem;
+}
+
+.discountPrice {
+	color: red;
+	font-size: 1rem;
+	font-weight: 700;
+}
+
+.percentageDiscount {
+	font-size: 0.875rem;
+}
+
+.discountPercentage {
+	margin-inline-start: 0.25rem;
+	font-family: var(--font-family-ubuntu);
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+	width: fit-content;
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+	padding: 0.15rem 0.3rem;
+}

@@ -1,0 +1,11 @@
+.avatar {
+  color: rgba(var(--vinisto-color-white), 1);
+  width: var(--size);
+  min-width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  font-size: var(--fontSize);
+  font-weight: bold;
+  text-align: center;
+  border-radius: 100%;
+}

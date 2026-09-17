@@ -1,0 +1,16 @@
+.wrapper {
+	flex-grow: 1;
+}
+
+.crossed {
+	text-decoration: line-through;
+}
+
+.discount {
+	color: red;
+	font-weight: bold;
+}
+
+.bg_warning {
+	background-color: rgba(var(--vinisto-color-flag-warning), 0.1);
+}

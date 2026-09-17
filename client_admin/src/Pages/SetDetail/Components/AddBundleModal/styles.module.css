@@ -1,0 +1,26 @@
+.modalDialog {
+	max-width: 1400px !important;
+}
+
+.searchWrapper {
+	padding: 0 1rem;
+}
+
+.input {
+	width: 100%;
+	font-size: 1rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid gray;
+}
+
+.productImage {
+	display: flex;
+	justify-content: center;
+}
+
+.productImage img {
+	height: 60px;
+	width: 60px;
+	object-fit: contain;
+}

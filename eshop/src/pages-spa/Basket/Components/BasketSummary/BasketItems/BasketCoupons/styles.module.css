@@ -1,0 +1,12 @@
+.coupon {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 0.625rem;
+	padding: 0.25rem 0.625rem 0.75rem 0.25rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 0.875rem;
+}
+
+.coupon:not(:last-child) {
+	border-bottom: 1px solid rgb(var(--vinisto-color-lighter-gray));
+}

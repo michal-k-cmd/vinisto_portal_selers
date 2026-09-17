@@ -1,0 +1,25 @@
+.linkWidgetContainer {
+	/* To prevent layout shift */
+	min-height: 123px;
+}
+
+@media screen and (max-width: 1035.98px) {
+	.linkWidgetContainer {
+		/* To prevent layout shift */
+		min-height: 190px;
+	}
+}
+
+@media screen and (max-width: 767.98px) {
+	.linkWidgetContainer {
+		/* To prevent layout shift */
+		min-height: 257px;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.linkWidgetContainer {
+		/* To prevent layout shift */
+		min-height: 459px;
+	}
+}

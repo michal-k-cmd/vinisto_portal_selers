@@ -1,0 +1,266 @@
+.itemWrap {
+	--toggle-size: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0.625rem 0.625rem 0.75rem;
+	border-top: 1px solid rgb(var(--vinisto-color-lighter-gray));
+	transition: background-color 0.2s linear;
+}
+
+@media (min-width: 1200px) {
+	.itemWrap:hover {
+		background-color: rgb(var(--vinisto-color-lighter-gray));
+	}
+}
+
+.item {
+	display: grid;
+	grid-template-columns: 5.125rem 1fr 7.5rem 9.125rem 8.5rem 0;
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	grid-row-gap: 0px;
+	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.item.userDefinedBasketItem {
+		grid-template-columns: 5.125rem 1fr 7.5rem 9.125rem 8.5rem 1fr 0;
+	}
+}
+
+.imageWrap {
+	display: block;
+	width: 4rem;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	min-height: 80px;
+}
+
+.infoWrap {
+	min-width: 0;
+	padding-right: 1.125rem;
+}
+
+.infoWrap > div:last-child {
+	margin-bottom: 0;
+}
+
+.name {
+	display: block;
+	font-size: 1rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0.6875rem;
+}
+
+.name.smallMarginBottom {
+	margin-bottom: 0.25rem;
+}
+
+.info {
+	color: rgb(var(--vinisto-color-darker-gray));
+	line-height: 0.75rem;
+	margin-bottom: 0.8125rem;
+}
+
+.flagWrap {
+	display: inline-block;
+	margin-right: 0.3125rem;
+	vertical-align: middle;
+}
+
+.flagWrap img {
+	border-radius: 0.1875rem;
+	width: 1rem;
+	height: 0.75rem;
+}
+
+.producerName {
+	font-size: 0.625rem;
+	font-weight: 300;
+}
+
+.sellerSeparator {
+	margin: 0 0.375rem;
+}
+
+.sellerName {
+	font-size: 0.5625rem;
+}
+
+.labels {
+	display: flex;
+	gap: 0.3125rem;
+	flex-wrap: wrap;
+	margin-bottom: 0.3125rem;
+}
+
+.label {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.5625rem;
+	line-height: 1;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-lighter-green));
+	padding: 0.1875rem 0.5625rem;
+}
+
+.unitPrices {
+	width: 7.5rem;
+}
+
+.quantityWrap {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: center;
+	padding: 0 1.125rem 0 2.25rem;
+}
+
+.totalPrices {
+	position: relative;
+	width: 8.5rem;
+}
+
+.actionsWrap {
+	width: 0;
+	position: relative;
+	align-self: flex-start;
+}
+
+.actionToggle {
+	width: var(--toggle-size);
+	height: var(--toggle-size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-lighter-gray2));
+	padding: 0.1875rem 0.125rem 0.125rem;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.actionToggle path {
+	stroke: rgb(var(--vinisto-color-darker-gray));
+	transition: stroke 0.2s linear;
+}
+
+.actionToggle:hover path,
+.actionToggle.opened path {
+	stroke: rgb(var(--vinisto-color-green));
+}
+
+.actionToggle svg {
+	transition: rotate 0.2s linear;
+}
+
+.actionToggle.opened svg {
+	rotate: 180deg;
+}
+
+.addToBasketButton {
+	margin-inline: 1rem;
+	padding-inline: 2rem !important;
+	max-width: fit-content;
+	justify-self: center;
+	white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+	.item.manyBadges .totalPrices {
+		text-align: right;
+		margin-top: var(--toggle-size);
+	}
+}
+
+@media (max-width: 767.98px) {
+	.addToBasketButton {
+		display: none;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.actionToggle {
+		--toggle-size: 1.625rem;
+	}
+
+	.itemWrap {
+		border: 1px solid rgb(var(--vinisto-color-lighter-gray));
+		margin-bottom: 0.625rem;
+	}
+
+	.itemWrap:last-of-type {
+		margin-bottom: 0;
+	}
+
+	.unitPrices {
+		display: none;
+	}
+
+	.item {
+		width: 100%;
+		grid-template-columns: 4.5625rem repeat(2, 1fr);
+		grid-template-rows: repeat(2, auto);
+		grid-row-gap: 0.75rem;
+	}
+
+	.imageWrap {
+		grid-area: 1 / 1 / 3 / 2;
+		align-self: start;
+	}
+
+	.infoWrap {
+		grid-area: 1 / 2 / 2 / 4;
+		padding: 0;
+		align-self: start;
+	}
+
+	.name {
+		margin-bottom: 0.375rem;
+		padding-right: 1.75rem;
+		font-size: 0.875rem;
+	}
+
+	.actionsWrap {
+		grid-area: 1 / 3 / 2 / 4;
+		justify-self: end;
+	}
+
+	.quantityWrap {
+		grid-area: 2 / 2 / 3 / 3;
+		align-self: baseline;
+		justify-self: start;
+		padding: 0;
+		width: auto;
+	}
+
+	.totalPrices {
+		grid-area: 2 / 3 / 3 / 4;
+		align-self: baseline;
+		justify-self: end;
+		width: auto;
+	}
+}
+
+.warehouseId {
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 0.625rem;
+	font-weight: 300;
+	font-family: var(--font-family-roboto);
+}
+
+:is(.name, .imageWrap, .actionToggle):focus-visible {
+	outline: 2px solid rgba(var(--vinisto-color-green), 0.75);
+}
+
+:is(.imageWrap, .name)[href=""] {
+	cursor: default;
+}

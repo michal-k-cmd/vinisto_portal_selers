@@ -1,0 +1,146 @@
+.imgWrap {
+	text-align: center;
+	margin-bottom: 1.25rem;
+}
+
+.imgWrap img {
+	width: 7.75rem;
+	height: auto;
+	object-fit: contain;
+}
+
+.heading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.25rem;
+	font-weight: 300;
+	text-align: center;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 1.25rem;
+}
+
+.steps {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto 1.25rem auto;
+	width: 100%;
+	max-width: 400px;
+}
+
+.steps li {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	margin-bottom: 0.625rem;
+}
+
+.steps li:last-child {
+	margin-bottom: 0;
+}
+
+.stepNumber {
+	--step-size: 2.625rem;
+	flex: 0 0 var(--step-size);
+	width: var(--step-size);
+	height: var(--step-size);
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.25rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-green));
+	padding: 0.25rem;
+	border: 1px solid rgb(var(--vinisto-color-green));
+	border-radius: 50%;
+	display: inline-grid;
+	place-items: center;
+}
+
+.stepText {
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.green {
+	color: rgb(var(--vinisto-color-green));
+	font-weight: 700;
+}
+
+.wine {
+	color: rgb(var(--vinisto-color-wine));
+}
+
+.buttons {
+	text-align: center;
+	margin-bottom: 0.625rem;
+}
+
+.buttonClose {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.9375rem;
+	color: rgb(var(--vinisto-color-green));
+	border: 1px solid rgb(var(--vinisto-color-green));
+	padding: 0.5625rem;
+	min-width: 8.125rem;
+	margin-right: 0.625rem;
+	transition: background-color 300ms ease-out, color 300ms ease-out,
+		border 300ms ease-out;
+}
+
+.buttonClose:hover {
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color-green-hover));
+	border: 1px solid rgb(var(--vinisto-color-green-hover));
+}
+
+.buttonLogin {
+	display: inline-block;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.9375rem;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green));
+	border: 1px solid rgb(var(--vinisto-color-green));
+	padding: 0.5625rem;
+	min-width: 8.125rem;
+	text-transform: uppercase;
+	transition: background-color 300ms ease-out, color 300ms ease-out,
+		border 300ms ease-out;
+}
+
+.buttonLogin:hover {
+	background-color: rgb(var(--vinisto-color-green-hover));
+	border: 1px solid rgb(var(--vinisto-color-green-hover));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.detailsLink {
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-green));
+	text-align: center;
+	margin: 0 auto 1.25rem;
+}
+
+@media (max-width: 575.98px) {
+	.buttons {
+		display: flex;
+		flex-direction: column-reverse;
+		align-items: center;
+		gap: 0.625rem;
+		margin-bottom: 0.625rem;
+	}
+
+	.buttonClose {
+		margin-right: 0;
+		width: 100%;
+		max-width: 15.5rem;
+	}
+
+	.buttonLogin {
+		width: 100%;
+		max-width: 15.5rem;
+	}
+}

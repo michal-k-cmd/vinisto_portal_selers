@@ -1,0 +1,13 @@
+const notificationsConfig = {
+	autoClose: 2500,
+	hideProgressBar: false,
+	newestOnTop: false,
+	closeOnClick: false,
+	rtl: false,
+	pauseOnFocusLoss: true,
+	draggable: false,
+	pauseOnHover: true,
+	closeButton: true,
+};
+
+export default notificationsConfig;

@@ -1,0 +1,14 @@
+export enum SEARCH_ITEM_TYPE {
+	PHRASE,
+	BUNDLE,
+	CATEGORY,
+	WINERY,
+	ARTICLE,
+	USER,
+}
+
+export const NOT_SELECTED = -1;
+
+export const RECOMMENDED_CAROUSEL_ID = '6620fc5668195803f9818ea0';
+
+export const MIN_SEARCH_LENGTH = 3;

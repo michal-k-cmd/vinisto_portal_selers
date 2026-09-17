@@ -1,0 +1,184 @@
+.productWrapper {
+  background-color: transparent;
+  border: none;
+  display: flex !important;
+  align-items: flex-end;
+  height: 240px;
+  padding-top: 80px;
+  text-align: left;
+  max-width: 280px;
+}
+
+.productWrapperInactive {
+  align-items: center;
+  width: 21px;
+}
+
+.productSkeleton {
+  min-width: 160px;
+
+  @media (min-width: 420px) {
+    min-width: 220px;
+  }
+}
+
+.productWrapperOverflow {
+  background-color: rgb(var(--vinisto-color-white));
+  width: 100%;
+}
+
+.productWrapperOverflowInactive {
+  background-color: transparent;
+}
+
+.productsWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.productInfo {
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.productInfoInactive {
+  width: 0px;
+}
+
+.productName {
+  font-family: var(--font-family-roboto);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  width: 186px;
+}
+
+.priceAddToCartAnimatedWrapper {
+  display: flex;
+  padding-right: 12px;
+  margin-bottom: 12px;
+}
+
+.priceAddToCartAnimatedWrapper,
+.productInfoAnimationWrapper {
+  transition: transform 0.24s linear;
+}
+
+.priceAddToCartAnimatedWrapperInactive,
+.productInfoAnimationWrapperInactive {
+  transform: translateX(-100%);
+}
+
+.productNameSkeleton {
+  margin-top: 3px;
+}
+
+.productSpecifications,
+.productDescription {
+  font-family: var(--font-family-roboto);
+  font-size: 0.5rem;
+  margin-top: 0.5rem;
+  width: 186px;
+}
+
+.productDescription {
+  line-height: 1.2;
+  max-height: calc(calc(0.5rem * 1.2) * 4);
+  overflow: hidden;
+  margin-right: 0.25rem;
+
+  @supports (-webkit-line-clamp: 4) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: initial;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.priceAddToCart {
+  overflow: hidden;
+}
+
+.priceAddToCartInactive {
+  width: 0px;
+}
+
+.productPrices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-width: 74px;
+}
+
+.productPrice {
+  font-family: var(--font-family-ubuntu);
+  font-weight: 700;
+  font-size: 13px;
+  color: rgb(var(--vinisto-color-red));
+	-webkit-text-fill-color: rgb(var(--vinisto-color-red));
+}
+
+.productPriceOriginal {
+  display: block;
+  font-size: 8px;
+  font-weight: 400;
+  text-decoration: line-through;
+  text-align: center;
+}
+
+.productPriceNoVat {
+  font-family: var(--font-family-ubuntu);
+  font-size: 7px;
+}
+
+.addToCart {
+  height: 30px;
+  width: 100%;
+}
+
+.productThumbnail {
+  display: flex;
+  justify-content: center;
+  width: 42px;
+  z-index: 2;
+}
+
+.productThumbnailInactive {
+  align-items: center;
+  width: 21px;
+}
+
+.productThumbnailSkeleton {
+  display: block !important;
+  margin-top: -30px !important;
+}
+
+.productThumbnailImg {
+  height: 148px;
+  margin-top: -20px;
+  transition: height 0.25s;
+}
+
+.productThumbnailImgInactive {
+  height: 85px;
+  transition: height 0.5s;
+}
+
+.thumbnailInfo {
+  cursor: pointer;
+  display: flex;
+  margin: 8px 12px 10px 16px;
+}
+
+.thumbnailInfoInactive {
+  margin: 0;
+}
+
+.quantityBoxWrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}

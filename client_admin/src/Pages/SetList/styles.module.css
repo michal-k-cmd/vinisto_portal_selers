@@ -1,0 +1,33 @@
+.mainHeading {
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin: 1.125rem;
+}
+
+.tabLink:global(.nav-link) {
+	--bs-nav-tabs-link-active-color: rgb(var(--vinisto-color));
+	--bs-nav-tabs-link-color: rgb(var(--vinisto-color-darker-gray));
+	--bs-nav-tabs-link-active-border-color: rgb(var(--vinisto-color-gold));
+	--bs-nav-link-hover-color: rgb(var(--vinisto-color));
+	--bs-nav-link-color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 1.125rem;
+	font-weight: 500;
+	padding: 0.6875rem 1rem 0.5625rem;
+	border-bottom: none;
+
+	@media screen and (max-width: 767.98px) {
+		font-size: 1rem;
+		padding: 0.5625rem 0.75rem 0.4375rem;
+	}
+}
+
+.tabLink:global(.active),
+.tabLink:hover {
+	border-bottom: 1px solid rgb(var(--vinisto-color-white)) !important;
+	margin-bottom: -1px;
+}
+
+.tabsNav:global(.nav-tabs) {
+	--bs-nav-tabs-border-color: rgb(var(--vinisto-color-gold));
+	padding: 0 1.125rem;
+}

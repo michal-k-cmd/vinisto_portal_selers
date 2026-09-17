@@ -1,0 +1,30 @@
+.tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+	border-bottom: 1px solid #dee2e6;
+}
+
+.tab {
+	padding: 0.625rem 1rem;
+	border: 0;
+	border-bottom: 0.1875rem solid transparent;
+	background: transparent;
+	color: #6c757d;
+}
+
+.tab:hover {
+	color: rgba(var(--vinisto-color), 1);
+}
+
+.activeTab {
+	border-bottom-color: rgba(var(--vinisto-color), 1);
+	color: rgba(var(--vinisto-color), 1);
+	font-weight: 600;
+}
+
+.tabContent {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}

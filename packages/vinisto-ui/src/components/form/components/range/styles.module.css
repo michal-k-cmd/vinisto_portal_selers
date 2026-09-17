@@ -1,0 +1,75 @@
+.component {
+	max-width: calc(100% - 1rem);
+	height: 1rem;
+	margin: auto 0.5rem;
+}
+
+.component :global(.rc-slider-rail) {
+	top: 0;
+	height: 100%;
+	background-color: rgb(var(--vinisto-color-darker-gray-white));
+	width: calc(100% + 2rem);
+	left: -1rem;
+}
+
+.component :global(.rc-slider-rail)::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0.5rem;
+	right: 0.5rem;
+	transform: translateY(-50%);
+	background-color: rgba(var(--vinisto-color-darker-gray), 0.25);
+	height: 2px;
+	width: calc(100% - 1rem);
+	z-index: 1;
+}
+
+.component :global(.rc-slider-track) {
+	display: block;
+	position: absolute;
+	left: 0.5rem;
+	right: 0.5rem;
+	top: 50% !important;
+	transform: translateY(-50%);
+	background-color: rgb(var(--vinisto-color-darker-gray));
+	height: 2px;
+	width: calc(100% - 1rem);
+	z-index: 2;
+}
+
+.component :global(.rc-slider-step),
+.component :global(.rc-slider-mark) {
+	display: none;
+}
+
+.component :global(.rc-slider-handle) {
+	background-color: rgb(var(--vinisto-color-darker-gray));
+	border-radius: 0;
+	border: none;
+	opacity: 1;
+	height: 1rem;
+	width: 1rem;
+	line-height: 0;
+	z-index: 2;
+}
+
+.component :global(.rc-slider-handle):focus-visible {
+	box-shadow: none;
+	outline: rgba(var(--vinisto-color-green), 0.75) solid 2px;	
+	outline-offset: 1px;
+}
+
+.component :global(.rc-slider-handle-dragging) {
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+
+.component:global(.rc-slider-disabled) {
+	background-color: transparent;
+}
+
+.component:global(.rc-slider-disabled .rc-slider-handle) {
+	background-color: rgba(var(--vinisto-color-lighter-gray2), 1);
+}

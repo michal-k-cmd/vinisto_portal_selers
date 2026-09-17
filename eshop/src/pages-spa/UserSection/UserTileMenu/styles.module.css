@@ -1,0 +1,86 @@
+.userTileMenuWrap {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.75rem;
+	margin-bottom: 1.5rem;
+}
+
+.userTileMenuLink {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	min-height: 2.875rem;
+	padding: 0.25rem 0.75rem;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 500;
+	background-color: rgba(var(--vinisto-color-green), 0.15);
+	color: rgb(var(--vinisto-color-darker-gray));
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.userTileMenuLink:hover {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.userTileMenuLink.active {
+	background-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.userTileMenuLink.active:not(.highlighted) svg {
+	filter: brightness(0) invert(1);
+	transition: filter 0.2s;
+}
+
+.userTileMenuLink.highlighted {
+	background-color: rgb(var(--vinisto-color-light-wine-gray));
+	color: rgb(var(--vinisto-color-wine));
+	border: 1px dashed rgb(var(--vinisto-color-wine));
+	border-radius: 0.3125rem;
+}
+
+.userTileMenuLink.highlighted.active {
+	background-color: rgb(var(--vinisto-color-wine));
+	color: rgb(var(--vinisto-color-white));
+	border: none;
+}
+
+.userTileMenuLink.clubCoupons {
+	color: rgb(var(--vinisto-color-wine-red));
+}
+
+.userTileMenuLink.clubCoupons:hover {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.userTileMenuLink.clubCoupons:hover span {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.userTileMenuLink.clubCoupons.active {
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.userTileMenuLink.clubCoupons.active span {
+	color: rgb(var(--vinisto-color-white));
+}
+
+@media (min-width: 1200px) {
+	.userTileMenuWrap {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 1rem;
+	}
+
+	.userTileMenuLink {
+		flex: 0 1 13.5rem;
+		font-size: 0.875rem;
+	}
+
+	.userTileMenuLink svg {
+		width: auto;
+		height: 1.75rem;
+	}
+}

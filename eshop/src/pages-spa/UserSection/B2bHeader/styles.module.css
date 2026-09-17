@@ -1,0 +1,12 @@
+.b2bHeaderContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+@media (min-width: 1200px) {
+	.b2bHeaderContainer {
+		flex-direction: row;
+		margin-bottom: 0.5rem;
+	}
+}

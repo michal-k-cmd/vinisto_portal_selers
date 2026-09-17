@@ -1,0 +1,8 @@
+.component {
+	margin-bottom: 0.75rem;
+}
+
+.withMinHeight {
+	/* To prevent layout shift on B2C */
+	min-height: 280px;
+}

@@ -1,0 +1,104 @@
+.modal-dialog {
+	max-width: 400px;
+}
+
+.modal-content {
+	border: none !important;
+}
+.modal-content .btn-primary {
+	width: 100%;
+}
+.modal-content .vinisto-modal__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+.modal-content .vinisto-modal__row .vinisto-modal__row-item,
+.modal-content .vinisto-modal__row .vinisto-radio-check,
+.modal-content .vinisto-modal__row .form-control {
+	display: flex;
+	align-items: center;
+	margin-left: 1px;
+}
+.modal-content .vinisto-modal__row .vinisto-modal__row-item,
+.modal-content .vinisto-modal__row .vinisto-radio-check,
+.modal-content .vinisto-modal__row .form-label {
+	margin-bottom: 0 !important;
+	margin-left: 0;
+}
+.modal-content .vinisto-modal__row .form-control {
+	margin: 0 5px;
+}
+.modal-content .vinisto-modal__row .date-picker-container,
+.modal-content .vinisto-modal__row .input-number-container {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+.modal-content .vinisto-modal__row .date-picker-container:last-child {
+	margin-left: 0.625rem;
+}
+.modal-content .vinisto-modal__row .input-number-container {
+	margin-left: -0.3rem;
+}
+.modal-content .form-label {
+	margin-left: 0;
+}
+
+.vinisto-popup__heading-wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid rgb(var(--vinisto-color-gold));
+	padding: 0 0.5rem 0.813rem;
+	margin-bottom: 0.5625rem;
+}
+
+.vinisto-popup__heading {
+	margin-bottom: 0;
+	color: rgb(var(--vinisto-color));
+	font-size: 1.5rem;
+	line-height: 2.188rem;
+}
+
+.vinisto-popup__close {
+	display: flex;
+	align-items: center;
+	opacity: 0.5;
+	transition: opacity 300ms ease-out;
+	cursor: pointer;
+}
+.vinisto-popup__close:hover {
+	opacity: 1;
+}
+
+.vinisto-popup__show-password {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	right: 0.625rem;
+	transform: translateY(-50%);
+	transition: opacity 300ms ease-out;
+	opacity: 0.5;
+}
+.vinisto-popup__show-password:hover {
+	opacity: 1;
+}
+
+.vinisto-btn.vinisto-popup__btn {
+	width: 100%;
+	white-space: nowrap;
+	background-color: rgb(var(--vinisto-color));
+	box-shadow: inset 1px 3px 6px 0 rgba(255, 255, 255, 0.25);
+	transition: box-shadow 0.3s ease-in-out;
+}
+.vinisto-btn.vinisto-popup__btn:hover {
+	box-shadow: inset 2px 2px 3px 0 rgba(255, 255, 255, 0.5);
+}
+
+.vinisto-popup__links {
+	display: flex;
+	justify-content: space-between;
+	margin: 1rem 0 0.25rem;
+}

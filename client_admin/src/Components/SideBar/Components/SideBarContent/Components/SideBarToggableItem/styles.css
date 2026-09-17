@@ -1,0 +1,107 @@
+.sidebar-toggable-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	width: 100%;
+	margin-top: 15px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	backdrop-filter: blur(0.8px);
+	-webkit-backdrop-filter: blur(0.8px);
+}
+
+.sidebar-toggable-item .toggle-click-panel {
+	display: flex;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	width: 100%;
+	height: 60px;
+	padding-left: 20px;
+	padding-right: 20px;
+	cursor: pointer;
+	opacity: 0.8;
+	transform: scale(1);
+	transition: all 400ms ease-in-out;
+}
+
+.sidebar-toggable-item .toggle-click-panel:hover {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	text-shadow: rgba(255, 255, 255, 0.4) 1px 0 10px;
+	opacity: 1;
+	transition: all 400ms ease-in-out;
+}
+
+.sidebar-toggable-item .toggle-click-panel .sidebar-toggable-item-icon {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	color: rgb(var(--vinisto-color-white));
+}
+
+.sidebar-toggable-item .toggle-click-panel .sidebar-toggable-item-title {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	display: flex;
+	flex: 1;
+	font-family: 'Roboto', sans-serif !important;
+	flex-direction: row;
+	justify-content: flex-start;
+	margin-left: 10px;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	color: rgb(var(--vinisto-color-white));
+	font-size: 14px;
+	text-align: left;
+	font-weight: 700;
+}
+
+.sidebar-toggable-item .toggle-click-panel .sidebar-toggable-item-icon-toggle {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	color: rgb(var(--vinisto-color-white));
+	margin-top: 4px;
+	font-size: 32px;
+}
+
+.sidebar-toggable-item .toggle-content-panel {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+	width: 90%;
+}
+
+.sidebar-toggable-item .toggle-content-panel > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	align-content: center;
+}

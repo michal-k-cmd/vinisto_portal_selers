@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="82.265" height="97" viewBox="0 0 82.265 97">
+    <g transform="translate(-395 -2575)">
+        <g transform="translate(395 2579)">
+            <path d="M12.983,33V73L47.623,93,82.264,73V33L47.623,13Z" fill="#280044"/>
+            <path d="M12.991,0,0,7.5v15L12.991,30l12.991-7.5V7.5Z" fill="#280044"/>
+        </g>
+        <text transform="translate(407 2602)" fill="#fff" font-size="26" font-family="Roboto-Bold, Roboto" font-weight="700">
+            <tspan x="-4.368" y="0">1</tspan>
+        </text>
+    </g>
+</svg>

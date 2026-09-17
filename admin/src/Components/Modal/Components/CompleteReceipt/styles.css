@@ -1,0 +1,22 @@
+.complete-receipt-modal__container {
+	min-width: 100% !important;
+}
+.complete-receipt-modal__container--render-form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.complete-receipt-modal__container--render-form--table {
+	width: 100%;
+}
+.complete-receipt-modal__container--render-form--file-upload {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.complete-receipt-modal__color--red {
+	color: red;
+}
+.complete-receipt-modal__color--green {
+	color: green;
+}

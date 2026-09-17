@@ -1,0 +1,28 @@
+.component {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	background-color: rgba(var(--vinisto-color-white), 1);
+	padding: 0.5rem;
+	padding-inline-start: 0.6rem;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+}
+
+@media (min-width: 1200px) {
+	.component {
+		font-size: 0.875rem;
+		font-weight: 400;
+		padding: 0.6875rem 0.75rem;
+	}
+}
+
+.emphasized,
+.doubleEmphasized {
+	font-weight: 700;
+}
+
+.doubleEmphasized {
+	color: rgb(var(--vinisto-color-wine-red));
+}

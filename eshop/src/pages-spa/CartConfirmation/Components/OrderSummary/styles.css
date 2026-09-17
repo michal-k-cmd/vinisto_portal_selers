@@ -1,0 +1,76 @@
+.vinisto-order-summary__addresses {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.vinisto-order-summary__addresses .vinisto-address {
+	font-family: var(--font-family-roboto);
+	border-radius: 0;
+	border: none;
+	font-size: 0.9375rem;
+	font-weight: 400;
+	gap: 0.1875rem;
+}
+
+.vinisto-order-summary__addresses .vinisto-address__header {
+	margin-bottom: 0.25rem;
+}
+
+.vinisto-order-summary__items.vinisto-cart__items.vinisto-user-orders__orders__order-body {
+	border-top: none;
+	border-bottom: none;
+	margin-top: 0;
+}
+
+.vinisto-order-summary__items.vinisto-cart__items.vinisto-user-orders__orders__order-body
+	.vinisto-cart__item::after {
+	display: none;
+}
+
+.vinisto-order-summary__items.vinisto-cart__items.vinisto-user-orders__orders__order-body
+	.vinisto-cart__item__price
+	.vinisto-user-orders__orders__order-body__item__prices {
+	text-align: right;
+}
+
+.vinisto-order-summary__items.vinisto-cart__items.vinisto-user-orders__orders__order-body
+	.vinisto-cart__item__price
+	.vinisto-user-orders__orders__order-body__item__prices__big-price {
+	color: rgb(var(--vinisto-color-red));
+	font-weight: 500;
+}
+
+.vinisto-order-summary__items.vinisto-cart__items.vinisto-user-orders__orders__order-body
+	.vinisto-cart__item__price
+	.vinisto-user-orders__orders__order-body__item__prices__total {
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.vinisto-order-summary__items.vinisto-cart__items.vinisto-user-orders__orders__order-body
+	.vinisto-user-orders__orders__order-body__item__prices__total {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 400;
+}
+
+.vinisto-order-summary__items--mobile.vinisto-user-orders__orders__order.vinisto-user-favorites--mobile.vinisto-crosssell--mobile.vinisto-cart__items--mobile {
+	border-top: none;
+	border-bottom: none;
+}
+
+.vinisto-order-summary__items--mobile.vinisto-user-orders__orders__order.vinisto-user-favorites--mobile.vinisto-crosssell--mobile.vinisto-cart__items--mobile
+	.vinisto-cart__item::after {
+	display: none;
+}
+
+@media (max-width: 1199.98px) {
+	.vinisto-order-summary__addresses .vinisto-address {
+		font-size: 0.75rem;
+	}
+
+	.vinisto-order-summary__addresses .vinisto-address__title {
+		font-size: 0.75rem;
+	}
+}

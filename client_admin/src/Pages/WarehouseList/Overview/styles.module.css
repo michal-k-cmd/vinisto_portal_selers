@@ -1,0 +1,43 @@
+.cardsWrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.card.card {
+	margin: 0;
+	padding: 1.5rem 1rem;
+}
+
+.caption {
+	position: relative;
+	font-size: 0.875rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0.5rem;
+}
+
+.value {
+	font-size: 2rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-black));
+}
+
+.highlighted {
+	color: #5b1a8f;
+}
+
+.notPaid {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.notPaidTooltip {
+	position: relative;
+}
+
+.notPaidTooltipContent.notPaidTooltipContent {
+	width: 15rem;
+}

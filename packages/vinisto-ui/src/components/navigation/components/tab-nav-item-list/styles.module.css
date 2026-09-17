@@ -1,0 +1,69 @@
+.component {
+	position: relative;
+}
+
+.tabs {
+	font-family: var(--font-family-ubuntu);
+	display: flex;
+	gap: 0;
+	overflow-x: scroll;
+	scrollbar-width: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tabs::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollButton {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.875rem;
+	height: 1.875rem;
+	background-color: rgba(var(--vinisto-color-white));
+	border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+	padding: 0;
+	cursor: pointer;
+	transition: background-color 0.3s linear;
+	z-index: 1;
+	color: rgba(var(--vinisto-color-green), 1);
+}
+
+.scrollButton.left {
+	left: 0;
+}
+
+.scrollButtonIcon {
+	max-height: 1rem;
+	width: auto;
+}
+
+.scrollButtonIcon.flipped {
+	transform: rotate(180deg);
+	transform-origin: center center;
+}
+
+.scrollButton.right {
+	right: 0;
+}
+
+.scrollButton:is(:hover, :focus, :active) {
+	background-color: rgba(var(--vinisto-color-green), 1);
+	color: rgba(var(--vinisto-color-white), 1);
+	border-color: transparent;
+}
+
+@media (min-width: 1400px) {
+	.scrollButton {
+		display: none;
+	}
+
+	.tabs {
+		overflow: unset;
+	}
+}

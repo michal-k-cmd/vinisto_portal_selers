@@ -1,0 +1,42 @@
+.admin-detail-item .admin-detail-icon {
+	height: 20px;
+	width: 22px;
+	min-width: 22px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	font-size: 16px !important;
+	color: rgb(57, 0, 68);
+}
+.admin-detail-item .admin-detail-label {
+	height: 40px;
+	min-width: 180px;
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+	align-self: flex-start;
+	padding-left: 10px;
+	font-size: 12px;
+	font-weight: bold;
+	align-items: flex-start;
+}
+.admin-detail-item .admin-detail-value {
+	min-width: 200px;
+	width: calc(100% - 166px);
+	padding-left: 5px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start;
+	align-self: flex-start;
+}
+.admin-detail-item .admin-detail-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

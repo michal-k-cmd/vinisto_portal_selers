@@ -1,0 +1,10 @@
+.vinisto-admin-table__numeric-filter {
+	display: flex;
+	gap: 3px;
+}
+.vinisto-admin-table__numeric-filter > input {
+	max-width: 5rem;
+}
+.vinisto-admin-table__numeric-filter > input.error {
+	border: 1px solid red;
+}

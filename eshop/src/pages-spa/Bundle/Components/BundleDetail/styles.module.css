@@ -1,0 +1,492 @@
+.section {
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.bundle {
+	display: flex;
+	gap: 3.9375rem;
+	--vinisto-count-height: 2.25rem;
+}
+
+.bundleInfo {
+	flex: 1 1 100%;
+	font-weight: 400;
+}
+
+.bundleImageWrap {
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+	margin-bottom: 1rem;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+}
+
+.bundleImageWrap img {
+	max-width: 100%;
+}
+
+.addToFavorites {
+	position: absolute;
+	right: 0;
+	bottom: 1rem;
+	border: none;
+	background-color: rgb(var(--vinisto-color-lighter-gray));
+	padding: 0.5rem;
+}
+
+.bundleAbout {
+	margin-bottom: 0.75rem;
+	white-space: pre-wrap;
+	border-top: 1px solid rgba(var(--vinisto-color-darker-gray), 0.2);
+	padding-top: 0.75rem;
+}
+
+.bundleHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0.75rem;
+	text-align: center;
+}
+
+.bundleHeadingMain {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0.75rem;
+	text-align: center;
+}
+
+.bundleAboutText {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	text-align: center;
+	line-height: 1.3rem;
+}
+
+.bundleShopCol {
+	flex: 0 0 30.5rem;
+}
+
+.bundleVariety {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	margin-bottom: 0;
+	z-index: 9;
+}
+
+.bundleVariety :global(.vinisto-wine__variety__text) {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	font-style: normal;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+}
+
+.bundleVariety :global(.vinisto-wine__variety) {
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+}
+
+.bundleVariety :global(.vinisto-wine__variety):hover {
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+}
+
+.bundleNameWrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 20px;
+}
+
+.bundleWarehouseId {
+	margin-top: 0.25rem;
+	font-size: 0.875rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-weight: 300;
+	display: inline-flex;
+	gap: 0.25rem;
+}
+
+@media (min-width: 1199.98px) {
+	.bundleWarehouseId {
+		margin-top: -0.5rem;
+		margin-bottom: 0.5rem;
+		font-size: 1rem;
+		display: block;
+	}
+}
+
+.bundleReview {
+	padding: 0.5rem 0;
+}
+
+.noteWrap {
+	background-color: rgb(var(--vinisto-color-lightest-green));
+	border: 1px solid rgb(var(--vinisto-color-darker-gray), 0.2);
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	padding: 2rem 1rem;
+	display: block;
+	position: relative;
+	left: -1rem;
+	width: calc(100% + 1rem);
+	margin: 1rem 0;
+}
+
+.noteWrap p {
+	font-size: 0.85rem;
+}
+
+@media (max-width: 1199.98px) {
+	.noteWrap {
+		left: auto;
+		width: auto;
+		margin-inline: -0.75rem;
+		padding: 1.25rem 0.75rem 0.75rem;
+		font-size: 0.75rem;
+	}
+}
+
+.noteHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.275rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	display: flex;
+}
+
+@media (max-width: 1199.98px) {
+	.noteHeading {
+		font-size: 1rem;
+	}
+}
+
+.noteBtn:global(.vinisto-btn) {
+	width: auto;
+	padding: 0.5rem 1rem;
+	white-space: nowrap;
+	font-size: 1rem;
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.noteBtn:global(.vinisto-btn):hover {
+	opacity: 0.85;
+}
+
+@media (min-width: 1200px) {
+	.bundleNameWrapper {
+		margin-bottom: 1rem;
+	}
+}
+
+.bundleName {
+	display: inline;
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.875rem;
+	line-height: 1.1;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0;
+}
+
+.bundleShortDescription {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}
+
+.bundleLabels {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+
+.bundleLabels.bundleLabelsDesktop {
+	position: absolute;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 0.2rem;
+	top: 0.5rem;
+}
+
+.bundleLabels .bundleLabel {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	padding: 0.25rem 0.5rem;
+	opacity: 1;
+}
+
+.bundleLabelsMobile {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0.5rem 0 0.75rem 0;
+}
+
+.bundleLabelsMobile .bundleLabel {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	padding: 0.125rem 0.5rem;
+}
+
+.paymentWrapper {
+	margin: 0.75rem 0;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+}
+
+.paymentWrapperHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin-bottom: 0.75rem;
+}
+
+.paymentMethods {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+}
+
+.motivationWrap {
+	margin: 1.5rem 0;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+}
+
+.otherSellersHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 500;
+	border-top: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+	padding-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.bundleRating {
+	font-family: var(--font-family-ubuntu);
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
+	font-weight: 400;
+	font-style: italic;
+}
+
+.bundleRatingCount {
+	margin-left: 0.375rem;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.infoBox {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 1rem 2rem;
+	max-width: 12.5rem;
+	top: 2rem;
+}
+
+.quickLinks {
+	padding: 1rem 0;
+}
+
+.linkWidgets {
+	box-shadow: 1px 2px 1px rgba(170, 187, 176, 0.25);
+	transition: background-color 0.2s ease;
+}
+
+.linkWidgets:active {
+	box-shadow: 1px 2px 1px rgba(170, 187, 176, 0.25) inset;
+}
+
+.ratingWrap {
+	position: relative;
+	display: flex;
+	margin-bottom: 0.5rem;
+}
+
+.mobileShopBoxFloating {
+	position: fixed;
+	bottom: calc(var(--vinisto-bottom-navigation-height) - 1px);
+	color: rgb(var(--vinisto-color-white));
+	flex: 0 0 auto;
+	min-width: 150px;
+	overflow: hidden;
+	width: 100%;
+	box-shadow: 0px -3px 6px rgba(0, 0, 0, 0.16);
+	z-index: 75;
+}
+
+.mobileShopBoxFloating :global(.navbar-nav) {
+	background-color: rgb(var(--vinisto-color-white));
+	padding: 0 1rem;
+}
+
+.mobileShopBoxFloating :global(.navbar-nav) :global(.nav-item) {
+	border-bottom: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+}
+
+.mobileShopBoxFloating :global(.navbar-nav) :global(.nav-link) {
+	font-size: 1rem;
+	padding: 0.6875rem 0.375rem;
+	line-height: var(--vinisto-line-height);
+}
+
+.mobileShopBoxFloating :global(.navbar-nav) :global(.nav-link.active) {
+	border-bottom: none;
+	font-weight: 500;
+}
+
+@media (max-width: 1199.98px) {
+	.bundle {
+		margin-bottom: 0;
+	}
+	.section > :global(.container) {
+		--bs-gutter-x: 0.75rem !important;
+	}
+
+	.bundleName {
+		font-size: 1.375rem;
+		padding: 0;
+	}
+
+	.bundleLabels {
+		gap: 0.5rem;
+	}
+
+	.bundleLabels .bundleLabel {
+		font-size: 0.625rem;
+	}
+
+	.bundleShortDescription {
+		font-size: 0.875rem;
+		padding: 0;
+		margin: 1rem 0;
+	}
+
+	.sellers {
+		width: 100%;
+		background-color: rgb(var(--vinisto-color-white));
+		color: rgb(var(--vinisto-color-darker-gray));
+		flex-direction: column;
+		max-height: calc(100vh - 150px);
+		overflow: auto;
+		overscroll-behavior: none;
+	}
+
+	.sellers.isOnlySeller {
+		display: flex;
+	}
+
+	.sellers.isOnlySeller :global(.vinisto-wine__count__wrap) {
+		margin-left: 0;
+	}
+
+	:global(.vinisto-user-section__menu--mobile__toggle.show) ~ .sellers {
+		display: flex;
+	}
+
+	.motivationAccordionWrapMobile {
+		border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+		margin-bottom: 1rem;
+	}
+
+	.paymentWrapperHeading {
+		font-size: 0.75rem;
+		font-weight: 500;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--vinisto-color-darker-gray));
+	}
+
+	.bundleAbout {
+		margin-bottom: 1.5rem;
+	}
+
+	.bundleAboutText {
+		font-size: 0.875rem;
+		line-height: 1.3rem;
+		margin: 0.75rem 0;
+	}
+
+	.bundleHeading {
+		font-size: 1.25rem;
+	}
+
+	.bundleRating {
+		font-size: 0.75rem;
+		margin-bottom: 0;
+	}
+
+	.bundleRatingCount {
+		margin-left: 0.25rem;
+	}
+
+	.bundleVariety :global(.vinisto-flag) {
+		width: 15px;
+		height: 10px;
+	}
+
+	.bundleVariety :global(.vinisto-wine__variety__text) {
+		font-size: 0.75rem;
+	}
+
+	.infoBox {
+		max-width: 150px;
+		padding: 0.75rem 1rem;
+		font-size: 0.875rem;
+	}
+
+	.paymentMethods {
+		margin-bottom: 0.75rem;
+	}
+
+	.deliveryMethods {
+		padding-bottom: 0.75rem;
+		margin-bottom: 0;
+	}
+
+	.deliveryMethods > label:not(:last-child) {
+		font-size: 0.75rem !important;
+	}
+
+	.bundleImageWrap {
+		margin-bottom: 1rem;
+	}
+
+	.giftsWrap {
+		padding: 1rem 0 1rem;
+	}
+
+	.reviewSection {
+		padding-top: 2rem;
+	}
+}
+
+@media (max-width: 1199.97px) {
+	.noteHeading {
+		font-size: 1.0625rem;
+	}
+
+	.noteWrap p {
+		font-size: 0.74375rem;
+	}
+}

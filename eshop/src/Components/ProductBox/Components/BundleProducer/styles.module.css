@@ -1,0 +1,5 @@
+.varietyText {
+	font-family: var(--font-family-roboto);
+	font-size: 0.625rem;
+	text-decoration: underline;
+}

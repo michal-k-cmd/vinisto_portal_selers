@@ -1,0 +1,31 @@
+.vinisto-registration-finish__heading {
+	font-size: 1.625rem;
+}
+
+.vinisto-registration-finish__wrap {
+	max-width: 512px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.vinisto-registration-finish__center {
+	text-align: center;
+}
+
+.vinisto-registration-finish__btn.vinisto-btn {
+	padding: 0.4375rem 1rem;
+}
+
+@media (max-width: 1199.98px) {
+	.vinisto-registration-finish {
+		max-width: 350px;
+		width: 100%;
+		margin: 0 auto;
+	}
+	.vinisto-registration-finish__heading {
+		font-size: 1rem;
+	}
+	.vinisto-registration-finish__btn.vinisto-btn {
+		width: 100%;
+	}
+}

@@ -1,0 +1,12 @@
+.postList {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(366px, 1fr));
+	gap: 2rem 2.6875rem;
+	padding-bottom: 2rem;
+}
+
+@media (max-width: 1399.98px) {
+	.postList {
+		gap: 1.5rem;
+	}
+}

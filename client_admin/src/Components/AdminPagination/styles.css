@@ -1,0 +1,67 @@
+.admin-pagination {
+	align-items: center;
+	margin-bottom: 1em;
+	padding: 0 1em;
+	gap: 1rem;
+}
+
+.admin-pagination__wrapper .page-item:first-child {
+	margin-right: auto;
+}
+
+.page-link {
+	min-width: 36px;
+	text-align: center;
+}
+
+.page-item .page-link {
+	font-weight: 700;
+	color: rgba(var(--vinisto-color), 1);
+}
+
+.page-item.active .page-link {
+	font-weight: 700;
+	background: linear-gradient(
+		15deg,
+		rgba(40, 0, 68, 1) 0%,
+		rgba(57, 0, 68, 1) 39%,
+		rgba(57, 0, 68, 1) 63%,
+		rgba(40, 0, 68, 1) 100%
+	) !important;
+}
+
+.pagination {
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	gap: 0.5em;
+}
+
+.page-item .page-link,
+.break .page-link,
+.previous > a,
+.next > a {
+	position: relative;
+	display: block;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+	border-radius: 5px;
+	color: rgba(var(--vinisto-color), 1);
+	text-decoration: none;
+	white-space: pre;
+}
+
+.page-item .page-link:hover,
+.break .page-link:hover,
+.previous > a:hover,
+.next > a:hover {
+	color: rgba(var(--vinisto-color), 1);
+}
+
+.page-item.disabled .page-link,
+.previous.disabled > a,
+.next.disabled > a {
+	color: rgba(var(--vinisto-color-darker-gray), 0.6);
+	pointer-events: none;
+	cursor: auto;
+}

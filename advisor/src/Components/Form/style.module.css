@@ -1,0 +1,280 @@
+.form {
+  position: relative;
+  height: 100%;
+}
+
+.form::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: rgba(var(--vinisto-color-white), 0.9);
+}
+
+.background_container {
+  position: fixed;
+  width: min(100vw, 420px);
+  background-size: cover;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  will-change: background-image;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.fieldset_group_wrapper {
+  color: rgb(var(--vinisto-color-darker-gray));
+	-webkit-text-fill-color: rgb(var(--vinisto-color-darker-gray));
+  font-family: var(--font-family-ubuntu);
+  will-change: transform;
+  transition: transform 0.5s ease;
+  display: flex;
+  overflow-x: hidden;
+  padding: 0;
+  width: calc(var(--step-width) * 6);
+}
+
+.fieldset_wrapper {
+  flex-shrink: 0;
+  width: var(--step-width);
+  margin: 0;
+  padding: 0;
+  border: none;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 420px) {
+  .fieldset_wrapper {
+    width: 420px;
+  }
+}
+
+.fieldset {
+  padding: 1rem 0.5rem;
+  margin: 0;
+  border: none;
+}
+
+.fieldset.active .radio_group,
+.fieldset.active .checkbox_group,
+.fieldset.passed .radio_group,
+.fieldset.passed .checkbox_group {
+  transform: translateX(0);
+  opacity: 1;
+  margin-bottom: 1rem;
+}
+
+.fieldset.passed .radio_group,
+.fieldset.passed .checkbox_group {
+  transition: none;
+}
+
+.radio_input,
+.checkbox_input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.radio_input:checked ~ label,
+.checkbox_input:checked ~ label {
+  background-color: rgb(var(--vinisto-color-green));
+  color: rgb(var(--vinisto-color-white));
+	-webkit-text-fill-color: rgb(var(--vinisto-color-white));
+  will-change: background-color;
+  transition: background-color 0.5s ease;
+}
+
+@media (hover: hover) {
+  .radio_input:not(:checked):hover ~ label,
+  .checkbox_input:not(:checked):hover ~ label {
+    background-color: rgba(var(--vinisto-color-green), 0.65);
+    color: rgb(var(--vinisto-color-white));
+		-webkit-text-fill-color: rgb(var(--vinisto-color-white));
+    will-change: background-color;
+    transition: background-color 0.5s ease;
+  }
+}
+
+.radio_input:checked ~ label::before,
+.checkbox_input:checked ~ label::before {
+  background-color: rgb(var(--vinisto-color-green));
+  box-shadow: inset 0 0 0 2px white;
+  will-change: background-color;
+  transition: background-color 0.5s ease;
+}
+
+.radio_input ~ label,
+.checkbox_input ~ label {
+  position: relative;
+}
+
+.radio_input ~ label::before,
+.checkbox_input ~ label::before {
+  content: '';
+  position: absolute;
+  background-color: rgb(var(--vinisto-color-white));
+	-webkit-text-fill-color: rgb(var(--vinisto-color-white));
+  left: 5px;
+  top: 5px;
+  display: inline-block;
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid rgb(var(--vinisto-color-darker-gray));
+}
+
+.radio_input ~ label::before {
+  border-radius: 50%;
+}
+
+.radio_label,
+.checkbox_label {
+  display: flex;
+  flex: 1;
+}
+
+.radio_label .label_heading,
+.checkbox_label .label_heading {
+  font-family: var(--font-family-roboto);
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.radio_label .label_description,
+.checkbox_label .label_description {
+  font-size: 0.75rem;
+  margin: 0;
+  font-family: var(--font-family-roboto);
+  line-height: 1.333;
+  font-style: italic;
+}
+
+.checkbox_group_wrapper,
+.radio_group_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1%;
+}
+
+.checkbox_group_wrapper.col_2,
+.radio_group_wrapper.col_2 {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.checkbox_group_wrapper.col_2 .checkbox_group,
+.checkbox_group_wrapper.col_2 .radio_group,
+.radio_group_wrapper.col_2 .radio_group {
+  width: 49%;
+  margin-bottom: 2%;
+}
+
+.checkbox_group_wrapper.col_2 label,
+.radio_group_wrapper.col_2 label {
+  flex-direction: column;
+}
+
+.checkbox_group_wrapper.col_2 .label_heading,
+.radio_group_wrapper.col_2 .label_heading,
+.checkbox_group_wrapper.col_2 .label_description,
+.radio_group_wrapper.col_2 .label_description {
+  text-align: center;
+}
+
+.checkbox_group_wrapper.col_2 img,
+.radio_group_wrapper.col_2 img {
+  margin: 0 auto;
+}
+
+.checkbox_group_wrapper.col_1 img,
+.radio_group_wrapper.col_1 img {
+  width: 80px;
+  height: 80px;
+  margin-right: 0.75rem;
+}
+
+.checkbox_group_wrapper.col_1 .radio_group,
+.radio_group_wrapper.col_1 .radio_group {
+  margin-bottom: 1rem;
+}
+
+.checkbox_group_wrapper.col_1 .label_heading,
+.radio_group_wrapper.col_1 .label_heading {
+  font-family: var(--font-family-ubuntu);
+  margin: 6px 0 3px;
+  font-weight: 500;
+}
+
+.radio_group_wrapper.col_2 img {
+  width: 100%;
+  height: auto;
+}
+
+.radio_group,
+.checkbox_group {
+  will-change: transform, opacity;
+  transform: translateX(6rem);
+  opacity: 0;
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+  transition-delay: 0;
+}
+
+.radio_group label,
+.checkbox_group label {
+  cursor: pointer;
+}
+
+.legend {
+	display: contents;
+}
+
+.legend_title {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.legend_description {
+  font-size: 0.875rem;
+  line-height: 1.1875rem;
+  font-family: var(--font-family-roboto);
+  font-style: italic;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bg_gradient .radio_input:checked ~ label,
+.bg_gradient .checkbox_input:checked ~ label {
+  background: rgb(var(--vinisto-color-green));
+  background: linear-gradient(
+    180deg,
+    rgba(var(--vinisto-color-green), 0) 40%,
+    rgba(var(--vinisto-color-green), 1) 100%
+  );
+}
+
+.img_invert .radio_input:checked ~ label > img,
+.img_invert .checkbox_input:checked ~ label > img {
+  filter: brightness(5) opacity(0.75);
+  /* To invert the colors on selected item images on 4th step */
+}
+
+.extra_paddings .label_description {
+  display: inline-block;
+  padding-bottom: 0.75rem;
+  padding-right: 0.75rem;
+}

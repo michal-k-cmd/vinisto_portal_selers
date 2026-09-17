@@ -1,0 +1,11 @@
+.card {
+	border-radius: var(--vinisto-radius-big);
+	background-color: #ffffff;
+	padding: 0.5rem 1rem;
+}
+
+@media (max-width: 1199.98px) {
+	.card {
+		padding: 0.5rem 0.75rem;
+	}
+}

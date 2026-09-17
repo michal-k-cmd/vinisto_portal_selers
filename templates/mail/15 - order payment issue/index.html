@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vinisto - potvrzení registrace</title>
+    <style>
+        a:hover {
+            text-decoration: underline !important;
+        }
+
+        a.btn:hover {
+            text-decoration: none !important;
+            background-color: rgba(104, 169, 16, .85) !important;
+        }
+
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0; font-family: Roboto, Arial, sans-serif;">
+    <header style="background-color: #280044; margin: 0; text-align: center; color: #ffffff; padding: 14px 15px;">
+        <a href="https://www.vinisto.cz/" style="display: inline-block;">
+            <img title="Vinisto" alt="Vinisto" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTIuNTk2IiBoZWlnaHQ9IjM1IiB2aWV3Qm94PSIwIDAgMTUyLjU5NiAzNSI+CiAgPGcgaWQ9Ikdyb3VwXzM5IiBkYXRhLW5hbWU9Ikdyb3VwIDM5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjI0LjcwMiAtMTIuNTAxKSI+CiAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlXzIiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDIiIHdpZHRoPSIyLjM5NCIgaGVpZ2h0PSIyNi4zMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2MS4wOTMgMjAuNjA0KSIgZmlsbD0iIzY4YTkxMCIvPgogICAgPGcgaWQ9Ikdyb3VwXzIiIGRhdGEtbmFtZT0iR3JvdXAgMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMSkiPgogICAgICA8ZyBpZD0iR3JvdXBfNDAiIGRhdGEtbmFtZT0iR3JvdXAgNDAiPgogICAgICAgIDxwYXRoIGlkPSJQYXRoXzEiIGRhdGEtbmFtZT0iUGF0aCAxIiBkPSJNMjkyLjI3MiwzMy4yYzAtNy4zNjktMi40NTYtMTEuMDIzLTguNTY3LTExLjAyMy0zLjc3OCwwLTEwLjQ1NiwyLjE0Mi0xMC40NTYsMTEuNzE2VjQ2LjkzM2gtMi4zOTRWMjAuNmgyLjM5NHY2LjNjMi4xNDItNS42MDYsNy41NTktNi44NjUsMTAuNzcyLTYuODY1LDcuNDk1LDAsMTAuNjQ1LDQuNzg3LDEwLjY0NSwxMy4xNjRWNDYuOTMzaC0yLjM5NFoiIGZpbGw9IiM2OGE5MTAiLz4KICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlXzMiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDMiIHdpZHRoPSIyLjM5NCIgaGVpZ2h0PSIyNi4zMjkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwMS43MjEgMjAuNjA0KSIgZmlsbD0iIzY4YTkxMCIvPgogICAgICAgIDxwYXRoIGlkPSJQYXRoXzIiIGRhdGEtbmFtZT0iUGF0aCAyIiBkPSJNMzI3Ljk4NiwyNC41NzNhMTQuMTA2LDE0LjEwNiwwLDAsMC03Ljg3NC0yLjMzMWMtMy4yNzUsMC03LjExOCwxLjEzNS03LjExOCw0LjUzNiwwLDcuNDk1LDE2LjgxOCwzLjI3NSwxNi44MTgsMTMuMTY0LDAsNS4xLTQuNiw3LjU1OS0xMC4xNDEsNy41NTlhMTguNzMsMTguNzMsMCwwLDEtMTAuMzkyLTMuMTQ5Yy40NC0uNTY3LDEuMi0xLjU3NSwxLjMyMi0xLjdhMTcuMDk0LDE3LjA5NCwwLDAsMCw5LjAwNywyLjcwOGM0LjUzNSwwLDcuODc0LTEuNyw3Ljg3NC01LjI5MSwwLTcuODEtMTYuNzU2LTMuNzc5LTE2Ljc1Ni0xMy4zNTMsMC00Ljg1LDQuOTc4LTYuNjEzLDkuMzg2LTYuNjEzYTE2LjMyLDE2LjMyLDAsMCwxLDguMjUxLDIuMloiIGZpbGw9IiM2OGE5MTAiLz4KICAgICAgICA8cGF0aCBpZD0iUGF0aF8zIiBkYXRhLW5hbWU9IlBhdGggMyIgZD0iTTMzNy4xMTksMzYuOTE5VjIyLjY4M2gtNS4xbC41NjYtMi4wNzloNC41MzZ2LTUuOTJsMi4zOTQtLjU2OFYyMC42aDguNDQxdjIuMDc5aC04LjQ0MXYxNC4zYzAsNy42ODQsMi45LDguNzU1LDguNzU1LDguMTI1bC0uNSwyLjE0MWMtNy4yNDQuNTY3LTEwLjY0NS0xLjc2My0xMC42NDUtMTAuMzI5IiBmaWxsPSIjNjhhOTEwIi8+CiAgICAgICAgPHBhdGggaWQ9IlBhdGhfNCIgZGF0YS1uYW1lPSJQYXRoIDQiIGQ9Ik0zNjIuODIsNDcuNWMtNy41LDAtMTMuNDgtNC44NS0xMy40OC0xMy42NjhzNS45ODMtMTMuNjY5LDEzLjQ4LTEzLjY2OVMzNzYuMywyNS4wMTQsMzc2LjMsMzMuOWMwLDguNzU1LTUuOTgzLDEzLjYtMTMuNDc4LDEzLjZtMC0yNS4yYy02LjE3MywwLTExLjE0OSw0LjAzMS0xMS4xNDksMTEuNTI4LDAsNy41NTgsNC45NzYsMTEuNTI2LDExLjE0OSwxMS41MjYsNi4yMzUsMCwxMS4wODUtMy45NjgsMTEuMDg1LTExLjQ2MywwLTcuNTYtNC44NS0xMS41OTEtMTEuMDg1LTExLjU5MSIgZmlsbD0iIzY4YTkxMCIvPgogICAgICAgIDxwYXRoIGlkPSJQYXRoXzUiIGRhdGEtbmFtZT0iUGF0aCA1IiBkPSJNMzAzLjM3OCwxMy44NTlsLjc4OS0uNjItMS4yMy0uNzI3LS4wMTgtLjAxMS0uMDIuMDExLTEuMzMxLjc1MmMtLjAzNy4wMTgtLjAyNS4wMTUtLjAyNy4wNDZsLS4wMTUsMS41Mjh2LjA0MmwuMDM1LjAxOCwxLjM1OC43LS4xLTEuNDUtLjkxLS42MzMsMS4wNi40ODhhLjA5MS4wOTEsMCwwLDEsLjA1Mi4wODhsLS4xLDEuNTA3LjY0NS0uMzczLjA2My0uMDM2Yy4xNjktLjEuNjIzLS4zNDcuNjI0LS4zNTFzLjAxMS0xLjA4OC4wMTQtMS40MjlaIiBmaWxsPSIjZmZmIi8+CiAgICAgICAgPHBhdGggaWQ9IlBhdGhfNiIgZGF0YS1uYW1lPSJQYXRoIDYiIGQ9Ik0yNjIuNzczLDEzLjg1OWwuNzg5LS42Mi0xLjIzLS43MjctLjAxOC0uMDExLS4wMi4wMTEtMS4zMzEuNzUyYy0uMDM3LjAxOC0uMDI1LjAxNS0uMDI3LjA0NmwtLjAxNSwxLjUyOHYuMDQybC4wMzUuMDE4LDEuMzU4LjctLjEtMS40NS0uOTEtLjYzMywxLjA2LjQ4OGEuMDkxLjA5MSwwLDAsMSwuMDUyLjA4OGwtLjEsMS41MDcuNjQ1LS4zNzMuMDYzLS4wMzZjLjE2OS0uMS42MjMtLjM0Ny42MjQtLjM1MXMuMDEtMS4wODguMDE0LTEuNDI5WiIgZmlsbD0iI2ZmZiIvPgogICAgICAgIDxwYXRoIGlkPSJQYXRoXzciIGRhdGEtbmFtZT0iUGF0aCA3IiBkPSJNMjUzLjcyNCwyMS4xNzhsLS45NDktLjU0OC0xNCwyNC4yNTQtMTQtMjQuMjU0LS45NDkuNTQ4VjIzLjM3bDEzLjA1NCwyMi42MSwxLjksMS4xLDEuOS0xLjEsMTMuMDU0LTIyLjYxWiIgZmlsbD0iIzY4YTkxMCIvPgogICAgICAgIDxwYXRoIGlkPSJQYXRoXzgiIGRhdGEtbmFtZT0iUGF0aCA4IiBkPSJNMjQ1Ljc2MSwyNi4xbC0uMTU4LTMuOTkzYS4xMDkuMTA5LDAsMCwwLS4wNTgtLjFsLTIuNjE0LTEuMzY0LDIuNDM5LDEuNTI3LS4xNDksMy41NjktMi42NzktMS45NTZWMjAuMzVsMi45NS0xLjcsMi44NDMsMS41MjUtMS42ODIsMS4zMzUsMS45MS0uOTQ3LjA4MywzLjMzNi0xLjQ4LDEuMDY4LDEuNzc0LS44LjA5NC0uMDQzLDAtLjEyNS4xLTMuODgsMC0uMTU5LS4xNS0uMDkzLTMuMy0yLjA0MS0uMi0uMTIyLS4yMTIuMTIyLTMuMTQ4LDEuODE5LTIuOTY2LTEuNzEtLjM5My01LjM4My0uNDExLDUuNjMtLjAxNy4yMjguMjIzLjEyOCwyLjk1OCwxLjcwNy0xLjU4NywxLjI2LDEuNzgyLS44ODR2My4xNGwtMi43LDEuNTYxYy0uMDM2LS44NTQtLjEzNC0zLjIxMy0uMTM0LTMuMjEzYS4xMDguMTA4LDAsMCwwLS4wNTgtLjFsLTIuNjE1LTEuMzY0LDIuNDM5LDEuNTI2LS4xMywzLjE1MS0yLjktMS42NzktLjIwNi0uMTE5LTMuMSwxLjhjLS4wNDUtMS4wNzgtLjEzMy0zLjItLjEzMy0zLjJhLjEwNy4xMDcsMCwwLDAtLjA1OC0uMUwyMjkuNSwyMC42NDVsMi40MzksMS41MjYtLjEzLDMuMTQ3LTIuNy0xLjU2M1YyMC4zNDFsMi45NTItMS44MjksMi45MjcsMS41OTEtMS43NjUsMS40LDIuMDMyLTEuMDA4LjE1NSwxLjU1OC4yLTEuOTQzLjAxLS4xLS4xMDgtLjA2Ni0zLjMxLTIuMDIxLS4xMzYtLjA4My0uMTU1LjA4M0wyMjguNSwxOS43NTZsLS4yMDYuMTExdjQuMzYybC4yMDUuMTE4LDMuMTYzLDEuODMyYy4wNiwxLjA4NS4yLDMuNjYyLjIxLDMuNzYybC4wOS4wNDEsMS43NzkuOC0xLjQ4My0xLjA2MS4yLTMuNTM5LDIuOTYxLTEuNzEzLDIuNzQ3LDEuNTg5LTEuNTc3LDEuMjUyLDEuNzc4LS44ODJ2My4xNTFsLTIuNjk0LDEuNTU0Yy0uMDM2LS44NDktLjEzNC0zLjIxOS0uMTM0LTMuMjE5YS4xMS4xMSwwLDAsMC0uMDU4LS4xbC0yLjYxNS0xLjM2NCwyLjQzOSwxLjUyNy0uMywzLjUzOXY0LjM2MmwuMjA2LjExMSwzLjQxOSwxLjgzMy4xNTUuMDgzLjEzNi0uMDgzLDMuMzEtMi4wMjEuMTA4LS4wNjYtLjAxMS0uMS0uMi0xLjg0MS0uMTc5LDEuNzE5TDIzOS4wMjgsMzcuMWMtLjAzLS43MDktLjE0LTMuMzU3LS4xNC0zLjM1N2EuMTA3LjEwNywwLDAsMC0uMDU4LS4xbC0yLjYxNS0xLjM2NCwyLjQzOSwxLjUyNi0uMTM1LDMuMjY2TDIzNS44MjQsMzUuNFYzMS45ODhsMi45NTYtMS43LDIuODM1LDEuNTIxLTEuNjc3LDEuMzMxLDIuMi0xLjA0OS4xMzctLjA4NCwzLjMtMi4wMjEuMTA4LS4wNjUtLjAxMS0uMS0uMTk0LTEuOTQyLS4xODIsMS44Mi0yLjkxNCwxLjU4OGMtLjAzLS43MTgtLjEzOS0zLjM0OS0uMTM5LTMuMzQ5YS4xMS4xMSwwLDAsMC0uMDU5LS4xbC0yLjYxNC0xLjM2NCwyLjQzOSwxLjUyNi0uMTM1LDMuMjYtMi43LTEuNjY4VjI2LjE3MWwyLjk3NS0xLjcyLDMuMDQ5LDEuMzU5TDI0My4zLDI3LjMyNloiIGZpbGw9IiNmZmYiLz4KICAgICAgICA8cGF0aCBpZD0iUGF0aF85IiBkYXRhLW5hbWU9IlBhdGggOSIgZD0iTTIyOC41NzgsMzUuODU0bC0uMzk0LS4yMjhMMjIzLjcsMzguNjY5bDQuODc2LTIuMzZaIiBmaWxsPSIjZmZmIi8+CiAgICAgICAgPHBhdGggaWQ9IlBhdGhfMTAiIGRhdGEtbmFtZT0iUGF0aCAxMCIgZD0iTTI0OS4zODQsMzUuNjIzbC0uMzk0LjIyOHYuNDU1bDQuODc2LDIuMzZaIiBmaWxsPSIjZmZmIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPgo=" />
+        </a>
+        <div style="text-align: center; margin-top: 12px;">
+            <a href="https://www.linknaakcninabidku.cz" style="color: #ffffff; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0; font-weight: lighter; border-right: 1px solid #C7A859; padding-right: 10px; margin-right: 10px;">Akční nabídka</a>
+            <a href="https://www.linknaakcninabidku.cz" style="color: #ffffff; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0; font-weight: lighter; border-right: 1px solid #C7A859; padding-right: 10px; margin-right: 10px;">Červená vína</a>
+            <a href="https://www.linknaakcninabidku.cz" style="color: #ffffff; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0; font-weight: lighter;">Bílá vína</a>
+        </div>
+    </header>
+    <div style="background-color: #ffffff; margin: 0; text-align: center; padding: 26px 15px 24px;">
+        <div style="max-width: 536px; width: 100%; margin: auto;">
+            <div>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">Vážený zákazníku, při platbě Vaší objednávky</p>
+                <p style="font-size: 16px; line-height: 21px; margin: 0; font-weight: bold;">č. 94879949194</p>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">bohužel došlo k <span style="color: #ff0000;">chybě</span>.</p>
+                <br/>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">Opakujte prosím platbu. Dokud nebude</p>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">objednávka uhrazena, <span style="color: #ff0000;">nemůžeme ji expedovat</span>.</p>
+            </div>
+            <div style="padding-top: 24px;">
+                <a href="https://www.sledovatstav.cz" class="btn" style="display: inline-block; color: #ffffff; background-color: #68A910; border-radius: 5px; padding: 4px 16px; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0 10px;">Zaplatit objednávku online</a>
+                <a href="https://www.sledovatstav.cz" class="btn" style="display: inline-block; color: #ffffff; background-color: #280044; border-radius: 5px; padding: 4px 16px; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0 10px;">Sledovat stav</a>
+            </div>
+            <h2 style="text-align: left; color: #280044; font-size: 16px; line-height: 21px; font-weight: 500; padding: 9px 0; border-bottom: 1px solid #C7A859; margin-top: 24px;">Údaje pro platbu převodem</h2>
+            <div style="text-align: left; font-size: 14px; line-height: 19px;">
+                Číslo účtu: <span style="font-weight: 500;">xxx-xxxxxxxxxxx/xxx</span>
+            </div>
+            <div style="text-align: left; font-size: 14px; line-height: 19px;">
+                Variabilní symbol: <span style="font-weight: 500;">94879949194</span>
+            </div>
+            <div style="text-align: left; font-size: 14px; line-height: 19px;">
+                Specifický symbol: <span style="font-weight: 500;">xxxx</span>
+            </div>
+            <div style="text-align: left; font-size: 14px; line-height: 19px;">
+                Částka: <span style="font-weight: 500;">4 446 Kč</span>
+            </div>
+            <h2 style="text-align: left; color: #280044; font-size: 16px; line-height: 21px; font-weight: 500; padding: 9px 0; border-bottom: 1px solid #C7A859; margin-top: 24px; padding-top: 0; margin-bottom: 0;">Vaše objednávka</h2>
+            <div style="padding: 12px 0; border-bottom: 1px solid rgba(40, 0, 68, .1); text-align: left;">
+                <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                    <tr>
+                        <td style="padding: 0 25px; width: 1px; white-space: nowrap;">
+                            <img src="./images/wine-bottle.png" height="60" alt="Sauvignon Blanc Fumé" />
+                        </td>
+                        <td style="padding: 0 10px;">
+                            <a href="https://www.odkaznaprodukt.cz" style="color: #280044; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0; font-weight: bolder;">Sauvignon Blanc Fumé</a>
+                            <p style="font-size: 12px; line-height: 16px; margin: 0;">3 ks</p>
+                        </td>
+                        <td style="padding: 0 20px 0 10px; width: 1px; white-space: nowrap; text-align: right;">
+                            <div style="font-size: 14px; line-height: 19px; font-weight: 500;">
+                                2 223 Kč
+                            </div>
+                            <div style="font-size: 12px; line-height: 16px;">
+                                bez DPH 1 836 Kč
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="padding: 12px 0; border-bottom: 1px solid rgba(40, 0, 68, .1); text-align: left;">
+                <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                    <tr>
+                        <td style="padding: 0 25px; width: 1px; white-space: nowrap;">
+                            <img src="./images/wine-bottle.png" height="60" alt="Sauvignon Blanc Fumé" />
+                        </td>
+                        <td style="padding: 0 10px;">
+                            <a href="https://www.odkaznaprodukt.cz" style="color: #280044; text-decoration: none; font-size: 14px; line-height: 19px; margin: 0; font-weight: bolder;">Sauvignon Blanc Fumé</a>
+                            <p style="font-size: 12px; line-height: 16px; margin: 0;">3 ks</p>
+                        </td>
+                        <td style="padding: 0 20px 0 10px; width: 1px; white-space: nowrap; text-align: right;">
+                            <div style="font-size: 14px; line-height: 19px; font-weight: 500;">
+                                2 223 Kč
+                            </div>
+                            <div style="font-size: 12px; line-height: 16px;">
+                                bez DPH 1 836 Kč
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="padding: 12px 0; border-bottom: 1px solid rgba(40, 0, 68, .1); text-align: left;">
+                <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                    <tr>
+                        <td style="padding: 0 25px; width: 1px; white-space: nowrap; font-size: 14px; line-height: 19px;">
+                            Osobní odběr - Cellarius, P4
+                        </td>
+                        <td style="padding: 0 20px 0 10px; width: 1px; white-space: nowrap; text-align: right;">
+                            <div style="font-size: 14px; line-height: 19px; font-weight: 500;">
+                                zdarma
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="padding: 12px 0; border-bottom: 1px solid rgba(40, 0, 68, .1); text-align: left;">
+                <table cellpadding="0" cellspacing="0" style="width: 100%;">
+                    <tr>
+                        <td style="padding: 0 25px; width: 1px; white-space: nowrap; font-size: 14px; line-height: 19px;">
+                            Platba - online kartou
+                        </td>
+                        <td style="font-size: 14px; line-height: 19px; color: #ff0000; text-align: center;">
+                            neuhrazeno
+                        </td>
+                        <td style="padding: 0 20px 0 10px; width: 1px; white-space: nowrap; text-align: right;">
+                            <div style="font-size: 14px; line-height: 19px; font-weight: 500;">
+                                zdarma
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="text-align: right; padding: 13px 20px 0;">
+                <div style="font-size: 12px; line-height: 16px;">Celkem <span style="font-size: 14px; line-height: 19px; font-weight: 500;">4 596 Kč</span></div>
+                <div style="font-size: 12px; line-height: 16px;">bez DPH 3 822 Kč</div>
+            </div>
+            <h2 style="text-align: left; color: #280044; font-size: 16px; line-height: 21px; font-weight: 500; padding: 9px 0; border-bottom: 1px solid #C7A859; margin-top: 24px; padding-top: 0;">Fakturační a dodací údaje</h2>
+            <div style="font-size: 14px; line-height: 19px; text-align: left;">
+                <span style="font-weight: 500;">Fakturační údaje:</span><br/>
+                Jméno Příjmení<br/>
+                e-mail<br/>
+                Telefon<br/>
+                Ulice<br/>
+                Město<br/>
+                PSČ
+            </div>
+            <div style="font-size: 14px; line-height: 19px; text-align: left; margin-top: 16px;">
+                <span style="font-weight: 500;">Dodací údaje:</span><br/>
+                Jméno Příjmení<br/>
+                e-mail<br/>
+                Telefon<br/>
+                Ulice<br/>
+                Město<br/>
+                PSČ
+            </div>
+            <h2 style="text-align: left; color: #280044; font-size: 16px; line-height: 21px; font-weight: 500; padding: 9px 0; border-bottom: 1px solid #C7A859; margin-top: 24px; padding-top: 0;">Vaše poznámka</h2>
+            <div style="font-size: 14px; line-height: 19px; text-align: left;">
+                "Prosím o zabalení dvou lahví do jedné krabice, a zbylých lahví do druhé."
+            </div>
+            <div style="margin-top: 24px;">
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">V případě nesrovnalostí nás prosím kontaktujte</p>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">na <span style="font-weight: 500;">+ 420 987 654 321</span>, nebo <a href="mailto:pomoc@vinisto.cz" style="color: #000000; text-decoration: none; font-weight: 500">pomoc@vinisto.cz</a></p>
+                <br/>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">Děkujeme a přejeme Vám pěkný den,</p>
+                <p style="font-size: 14px; line-height: 19px; margin: 0;">Vaše Vinisto!</p>
+            </div>
+        </div>
+    </div>
+    <footer style="background-color: #280044; margin: 0; text-align: center; color: #ffffff; padding: 10px 15px;">
+        <div style="text-align: center;">
+            <a href="https://www.vinisto.cz/" style="display: inline-block;">
+                <img title="Vinisto" alt="Vinisto" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNi4yMDUiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAyNi4yMDUgMzAiPgogIDxnIGlkPSJHcm91cF8zOCIgZGF0YS1uYW1lPSJHcm91cCAzOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTI4Ni44OTggLTEwOTYuMDAxKSI+CiAgICA8cGF0aCBpZD0iUGF0aF8zMSIgZGF0YS1uYW1lPSJQYXRoIDMxIiBkPSJNMzEyLjk5LDE3LjVsLS44MjUtLjQ3NkwzMDAsMzguMSwyODcuODM0LDE3LjAyNWwtLjgyNS40NzZ2MS45MDVMMjk4LjM1LDM5LjA0OSwzMDAsNDBsMS42NDktLjk1MkwzMTIuOTksMTkuNFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMTA4NikiIGZpbGw9IiM2OGE5MTAiLz4KICAgIDxwYXRoIGlkPSJQYXRoXzMyIiBkYXRhLW5hbWU9IlBhdGggMzIiIGQ9Ik0zMDYuMDcyLDIxLjc4MWwtLjEzNy0zLjQ2OWEuMDk0LjA5NCwwLDAsMC0uMDUxLS4wODdsLTIuMjcxLTEuMTg1LDIuMTE5LDEuMzI2LS4xMjksMy4xLTIuMzI4LTEuN1YxNi43ODJsMi41NjMtMS40ODEsMi40NzEsMS4zMjUtMS40NjIsMS4xNjEsMS42NTktLjgyMy4wNzMsMi45LTEuMjg2LjkyOCwxLjU0MS0uNy4wODItLjAzNywwLS4xMDkuMDg1LTMuMzcsMC0uMTM5LS4xMy0uMDgxLTIuODY2LTEuNzczLS4xNzItLjEwNi0uMTg1LjEwNy0yLjczNSwxLjU3OS0yLjU3Ni0xLjQ4NkwzMDAsMTBsLS4zNTcsNC44OTItLjAxNC4yLjE5My4xMTEsMi41NywxLjQ4Mi0xLjM3OSwxLjA5NSwxLjU0OC0uNzY4VjE5Ljc0bC0yLjM0NCwxLjM1NWMtLjAzMS0uNzQyLS4xMTYtMi43OTEtLjExNi0yLjc5MWEuMS4xLDAsMCwwLS4wNTEtLjA4N2wtMi4yNzEtMS4xODUsMi4xMTksMS4zMjYtLjExNCwyLjczOC0yLjUyMy0xLjQ1OS0uMTc5LS4xLTIuNywxLjU2Yy0uMDM5LS45MzYtLjExNS0yLjc4My0uMTE1LTIuNzgzYS4xLjEsMCwwLDAtLjA1MS0uMDg3bC0yLjI3MS0xLjE4NSwyLjExOSwxLjMyNi0uMTE0LDIuNzM0LTIuMzQ1LTEuMzU4VjE2Ljc3NGwyLjU2NC0xLjU4OSwyLjU0MywxLjM4My0xLjUzMywxLjIxNywxLjc2NS0uODc1LjEzNSwxLjM1My4xNjktMS42ODcuMDA5LS4wOS0uMDkzLS4wNTctMi44NzYtMS43NTUtLjExOS0uMDczLS4xMzQuMDczLTIuOTY2LDEuNTkyLS4xNzguMXYzLjc5bC4xNzguMSwyLjc0NywxLjU5MWMuMDUzLjk0My4xNzYsMy4xODEuMTgzLDMuMjY5bC4wNzguMDM1LDEuNTQ2LjY5My0xLjI4OC0uOTIyLjE3MS0zLjA3NSwyLjU3My0xLjQ4OCwyLjM4NiwxLjM4LTEuMzcsMS4wODgsMS41NDUtLjc2NlYyNC44bC0yLjM0MSwxLjM1Yy0uMDMtLjczOC0uMTE2LTIuOC0uMTE2LTIuOGEuMS4xLDAsMCwwLS4wNS0uMDg3bC0yLjI3Mi0xLjE4NSwyLjExOSwxLjMyNi0uMjU4LDMuMDc1djMuNzlsLjE3OS4xLDIuOTcsMS41OTIuMTM0LjA3My4xMTktLjA3M0wzMDMsMzAuMmwuMDkzLS4wNTgtLjAwOS0uMDg5LS4xNzEtMS42LS4xNTUsMS40OTMtMi41MzksMS4zODFjLS4wMjUtLjYxNi0uMTIxLTIuOTE3LS4xMjEtMi45MTdhLjEuMSwwLDAsMC0uMDUxLS4wODdsLTIuMjcxLTEuMTg1LDIuMTE5LDEuMzI2LS4xMTgsMi44MzgtMi4zNDEtMS40NDhWMjYuODkzbDIuNTY4LTEuNDgxLDIuNDYzLDEuMzIxLTEuNDU3LDEuMTU2LDEuOTE0LS45MTEuMTE4LS4wNzMsMi44NzEtMS43NTUuMDkzLS4wNTdMMzA2LDI1bC0uMTY4LTEuNjg3LS4xNTksMS41ODItMi41MzIsMS4zNzljLS4wMjUtLjYyNC0uMTItMi45MS0uMTItMi45MWEuMS4xLDAsMCwwLS4wNTEtLjA4N0wzMDAuNywyMi4wOTVsMi4xMTksMS4zMjYtLjExOCwyLjgzMy0yLjM0My0xLjQ0OVYyMS44MzlsMi41ODQtMS40OTQsMi42NSwxLjE4MS0xLjY1OCwxLjMxNloiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMTA4NikiIGZpbGw9IiNmZmYiLz4KICAgIDxwYXRoIGlkPSJQYXRoXzMzIiBkYXRhLW5hbWU9IlBhdGggMzMiIGQ9Ik0yOTEuMTM0LDMwLjI1MWwtLjM0My0uMkwyODYuOSwzMi43bDQuMjM2LTIuMDVaIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEwODYpIiBmaWxsPSIjZmZmIi8+CiAgICA8cGF0aCBpZD0iUGF0aF8zNCIgZGF0YS1uYW1lPSJQYXRoIDM0IiBkPSJNMzA5LjIwOSwzMC4wNTFsLS4zNDMuMnYuNGw0LjIzNywyLjA1WiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxMDg2KSIgZmlsbD0iI2ZmZiIvPgogIDwvZz4KPC9zdmc+Cg==" />
+            </a>
+        </div>
+        <a href="https://www.vinisto.cz/" style="margin: 4px 0 0 0; font-size: 14px; line-height: 19px; font-weight: lighter; color: #ffffff; text-decoration: none;">vinisto s.r.o.</a>
+        <div style="text-align: center; line-height: 0;">
+            <div style="display: inline-block; width: 200px; border-bottom: 1px solid #C7A859;"></div>
+        </div>
+        <div style="margin-top: 4px;">
+            <p style="font-size: 14px; line-height: 1; margin-bottom: 0; font-weight: lighter;">Jankovcova 1057/6, Holešovice, 170 00 Praha</p>
+            <p style="font-size: 14px; line-height: 1; margin-bottom: 0; font-weight: lighter;">tel: +420 987 654 321; zákaznická linka:420 987 654 321</p>
+            <p style="font-size: 14px; line-height: 1; margin-bottom: 0; font-weight: lighter;">web: <a href="https://www.vinisto.cz/" style="color: #ffffff; text-decoration: none;">www.vinisto.cz</a>; e-mail: <a href="mailto:info@vinisto.cz" style="color: #ffffff; text-decoration: none;">info@vinisto.cz</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>

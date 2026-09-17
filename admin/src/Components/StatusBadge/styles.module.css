@@ -1,0 +1,28 @@
+.badge {
+  color: rgba(var(--vinisto-color-white), 0.9);
+	border-radius: 100vw;
+	padding-block: 0.2rem;
+	padding-inline: 0.75rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	white-space: pre;
+}
+
+@media (max-width: 767.98px) {
+	.badge {
+		font-size: 0.75rem;
+	}
+}
+
+.badge.Pending {
+	background-color: rgba(var(--vinisto-color-dark-gray), 1);
+}
+
+.badge.Active {
+	/* NOTE - this is 'toast success' color */
+	background-color: rgba(7, 188, 12, 1);
+}
+
+.badge.Inactive {
+	background-color: rgba(var(--vinisto-color-red), 1);
+}

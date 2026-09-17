@@ -1,0 +1,68 @@
+.emptyBasket {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem 0 4rem;
+}
+
+.icon {
+	width: 3.125rem;
+	height: auto;
+	margin-bottom: 1.125rem;
+}
+
+.empty {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.875rem;
+	font-weight: 700;
+	text-align: center;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 1.0625rem;
+}
+
+.emptyText {
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 1.3125rem;
+	text-align: center;
+	line-height: 1.5;
+	max-width: 29rem;
+}
+
+.goShopping {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	background-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-white));
+	border: none;
+	text-transform: uppercase;
+	padding: 0.5625rem 0.5rem;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.goShopping:hover {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green-hover));
+}
+
+@media (max-width: 1199.98px) {
+	.emptyBasket {
+		padding: 1.25rem 0 1.5rem;
+	}
+
+	.icon {
+		margin-bottom: 1.5rem;
+	}
+
+	.emptyText {
+		font-size: 0.75rem;
+		margin-bottom: 1.875rem;
+	}
+
+	.goShopping {
+		padding: 0.5625rem 2.0625rem;
+	}
+}

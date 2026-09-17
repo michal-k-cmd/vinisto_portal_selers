@@ -1,0 +1,35 @@
+.component {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	cursor: pointer;
+	background: unset;
+	border: unset;
+	padding: 0;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.component::before {
+	display: inline-block;
+	padding-right: 0.25rem;
+}
+
+.component:hover span {
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-decoration: underline;
+}
+
+.component.showMore::before {
+	content: url('/assets/images/small-plus.svg');
+}
+
+.component.showLess::before {
+	content: url('/assets/images/small-minus.svg');
+}
+.component:hover {
+	color: rgba(var(--vinisto-color-black), 1);
+}
+
+.component:focus-visible {
+	outline: rgba(var(--vinisto-color-green), 0.75) solid 2px;
+}

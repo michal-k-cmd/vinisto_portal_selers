@@ -1,0 +1,21 @@
+.category-specifications {
+	max-width: var(--category-detail-max-width);
+}
+.category-specifications__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	-moz-column-gap: 2.8rem;
+	column-gap: 2.8rem;
+	padding-bottom: 0.5625rem;
+	border-bottom: 1px solid rgb(var(--vinisto-color));
+	font-weight: 700;
+	margin-bottom: 0.7rem;
+}
+.category-specifications__header .category-specifications__heading {
+	margin-top: 0;
+}
+.category-specifications__heading {
+	margin-bottom: 0;
+	flex-grow: 1;
+}

@@ -1,0 +1,351 @@
+.order {
+	font-family: var(--font-family-ubuntu);
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-black));
+	padding: 1rem 0;
+}
+
+.order:not(:first-child) {
+	border-top: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+}
+
+.spaceBetween {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.orderNumber {
+	font-size: 0.875rem;
+}
+
+.orderStatus {
+	font-size: 0.75rem;
+}
+
+.priceInfo,
+.date {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+}
+
+.totalPrice {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+	margin-left: 0.125rem;
+}
+
+.primaryButton,
+.linkButton {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-green));
+	padding: 0.5rem 1rem;
+	border: none;
+	transition: background-color 0.3s ease;
+	width: 100%;
+	text-align: center;
+	max-width: 10rem;
+}
+
+.linkButton {
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-darker-gray));
+}
+
+.primaryButton:hover {
+	background-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.linkButton:hover {
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 1.5rem 0;
+}
+
+.delimiter {
+	border-top: 1px solid rgb(var(--vinisto-color-darker-gray));
+	padding-top: 0.375rem;
+}
+
+.documentsContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2;
+}
+
+.documents {
+	margin: 0.75rem 0 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.documentLink {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-decoration: underline;
+	text-align: left;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+}
+
+.product {
+	display: grid;
+	grid-template-columns: min-content 1fr 1fr;
+	grid-template-rows: auto auto auto auto;
+	grid-auto-flow: row;
+	grid-template-areas:
+		'productImg productName productName'
+		'productImg productProducer productProducer'
+		'productImg productCount productPrice'
+		'productImg productSeller productPriceNoVat';
+
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+	position: relative;
+	padding: 0.75rem 0;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+}
+
+.productName {
+	grid-area: productName;
+	margin-bottom: 0.25rem;
+}
+
+.productProducer {
+	grid-area: productProducer;
+}
+
+.productProducer :global(.vinisto-wine__variety__text) {
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-weight: 400;
+	margin-left: 0.25rem;
+}
+
+.productCount {
+	grid-area: productCount;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+
+.productPrice {
+	grid-area: productPrice;
+	text-align: right;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+}
+
+.productImg {
+	grid-area: productImg;
+	margin: 0 0.5rem;
+}
+
+.productSeller {
+	grid-area: productSeller;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.625rem;
+}
+
+.productPriceNoVat {
+	grid-area: productPriceNoVat;
+	text-align: right;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.625rem;
+	font-weight: 300;
+}
+
+.productPriceNoVatPrice {
+	font-weight: 400;
+}
+
+.discountCoupon {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin: 0.25rem 0 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.discountCoupon * {
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.discountCoupon::before {
+	display: none;
+}
+
+.shipping,
+.payment {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.375rem 0.5rem;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.payment {
+	margin-bottom: 1.125rem;
+}
+
+.address {
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-black));
+	margin-bottom: 0.75rem;
+}
+
+.addressTitle {
+	font-weight: 500;
+	margin-bottom: 0.375rem;
+}
+
+.cancelOrderBtn {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	color: rgb(var(--vinisto-color));
+}
+
+.paymentDetails dt {
+	display: inline;
+	font-weight: 300;
+}
+
+.paymentDetails dt::after {
+	content: ': ';
+}
+
+.paymentDetails dd {
+	display: inline;
+}
+
+.paymentDetails dd::after {
+	content: '';
+	display: block;
+}
+
+.qrCode {
+	width: 125px;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 1200px) {
+	.discountCoupon {
+		font-size: 1rem;
+		color: rgb(var(--vinisto-color-black));
+		border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+	}
+
+	.discountCoupon * {
+		color: rgb(var(--vinisto-color-black));
+	}
+
+	.order {
+		padding-top: 0.5rem;
+	}
+
+	.orderDesktop:first-child {
+		border-bottom: none;
+		border-top: 1px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+		padding-top: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.documentLink {
+		font-size: 1.125rem;
+	}
+
+	.shipping,
+	.payment {
+		font-size: 1rem;
+		padding: 1.125rem;
+		color: rgb(var(--vinisto-color-black));
+	}
+
+	.shipping {
+		border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+	}
+
+	.shipping span:last-child,
+	.payment span:last-child {
+		width: 18.875rem;
+	}
+
+	.address {
+		display: inline-block;
+		margin-right: 4rem;
+		margin-top: 1rem;
+		font-size: 0.9375rem;
+		vertical-align: top;
+	}
+
+	.product {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+		gap: 0px 0.25rem;
+		grid-auto-flow: row;
+		grid-template-areas: 'productImg secondColumn thirdColumn productCount prices';
+	}
+
+	.productImg {
+		grid-area: productImg;
+	}
+
+	.productName,
+	.productProducer {
+		grid-area: secondColumn;
+	}
+
+	.thirdColumn {
+		grid-area: thirdColumn;
+	}
+
+	.productCount {
+		grid-area: productCount;
+	}
+
+	.prices {
+		grid-area: prices;
+	}
+
+	.documents {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 2.5rem;
+		margin: 1.5rem 0 2.5rem;
+	}
+}

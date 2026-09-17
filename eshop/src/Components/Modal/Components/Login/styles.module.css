@@ -1,0 +1,17 @@
+.platformMismatch {
+	margin-bottom: 1rem;
+	padding: 0.75rem 1rem;
+	background-color: rgba(var(--vinisto-color-red), 0.1);
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 0.875rem;
+	font-weight: 300;
+}
+
+.platformMismatchLink,
+.platformMismatchLink:hover,
+.platformMismatchLink:active,
+.platformMismatchLink:visited {
+	color: rgb(var(--vinisto-color-red));
+	text-decoration: underline;
+	white-space: nowrap;
+}

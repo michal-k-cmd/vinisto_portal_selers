@@ -1,0 +1,106 @@
+:root {
+	--smaller-text: 0.938rem;
+	--bigger-text: 1.063rem;
+
+	--font-family-roboto: 'Roboto', sans-serif;
+	--font-family-ubuntu: 'Ubuntu', sans-serif;
+
+	--vinisto-color-purple: 40, 0, 68;
+	--vinisto-color-black: 0, 0, 0;
+	--vinisto-color-darker: 30, 1, 43;
+	--vinisto-color-darker2: 67, 41, 87;
+	--vinisto-color-green: 104, 169, 16;
+	--vinisto-color-light-green: 243, 248, 236;
+	--vinisto-color-green-hover: 138, 204, 23;
+	--vinisto-color-selected-green: 237, 244, 228;
+	--vinisto-color-selected-green2: 247, 251, 242;
+	--vinisto-color-opened-green: 232, 242, 219;
+	--vinisto-color-lighter-green: 232, 242, 219;
+	--vinisto-color-lightest-green: 252, 253, 250;
+	--vinisto-color-dark: 4, 2, 5;
+	--vinisto-color-dark-gray: 112, 112, 112;
+	--vinisto-color-darker-gray: 77, 77, 78;
+	--vinisto-color-darker-gray2: 52, 52, 52;
+	--vinisto-color-light-gray: 249, 246, 247;
+	--vinisto-color-lighter-gray: 246, 246, 246;
+	--vinisto-color-lighter-gray2: 165, 165, 166;
+	--vinisto-color-gold: 199, 171, 89;
+	--vinisto-color-golden: 227, 213, 172;
+	--vinisto-color-info: 255, 178, 101;
+	--vinisto-color-red: 201, 6, 46;
+	--vinisto-color-red-hover: 225, 47, 84;
+	--vinisto-color-dark-red: 158, 22, 60;
+	--vinisto-color-wine-red: 146, 1, 63;
+	--vinisto-color-wine-red2: 173, 64, 111;
+	--vinisto-color-wine-light-red: 244, 229, 235;
+	--vinisto-color-wine: 146, 20, 66;
+	--vinisto-color-wine-hover: 186, 32, 88;
+	--vinisto-color-red-error: 255, 51, 51;
+	--vinisto-color-almost-white: 244, 242, 245;
+	--vinisto-color-almost-white2: 253, 253, 253;
+	--vinisto-color-light-pink: 251, 242, 242;
+	--vinisto-color-white: 255, 255, 255;
+	--vinisto-color-error: 255, 0, 0;
+	--vinisto-color-warn: 199, 168, 89;
+	--vinisto-color-success: var(--vinisto-color-green);
+	--vinisto-color-merkatos: 22, 5, 185;
+
+	--vinisto-color-light-wine-gray: 249, 242, 245;
+	--vinisto-color-light-border: 237, 237, 237;
+
+	--vinisto-box-shadow: 0px 2px 4px rgba(var(--vinisto-color-black), 0.1),
+		inset 0 2px 4px 0 rgba(var(--vinisto-color-white), 0.75);
+	--vinisto-radius-base: 0;
+	--vinisto-radius-small: 0.313rem;
+	--vinisto-radius-big: 0.625rem;
+	--vinisto-line-height: 1.2;
+
+	/* Obsolete color --vinisto-color */
+	--vinisto-color: var(--vinisto-color-darker-gray);
+
+	/* Bottom boxes height */
+	--vinisto-bottom-navigation-height: 50px;
+	--vinisto-bottom-free-delivery-height: 21px;
+	--vinisto-bottom-navigation-and-free-delivery-height: calc(
+		var(--vinisto-bottom-navigation-height) +
+			var(--vinisto-bottom-free-delivery-height)
+	);
+
+	/* Breakpoints */
+	--vinisto-desktop: 1399.98px;
+	--vinisto-desktop-up: 1400px;
+	--vinisto-tablet: 767.98px;
+	--vinisto-tablet-up: 768px;
+
+	/* Product box */
+	--vinisto-product-box-padding: 0.75rem;
+	--vinisto-product-box-img-height: 240px;
+	--vinisto-product-box-img-height--mobile: 170px;
+	--vinisto-product-box-img-margin-top: -1.5rem;
+	--vinisto-product-box-width: 214px;
+
+	/* Input */
+	--vinisto-input-padding-vertical: 0.563rem;
+	--vinisto-input-padding-horizontal: 0.75rem;
+	--vinisto-count-height: 1.625rem;
+
+	/* Header + footer */
+	--header-height: 108px;
+	--header-widget-height: 32px;
+	--basket-header-height: 61.4px;
+	--header-mobile-height: 38px;
+	--footer-mobile-height: 71px;
+	--footer-mobile-height-without-free-delivery-bar: 50px;
+	--container-first-level-m-top: 16px;
+	--vinisto-main-menu-desktop-height: 2.813rem;
+
+	/* Z-indexes */
+	--mobile-search-z-index: 100;
+	--advisor-z-index: 110;
+	--mobile-menu-z-index: 120;
+	--bottom-menu-z-index: 120;
+
+	/* Messages */
+	--vinisto-color-message-alert: 255, 0, 16;
+	--vinisto-color-message-alert-dark: 255, 217, 219;
+}

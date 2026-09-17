@@ -1,0 +1,100 @@
+.wrap {
+	max-width: 32.5625rem;
+	margin: 1.875rem auto 0;
+}
+
+.heading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.875rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-align: center;
+	margin-bottom: 1.875rem;
+}
+
+.icon {
+	--icon-size: 3.125rem;
+	display: block;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	margin: 0 auto 0.8125rem;
+}
+
+.content {
+	margin: 1rem 0 1.875rem;
+}
+
+.content p {
+	text-align: center;
+	font-size: 0.6875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 1rem;
+}
+
+.buttonWrap {
+	text-align: center;
+	margin: 1rem 0;
+}
+
+.repeatButton {
+	display: inline-block;
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.9375rem;
+	background-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-white));
+	text-transform: uppercase;
+	padding: 0.5625rem 1rem;
+	text-decoration: none;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.repeatButton:hover {
+	background-color: rgb(var(--vinisto-color-green-hover));
+	color: rgb(var(--vinisto-color-white));
+}
+
+p.text {
+	font-size: 0.875rem;
+}
+
+.bolder {
+	font-weight: 500;
+}
+
+.errorRed {
+	color: rgb(var(--vinisto-color-red));
+	font-weight: 500;
+}
+
+.mailLink {
+	color: rgb(var(--vinisto-color-green));
+	font-weight: 500;
+}
+
+.problemsWrap {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 24rem;
+}
+
+@media (max-width: 991.98px) {
+	.wrap {
+		margin-top: 0.625rem;
+	}
+
+	.heading {
+		font-size: 1.375rem;
+		font-weight: 400;
+		margin-bottom: 0.9375rem;
+	}
+
+	.icon {
+		--icon-size: 2.5rem;
+		margin-bottom: 0.625rem;
+	}
+
+	p.text {
+		font-size: 0.6875rem;
+	}
+}

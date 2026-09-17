@@ -1,0 +1,142 @@
+.v-carousel-classic .alice-carousel__stage-item {
+	flex: 0 0 auto;
+	padding: 0;
+	height: auto;
+	min-width: 16.666%;
+}
+
+.v-carousel-classic--centered .alice-carousel__stage {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 999.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		min-width: 20%;
+	}
+}
+
+@media (max-width: 819.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		min-width: 25%;
+	}
+}
+
+@media (max-width: 669.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		min-width: 33.333%;
+	}
+}
+
+@media (max-width: 509.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		min-width: 50%;
+	}
+}
+
+@media (max-width: 359.98px) {
+	.v-carousel-classic .alice-carousel__stage-item {
+		min-width: 100%;
+	}
+}
+
+.v-carousel-classic
+	.alice-carousel__stage
+	> .alice-carousel__stage-item:last-child
+	.vinisto-wine__item {
+	margin-right: 0;
+}
+
+.v-carousel-classic .vinisto-wine__item {
+	margin: 0 1rem 0 0 !important;
+	height: 100% !important;
+}
+
+@media (max-width: 359px) {
+	.v-carousel-classic .vinisto-wine__item {
+		margin: 0 !important;
+	}
+}
+
+.v-carousel-classic__item {
+	display: inline-block;
+	height: 100%;
+	padding: 1.5rem 0 0.25rem 0;
+}
+
+@media (max-width: 359px) {
+	.v-carousel-classic__item {
+		width: 100%;
+	}
+}
+
+.alice-carousel__dots {
+	margin-top: 1rem;
+}
+
+.alice-carousel__dots-item {
+	width: 1rem;
+	height: 1rem;
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgba(var(--vinisto-color-dark-gray), 0.5);
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+.alice-carousel__dots-item.__active {
+	background-color: rgba(var(--vinisto-color-green), 0.5);
+	border-radius: 50%;
+	border-color: rgba(var(--vinisto-color-green), 0.5);
+}
+
+/*
+.dot {
+	width: 15px;
+	height: 15px;
+	border: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+	background-color: rgb(var(--vinisto-color-light-gray));
+	border-radius: 50%;
+	cursor: pointer;
+	display: block;
+}
+
+.slick-dots .slick-active .dot {
+	border: 1px solid rgb(var(--vinisto-color-gold));
+	background-color: rgb(var(--vinisto-color)) !important;
+	border-radius: 50%;
+}
+
+.slick-dots li {
+	position: relative;
+	display: inline-block;
+	width: 15px !important;
+	height: 15px !important;
+	margin: 0 10px !important;
+	padding: 0;
+	cursor: pointer;
+	transition: width 0.3s ease-in-out;
+	margin-right: 10px;
+	margin-top: 1rem;
+}
+
+.slick-dots {
+	bottom: unset !important;
+	margin-top: 1rem !important;
+	line-height: 0 !important;
+}
+
+.margin-top {
+	margin-top: 1rem;
+}
+
+.mb-promo {
+	margin-bottom: 60px;
+}
+
+.producers-slider .slick-track .slick-slide {
+	padding: 0 !important;
+}
+
+.tabs-slider .slick-track .slick-slide {
+	padding: 0 !important;
+}*/

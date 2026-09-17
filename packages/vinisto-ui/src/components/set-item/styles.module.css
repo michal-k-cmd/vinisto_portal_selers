@@ -1,0 +1,226 @@
+.setWrapper {
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-darker-gray));
+	width: 100%;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.2);
+}
+
+.setButton {
+	display: flex;
+	justify-content: space-between;
+	gap: 2rem;
+	width: 100%;
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: transparent;
+	text-align: left;
+	padding: 0.75rem 0;
+}
+
+.setItemImage {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+}
+
+.setInfo {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	font-weight: 400;
+	flex: 1 1 100%;
+}
+
+.priceWrap {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.setName {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	margin-bottom: 0.75rem;
+}
+
+.arrowDown {
+	width: 1rem;
+	height: auto;
+	transition: transform 0.3s ease-in-out;
+}
+
+.setButton.open .arrowDown {
+	transform: rotate(180deg);
+}
+
+.setInfo.moreWrap {
+	flex: 0 0 auto;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.5rem;
+	font-weight: 500;
+}
+
+.imageWrap {
+	flex: 0 0 auto;
+}
+
+.dataWrap {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.priceMore {
+	flex: 1 0 14rem;
+	display: flex;
+	gap: 2rem;
+}
+
+.setInfo.prices {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.originalPrice {
+	font-family: var(--font-family-ubuntu);
+	text-decoration: line-through;
+	font-size: 0.875rem;
+}
+
+.price {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+	display: flex;
+	gap: 0.5rem;
+	justify-content: space-between;
+}
+
+.discount {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-wine-red));
+	margin-left: 0.5rem;
+	padding: 0.125rem 0.375rem;
+}
+
+.propsWrapper:not(.open) {
+	grid-template-rows: 0fr;
+}
+
+.propsWrapper {
+	display: grid;
+	grid-template-rows: 1fr;
+	transition: grid-template-rows 0.3s ease-out;
+	margin-bottom: 10px;
+}
+
+.bundleInfo {
+	margin-top: 0.75rem;
+}
+
+.params {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 1.5rem 0 0.75rem;
+}
+
+.paramName {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 400;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+	float: left;
+	padding: 0.5rem 0.25rem 0.5rem 0;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.2);
+}
+
+.paramValue {
+	margin-bottom: 0;
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.2);
+	display: inline-block;
+	font-family: var(--font-family-roboto);
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 0.875rem;
+	font-weight: 400;
+	padding: 0.5rem 0;
+}
+
+.paramValue:last-of-type,
+.paramName:last-of-type {
+	border-bottom: none;
+}
+
+.inner {
+	overflow: hidden;
+}
+
+.setWrapper :global(.discountPercentage) {
+	font-size: 0.875rem;
+}
+
+@media (max-width: 1199.98px) {
+	.setItemImage {
+		width: 80px;
+		height: 80px;
+	}
+
+	.setInfo,
+	.setName {
+		font-size: 0.875rem;
+	}
+
+	.setInfo.prices {
+		gap: 0;
+	}
+
+	.originalPrice {
+		font-size: 0.625rem;
+	}
+
+	.price {
+		font-size: 0.875rem;
+	}
+
+	.discount {
+		font-size: 0.75rem !important;
+	}
+
+	.bundleInfo {
+		font-size: 0.875rem;
+		text-align: center;
+		color: rgb(var(--vinisto-color-black));
+	}
+
+	.paramName,
+	.paramValue {
+		font-size: 0.875rem;
+		padding: 0.5rem 0;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.dataWrap {
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.priceMore {
+		flex: 1 1 auto;
+	}
+
+	.setWrapper :global(.discountPercentage) {
+		font-size: 0.75rem;
+		padding: 0.125px 0.375rem;
+	}
+}

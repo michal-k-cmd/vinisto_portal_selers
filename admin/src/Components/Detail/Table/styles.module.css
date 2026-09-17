@@ -1,0 +1,42 @@
+.tableRow:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+.tableRow:nth-child(even) {
+	background-color: #f6f6f6;
+}
+
+.tableBody {
+	border-top: 1px solid #707070;
+	border-bottom: 1px solid #707070;
+}
+
+.tableRow td {
+	height: 40px;
+	padding: 0px 0.75em;
+}
+
+.table tbody td:not(:last-child) {
+	border-right: 1px solid #70707040;
+}
+
+.table td:last-child {
+	width: 100%;
+}
+
+.table thead tr,
+.table tfoot tr {
+	text-align: left;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	letter-spacing: 0;
+	opacity: 1;
+}
+
+.table thead tr {
+	color: #937fa1;
+}
+
+.table tfoot tr {
+	font-size: 0.875rem;
+}

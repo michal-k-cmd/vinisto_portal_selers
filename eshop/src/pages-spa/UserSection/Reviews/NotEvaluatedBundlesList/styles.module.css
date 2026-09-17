@@ -1,0 +1,19 @@
+@media (min-width: 1200px) {
+	.notEvaluatedProduct {
+		grid-template-columns: 5rem 20% 55% calc(25% - 7.5rem);
+	}
+}
+
+.lastOrder {
+	display: flex;
+	align-items: center;
+	padding-left: 1.5rem;
+}
+
+@media (max-width: 1199.98px) {
+	.lastOrder {
+		grid-area: orders;
+		padding-left: 0;
+		align-items: flex-start;
+	}
+}

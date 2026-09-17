@@ -1,0 +1,13 @@
+.component {
+	all: unset;
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	gap: 0.375rem;
+}
+
+@media (min-width: 1200px) {
+	.component {
+		gap: 0.5rem;
+	}
+}

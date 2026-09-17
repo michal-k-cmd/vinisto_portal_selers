@@ -1,0 +1,53 @@
+.modal {
+	padding: 0.5rem 0 1.875rem;
+}
+
+.text {
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-align: center;
+	margin-bottom: 1.875rem;
+}
+
+.primaryAction {
+	display: block;
+	color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-green));
+	background-color: rgb(var(--vinisto-color-green));
+	padding: 0.5625rem;
+	min-width: 12.5rem;
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.primaryAction:hover,
+.primaryAction:active,
+.primaryAction:visited {
+	color: rgb(var(--vinisto-color-white));
+}
+
+.primaryAction:hover {
+	border-color: rgb(var(--vinisto-color-green-hover));
+	background-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.secondaryAction {
+	display: block;
+	margin: 0.75rem auto 0 auto;
+	padding: 0;
+	font-size: 0.875rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	background: none;
+	border: 0;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+@media (max-width: 991.98px) {
+	.text {
+		font-size: 0.75rem;
+		margin-bottom: 1.25rem;
+	}
+}

@@ -1,0 +1,9 @@
+.status {
+	display: flex;
+	justify-content: center;
+	padding: 2rem;
+}
+
+.sectionHeading {
+	margin-top: 1.5rem;
+}

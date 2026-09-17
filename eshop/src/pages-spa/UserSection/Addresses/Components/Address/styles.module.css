@@ -1,0 +1,57 @@
+.address {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 400;
+	padding: 0.5rem;
+	border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+}
+
+.addressHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 0.5rem;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 500;
+}
+
+.editDeleteWrap {
+	display: flex;
+	gap: 1rem;
+}
+
+.deleted {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	flex-flow: column;
+	background-color: rgba(var(--vinisto-color-light-gray), 0.8);
+}
+
+@media (min-width: 1200px) {
+	.address {
+		min-width: 15.5rem;
+		gap: 0.1875rem;
+	}
+	.address,
+	.addressHeader {
+		font-size: 0.9375rem;
+	}
+
+	.editDeleteWrap {
+		gap: 0.25rem;
+	}
+}

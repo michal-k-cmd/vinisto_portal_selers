@@ -1,0 +1,33 @@
+export const TEST_IDS = {
+	BASKET_ADDRESS_CITY: 'basket-address-city',
+	BASKET_ADDRESS_EMAIL: 'basket-address-email',
+	BASKET_FINISH_ORDER_DESKTOP: 'basket-finish-order-desktop',
+	BASKET_ADDRESS_HOUSE_NUMBER: 'basket-address-house-number',
+	BASKET_ADDRESS_LAND_REGISTRY_NUMBER: 'basket-address-land-registry-number',
+	BASKET_ADDRESS_LOGIN: 'basket-address-login',
+	BASKET_ADDRESS_NAME: 'basket-address-name',
+	BASKET_ADDRESS_ORGANIZATION: 'basket-address-organization',
+	BASKET_ADDRESS_PHONE: 'basket-address-phone',
+	BASKET_ADDRESS_STREET: 'basket-address-street',
+	BASKET_ADDRESS_SURNAME: 'basket-address-surname',
+	BASKET_ADDRESS_ZIP: 'basket-address-zip',
+	BASKET_CONTINUE_BUTTON_DESKTOP: 'basket-continue-button-desktop',
+	BASKET_PAYMENT_TYPE: 'basket-payment-type',
+	BASKET_SHIPPING_CONTINUE_BUTTON_DESKTOP:
+		'basket-shipping-continue-button-desktop',
+	BASKET_SHIPPING_TYPE: 'basket-shipping-type',
+	MAIN_SEARCH_BUTTON_DESKTOP: 'main-search-button-desktop',
+	NAVBAR_BASKET_DESKTOP: 'navbar-basket-desktop',
+	PRODUCT_BOX_LOGIN_AND_SHOP: 'product-box-login-and-shop',
+	PRODUCT_BOX_ADD_TO_BASKET: 'product-box-add-to-basket',
+	PRODUCT_BOX_ADD_TO_FAVORITES: 'product-box-add-to-favorites',
+	REGISTRATION_BUTTON_MODAL: 'registration-button-modal',
+	REGISTRATION_EMAIL_INPUT: 'registration-email-input',
+	REGISTRATION_NEWSLETTER_CHECKBOX: 'registration-newsletter-checkbox',
+	REGISTRATION_PASSWORD_INPUT: 'registration-password-input',
+	REGISTRATION_SUBMIT_BUTTON: 'registration-submit-button',
+	REGISTRATION_TERMS_CHECKBOX: 'registration-terms-checkbox',
+	USER_SECTION_DESKTOP: 'user-section-desktop',
+} as const;
+
+export type TestIdType = (typeof TEST_IDS)[keyof typeof TEST_IDS];

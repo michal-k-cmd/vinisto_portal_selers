@@ -1,0 +1,21 @@
+.bundle-detail__list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.vinisto-toggle {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+}
+.vinisto-toggle--btn {
+	vertical-align: middle;
+	top: 1.7px;
+}
+
+.bundle-detail__btn {
+	cursor: pointer;
+}

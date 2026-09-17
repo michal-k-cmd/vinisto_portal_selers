@@ -1,0 +1,35 @@
+.platformToggle {
+	--dimension: 32px;
+	display: flex;
+	flex-direction: column;
+	font-size: 0.825rem;
+}
+
+.platformToggleButton {
+	background-color: rgba(var(--vinisto-color-white), 0.3);
+	padding: 0.2rem;
+	min-height: var(--dimension);
+	min-width: var(--dimension);
+	border-radius: calc(var(--dimension) / 2);
+	margin: 5px;
+	box-shadow: inset 0px 0px 0px 2px rgba(var(--vinisto-color-white), 0.3),
+		inset 2px 2px 3px 2px rgba(var(--vinisto-color-white), 0.1);
+	transition: background-color 0.3s ease-in-out;
+}
+
+.platformToggleButton:hover {
+	background-color: rgba(var(--vinisto-color-white), 0.4);
+}
+
+.platformToggleButton.active {
+	color: rgba(var(--vinisto-color-white), 0.75);
+}
+
+.platformToggleButton.active.b2c {
+	background-color: rgba(var(--vinisto-color-green), 0.75);
+}
+
+.platformToggleButton.active.b2b {
+	background-color: rgba(var(--vinisto-color-merkatos), 0.75);
+	box-shadow: inset 0px 0px 0px 2px rgba(var(--vinisto-color-white), 0.4);
+}

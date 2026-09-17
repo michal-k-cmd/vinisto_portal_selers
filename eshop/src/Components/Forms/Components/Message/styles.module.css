@@ -1,0 +1,16 @@
+.message {
+	margin: 0.25rem 0 0.25rem 0.325rem;
+	font-size: 0.75rem;
+}
+
+.info {
+	color: #280044ba;
+}
+
+.success {
+	color: #68a910;
+}
+
+.error {
+	color: #ff0000;
+}

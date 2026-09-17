@@ -1,0 +1,62 @@
+.buttonsWrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nicknameLabel {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0.375rem;
+	padding-left: 0.375rem;
+}
+
+.nicknameLabel::after {
+	display: none;
+}
+
+:global(.vinisto-input).nicknameInput {
+	padding: 6px;
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-black));
+	border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.3);
+}
+
+.editIcon {
+	margin-left: 0.375rem;
+	cursor: pointer;
+}
+
+.nicknameEditForm {
+	margin: 0.875rem 0 1.125rem;
+}
+
+.nicknameWrapper {
+	margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+	.buttonsWrap {
+		max-width: 23rem;
+	}
+
+	.nicknameLabel {
+		font-size: 1rem;
+		display: flex;
+		align-items: center;
+	}
+
+	:global(.vinisto-input).nicknameInput {
+		font-size: 1rem;
+		padding: 0.5rem;
+		max-width: 23rem;
+	}
+
+	.nicknameInput + :global(.input-error) {
+		max-width: 23rem;
+	}
+}

@@ -1,0 +1,73 @@
+.modal-dialog.modal-dialog--payment .vinisto-popup__heading-wrap {
+	display: none;
+}
+
+.modal-dialog.modal-dialog--payment .vinisto-popup__heading-wrap ~ br {
+	display: none;
+}
+
+.vinisto-popup__payment {
+	text-align: center;
+	min-height: 21.0625rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	justify-content: center;
+}
+
+.vinisto-popup__payment__heading {
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+.vinisto-popup__payment__text {
+	font-size: 1.375rem;
+	max-width: 30rem;
+	margin: 0 auto;
+}
+
+.vinisto-popup__payment__btn-loading {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.vinisto-popup__payment ~ .vinisto-popup__heading-wrap {
+	display: none;
+}
+
+@media (max-width: 1199.98px) {
+	.modal-dialog.modal-dialog--payment {
+		max-width: 348px !important;
+		width: 100% !important;
+		max-height: 100vh;
+		min-height: 0;
+		margin: auto !important;
+	}
+
+	.modal-dialog.modal-dialog--payment .modal-body {
+		border-radius: var(--vinisto-radius-big) !important;
+	}
+
+	.modal-dialog.modal-dialog--payment .modal-content {
+		max-width: 348px !important;
+		margin: auto;
+		height: auto;
+		border-radius: var(--vinisto-radius-big) !important;
+	}
+
+	.vinisto-popup__payment {
+		gap: 1rem;
+		min-height: 0;
+		padding: 1.5rem 1rem;
+	}
+
+	.vinisto-popup__payment__heading {
+		font-size: 1.625rem;
+	}
+
+	.vinisto-popup__payment__text {
+		font-size: 1.125rem;
+	}
+}

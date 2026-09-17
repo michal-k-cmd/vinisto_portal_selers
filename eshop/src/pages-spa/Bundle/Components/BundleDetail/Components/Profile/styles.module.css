@@ -1,0 +1,63 @@
+.profileWrap {
+	background-color: rgba(var(--vinisto-color-wine-red), 0.05);
+	padding: 2.625rem 4rem 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.profileHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.625rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.profileHintWrap {
+	position: relative;
+}
+
+.profileHint {
+	--profileHintSize: 2.125rem;
+	position: absolute;
+	top: -1.25rem;
+	left: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 0.375rem;
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.625rem;
+	font-weight: 700;
+	border-radius: 50%;
+	border: none;
+	width: var(--profileHintSize);
+	height: var(--profileHintSize);
+	padding: 0;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-wine-red));
+}
+
+.profileHint.openHint {
+	color: rgb(var(--vinisto-color-wine-red));
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+@media (max-width: 1199.98px) {
+	.profileHint {
+		width: 1.625rem;
+		height: 1.625rem;
+		font-size: 1.25rem;
+		top: -1rem;
+	}
+
+	.profileHeading {
+		font-size: 1.25rem;
+		margin: 0 0 1rem;
+	}
+
+	.profileWrap {
+		margin: 0 -0.75rem 2.5rem;
+		padding: 2rem 0.75rem 1.5rem;
+	}
+}

@@ -1,0 +1,35 @@
+.infoBox {
+	position: absolute;
+	top: 18%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 9;
+	background-color: rgba(var(--vinisto-color-green), 0.85);
+	color: rgb(var(--vinisto-color-white));
+	padding: 1rem 0.6rem;
+	width: 100%;
+	max-width: 160px;
+	box-shadow: 1px 2px 8px 0px rgba(var(--vinisto-color-darker2), 0.2);
+	animation: fadeIn 0.3s forwards;
+	text-align: center;
+	font-size: 0.875rem;
+	font-weight: 400;
+	z-index: 10;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 1199.98px) {
+	.infoBox {
+		font-size: 0.75rem;
+		padding: 0.75rem 0.5rem;
+		top: 12%;
+	}
+}

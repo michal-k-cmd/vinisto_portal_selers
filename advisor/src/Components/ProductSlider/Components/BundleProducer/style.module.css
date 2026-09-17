@@ -1,0 +1,18 @@
+.producerLink {
+  color: rgb(var(--vinisto-color-black));
+  display: flex;
+  margin-top: 4px;
+}
+
+.producerLink img {
+  width: 16px;
+  margin-right: 5px;
+}
+
+.producerName {
+  font-family: var(--font-family-roboto);
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 500;
+  color: rgb(var(--vinisto-color-darker-gray));
+}

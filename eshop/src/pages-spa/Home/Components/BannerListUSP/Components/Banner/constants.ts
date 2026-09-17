@@ -1,0 +1,7 @@
+const HOME_PAGE = 'HOME_PAGE';
+const PRODUCT_DETAIL = 'PRODUCT_DETAIL';
+
+export const VARIANTS = {
+	[HOME_PAGE]: 'HOME_PAGE',
+	[PRODUCT_DETAIL]: 'PRODUCT_DETAIL',
+} as const;

@@ -1,0 +1,10 @@
+const MULTISELECT_MAX_WIDTH = '600px';
+
+const MULTISELECT_KEYBOARD_KEYS = {
+	ENTER: 'Enter',
+	ESC: 'Escape',
+	ARROW_DOWN: 'ArrowDown',
+	ARROW_UP: 'ArrowUp',
+};
+
+export { MULTISELECT_MAX_WIDTH, MULTISELECT_KEYBOARD_KEYS };

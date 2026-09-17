@@ -1,0 +1,50 @@
+.banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0 0 0.75rem;
+	padding: 0.625rem 0.875rem;
+	min-height: 5.5rem;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+.bannerHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-white));
+	margin-bottom: 0.3125rem;
+}
+
+.bannerSubheading {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-white));
+	margin-bottom: 0;
+}
+
+.bannerCtaWrap {
+	width: 100%;
+	text-align: right;
+}
+
+.bannerCta {
+	text-align: right;
+	color: rgb(var(--vinisto-color-white));
+}
+
+.banner .bannerCta:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 1199.98px) {
+	.banner {
+		aspect-ratio: 9/2;
+		min-height: 0;
+		margin: 0;
+	}
+}

@@ -1,0 +1,15 @@
+.isBundlesLoading {
+	position: relative;
+}
+
+.isBundlesLoading::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.6);
+	z-index: 20;
+	pointer-events: none;
+}

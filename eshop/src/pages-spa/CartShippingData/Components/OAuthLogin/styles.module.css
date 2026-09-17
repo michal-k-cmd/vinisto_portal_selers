@@ -1,0 +1,63 @@
+.oauthWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 1rem;
+	gap: 1rem;
+}
+
+.oauthTextWrapper {
+	width: 100%;
+	position: relative;
+	text-align: center;
+}
+
+.oauthTextWrapper > span {
+	font-size: 0.75rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-white));
+	padding: 0 0.5rem;
+	position: relative;
+}
+
+.oauthTextWrapper::before {
+	content: '';
+	position: absolute;
+	height: 0.0625rem;
+	width: 100%;
+	background-color: rgb(var(--vinisto-color-dark-gray));
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+}
+
+.oauthButtonsWrapper {
+	display: flex;
+	justify-content: center;
+	gap: 1.25rem;
+}
+
+.oauthButtonsWrapper > button {
+	--button-size: 3.4375rem;
+	flex: 0 0 var(--button-size);
+	height: var(--button-size);
+	padding: 0.25rem;
+}
+
+.oauthButtonsWrapper > button > img {
+	--size: 1.375rem;
+	width: 100%;
+	max-width: var(--size);
+	height: auto;
+	max-height: var(--size);
+}
+
+@media (max-width: 1199.98px) {
+	.oauthTextWrapper > span {
+		font-size: 0.875rem;
+	}
+
+	.oauthButtonsWrapper {
+		gap: 0.625rem;
+	}
+}

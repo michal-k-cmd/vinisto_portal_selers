@@ -1,0 +1,24 @@
+.addressTitle {
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: 0.625rem;
+}
+
+.addressContent * {
+	font-size: 0.875rem;
+	font-weight: 300;
+	color: rgb(var(--vinisto-color-darker-gray));
+	line-height: 1.3125rem;
+}
+
+@media (max-width: 1199.98px) {
+	.addressTitle {
+		font-size: 0.875rem;
+		font-weight: 700;
+	}
+
+	.addressContent * {
+		font-size: 0.75rem;
+		line-height: 0.875rem;
+	}
+}

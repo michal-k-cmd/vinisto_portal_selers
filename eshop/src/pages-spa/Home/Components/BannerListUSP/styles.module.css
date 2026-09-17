@@ -1,0 +1,32 @@
+.container {
+	display: flex;
+	row-gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+	/* to prevent layout shift (would work only for up to 7 banners) */
+	min-height: 95px;
+}
+
+@media (max-width: 1199.98px) {
+	.container {
+		/* to prevent layout shift */
+		min-height: 110px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.container {
+		gap: 1rem;
+		margin-bottom: 0.5rem;
+		/* to prevent layout shift */
+		min-height: 150px;
+	}
+}
+
+@media (max-width: 425.98px) {
+	.container {
+		/* to prevent layout shift */
+		min-height: 184px;
+	}
+}

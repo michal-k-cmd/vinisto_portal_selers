@@ -1,0 +1,118 @@
+.megaMenuHeading {
+	font-family: var(--font-family-roboto);
+	font-size: 1rem;
+	font-weight: 500;
+	margin-bottom: 0.9375rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	text-align: left;
+}
+
+.megaMenuCategoryLink {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	margin-left: 0.5rem;
+	color: rgb(var(--vinisto-color-success));
+	text-decoration: underline;
+}
+
+.megaMenuCategoryLink:hover {
+	color: rgb(var(--vinisto-color-success));
+	text-decoration: none;
+}
+
+.megaMenuSubmenus {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	row-gap: 1rem;
+}
+
+.megaMenuSubmenu {
+	font-family: var(--font-family-roboto);
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	padding-left: 2.6rem;
+}
+
+.megaMenuSubmenuWrap {
+	display: flex;
+	flex-direction: column;
+	padding: 0.3125rem 0.375rem 0.75rem;
+	transition: background-color 0.2s ease;
+}
+
+.megaMenuSubmenuWrap.noSubItems {
+	padding: 0.3125rem 0.375rem;
+}
+
+.megaMenuSubmenuWrap.noSubItems .heading {
+	margin-bottom: 0;
+}
+
+.megaMenuSubmenuWrap:hover,
+.megaMenuSubmenuWrap.showAll {
+	background-color: rgb(var(--vinisto-color-selected-green));
+}
+
+.heading {
+	display: flex;
+	align-items: center;
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-darker-gray));
+	margin-bottom: -0.375rem;
+	min-height: 2.25rem;
+}
+
+.heading:hover {
+	text-decoration: underline;
+}
+
+.megaMenuSubmenuLink {
+	display: inline-block;
+	width: 100%;
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+	padding: 0.125rem;
+}
+
+.megaMenuSubmenuLink:hover {
+	text-decoration: underline;
+}
+
+.showMoreButton {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+	font-family: var(--font-family-roboto);
+	font-size: 0.75rem;
+	font-weight: 500;
+	padding: 0.125rem;
+	margin-top: 0.125rem;
+	color: rgb(var(--vinisto-color-green));
+	border: none;
+	background-color: transparent;
+	width: 100%;
+}
+
+.showMoreButton:hover {
+	text-decoration: underline;
+}
+
+.showMoreButton svg {
+	width: 0.625rem;
+	margin-top: 0.125rem;
+	transition: transform 0.3s ease;
+}
+
+.showMoreButton svg.opened {
+	transform: rotate(180deg);
+}
+
+.showMoreButton svg path {
+	stroke: rgb(var(--vinisto-color-green));
+}

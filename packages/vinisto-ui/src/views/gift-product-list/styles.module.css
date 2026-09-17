@@ -1,0 +1,32 @@
+.giftHeading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: rgb(var(--vinisto-color-wine-red));
+	display: flex;
+	align-items: flex-end;
+	gap: 0.625rem;
+	margin-bottom: 0.375rem;
+}
+
+.giftsWrapper {
+	display: flex;
+	flex-direction: column;
+	margin-inline: -0.75rem;
+	margin-bottom: 1rem;
+}
+
+.giftProductListWrapper {
+	border-bottom: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+	margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+	.giftsWrapper {
+		margin-inline: -1.5rem;
+	}
+
+	.giftHeading {
+		font-size: 0.875rem;
+	}
+}

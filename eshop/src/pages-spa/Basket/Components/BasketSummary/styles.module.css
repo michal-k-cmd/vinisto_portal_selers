@@ -1,0 +1,194 @@
+.heading {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.5rem;
+	font-weight: 300;
+	line-height: 1.8125rem;
+	color: rgb(var(--vinisto-color-green));
+	margin-bottom: 1.125rem;
+	text-align: center;
+}
+
+.mobileHeading {
+	display: none;
+}
+
+.content {
+	background-color: rgb(var(--vinisto-color-light-wine-gray));
+	padding: 0.75rem 1.25rem 0.9375rem;
+}
+
+.items {
+	padding: 0 1.25rem;
+}
+
+.item {
+	font-family: var(--font-family-ubuntu);
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.625rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	font-size: 0.75rem;
+	padding-right: 0.0625rem;
+}
+
+.label {
+	font-weight: 700;
+}
+
+.value {
+	font-weight: 300;
+}
+
+.price {
+	font-weight: 500;
+	text-align: right;
+}
+
+.separator {
+	border-top: 1px solid rgb(var(--vinisto-color-dark-gray));
+	opacity: 1;
+	margin: 0.625rem 0 0.8125rem;
+}
+
+.totalSavings {
+	margin-bottom: 0.1875rem;
+}
+
+.totalSavingsPrice {
+	font-weight: 700;
+	color: rgba(var(--vinisto-color-green));
+}
+
+.totalPriceWithVat {
+	align-items: flex-end;
+	margin-bottom: 0.1875rem;
+}
+
+.totalPriceWithVatPrice {
+	font-size: 1rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+}
+
+.totalPriceWithoutVat {
+	margin-bottom: 0.9375rem;
+}
+
+.totalPriceWithoutVat.emptyBasket {
+	margin-bottom: 0;
+}
+
+.totalPriceWithoutVat .label,
+.totalPriceWithoutVat .price {
+	font-weight: 300;
+}
+
+@media (min-width: 1200px) {
+	.summaryWrap {
+		position: sticky;
+		top: calc(var(--header-height) + 1rem);
+		align-self: start;
+		flex: 0 0 28.875rem;
+		width: 28.875rem;
+		max-width: 100%;
+		max-height: fit-content;
+		margin-top: 1rem;
+	}
+
+	.summaryWrap.isCheckout {
+		top: calc(var(--basket-header-height) + 1rem);
+	}
+}
+
+@media (max-width: 1199.98px) {
+	.heading {
+		display: none;
+	}
+
+	.summaryWrap {
+		position: sticky;
+		top: calc(var(--header-height) + 1rem);
+		bottom: var(--footer-mobile-height-without-free-delivery-bar);
+	}
+
+	.summaryWrap.isCheckout {
+		bottom: 0;
+	}
+
+	.basketItems {
+		gap: 0.3125rem;
+	}
+
+	.content {
+		padding: 0.625rem 0.75rem;
+	}
+
+	.items {
+		padding: 0;
+	}
+
+	.separator {
+		margin: 0.625rem 0;
+	}
+
+	.floatingSimpleVersion {
+		margin: 0 -0.75rem;
+		background-color: rgb(var(--vinisto-color-white));
+	}
+
+	.floatingSimpleVersion
+		.item:not(.totalSavings):not(.totalPriceWithVat):not(.totalPriceWithoutVat),
+	.floatingSimpleVersion .separator {
+		display: none;
+	}
+
+	.floatingSimpleVersion .totalPriceWithoutVat {
+		margin-bottom: 0.9375rem;
+	}
+
+	.floatingSimpleVersion .content {
+		padding: 0.625rem 0.75rem;
+	}
+
+	.summaryWrapMobile {
+		position: sticky;
+		bottom: var(--footer-mobile-height-without-free-delivery-bar);
+		top: auto;
+		display: block;
+		margin: 0 -0.75rem;
+		width: calc(100% + 1.5rem);
+		max-width: unset;
+		z-index: var(--bottom-menu-z-index) -1;
+	}
+
+	.summaryWrapMobile.isCheckout {
+		bottom: 1rem !important;
+	}
+
+	.summaryWrapMobile.floating {
+		top: auto;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		margin: 0;
+	}
+}
+
+@media print {
+	.heading {
+		display: none;
+	}
+
+	.summaryWrap,
+	.summaryWrapMobile,
+	.summaryWrapMobile.floating {
+		position: static;
+	}
+
+	.floatingSimpleVersion
+		.item:not(.totalSavings):not(.totalPriceWithVat):not(.totalPriceWithoutVat),
+	.floatingSimpleVersion .separator {
+		display: initial;
+	}
+}

@@ -1,0 +1,70 @@
+:root {
+	--bs-body-color: rgb(var(--vinisto-color-dark));
+	--bs-body-line-height: var(--vinisto-line-height);
+
+	--font-family-roboto: 'Roboto', sans-serif;
+	--font-family-ubuntu: 'Ubuntu', sans-serif;
+
+	--vinisto-color: 40, 0, 68;
+	--vinisto-color-black: 0, 0, 0;
+	--vinisto-color-blue: 82, 151, 248;
+	--vinisto-color-darker: 34, 0, 58;
+	--vinisto-color-darker2: 67, 41, 87;
+	--vinisto-color-green: 104, 169, 16;
+	--vinisto-color-light-green: 243, 248, 236;
+	--vinisto-color-selected-green: 247, 251, 242;
+	--vinisto-color-dark: 3, 1, 4;
+	--vinisto-color-dark-gray: 112, 112, 112;
+	--vinisto-color-darker-gray: 77, 77, 78;
+	--vinisto-color-darker-gray2: 52, 52, 52;
+	--vinisto-color-light-gray: 249, 246, 247;
+	--vinisto-color-lighter-gray: 246, 246, 246;
+	--vinisto-color-lighter-gray2: 165, 165, 166;
+	--vinisto-color-gold: 199, 171, 89;
+	--vinisto-color-info: 255, 178, 101;
+	--vinisto-color-red: 201, 6, 46;
+	--vinisto-color-red-hover: 225, 47, 84;
+	--vinisto-color-dark-red: 158, 22, 60;
+	--vinisto-color-wine-red: 146, 1, 63;
+	--vinisto-color-red-dark: 255, 49, 49;
+	--vinisto-color-red-error: 255, 51, 51;
+	--vinisto-color-red-client: 255, 101, 101;
+	--vinisto-color-almost-white: 244, 242, 245;
+	--vinisto-color-almost-white2: 253, 253, 253;
+	--vinisto-color-white: 255, 255, 255;
+	--vinisto-color-shadow: 18, 1, 30;
+	--vinisto-color-error: 255, 0, 0;
+	--vinisto-color-warn: 199, 168, 89;
+	--client-color-warn: 237, 144, 51;
+	--vinisto-color-success: var(--vinisto-color-green);
+	--vinisto-light-bg: 247, 249, 251;
+	--client-color-green-light: 0, 212, 43;
+	--client-color-green: 0, 172, 35;
+
+	--button-text: rgb(var(--vinisto-color-white));
+	--button-bg: rgb(var(--vinisto-color));
+	--button-bg-hover: rgb(85, 0, 145);
+	--button-bg-ok: rgb(var(--client-color-green));
+	--button-bg-ok-hover: rgb(var(--client-color-green-light));
+	--button-bg-cancel: rgb(var(--vinisto-color-red-client));
+	--button-bg-cancel-hover: rgb(var(--vinisto-color-red-dark));
+
+	--vinisto-line-height: 1.2;
+	--vinisto-radius: 0.3125rem;
+	--vinisto-radius-small: 0.188rem;
+	--vinisto-radius-big: 0.25rem;
+
+	--vinisto-box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.5),
+		inset 0 2px 4px 0 hsla(0, 0%, 100%, 0.75);
+
+	--client-input-m-left: 0.5rem;
+
+	--vinisto-header-height: 80px;
+	--vinisto-footer-height: 56px;
+	--vinisto-sidebar-width: 300px;
+
+	--vinisto-tablet-header-height: 50px;
+	--vinisto-tablet-footer-height: 44px;
+
+	--vinisto-mobile-footer-height: 54px;
+}

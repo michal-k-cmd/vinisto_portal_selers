@@ -1,0 +1,42 @@
+.wrapper {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.button {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+.icon {
+	height: 1rem;
+	position: absolute;
+	inset: 0;
+}
+
+.buttonWrapper {
+	height: 1rem;
+	max-height: 1rem;
+	display: inline-flex;
+}
+
+.copied {
+	display: block;
+	font-size: 0.75rem;
+	color: black;
+	font-weight: 500;
+	transition: color 1s ease;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.copied.initial {
+	color: rgb(var(--vinisto-color-green));
+}
+
+@media (max-width: 1199.98px) {
+	.wrapper {
+		display: flex;
+	}
+}

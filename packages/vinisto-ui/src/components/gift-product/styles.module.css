@@ -1,0 +1,40 @@
+.wrapper {
+	display: flex;
+	background-color: rgba(var(--vinisto-color-green), 0.05);
+	padding: 0.75rem;
+}
+
+.giftImage {
+	width: 4.6875rem;
+	height: 6.25rem;
+	object-fit: contain;
+	padding: 0;
+	margin-right: 0.75rem;
+}
+
+.textWrapper {
+	font-family: var(--font-family-roboto);
+	font-weight: 400;
+	font-size: 0.75rem;
+	line-height: 1.1875rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.texts {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@media (min-width: 1200px) {
+	.wrapper {
+		padding: 0.6875rem 0.75rem 1rem;
+	}
+
+	.textWrapper {
+		font-size: 0.875rem;
+	}
+}

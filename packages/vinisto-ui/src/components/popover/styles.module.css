@@ -1,0 +1,62 @@
+.popover {
+	position: absolute;
+	z-index: 9999;
+	border: none;
+	padding: 0;
+	opacity: 0;
+	inset: auto;
+	transition: opacity 0.2s ease-in-out, display 0.2s allow-discrete,
+		overlay 0.2s allow-discrete;
+	max-width: 135px;
+	padding: 1rem 0.6rem;
+	text-align: center;
+	overflow: hidden;
+}
+
+.popover:popover-open {
+	opacity: 1;
+
+	@starting-style {
+		opacity: 0;
+	}
+}
+
+.closeButton {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	appearance: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+	height: 1rem;
+	width: 1rem;
+	line-height: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: 0.25rem;
+	right: 0.25rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: inherit;
+}
+
+.closeButton svg {
+	height: 0.55rem;
+	width: 0.55rem;
+}
+
+.success {
+	background-color: rgb(var(--vinisto-color-green));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.error {
+	background-color: rgb(var(--vinisto-color-error));
+	color: rgb(var(--vinisto-color-white));
+}

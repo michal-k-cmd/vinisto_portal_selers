@@ -1,0 +1,17 @@
+.basketList {
+		padding-inline: 1rem;
+		height: 100%;
+	}
+
+@media (min-width: 1200px) {
+	.basketList {
+    padding-inline: 0;
+		max-width: 36rem;
+	}
+}
+
+.topHalf {
+	flex-basis: 50%;
+	align-items: center;
+	justify-content: center;
+}

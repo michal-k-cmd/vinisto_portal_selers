@@ -1,0 +1,42 @@
+.vinisto-checkbox {
+	position: relative;
+	margin: 0.188rem 0 !important;
+	padding-left: 1.875rem;
+}
+.vinisto-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.vinisto-checkbox input:checked ~ .vinisto-checkbox__checkmark {
+	box-shadow: inset 2px 3px 6px 0 rgba(98, 7, 46, 0.5);
+}
+.vinisto-checkbox input:checked ~ .vinisto-checkbox__checkmark::after {
+	display: block;
+}
+.vinisto-checkbox__checkmark {
+	position: absolute;
+	top: 0.188rem;
+	left: 0;
+	height: 1.25rem;
+	width: 1.25rem;
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+	border-radius: var(--vinisto-radius-small);
+	box-shadow: none;
+	transition: box-shadow 0.3s ease-in-out;
+}
+.vinisto-checkbox__checkmark::after {
+	content: url('/assets/images/check.svg');
+	position: absolute;
+	display: none;
+	left: -0.375rem;
+	bottom: 0.375rem;
+	height: 1.25rem;
+	width: 1.25rem;
+}
+.vinisto-checkbox__checkmark.vinisto-popup__checkmark--radio {
+	border-radius: 0.625rem;
+}

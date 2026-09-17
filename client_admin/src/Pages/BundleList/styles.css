@@ -1,0 +1,12 @@
+.bundle-state--available {
+	color: rgb(var(--client-color-green));
+}
+.bundle-state--oos {
+	color: rgb(var(--vinisto-color-info));
+}
+.bundle-state--pending {
+	color: rgb(var(--vinisto-color-info));
+}
+.bundle-state--disabled {
+	color: rgba(var(----vinisto-color-black), 0.5);
+}

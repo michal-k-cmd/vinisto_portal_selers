@@ -1,0 +1,17 @@
+.errorView {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+
+.errorViewButtons {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+}
+
+.videoContainer {
+	margin-top: 1.5em;
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.414" height="12.414" viewBox="0 0 12.414 12.414">
+	<g id="search_icon" transform="translate(0.5 0.5)">
+		<circle cx="4.5" cy="4.5" r="4.5" transform="translate(0 0)" fill="none" stroke="#440063" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+		<line x1="2" y1="2" transform="translate(8.5 8.5)" fill="none" stroke="#440063" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+	</g>
+</svg>

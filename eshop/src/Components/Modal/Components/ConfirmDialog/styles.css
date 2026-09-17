@@ -1,0 +1,10 @@
+.vinisto-confirm-dialog__footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+}
+
+.vinisto-confirm-dialog__footer .vinisto-btn.vinisto-popup__btn {
+	width: auto;
+	padding: 0.25rem 1rem;
+}

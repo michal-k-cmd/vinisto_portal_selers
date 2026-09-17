@@ -1,0 +1,112 @@
+.discountCouponInfo {
+	font-family: var(--font-family-roboto);
+	display: flex;
+	align-items: baseline;
+	gap: 0.125rem;
+	font-size: 0.875rem;
+	font-weight: 400;
+	padding-block: 0.1rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.discountCoupon {
+	background-color: rgb(var(--vinisto-color-wine-light-red));
+	margin-inline: -1.25rem;
+	padding: 0.75rem 1.25rem;
+	font-family: var(--font-family-ubuntu);
+}
+
+@media (max-width: 1199.98px) {
+	.discountCoupon {
+		margin-top: 1rem;
+		margin-inline: -0.75rem;
+		padding: 0.75rem;
+	}
+
+	.discountCouponInfo {
+		font-size: 0.75rem;
+		gap: 0.25rem;
+	}
+}
+
+.discountButton.discountButton {
+	font-family: var(--font-family-ubuntu);
+	color: rgb(var(--vinisto-color-wine-red));
+	border-radius: 0.185rem;
+	border: 1px solid rgba(var(--vinisto-color-wine-red), 0.8);
+	padding: 0.125rem 0.3125rem;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.15;
+	margin-left: 0.125rem;
+}
+
+.discountButton.disabled {
+	pointer-events: none;
+	border: transparent;
+}
+
+@media (max-width: 1199.98px) {
+	.discountButton.discountButton {
+		font-size: 0.875rem;
+	}
+
+	.discountPercentage {
+		font-size: 0.75rem !important;
+	}
+}
+
+.discountButton:hover {
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.clubLoginButton {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.125rem;
+	font-weight: 500;
+	line-height: 1;
+	background-color: transparent;
+	color: rgb(var(--vinisto-color-wine-red));
+	border: 1px solid rgb(var(--vinisto-color-wine-red));
+	border-radius: 0.125rem;
+	padding: 0.25rem 0.5rem;
+	margin-top: 0.125rem;
+	margin-left: 0.25rem;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+@media screen and (max-width: 1199.98px) {
+	.clubLoginButton {
+		font-size: 0.875rem;
+	}
+}
+
+.clubLoginButton:hover {
+	background-color: rgb(var(--vinisto-color-wine-red));
+	color: rgb(var(--vinisto-color-white));
+}
+
+.priceWithVat {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1.875rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-red));
+}
+
+.priceWithoutVatValue {
+	font-family: var(--font-family-ubuntu);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+@media screen and (max-width: 1199.98px) {
+	.priceWithVat {
+		font-size: 1.125rem;
+	}
+
+	.priceWithoutVatValue {
+		font-size: 0.625rem;
+	}
+}

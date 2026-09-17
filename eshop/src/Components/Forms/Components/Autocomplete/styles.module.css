@@ -1,0 +1,48 @@
+.contentWrapper {
+	font-family: var(--font-family-roboto);
+	display: flex;
+	position: relative;
+}
+
+.inputsWrapper {
+	position: relative;
+	flex-grow: 1;
+}
+
+.placeholderInput {
+	position: relative;
+	border-color: transparent;
+	padding: 0.4375rem 0.625rem;
+	font-size: 0.6875rem;
+	font-weight: 300;
+	line-height: 1.2rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	z-index: 20;
+}
+
+.inputWrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 30;
+}
+
+.input {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.dropdown {
+	position: absolute;
+	top: calc(100% - 0.5rem);
+	font-weight: 400;
+	padding-top: 0.5rem;
+	left: 0;
+	width: 100%;
+	z-index: 10;
+	background-color: rgb(var(--vinisto-color-white));
+}
+
+.dropdown :global(strong) {
+	font-weight: 700;
+}
