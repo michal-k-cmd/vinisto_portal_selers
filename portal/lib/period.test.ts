@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { isFuture, nextMonth, parsePeriod, periodBounds, periodLabel, periodToParam, pragueToUnix, previousMonth } from "./period";
+import { isFuture, nextMonth, parsePeriod, periodBounds, periodLabel, periodToParam, pragueInputToUnix, pragueToUnix, previousMonth, unixToPragueInput } from "./period";
 
 test("pragueToUnix: půlnoc v Praze v létě (UTC+2) a v zimě (UTC+1)", () => {
   assert.equal(pragueToUnix(2026, 7, 1), Date.UTC(2026, 5, 30, 22) / 1000);
@@ -33,4 +33,11 @@ test("navigace mezi měsíci a popisky", () => {
   const now = new Date(Date.UTC(2026, 8, 17));
   assert.equal(isFuture({ kind: "month", year: 2026, month: 10 }, now), true);
   assert.equal(isFuture({ kind: "month", year: 2026, month: 9 }, now), false);
+});
+
+test("unixToPragueInput / pragueInputToUnix: obousměrně v pražském čase", () => {
+  const sec = pragueToUnix(2025, 7, 15, 9, 30);
+  assert.equal(unixToPragueInput(sec), "2025-07-15T09:30");
+  assert.equal(pragueInputToUnix("2025-07-15T09:30"), sec);
+  assert.equal(pragueInputToUnix("nesmysl"), null);
 });

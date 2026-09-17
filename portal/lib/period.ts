@@ -89,3 +89,27 @@ export function isFuture(p: Period, now = new Date()): boolean {
   if (p.kind === "year") return p.year > cur.year;
   return p.year > cur.year || (p.year === cur.year && p.month > cur.month);
 }
+
+/** Unix sekundy → hodnota pro <input type="datetime-local"> v pražském čase (YYYY-MM-DDTHH:mm). */
+export function unixToPragueInput(sec: number | null | undefined): string {
+  if (!sec) return "";
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Prague",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(new Date(sec * 1000));
+  const get = (t: string) => parts.find((p) => p.type === t)?.value ?? "00";
+  const hour = get("hour") === "24" ? "00" : get("hour");
+  return `${get("year")}-${get("month")}-${get("day")}T${hour}:${get("minute")}`;
+}
+
+/** Hodnota z <input type="datetime-local"> (pražský čas) → unix sekundy; null při neplatném tvaru. */
+export function pragueInputToUnix(value: string): number | null {
+  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?$/.exec(value);
+  if (!m) return null;
+  return pragueToUnix(Number(m[1]), Number(m[2]), Number(m[3]), Number(m[4]), Number(m[5]), Number(m[6] ?? 0));
+}

@@ -19,6 +19,7 @@ type PlatformSupplier = {
   nameWeb?: string | null;
   countryCode?: string | null;
   isShipping?: boolean | null;
+  couponPrefix?: string | null;
 };
 
 type PlatformUser = {
@@ -63,6 +64,15 @@ export async function fetchAuthUserSupplier(loginHash: string): Promise<{
   const suppliers = toSessionSuppliers(user.suppliers);
   if (suppliers.length === 0) return null;
   return { userId: user.id ?? "", email: user.email ?? "", suppliers };
+}
+
+/** Prefix kódu slevových kupónů prodejce (není v session, dotáhne se živě). */
+export async function fetchSupplierCouponPrefix(loginHash: string, supplierId: string): Promise<string> {
+  const data = await platformRequest<UserReturn>(AUTH_SUPPLIER_PATH, {
+    query: { UserLoginHash: loginHash, hashType: HASH_TYPE },
+  });
+  const supplier = (data.user?.suppliers ?? []).find((s) => s.id === supplierId);
+  return supplier?.couponPrefix ?? "";
 }
 
 export async function loginAgainstVinisto(email: string, password: string): Promise<LoginResult> {
