@@ -1,5 +1,11 @@
 # Vinisto frontend
 
+> **Přestavba portálu prodejce (2026):** nová aplikace vzniká v [`portal/`](portal/README.md)
+> (Next.js, přihlášení proti platformě ze serveru). Zadání a plán etap:
+> [`ZADANI-portal-prodejce.md`](ZADANI-portal-prodejce.md), inventář API:
+> [`docs/inventar-api.md`](docs/inventar-api.md). `client_admin/` zůstává
+> jako reference do cutoveru.
+
 ## Project structure
 
 ```txt
