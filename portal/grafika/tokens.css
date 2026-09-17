@@ -1,0 +1,39 @@
+/*
+ * Brand tokeny vinisto + merkatos — framework-agnostic CSS proměnné.
+ * Zdroj: oficiální grafické manuály 2024 (PDF v této složce).
+ * Použití: zkopíruj do projektu a importuj, nebo přilep do vlastního CSS.
+ * Tailwind v4 verze s napojením na utility: viz tailwind-globals.css.
+ */
+
+:root {
+  /* ------------------------------------------------------------------ */
+  /* vinisto — poměr ploch: 60 % bílá / 20 % zelená / 15 % béžová / 5 % vínová */
+  /* ------------------------------------------------------------------ */
+  --vinisto-green: #68a910; /* hlavní: akcenty, CTA, hlavička */
+  --vinisto-wine: #921443; /* zvýraznění, negativní stavy */
+  --vinisto-beige: #f2e8d3; /* podkladové plochy */
+  --vinisto-white: #ffffff; /* základ */
+
+  /* odvozené odstíny (nejsou v manuálu, hodí se pro UI) */
+  --vinisto-beige-light: #f8f4ea; /* světlejší podklad */
+  --vinisto-beige-border: #e7e0d0; /* linky */
+  --vinisto-green-dark: #14200a; /* text na zelené (dark mode) */
+
+  /* ------------------------------------------------------------------ */
+  /* merkatos                                                            */
+  /* ------------------------------------------------------------------ */
+  --merkatos-blue: #1605b9; /* Nova blue — hlavní */
+  --merkatos-violet: #7f78e3; /* doplňková / gradienty */
+  --merkatos-mint: #75fbd6; /* Electric Mint — akcent */
+  --merkatos-black: #000000;
+  --merkatos-white: #ffffff;
+
+  /* ------------------------------------------------------------------ */
+  /* typografie (Google Fonts)                                           */
+  /* vinisto: Ubuntu (nadpisy Bold/Medium), Roboto (texty Regular/Medium)*/
+  /* merkatos: DM Sans (celá identita)                                   */
+  /* ------------------------------------------------------------------ */
+  --font-vinisto-heading: "Ubuntu", ui-sans-serif, system-ui, sans-serif;
+  --font-vinisto-text: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-merkatos: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}

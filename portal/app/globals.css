@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Grafika portálu prodejce vinisto — podle oficiálních brand manuálů:
+ *   * vinisto Grafický manuál 2024: zelená #68A910, vínová #921443,
+ *     béžová #F2E8D3, bílá; poměr 60 % bílá / 20 % zelená / 15 % béžová /
+ *     5 % vínová; písma Ubuntu (nadpisy) + Roboto (texty)
+ *   * Merkatos Grafický manuál 2024: Nova blue #1605B9, fialová #7F78E3,
+ *     Electric Mint #75FBD6, černá, bílá; písmo DM Sans (patička)
+ */
+
+:root {
+  /* vinisto brand */
+  --vinisto-green: #68a910;
+  --vinisto-wine: #921443;
+  --vinisto-beige: #f2e8d3;
+
+  /* merkatos brand (patička) */
+  --merkatos-blue: #1605b9;
+  --merkatos-violet: #7f78e3;
+  --merkatos-mint: #75fbd6;
+
+  /* neutrály — 60 % bílá dle poměru barev */
+  --background: #ffffff;
+  --foreground: #1f2415;
+  --muted: #f8f4ea; /* světlejší odstín brand béžové */
+  --muted-foreground: #6f6a5c;
+  --card: #ffffff;
+  --card-foreground: #1f2415;
+  --border: #e7e0d0; /* béžová linka */
+  --primary: var(--vinisto-green);
+  --primary-foreground: #ffffff;
+  --accent: var(--vinisto-beige);
+  --accent-foreground: #1f2415;
+  --destructive: var(--vinisto-wine);
+
+  /* funkční barvy (badge, stavy) — zelená/červená mapované na brand */
+  --notion-gray: #787774;
+  --notion-brown: #9f6b53;
+  --notion-orange: #d9730d;
+  --notion-yellow: #b78a1f;
+  --notion-green: #68a910;
+  --notion-blue: #337ea9;
+  --notion-purple: #7f78e3;
+  --notion-pink: #c14c8a;
+  --notion-red: #921443;
+
+  --radius: 0.5rem; /* oblejší tvary dle vizuálního stylu (hrozny, lahve) */
+}
+
+.dark {
+  --background: #191919;
+  --foreground: #e6e4dd;
+  --muted: #212019;
+  --muted-foreground: #a29d8f;
+  --card: #201f1a;
+  --card-foreground: #e6e4dd;
+  --border: #35332a;
+  --primary: #7cc21a; /* zelená zesvětlená pro kontrast na tmavé */
+  --primary-foreground: #14200a;
+  --accent: #2b2a22;
+  --accent-foreground: #e6e4dd;
+  --destructive: #c04a75;
+  --notion-green: #8ccf35;
+  --notion-red: #d3628c;
+  --notion-yellow: #cb912f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+
+  --color-vinisto-green: var(--vinisto-green);
+  --color-vinisto-wine: var(--vinisto-wine);
+  --color-vinisto-beige: var(--vinisto-beige);
+  --color-merkatos-blue: var(--merkatos-blue);
+  --color-merkatos-mint: var(--merkatos-mint);
+
+  --color-notion-gray: var(--notion-gray);
+  --color-notion-brown: var(--notion-brown);
+  --color-notion-orange: var(--notion-orange);
+  --color-notion-yellow: var(--notion-yellow);
+  --color-notion-green: var(--notion-green);
+  --color-notion-blue: var(--notion-blue);
+  --color-notion-purple: var(--notion-purple);
+  --color-notion-pink: var(--notion-pink);
+  --color-notion-red: var(--notion-red);
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-roboto), Roboto, ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-ubuntu), Ubuntu, var(--font-sans);
+  --font-dm: var(--font-dm-sans), "DM Sans", var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Nadpisy dle manuálu: Ubuntu Bold/Medium */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-dm {
+  font-family: var(--font-dm);
+}
