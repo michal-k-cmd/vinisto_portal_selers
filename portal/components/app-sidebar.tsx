@@ -31,6 +31,7 @@ import { marketingUrlFor } from "@/lib/modules";
 import type { SessionSupplier } from "@/lib/auth/session";
 import { useMobileMenu } from "@/components/mobile-menu";
 import { SupplierSwitch } from "@/components/supplier-switch";
+import { SupportChatButton } from "@/components/support-chat-button";
 
 const ICONS: Record<string, LucideIcon> = {
   LayoutDashboard,
@@ -104,6 +105,7 @@ export function AppSidebar({
       <div className="truncate px-1 text-xs text-muted-foreground" title={email}>
         {email}
       </div>
+      <SupportChatButton className="w-full px-1 text-muted-foreground hover:text-foreground" />
       <button
         type="button"
         onClick={logout}
