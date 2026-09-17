@@ -35,7 +35,33 @@ pnpm --filter portal lint && pnpm --filter portal typecheck && pnpm --filter por
 - Aktivní prodejce se přepíná server action (`lib/auth/actions.ts`), která
   přepíše cookie. Stránky ho čtou ze session, nikdy z requestu.
 - Moduly: registr `lib/modules/index.ts` (pořadí = sidebar), UI v
-  `app/(app)/<route>/`, data budou v `lib/platform/<modul>.ts`.
+  `app/(app)/<route>/`, data v `lib/platform/<modul>.ts` (server-only),
+  mutace v `lib/platform/actions/<modul>.ts` (server actions se zod).
+- Soubory z platformy (PDF/XLS) jdou přes vlastní route handlery
+  (`app/(app)/vyuctovani/[id]/pdf`, `naskladneni/[id]/pdf`), hash zůstává
+  na serveru.
+- Staré cesty SPA (`/billing`, `/bundle-list`, `/settings`…) trvale
+  přesměrovává `next.config.ts`.
+
+## Stav modulů (vše zportováno z `client_admin/`)
+
+| Modul | Routy | Zdroj dat |
+|---|---|---|
+| Přehled | `/` | `order-api/dashboard-sale`, fee-values, stocking-requests |
+| Produkty | `/produkty`, `/produkty/[id]`, `/produkty/sety`, `/produkty/sety/novy`, `/produkty/sety/[id]` | `product-api/bundles/*` |
+| Naskladnění | `/naskladneni`, `/naskladneni/[id]` (+ PDF) | `supplier-api/stocking-requests` |
+| Sklad | `/sklad`, `/sklad/pohyby` | `supplier-api/admin/statistics`, `products`, `change-log` |
+| Objednávky | `/objednavky`, `/objednavky/[id]` | `order-api/orders` (jen podle hashe, BE neumí `SupplierId`) |
+| Vyúčtování | `/vyuctovani`, `/vyuctovani/[id]` (+ PDF/XLS), `/vyuctovani/provize` | `order-api/billings`, `supplier-api/admin/fee-rules` |
+| Marketing | `/marketing/kupony` | `order-api/discount-coupons` |
+| Nastavení | `/nastaveni`, `/fakturace`, `/banka`, `/kontakt`, `/dodani`, `/prihlaseni` | `GetAuthUserSupplier`, `UpdateSupplier`, `address`, `user-api` |
+| Veřejné | `/login`, `/registrace`, `/faq`, `/kontakt` | `CreateSupplierAndUser`, `services-api/ares` |
+
+## Testy
+
+```bash
+pnpm --filter portal test   # node:test nad lib/**/*.test.ts (ceny, období, provize, validátory…)
+```
 
 ## ENV
 
@@ -45,5 +71,16 @@ pnpm --filter portal lint && pnpm --filter portal typecheck && pnpm --filter por
 | `VINISTO_API_KEY` | hlavička `X-Api-Key` pro integrace |
 | `SESSION_SECRET` | podpis session cookie (`openssl rand -hex 32`) |
 | `NEXT_PUBLIC_MARKETING_URL`, `NEXT_PUBLIC_MANUALS_URL` | volitelné externí odkazy v menu |
+| `SUPPORTBOX_CHAT_ID`, `SUPPORTBOX_CHAT_SECRET` | volitelné; bez nich se chat nenačte a tlačítka „Chat s podporou“ vedou na Kontakt |
 
 Hodnoty jen v `.env.local` / Vercel ENV, nikdy do gitu.
+
+## Cutover z `client_admin/`
+
+1. Ve Vercel projektu portálu nastavit ENV výše (včetně SupportBox) a ověřit
+   build z větve `main`.
+2. Přepnout doménu portálu prodejce na nový projekt; staré URL se
+   přesměrují samy (`next.config.ts`).
+3. Po ověření provozu smazat `client_admin/` a jeho Vercel projekt; z
+   `packages/vinisto-api-client` zůstávají jen swagger typy (`src/api-types`),
+   které portál používá přes alias `@api-types/*`.

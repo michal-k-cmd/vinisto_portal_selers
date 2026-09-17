@@ -4,7 +4,8 @@
 > (Next.js, přihlášení proti platformě ze serveru). Zadání a plán etap:
 > [`ZADANI-portal-prodejce.md`](ZADANI-portal-prodejce.md), inventář API:
 > [`docs/inventar-api.md`](docs/inventar-api.md). `client_admin/` zůstává
-> jako reference do cutoveru.
+> jako reference do cutoveru — všechny moduly už jsou v `portal/` zportované,
+> postup přepnutí je v [`portal/README.md`](portal/README.md#cutover-z-client_admin).
 
 ## Project structure
 
