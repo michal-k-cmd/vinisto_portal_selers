@@ -1,0 +1,31 @@
+.wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.input:focus-visible + .input_icon {
+	outline: rgba(var(--vinisto-color-green), 0.75) solid 2px;
+}
+
+.input_icon {
+	border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.5);
+	fill: none;
+}
+
+.input_icon > rect {
+	fill: rgba(var(--vinisto-color-white, 1));
+}
+
+.input:checked + .input_icon {
+	border-color: gba(var(--vinisto-color-darker-gray, 0.5));
+}
+
+.input:checked + .input_icon > rect {
+	fill: rgba(var(--vinisto-color-darker-gray, 0.5))
+}
+
+.input:checked + .input_icon .checkmark {
+	stroke: rgba(var(--vinisto-color-white, 1))
+}
+

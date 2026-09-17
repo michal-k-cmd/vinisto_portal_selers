@@ -1,0 +1,16 @@
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1.5rem;
+}
+
+.percentage {
+	display: flex;
+	justify-content: space-between;
+	width: 120px;
+}
+
+.wrapper a {
+	color: rgb(var(--vinisto-color));
+	text-decoration: underline;
+}

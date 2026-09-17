@@ -1,0 +1,11 @@
+.component {
+  font-family: var(--font-family-roboto);
+  background-color: rgba(var(--vinisto-color-selected-green), 1);
+  filter: brightness(0.98);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  width: fit-content;
+  margin-inline-start: auto;
+  float: right;
+  clear: both;
+}

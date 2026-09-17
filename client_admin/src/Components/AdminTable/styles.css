@@ -1,0 +1,56 @@
+.vinisto-admin-table--loading {
+	min-height: 9.4em;
+}
+.vinisto-admin-table__loading-overlay {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+.vinisto-admin-table__sorting-ico {
+	margin-left: 0.4em;
+}
+.vinisto-admin-table__sorting-ico--faded {
+	opacity: 0.4;
+}
+.vinisto-admin-table__header-cell {
+	font-size: 0.875rem;
+	font-weight: var(--bs-body-font-weight);
+}
+.vinisto-admin-table__header-cell .form-control,
+.vinisto-admin-table__header-cell .form-select {
+	margin-top: 0.5rem;
+}
+.vinisto-admin-table__header-top.vinisto-admin-table__header-top {
+	vertical-align: top !important;
+}
+.vinisto-admin-table__selection-cell {
+	width: 0;
+	cursor: default;
+	position: relative;
+}
+.vinisto-admin-table__selection {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.vinisto-admin-table__selection .form-check-input {
+	margin-top: 0;
+}
+
+.highlight td {
+	--bs-table-accent-bg: #fff3cd !important;
+}
+
+td {
+	vertical-align: middle;
+}

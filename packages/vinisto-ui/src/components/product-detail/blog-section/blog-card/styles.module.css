@@ -1,0 +1,61 @@
+.component {
+	margin-bottom: 0.5rem;
+}
+
+.component.columns_1 {
+	display: grid;
+	column-gap: 1rem;
+	grid-template-columns: 332px 1fr;
+}
+
+@media screen and (max-width: 768px) {
+	.component.columns_1 {
+		grid-template-columns: 1fr;
+	}
+
+	.component.columns_1 .title {
+		font-size: 1rem;
+	}
+
+	.component.columns_1 .perex,
+	.component.columns_1 .link {
+		font-size: 0.875rem;
+	}
+}
+
+.image {
+	aspect-ratio: 332/175;
+	object-fit: cover;
+	width: 100%;
+	margin-bottom: 0.5rem;
+}
+
+.title {
+	font-size: 1rem;
+	text-decoration: underline;
+	text-decoration-thickness: 0.075rem;
+	text-underline-offset: 0.15rem;
+	font-weight: 500;
+	font-family: var(--font-family-ubuntu);
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 0.875rem;
+  }
+  
+}
+
+.columns_1 .title {
+	font-size: 1.125rem;
+}
+
+.perex {
+	line-height: 1.5;
+	margin-bottom: 0.5rem;
+}
+
+.link {
+	color: rgb(var(--vinisto-color-green));
+	text-decoration: underline;
+}

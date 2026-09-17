@@ -1,0 +1,18 @@
+.iconGiftVariantSimple > g > path:first-child {
+	display: none;
+}
+
+.iconGiftVariantActive > g > path:first-child,
+.iconCheckVariantActive > g > path:first-child {
+	fill: rgb(var(--vinisto-color-wine-red2));
+}
+
+.iconGiftVariantInActive > g > path:first-child,
+.iconCheckVariantInActive > g > path:first-child {
+	fill: rgb(var(--vinisto-color-lighter-gray2));
+}
+
+
+.iconDeliveryVariantInactive > g > path:first-child {
+	fill: rgb(var(--vinisto-color-lighter-gray2));
+}

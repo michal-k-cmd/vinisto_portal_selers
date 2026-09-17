@@ -1,0 +1,10 @@
+.input-error {
+	color: rgb(var(--vinisto-color-red-client));
+	margin-left: var(--client-input-m-left);
+	font-weight: 700;
+}
+
+.warning {
+	color: rgb(var(--client-color-warn));
+	margin-left: var(--client-input-m-left);
+}

@@ -1,0 +1,31 @@
+.stock-request-detail-bundle-list__difference--ok {
+	color: rgb(var(--client-color-green));
+}
+.stock-request-detail-bundle-list__difference--error {
+	color: rgb(var(--vinisto-color-red-dark));
+	font-weight: 700;
+}
+
+@media screen {
+	.request-leading-offset.request-leading-offset {
+		padding-left: 1.5rem;
+	}
+}
+
+@media print {
+	.vinisto-admin-table {
+		font-size: 9pt;
+	}
+	.vinisto-admin-table.table-striped > tbody > tr:nth-of-type(odd) > * {
+		--bs-table-accent-bg: transparent;
+	}
+	.request-print-text-end {
+		text-align: right;
+	}
+	.request-print-table-secondary {
+		--bs-table-bg: #e2e3e5;
+	}
+	.request-total-count {
+		width: 30mm;
+	}
+}

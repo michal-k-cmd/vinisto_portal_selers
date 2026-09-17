@@ -1,0 +1,7 @@
+.img {
+	width: 1.65rem;
+	height: 1.65rem;
+	object-fit: contain;
+	user-select: none;
+	pointer-events: none;
+}

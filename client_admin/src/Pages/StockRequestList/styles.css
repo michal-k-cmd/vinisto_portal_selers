@@ -1,0 +1,9 @@
+.request-state--waiting {
+	color: rgb(var(--vinisto-color-info));
+}
+.request-state--accepted {
+	color: rgb(var(--client-color-green));
+}
+.request-state--cancelled {
+	color: rgb(var(--vinisto-color-red-dark));
+}

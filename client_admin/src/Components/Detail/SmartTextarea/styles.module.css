@@ -1,0 +1,43 @@
+.label {
+	text-align: left;
+	font: normal normal normal 12px/16px;
+	letter-spacing: 0px;
+	color: #937fa1;
+}
+
+.textarea {
+	resize: both;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border: 1px solid #dbdbdb;
+	border-radius: 3px;
+	transition: border-color 0.3s ease-in-out;
+
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: 0px;
+	color: #4d4d4e;
+}
+
+.textarea:focus {
+	border-color: #937fa1;
+	outline: none;
+}
+
+.indicatorContainer {
+	height: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.savingIndicator {
+	color: #937fa1;
+	font-weight: 600;
+	font-size: 11px;
+}
+
+.savedIndicator {
+	color: green;
+	font-weight: 600;
+	font-size: 11px;
+}

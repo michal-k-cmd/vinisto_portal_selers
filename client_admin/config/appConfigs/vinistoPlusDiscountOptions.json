@@ -1,0 +1,70 @@
+{
+  "percentageOptions": [
+    { "value": 10, "default": true },
+    { "value": 15 },
+    { "value": 20 },
+    { "value": 25 },
+    { "value": 30 },
+    { "value": 35 },
+    { "value": 45 },
+    { "value": 50 }
+  ],
+  "discountDurationOptions": [
+    {
+      "value": {
+        "unit": "month",
+        "count": 1
+      },
+      "default": true
+    },
+    {
+      "unit": "month",
+      "value": {
+        "unit": "month",
+        "count": 2
+      }
+    },
+    {
+      "unit": "month",
+      "value": {
+        "unit": "month",
+        "count": 3
+      }
+    },
+    {
+      "unit": "month",
+      "value": {
+        "unit": "month",
+        "count": 4
+      }
+    },
+    {
+      "unit": "month",
+      "value": {
+        "unit": "month",
+        "count": 5
+      }
+    },
+    {
+      "unit": "month",
+      "value": {
+        "unit": "month",
+        "count": 6
+      }
+    },
+    {
+      "unit": "month",
+      "value": {
+        "unit": "month",
+        "count": 9
+      }
+    },
+    {
+      "unit": "year",
+      "value": {
+        "unit": "year",
+        "count": 1
+      }
+    }
+  ]
+}

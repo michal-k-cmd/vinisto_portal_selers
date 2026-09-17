@@ -1,0 +1,80 @@
+#content-wrapper {
+	width: 100%;
+}
+
+#content-wrapper > .container {
+	margin-top: 16px;
+}
+
+.vinisto-terms__text > * {
+	text-align: justify;
+}
+
+.vinisto-accordions__heading {
+	font-size: 18px;
+	color: rgb(var(--vinisto-color));
+	margin-bottom: 0.625rem;
+	margin-left: 1.5rem;
+	text-align: left;
+	font-weight: 700;
+}
+@media (max-width: 1364.98px) {
+	.vinisto-accordions__heading {
+		margin-left: 1rem;
+		font-size: 14px;
+	}
+}
+.vinisto-accordions .accordion {
+	width: 100%;
+	max-width: 812px;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+.vinisto-accordions .accordion-item:first-of-type {
+	border-top-left-radius: var(--vinisto-radius-small);
+	border-top-right-radius: var(--vinisto-radius-small);
+	border-color: rgba(var(--vinisto-color-gold), 0.5);
+}
+.vinisto-accordions .accordion-item:not(:first-of-type) {
+	border-top: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+}
+.vinisto-accordions .accordion-item {
+	color: rgb(var(--vinisto-color));
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+	border-radius: var(--vinisto-radius-small);
+	overflow: hidden;
+}
+.vinisto-accordions .accordion-button {
+	padding: 0.875rem 1rem 0.875rem 1.5rem;
+	font-size: 1.125rem;
+	font-weight: 500;
+}
+@media (max-width: 1364.98px) {
+	.vinisto-accordions .accordion-button {
+		font-size: 0.875rem;
+		padding: 0.5rem 0.75rem 0.5rem 1rem;
+	}
+}
+.vinisto-accordions .accordion-button:not(.collapsed) {
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color));
+	box-shadow: none;
+}
+.vinisto-accordions .accordion-body {
+	padding: 0 1rem 0 1.5rem;
+}
+@media (max-width: 1364.98px) {
+	.vinisto-accordions .accordion-body {
+		padding: 0 0.75rem 0 1rem;
+	}
+}
+.vinisto-accordions .accordion-button::after {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cg transform='translate(1.5 1.5)'%3E%3Cline x2='15' transform='translate(0 7.5)' fill='none' stroke='%23280044' stroke-linecap='round' stroke-width='3'/%3E%3Cline y2='15' transform='translate(7.5)' fill='none' stroke='%23280044' stroke-linecap='round' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+.vinisto-accordions .accordion-button:not(.collapsed)::after {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='3' viewBox='0 0 18 3'%3E%3Cg transform='translate(1.5 -6)'%3E%3Cline x2='15' transform='translate(0 7.5)' fill='none' stroke='%23280044' stroke-linecap='round' stroke-width='3'/%3E%3C/g%3E%3C/svg%3E%0A");
+	background-position: 50% 50%;
+}

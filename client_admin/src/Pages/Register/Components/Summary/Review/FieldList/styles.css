@@ -1,0 +1,14 @@
+.field-list {
+	margin-top: 0.5em;
+}
+.field-list dt {
+	float: left;
+}
+.field-list dt::before {
+	content: '- ';
+	clear: left;
+}
+.field-list dt::after {
+	content: ':';
+	margin-right: 0.35em;
+}

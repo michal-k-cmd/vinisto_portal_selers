@@ -1,0 +1,228 @@
+body {
+	background-color: rgb(var(--vinisto-light-bg));
+	margin: 0;
+	padding: 0;
+}
+
+body,
+body * {
+	font-family: 'Roboto', sans-serif;
+	line-height: var(--vinisto-line-height);
+}
+
+#vinisto_admin_root {
+	width: 100%;
+	height: 100vh;
+	max-height: 100vh;
+}
+
+@media (min-width: 1200px) {
+	h2,
+	.h2 {
+		font-size: 1.125rem;
+	}
+	h3,
+	.h3 {
+		font-size: 1.0625rem;
+	}
+}
+.form-label {
+	margin-bottom: 0.25rem;
+}
+
+.upload-input,
+.rc-color-picker-panel-params.rc-color-picker-panel-params-has-alpha {
+	display: none;
+}
+
+.react-confirm-alert-overlay {
+	backdrop-filter: blur(1.8px) !important;
+	-webkit-backdrop-filter: blur(1.8px) !important;
+	background: rgba(var(--vinisto-color), 0.75) !important;
+	z-index: 999 !important;
+}
+.react-confirm-alert-overlay .react-confirm-alert {
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+.react-confirm-alert-overlay .react-confirm-alert .react-confirm-alert-body {
+	border-radius: 4px;
+}
+.react-confirm-alert-overlay
+	.react-confirm-alert
+	.react-confirm-alert-body
+	> h1 {
+	font-size: 24px;
+	font-weight: 700;
+	color: rgb(40, 0, 68);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.form-control {
+	border-radius: 0.3125rem;
+	padding: 0.4375rem 0.5rem;
+	line-height: 1.2;
+	color: #000000;
+	border-color: rgba(199, 168, 89, 0.5);
+	box-shadow: inset 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
+}
+.form-control:focus {
+	color: #000000;
+	border-color: #c7a859;
+	box-shadow: inset 1px 1px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-clear {
+	border: none;
+	background-color: transparent;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+	background-color: rgb(var(--vinisto-color-white));
+	color: #000000;
+	border-color: rgba(0, 0, 0, 0.16);
+	box-shadow: none;
+}
+
+.react-confirm-alert-button-group > button {
+	font-weight: 700 !important;
+	border-radius: 4px !important;
+	color: rgb(var(--vinisto-color-white));
+	background: linear-gradient(
+		15deg,
+		rgba(148, 9, 26, 0.35) 0%,
+		rgba(168, 9, 26, 0.35) 39%,
+		rgba(168, 9, 26, 0.35) 63%,
+		rgba(148, 9, 26, 0.35) 100%
+	) !important;
+}
+
+.fade.modal.show {
+	backdrop-filter: blur(1.8px) !important;
+	-webkit-backdrop-filter: blur(1.8px) !important;
+	background: linear-gradient(
+		15deg,
+		rgba(40, 0, 68, 0.15) 0%,
+		rgba(57, 0, 68, 0.15) 39%,
+		rgba(57, 0, 68, 0.15) 63%,
+		rgba(40, 0, 68, 0.15) 100%
+	) !important;
+}
+
+.vinisto-popup__show-password {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	right: 0.625rem;
+	transform: translateY(-50%);
+	transition: opacity 300ms ease-out;
+	opacity: 0.5;
+}
+.vinisto-popup__show-password:hover {
+	opacity: 1;
+}
+
+.card {
+	box-shadow: 0px 2px 8px rgba(67, 41, 87, 0.2);
+	border-radius: var(--vinisto-radius-big);
+	background-color: rgb(var(--vinisto-color-white));
+	border: 0px;
+	margin: 1rem;
+}
+
+.card-group {
+	box-shadow: 0 0 20px 8px rgba(10, 8, 9, 0.075);
+}
+
+.btn {
+	border: none;
+	border-radius: var(--vinisto-radius-small);
+	color: var(--button-text);
+	line-height: 1.2;
+	padding: 0.375rem 0.75rem;
+}
+.btn:hover,
+.btn:focus {
+	color: var(--button-text);
+}
+.btn[disabled] {
+	opacity: 0.5;
+}
+
+.btn-primary {
+	background-color: var(--button-bg);
+}
+.btn-primary:hover {
+	background-color: var(--button-bg-hover);
+}
+.btn-primary:focus {
+	color: #fff;
+	background-color: var(--button-bg-hover);
+	border-color: var(--button-bg);
+	box-shadow: none;
+}
+.btn-primary[disabled] {
+	background-color: var(--button-bg);
+}
+
+.btn-ok {
+	background-color: var(--button-bg-ok);
+}
+.btn-ok:hover,
+.btn-ok:focus {
+	background-color: var(--button-bg-ok-hover);
+}
+.btn-ok[disabled] {
+	background-color: var(--button-bg-ok);
+}
+
+.btn-cancel {
+	background-color: var(--button-bg-cancel);
+}
+.btn-cancel:hover,
+.btn-cancel:focus {
+	background-color: var(--button-bg-cancel-hover);
+}
+.btn-cancel[disabled] {
+	background-color: var(--button-bg-cancel);
+}
+
+#activeSupplier {
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	color: rgb(var(--vinisto-color-white));
+	padding: 0;
+	cursor: pointer;
+}
+#activeSupplier + .input-error {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.vinisto-admin-billing-totalsum {
+	color: rgb(var(--vinisto-color-green))
+}
+
+@media (max-width: 991.98px) {
+	.tablet-hide {
+		display: none;
+	}
+}
+
+@media (max-width: 767.98px) {
+	.mobile-hide {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.mobile-only {
+		display: none;
+	}
+}

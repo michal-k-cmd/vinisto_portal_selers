@@ -1,0 +1,56 @@
+.freeGiftsProgressBarWrapper {
+	padding-inline: 0.5rem
+}
+
+@media (min-width: 1200px) {
+	.freeGiftsProgressBarWrapper {
+		padding-inline: 1rem
+	}
+}
+
+.freeGiftsProgressBar {
+	border-radius: 0;
+	margin: 1.25rem auto 1rem;
+	width: calc(100% - 25px);
+}
+
+.freeGiftsProgressBar * {
+	cursor: default;
+}
+
+.freeGiftsProgressBar.rc-slider-disabled {
+	background-color: unset;
+}
+
+.freeGiftsProgressBar .rc-slider-handle,
+.freeGiftsProgressBar .rc-slider-step {
+	display: none;
+}
+
+.freeGiftsProgressBar .rc-slider-rail,
+.freeGiftsProgressBar .rc-slider-track {
+	height: 8px;
+	top: 0px;
+	border-radius: 0px;
+	width: 100%;
+}
+
+.freeGiftsProgressBar .rc-slider-track::before {
+	content: '';
+	height: 8px;
+	top: 0px;
+}
+
+.freeGiftsProgressBar .rc-slider-rail {
+	background-color: rgb(var(--vinisto-color-light-gray));
+}
+
+.freeGiftsProgressBar .rc-slider-track {
+	background-color: rgb(var(--vinisto-color-wine-red2)) !important;
+}
+
+@media (max-width: 1399.98px) {
+	.freeGiftsProgressBar {
+		width: calc(100% - 28px) !important;
+	}
+}

@@ -1,0 +1,27 @@
+.textSuccess {
+	color: rgb(var(--vinisto-color-green));
+}
+
+.textWarn {
+	color: rgba(220, 160, 86, 1);
+}
+
+.textDanger {
+	color: rgb(var(--vinisto-color-red));
+}
+
+.infoBox {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.infoBoxHeading {
+	font-size: 1.05rem;
+	font-weight: 500;
+}
+
+.buttonWarning {
+	background: rgba(220, 160, 86, 1) !important;
+	color: white;
+}

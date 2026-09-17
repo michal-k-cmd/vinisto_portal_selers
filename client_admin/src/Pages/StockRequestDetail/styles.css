@@ -1,0 +1,35 @@
+.btn.btn-print {
+	background: none;
+}
+.btn.btn-print:hover,
+.btn.btn-print:focus {
+	background: none;
+}
+
+.request-print-header {
+	margin-bottom: 0;
+	grid-auto-flow: column;
+	grid-template-columns: auto 1fr auto 1fr;
+}
+.request-print-header dt {
+	font-weight: normal;
+}
+.request-print-header dt::after {
+	content: ':';
+	margin-right: 0.25em;
+}
+.request-print-header dd {
+	font-weight: 700;
+}
+
+@media print {
+	.stock-request-detail {
+		background-color: transparent;
+	}
+	.stock-request-detail .vca-footer,
+	.stock-request-detail .vca-navbar,
+	.stock-request-detail .vca-sidebar,
+	.stock-request-detail #smartsupp-widget-container {
+		display: none;
+	}
+}

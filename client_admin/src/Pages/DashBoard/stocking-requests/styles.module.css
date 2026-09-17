@@ -1,0 +1,34 @@
+.wrapper {
+	margin-left: -1.5rem;
+	margin-right: -1.5rem;
+	max-height: 11.5rem;
+	overflow: auto;
+}
+
+.wrapper tbody td {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.wrapper tbody > tr > td:first-child,
+.wrapper thead > tr > th:first-child {
+	padding-left: 1.5rem;
+}
+
+.wrapper tbody > tr > td:last-child,
+.wrapper thead > tr > th:last-child {
+	padding-right: 1.5rem;
+}
+
+.noRequests {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 11.5rem;
+	color: rgba(var(--vinisto-color-black), 0.5);
+}
+
+.infoButton {
+	background-color: #ffb265;
+	cursor: default !important;
+}

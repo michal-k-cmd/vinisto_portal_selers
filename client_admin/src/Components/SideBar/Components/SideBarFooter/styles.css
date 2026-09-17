@@ -1,0 +1,26 @@
+.vca-sidebar-footer {
+	width: 100%;
+	background-color: rgb(var(--vinisto-color-darker));
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 1.5rem;
+	color: rgb(var(--vinisto-color-white));
+}
+.vca-sidebar-footer__link-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2.25rem;
+}
+
+.footer-link {
+	color: #fff;
+}
+.footer-link:hover {
+	color: unset;
+	font-weight: 700;
+}
+
+.footer-icon {
+	font-size: 20px;
+	margin-right: 10px;
+}

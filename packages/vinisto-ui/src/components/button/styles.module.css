@@ -1,0 +1,57 @@
+.component {
+	padding: 0.25rem 0.75rem;
+	background-color: transparent;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(var(--vinisto-color-darker-gray), 0.5);
+	color: rgba(var(--vinisto-color-darker-gray), 1);
+	transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+		color 0.15s ease-in-out;
+	line-height: 1.5;
+	text-align: center;
+	font-family: var(--font-family-ubuntu);
+}
+
+:is(.component:hover, .component:active, .component.solid_background) {
+	background-color: rgba(var(--vinisto-color-darker-gray), 1);
+	color: rgba(var(--vinisto-color-white), 1);
+}
+
+:is(.component.green_outline, .component.green_outline:active) {
+	background-color: rgba(var(--vinisto-color-white), 1);
+	color: rgba(var(--vinisto-color-green), 1);
+	border-color: rgba(var(--vinisto-color-green), 1);
+}
+
+:is(.component.green_outline:hover) {
+	border-color: rgba(var(--vinisto-color-green-hover), 1);
+	color: rgba(var(--vinisto-color-green-hover), 1);
+}
+
+:is(.component.cta, .component.cta:active) {
+	background-color: rgba(var(--vinisto-color-green), 1);
+	border-color: rgba(var(--vinisto-color-green), 1);
+	color: rgba(var(--vinisto-color-white), 1);
+}
+
+:is(.component.cta:hover) {
+	background-color: rgba(var(--vinisto-color-green-hover), 1);
+	border-color: rgba(var(--vinisto-color-green-hover), 1);
+	color: rgba(var(--vinisto-color-white), 1);
+}
+
+.component:is(:focus-visible) {
+	outline: rgba(var(--vinisto-color-green), 0.75) solid 2px;
+}
+
+.s {
+	line-height: 1.25;
+	font-size: 0.75rem;
+	padding: 0.1875rem 0.75rem;
+}
+
+@media screen and (min-width: 1399.98px) {
+	.s {
+		font-size: 0.875rem;
+	}
+}

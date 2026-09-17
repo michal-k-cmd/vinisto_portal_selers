@@ -1,0 +1,65 @@
+/* Buttons and anchor element (which are a commonm usecase) has some unwanted default styles */
+button.blogTag {
+	border: unset;
+	background-color: unset;
+}
+
+a.blogTag {
+	text-decoration: unset;
+}
+
+.blogTag {
+	font-family: var(--font-family-roboto);
+	position: relative;
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: 400;
+	color: rgba(var(--vinisto-color-darker-gray), 0.75);
+	cursor: pointer;
+	white-space: nowrap;
+	text-align: center;
+	padding: 0.75rem 1.125rem;
+	border: 1px solid rgba(var(--vinisto-color-darker-gray), 0.1);
+	white-space: nowrap;
+	transition: color 0.3s ease;
+}
+
+:global(.list-group-item:not(:last-child)) .blogTag {
+	border-right: none;
+}
+
+.blogTag.active,
+.blogTag:hover {
+	color: rgb(var(--vinisto-color-darker-gray));
+	background-color: rgb(var(--vinisto-color-selected-green));
+	font-weight: 500;
+	border-color: rgb(var(--vinisto-color-selected-green));
+}
+
+.blogTag::after {
+	display: block;
+	content: attr(data-content);
+	font-weight: 500;
+	height: 0px;
+	color: transparent;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.blogTag.active::before {
+	content: '';
+	position: absolute;
+	bottom: -1px;
+	left: -1px;
+	z-index: 1;
+	width: calc(100% + 2px);
+	height: 3px;
+	background-color: rgb(var(--vinisto-color-green));
+}
+
+@media (max-width: 1199.98px) {
+	.blogTag {
+		font-size: 0.875rem;
+		padding: 0.5rem 0.75rem;
+	}
+}

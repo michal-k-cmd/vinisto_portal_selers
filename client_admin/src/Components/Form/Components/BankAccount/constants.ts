@@ -1,0 +1,7 @@
+export const BANK_ACCOUNT_CODE_SEPRATOR = '/';
+export const BANK_ACCOUNT_PREFIX_SEPRATOR = '-';
+export const BANK_ACCOUNT_FALLBACK = ` ${BANK_ACCOUNT_PREFIX_SEPRATOR} ${BANK_ACCOUNT_CODE_SEPRATOR} `;
+export const PREFIX_LENGTH = 6;
+export const ACCOUNT_LENGTH = 10;
+export const BANK_CODE_LENGTH = 4;
+export const PADDING_CHAR = '0';

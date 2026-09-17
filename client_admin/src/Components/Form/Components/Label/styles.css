@@ -1,0 +1,7 @@
+.vinisto-label {
+	margin-left: var(--client-input-m-left);
+}
+.vinisto-label--required::after {
+	content: '*';
+	margin-left: 0.25em;
+}

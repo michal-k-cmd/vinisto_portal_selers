@@ -1,0 +1,58 @@
+@charset "UTF-8";
+.register-process__wrap {
+	width: 100%;
+	max-width: 500px;
+}
+
+.vinisto-file-input-wrap {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #ced4da;
+	border-radius: var(--vinisto-radius-small);
+	padding: 0.5rem;
+	width: calc(50% - 0.5rem);
+	height: 150px;
+}
+.vinisto-file-input-wrap div {
+	flex: 1 1 100%;
+}
+
+.vinisto-file-input {
+	border: none !important;
+	padding: 0 !important;
+	width: auto !important;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+}
+.vinisto-file-input.main-photo::before {
+	content: 'Nahrát fotografii';
+}
+.vinisto-file-input.logo::before {
+	content: 'Nahrát logo';
+}
+.vinisto-file-input::-webkit-file-upload-button {
+	visibility: hidden;
+}
+.vinisto-file-input::before {
+	content: 'Nahrát ocenění/certifikát';
+	display: inline-block;
+	background: rgb(var(--vinisto-color));
+	border-radius: var(--vinisto-radius-small);
+	padding: 4px 8px;
+	outline: none;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	cursor: pointer;
+	font-size: 1.125rem !important;
+	color: rgb(var(--vinisto-color-white));
+	font-weight: 700;
+	font-size: 10pt;
+	text-align: center;
+}
+.vinisto-file-input:hover::before {
+	opacity: 0.8;
+}
+.vinisto-file-input:active::before {
+	background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}

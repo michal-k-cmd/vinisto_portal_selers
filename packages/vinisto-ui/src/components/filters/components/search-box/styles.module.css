@@ -1,0 +1,55 @@
+.component {
+	position: relative;
+  display: flex;
+	margin-bottom: 0.625rem;
+	width: 100%;
+}
+
+.component::before {
+	content: '';
+	background-image: url('/assets/images/search_icon_small.svg');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 100%;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0.5rem;
+	width: 0.8rem;
+	height: 0.8rem;
+  filter: opacity(0.67);
+}
+
+.input {
+  border: transparent;
+  box-shadow: inset 1px 1px 4px rgba(var(--vinisto-color-black), 0.2), inset 0 0 0 0.75px rgba(var(--vinisto-color-darker-gray), 0.25);
+	text-transform: lowercase;
+	padding: 0.25rem 0.25rem 0.25rem 1.75rem;
+	width: 100%;
+  font-size: 0.875rem;
+	font-weight: 300;
+}
+
+.input::placeholder {
+  color: rgba(var(--vinisto-color-darker-gray), 0.5)
+}
+
+input[value=""] + .clearButton {
+	display: none;
+}
+
+.clearButton {
+	position: absolute;
+	right: 0.15rem;
+	bottom: 0;
+	top: 1px;
+	border: none;
+	color: rgba(var(--vinisto-color-darker-gray), 0.85);
+	display: flex;
+	align-items: center;
+}
+
+.clearButton:is(:focus-visible) {
+	outline: rgba(var(--vinisto-color-green), 0.75) solid 2px;
+}

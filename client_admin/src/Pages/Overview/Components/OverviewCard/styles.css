@@ -1,0 +1,9 @@
+.vinisto-overview__no-items {
+	color: rgb(var(--vinisto-color-dark-gray));
+	font-style: italic;
+	padding-bottom: 2.5rem;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

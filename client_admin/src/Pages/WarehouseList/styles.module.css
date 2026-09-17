@@ -1,0 +1,28 @@
+.h1Heading {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: rgb(var(--vinisto-color-black));
+	margin-bottom: 1.25rem;
+}
+
+.notPaid {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.notPaidTooltip {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color-black));
+	padding: 0.5rem;
+	border: 1px solid rgb(var(--vinisto-color-gray-300));
+	border-radius: 0.25rem;
+	white-space: nowrap;
+}
+
+.notPaidTooltipContent {
+	width: 15rem;
+}

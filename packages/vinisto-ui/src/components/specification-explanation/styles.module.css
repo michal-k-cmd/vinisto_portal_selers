@@ -1,0 +1,135 @@
+.wrapper {
+	margin-bottom: 1rem;
+}
+
+.wrapper .imageWrap {
+	grid-area: image;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Left */
+.wrapper:nth-of-type(odd) {
+	display: grid;
+	grid-template-columns: auto 406px;
+	grid-template-rows: auto auto;
+	gap: 0px 1rem;
+	grid-template-areas:
+		'image heading'
+		'image text';
+}
+
+.wrapper:nth-of-type(odd) .textWrap {
+	grid-area: text;
+}
+
+/* Right */
+.wrapper:nth-of-type(even) {
+	display: grid;
+	grid-template-columns: auto 406px;
+	grid-template-rows: auto auto;
+	gap: 0px 1rem;
+	grid-template-areas:
+		'heading image'
+		'text image';
+}
+
+.wrapper:nth-of-type(even) .imageWrap {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+.heading {
+	font-family: var(--font-family-ubuntu);
+	font-weight: 700;
+	font-size: 1.25rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.textWrap {
+	font-family: var(--font-family-roboto);
+	font-size: 0.875rem;
+	font-weight: 400;
+	color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.textWrap * {
+	line-height: 1.4rem;
+}
+
+.anchor {
+	font-family: var(--font-family-ubuntu);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.125rem;
+	color: rgb(var(--vinisto-color-darker-gray));
+	display: inline-block;
+	min-width: 12.5rem;
+	margin-top: 1.5rem;
+	padding: 0.5rem 1rem;
+	border: 1px solid rgb(var(--vinisto-color-darker-gray));
+	text-align: center;
+	text-decoration: none;
+	transition: color 0.3s linear, background-color 0.3s linear;
+}
+
+.anchor:hover {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color-darker-gray));
+}
+
+.wrapper:global(.full) .image {
+	width: 100%;
+	height: auto;
+}
+
+.headingWrap {
+	grid-area: heading;
+	align-self: flex-end;
+}
+
+.image {
+	max-width: 100%;
+}
+
+.preformattedText {
+	white-space: pre-wrap;
+}
+
+@media (max-width: 1399.98px) {
+	.wrapper {
+		margin-bottom: 2.5rem;
+	}
+
+	.wrapper:nth-of-type(odd),
+	.wrapper:nth-of-type(even) {
+		grid-template-columns: auto;
+		grid-template-rows: auto auto auto;
+		grid-template-areas:
+			'heading'
+			'text'
+			'image';
+		text-align: center;
+	}
+
+	.heading {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+	}
+
+	.textWrap {
+		font-size: 0.875rem;
+		margin-bottom: 1rem;
+	}
+
+	.textWrap * {
+		line-height: 1.375rem;
+	}
+
+	.anchor {
+		font-size: 0.875rem;
+		padding: 0.25rem 0.75rem;
+	}
+}

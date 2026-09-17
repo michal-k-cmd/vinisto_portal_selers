@@ -1,0 +1,9 @@
+.component {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	font-family: var(--font-family-roboto);
+	color: rgba(var(--vinisto-color-darker-gray), 1);
+	font-size: 1rem;
+}

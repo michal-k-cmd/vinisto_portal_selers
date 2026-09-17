@@ -1,0 +1,23 @@
+.pagination {
+	padding: 0;
+	margin: 1rem 0 0;
+}
+
+.pagination ul {
+	margin-bottom: 0;
+}
+
+.noData {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 8rem;
+	color: rgba(var(--vinisto-color-black), 0.5);
+}
+
+.infoButton {
+	background-color: #ffb265;
+	cursor: default !important;
+	position: relative;
+	min-width: 1.125rem;
+}

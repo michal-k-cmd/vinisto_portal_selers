@@ -1,0 +1,27 @@
+.tooltip-span {
+	position: relative;
+	cursor: pointer;
+	text-decoration-style: dotted;
+}
+.tooltip-span::before {
+	content: attr(data-tooltip);
+	position: absolute;
+	font-size: 14px;
+	color: black;
+	background: white;
+	border: 1px solid 120110000D;
+	padding: 0.5rem;
+	box-shadow: 0px 3px 6px rgba(18, 1, 30, 0.3019607843);
+	border-radius: 5px;
+	left: -80%;
+	top: -100%;
+	-webkit-clip-path: circle(0rem at center);
+	clip-path: circle(0rem at center);
+	overflow: hidden;
+	transition: 300ms all ease-in;
+}
+.tooltip-span:hover::before {
+	-webkit-clip-path: circle(20rem at center);
+	clip-path: circle(20rem at center);
+	top: -130%;
+}

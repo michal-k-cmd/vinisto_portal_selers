@@ -1,0 +1,7 @@
+.component {
+  margin: 1rem 0;
+  color: inherit;
+  border: 0;
+  border-top: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
+  opacity: 1;
+}

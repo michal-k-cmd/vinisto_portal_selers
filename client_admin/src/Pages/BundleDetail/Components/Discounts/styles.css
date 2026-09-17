@@ -1,0 +1,21 @@
+.heading-row {
+	display: flex;
+	align-items: center;
+}
+
+.btn-edit {
+	background-color: rgb(var(--vinisto-color));
+	margin-right: 15px;
+	margin-bottom: unset;
+	margin-top: unset;
+}
+
+.btn-remove {
+	background-color: rgb(var(--vinisto-color-red-client));
+	margin-bottom: unset;
+	margin-top: unset;
+}
+
+.btn-add-discount {
+	margin-right: 20px;
+}

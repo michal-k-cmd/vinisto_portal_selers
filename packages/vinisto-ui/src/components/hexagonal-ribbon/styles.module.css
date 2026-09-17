@@ -1,0 +1,22 @@
+.component {
+  position: relative;
+}
+
+.left,
+.right {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	width: auto;
+	overflow: visible;
+	line-height: 1;
+}
+
+.left {
+	right: calc(100% - 0.125rem);
+}
+
+.right {
+	left: calc(100% - 0.125rem);
+	transform: rotate(180deg);
+}

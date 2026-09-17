@@ -1,0 +1,14 @@
+.vinisto-admin-order-status {
+	color: #000000;
+}
+.vinisto-admin-order-status.PAID,
+.vinisto-admin-order-status.CREATED {
+	color: green;
+}
+.vinisto-admin-order-status.PAYMENT_IN_PROCCESS,
+.vinisto-admin-order-status.IN_ISSUE {
+	color: orange;
+}
+.vinisto-admin-order-status.CANCELED {
+	color: red;
+}

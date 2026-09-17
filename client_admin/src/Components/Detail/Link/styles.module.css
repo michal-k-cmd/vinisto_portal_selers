@@ -1,0 +1,28 @@
+.link {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: transparent;
+	outline: none;
+	text-align: inherit;
+	border-radius: 0;
+
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
+
+	/* Corrects font smoothing for webkit */
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+
+	/* Corrects inability to style clickable `input` types in iOS */
+	-webkit-appearance: none;
+	appearance: none;
+
+	text-decoration: underline;
+	font-size: 14px;
+	line-height: 19px;
+	letter-spacing: 0px;
+	color: #280044;
+}

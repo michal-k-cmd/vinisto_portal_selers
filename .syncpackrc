@@ -1,0 +1,22 @@
+{
+  "dependencyTypes": [
+    "dev",
+    "prod"
+  ],
+  "semverGroups": [
+    {
+      "label": "use exact version numbers in production",
+      "dependencyTypes": [
+        "prod"
+      ],
+      "range": ""
+    },
+    {
+      "label": "use the same minor version in development",
+      "dependencyTypes": [
+        "dev"
+      ],
+      "range": "^"
+    }
+  ]
+}

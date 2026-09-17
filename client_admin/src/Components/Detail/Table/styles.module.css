@@ -1,0 +1,34 @@
+.tableRow:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+.tableRow:nth-child(even) {
+	background-color: #f6f6f6;
+}
+
+.tableBody {
+	border-top: 1px solid #707070;
+	border-bottom: 1px solid #707070;
+}
+
+.tableRow td {
+	height: 40px;
+	padding: 0px 0.75em;
+}
+
+.table td:not(:first-child):not(:last-child) {
+	border-right: 1px solid #70707040;
+}
+
+.table td:last-child {
+	width: 100%;
+}
+
+.table thead tr {
+	text-align: left;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0px;
+	color: #937fa1;
+	opacity: 1;
+}

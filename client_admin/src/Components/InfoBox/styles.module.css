@@ -1,0 +1,74 @@
+.infoBox {
+	--info-width: 1.125rem;
+	--info-height: 1.1875rem;
+	position: relative;
+	display: inline-block;
+	width: var(--info-width);
+	height: var(--info-height);
+}
+
+.button {
+	--info-width: 1.125rem;
+	--info-height: 1.1875rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	background-color: rgb(var(--vinisto-color));
+	border-radius: 50%;
+	color: rgb(var(--vinisto-color-white));
+	font-size: 0.875rem;
+	font-weight: 700;
+	cursor: pointer;
+	border: none;
+	width: var(--info-width);
+	height: var(--info-height);
+	padding: 0;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.content {
+	display: none;
+	position: absolute;
+	box-shadow: 0px 3px 6px 0px rgba(var(--vinisto-color-shadow), 0.3);
+	border-radius: var(--vinisto-radius);
+	padding: 0.75rem 0.875rem;
+	background-color: rgb(var(--vinisto-color-white));
+	color: rgb(var(--vinisto-color-black));
+	font-size: 1rem;
+	line-height: 1.3125rem;
+	font-weight: 400;
+	width: 22.875rem;
+	z-index: 9;
+}
+
+.content a {
+	color: rgb(var(--vinisto-color));
+	text-decoration: underline;
+}
+
+.content.open {
+	display: block;
+}
+
+.topRight {
+	bottom: 50%;
+	left: 50%;
+}
+
+.bottomRight {
+	top: 50%;
+	left: 50%;
+}
+
+.bottomLeft {
+	top: 50%;
+	right: 50%;
+}
+
+.topLeft {
+	bottom: 50%;
+	right: 50%;
+}

@@ -1,0 +1,1143 @@
+@charset "UTF-8";
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h5,
+.h6 {
+	font-weight: 500;
+}
+
+.line-height-1-5 {
+	line-height: 1.5;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.register {
+	padding-bottom: 80px;
+}
+.register .h1,
+.register .h2,
+.register .h3,
+.register .h4,
+.register h1,
+.register h2,
+.register h3,
+.register h4,
+.register h5,
+.register h6,
+.register .h5,
+.register .h6 {
+	text-align: center;
+}
+.register h1,
+.register .h1 {
+	margin: 2.5rem 0;
+}
+.register h2,
+.register .h2 {
+	margin: 1.75rem 0;
+}
+.register__container {
+	max-width: 720px !important;
+}
+.register__container-small {
+	max-width: 450px !important;
+}
+.register__form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.register__ic-input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0.5rem 0;
+}
+.register__ic-input label {
+	display: inline-block;
+	width: auto;
+	margin-right: 0.5rem;
+}
+.register__ic-input input.form-control {
+	display: inline-block;
+	width: auto;
+}
+.register__ic-input .vinisto-btn {
+	align-self: start;
+}
+.register__ic-input .vinisto-input {
+	margin-left: 0.75rem;
+}
+.register__shipping-btns {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+.register__shipping-btns span {
+	font-size: 1.375rem;
+	font-weight: 500;
+}
+.register__btns {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+.register__btns .vinisto-btn {
+	width: 100%;
+	max-width: 250px;
+}
+
+a {
+	color: rgb(var(--vinisto-color));
+	text-decoration: none;
+}
+a:hover {
+	color: rgb(var(--vinisto-color));
+}
+
+*:focus {
+	outline: none;
+}
+
+.form-control,
+.form-select,
+.form-select option,
+.dropdown-item {
+	font-weight: var(--bs-body-font-weight);
+}
+
+.color-primary {
+	color: rgb(var(--vinisto-color)) !important;
+}
+
+.strong {
+	font-weight: 700;
+}
+
+.stronger {
+	font-weight: 500;
+}
+
+.vinisto-font-18,
+.vinisto-input,
+p {
+	font-size: 1.125rem;
+}
+@media (max-width: 1364.98px) {
+	.vinisto-font-18,
+	.vinisto-input,
+	p {
+		font-size: 0.875rem;
+	}
+}
+
+.max-lines--2 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+}
+
+.max-lines--3 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+}
+
+.max-lines--4 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 4;
+}
+
+.max-lines--5 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 5;
+}
+
+.max-lines--6 {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 6;
+}
+
+.form-control::-moz-placeholder {
+	color: #000000;
+	opacity: 0.5;
+}
+
+.form-control::placeholder {
+	color: #000000;
+	opacity: 0.5;
+}
+
+.nav-link {
+	cursor: pointer;
+}
+
+.vinisto-color-error {
+	color: rgb(var(--vinisto-color-error)) !important;
+}
+
+.vinisto-color-warn {
+	color: rgb(var(--vinisto-color-warn)) !important;
+}
+
+.vinisto-color-orange {
+	color: rgb(var(--vinisto-color-info)) !important;
+}
+
+.vinisto-color-success {
+	color: rgb(var(--vinisto-color-success)) !important;
+}
+
+.vinisto-color-dark-red {
+	color: rgb(var(--vinisto-color-dark-red)) !important;
+}
+
+.vinisto-load-more {
+	display: flex;
+	justify-content: space-between;
+}
+.vinisto-load-more > div {
+	flex: 0 0 33%;
+}
+.vinisto-load-more__middle {
+	text-align: center;
+}
+.vinisto-load-more__middle__btn {
+	font-size: 1.125rem;
+	padding: 0.25rem;
+	width: 162px;
+}
+
+.vinisto-paging {
+	display: flex;
+	justify-content: flex-end;
+	padding-left: 0;
+	margin-bottom: 0;
+}
+.vinisto-paging__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(var(--vinisto-color));
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgb(var(--vinisto-color-gold));
+	border-radius: var(--vinisto-radius-small);
+	min-width: 1.875rem;
+	text-align: center;
+	cursor: pointer;
+	list-style: none;
+	overflow: hidden;
+	margin: 0 0.5rem;
+}
+.vinisto-paging__item__link {
+	display: block;
+	padding: 0.25rem;
+	color: rgb(var(--vinisto-color));
+}
+.vinisto-paging__item.active .vinisto-paging__item__link,
+.vinisto-paging__item:hover .vinisto-paging__item__link {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color));
+}
+.vinisto-paging__item.active,
+.vinisto-paging__item:hover {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color));
+}
+.vinisto-paging__item.vinisto-paging__item--more {
+	border: none;
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color));
+	min-width: 4.75rem;
+	padding: 0.25rem 0.5rem;
+}
+.vinisto-paging__item.vinisto-paging__item--more:hover {
+	background-color: #360066;
+}
+.vinisto-paging__item.vinisto-paging__item--back,
+.vinisto-paging__item.vinisto-paging__item--next {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 1.875rem;
+	transition: 0.3s ease-out;
+}
+.vinisto-paging__item.vinisto-paging__item--back svg,
+.vinisto-paging__item.vinisto-paging__item--next svg {
+	height: 0.8125rem;
+}
+.vinisto-paging__item.vinisto-paging__item--back:hover svg,
+.vinisto-paging__item.vinisto-paging__item--next:hover svg {
+	filter: brightness(0) invert(1);
+}
+.vinisto-paging__item.vinisto-paging__item--back svg {
+	transform: rotate(180deg);
+}
+
+.vinisto-input {
+	padding: 0.5rem 0.75rem;
+	position: relative;
+	border-radius: var(--vinisto-radius-small);
+	border: none;
+	outline: none;
+	transition: box-shadow 0.3s ease-in-out;
+	line-height: var(--vinisto-line-height);
+	box-shadow: inset 1px 1px 4px 0px rgba(47, 18, 31, 0.5);
+}
+.vinisto-input:hover {
+	outline: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+}
+.vinisto-input:focus,
+.vinisto-input:active,
+.vinisto-input:hover:active {
+	outline: 1px solid rgb(var(--vinisto-color-gold));
+	box-shadow: inset 1px 1px 4px 0px rgba(47, 18, 31, 0.2);
+	border-color: rgb(var(--vinisto-color-gold));
+}
+.vinisto-input:invalid {
+	outline: 1px solid #ff0000;
+}
+
+.form-control:invalid {
+	outline: 1px solid #ff0000;
+}
+
+.vinisto-bg,
+.vinisto-bg:hover {
+	background: rgb(var(--vinisto-color)) !important;
+}
+
+.vinisto-bg-green,
+.vinisto-bg-green:hover {
+	background: rgb(var(--vinisto-color-green)) !important;
+}
+
+.vinisto-bg-gold,
+.vinisto-bg-gold:hover {
+	background: rgb(var(--vinisto-color-gold)) !important;
+}
+
+.vinisto-bg-warn,
+.vinisto-bg-warn:hover {
+	background: rgb(var(--vinisto-color-warn)) !important;
+}
+
+.vinisto-flag {
+	border-radius: 3px;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
+
+.vinisto-box-shadow {
+	box-shadow: var(--vinisto-box-shadow);
+}
+
+.dropdown-toggle::after {
+	border: none !important;
+	margin-left: 0.5rem;
+	content: url('/assets/images/arrow-down.svg');
+}
+
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #000000;
+}
+
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: rgb(var(--vinisto-color-white));
+}
+
+.vinisto-btn {
+	border-radius: var(--vinisto-radius-small);
+	color: rgb(var(--vinisto-color-white));
+	padding: 0.5rem 2.5rem;
+	border: none;
+	opacity: 1;
+	font-weight: var(--bs-body-font-weight);
+	line-height: var(--vinisto-line-height);
+	transition: opacity 300ms ease-out;
+}
+.vinisto-btn--big {
+	font-size: 1.75rem;
+	font-weight: 500;
+	min-width: 220px;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+}
+.vinisto-btn:hover {
+	opacity: 0.85;
+}
+
+.vinisto-card {
+	border-radius: var(--vinisto-radius-big);
+	box-shadow: 1px 2px 8px 0px rgba(var(--vinisto-color), 0.2);
+	background-color: rgb(var(--vinisto-color-white));
+	padding: 0.5rem 1rem;
+}
+.vinisto-card__heading {
+	font-size: 1.25rem;
+	margin-bottom: 0.75rem;
+	font-weight: 500;
+}
+.vinisto-card__top-text {
+	margin: 0.5rem 0;
+}
+.vinisto-card__bottom-link {
+	width: 100%;
+	align-self: flex-end;
+	text-align: right;
+}
+.vinisto-card__bottom-link a {
+	color: rgb(var(--vinisto-color-white));
+}
+
+.underline-effect .nav-link,
+.underline-effect .underline-item {
+	position: relative;
+	cursor: pointer;
+}
+.underline-effect .nav-link::before,
+.underline-effect .underline-item::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 0.063rem;
+	bottom: 0.438rem;
+	left: 0;
+	background: #000000;
+	visibility: hidden;
+	transform: scaleX(0);
+	transition: 0.25s linear;
+}
+.underline-effect .underline-item::before {
+	bottom: 0.063rem;
+	background: rgb(var(--vinisto-color));
+}
+.underline-effect .nav-link:hover::before,
+.underline-effect .nav-link:focus::before,
+.underline-effect .underline-item:hover::before,
+.underline-effect .underline-item:focus::before {
+	backface-visibility: hidden;
+	visibility: visible;
+	transform: scaleX(1);
+}
+.underline-effect.navbar-nav .nav-item {
+	padding-right: 1rem;
+	padding-left: 1rem;
+}
+.underline-effect.navbar-nav .nav-link {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+.underline-effect.underline-effect--white .nav-link::before,
+.underline-effect.underline-effect--white .underline-item::before {
+	background: rgb(var(--vinisto-color-white));
+}
+.underline-effect.underline-effect--vinisto .nav-link::before,
+.underline-effect.underline-effect--vinisto .underline-item::before {
+	background: rgb(var(--vinisto-color));
+}
+
+/** Vinisto - slideshow **/
+.vinisto-review-preview__user__text {
+	display: flex;
+	align-items: center;
+}
+
+.vinisto-review-preview__user__text__name {
+	margin-bottom: 0;
+}
+
+.vinisto-review-preview__user__text__profile {
+	color: rgb(var(--vinisto-color));
+	font-style: italic;
+	font-size: 0.938rem;
+}
+.vinisto-review-preview__user__text__profile:hover {
+	color: rgb(var(--vinisto-color));
+}
+
+.vinisto-slideshow-right {
+	display: flex;
+	flex: 0 0 55rem;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin-right: -1rem;
+}
+
+/** Vinisto - wrapper vín níže **/
+.vinisto-wide-wine-tabs {
+	position: relative;
+}
+.vinisto-wide-wine-tabs::before {
+	position: absolute;
+	display: block;
+	content: '';
+	height: 2px;
+	bottom: 0;
+	border-radius: 1px;
+	left: 0;
+	right: 0;
+	background-color: rgb(var(--vinisto-color-gold));
+}
+.vinisto-wide-wine-tabs .navbar-nav .nav-item:hover .nav-link {
+	color: rgb(var(--vinisto-color));
+	font-weight: 500;
+}
+.vinisto-wide-wine-tabs .nav-item {
+	flex: 1 1 0px;
+	padding-bottom: 0.5rem;
+	transition: color 300ms linear;
+}
+.vinisto-wide-wine-tabs .nav-item .nav-link {
+	text-align: center;
+	font-size: 1.125rem;
+}
+.vinisto-wide-wine-tabs .nav-item.active {
+	position: relative;
+}
+.vinisto-wide-wine-tabs .nav-item.active::before {
+	position: absolute;
+	display: block;
+	content: '';
+	height: 5px;
+	bottom: -1px;
+	border-radius: 2px;
+	left: 0;
+	right: 0;
+	background-color: rgb(var(--vinisto-color));
+	z-index: 3;
+}
+.vinisto-wide-wine-tabs .nav-item.active .nav-link {
+	color: rgb(var(--vinisto-color));
+	font-weight: 500;
+}
+.vinisto-wide-wine-tabs .vinisto-wide-wine-tabs__header {
+	margin-bottom: 0;
+	white-space: nowrap;
+	font-weight: 300 !important;
+}
+.vinisto-wide-wine-tabs .vinisto-wide-wine-tabs__title {
+	margin-bottom: 0;
+}
+.vinisto-wide-wine-tabs.vinisto-wide-wine-tabs--top::before {
+	bottom: auto;
+	top: 0;
+}
+.vinisto-wide-wine-tabs.vinisto-wide-wine-tabs--top .nav-item {
+	padding-top: 0.5rem;
+}
+.vinisto-wide-wine-tabs.vinisto-wide-wine-tabs--top .nav-item.active::before {
+	bottom: auto;
+	top: -1px;
+}
+
+.nav-item.nav-item--all-tips {
+	align-self: flex-end;
+}
+.nav-item.nav-item--all-tips .nav-link {
+	white-space: nowrap;
+	color: rgb(var(--vinisto-color));
+}
+
+.vinisto-card__header {
+	display: flex;
+}
+
+.vinisto-card__show-more {
+	display: flex;
+	align-items: center;
+	color: rgb(var(--vinisto-color));
+	padding: 0.5rem 1rem;
+	margin-bottom: 0.5rem;
+	margin-left: auto;
+	font-size: 1.125rem;
+	cursor: pointer;
+}
+
+.vinisto-shadow {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -1rem;
+	width: 8rem;
+	height: 100%;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		270deg,
+		rgb(255, 255, 255) 0%,
+		rgba(255, 255, 255, 0.05) 90%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="$white", endColorstr="$white", GradientType=1);
+	z-index: 2;
+}
+.vinisto-shadow.vinisto-shadow--left {
+	right: auto;
+	left: -1rem;
+	transform: scaleX(-1);
+}
+
+.vinisto-winery .vinisto-winery__wine-wrap {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+	margin-right: -0.5rem;
+	padding-left: 0.5rem;
+}
+.vinisto-winery .vinisto-winery__wine-wrap .vinisto-wine__item {
+	margin: 1rem 0.5rem 0;
+}
+
+.vinisto-wide-wine-arrow {
+	position: absolute;
+	width: 2.625rem;
+	height: 2.625rem;
+	top: 50%;
+	right: 1rem;
+	transform: translateY(-50%);
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(var(--vinisto-color-white));
+	border: 2px solid rgba(var(--vinisto-color-gold), 0.5);
+	border-radius: var(--vinisto-radius-small);
+	cursor: pointer;
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
+	transition: box-shadow 0.3s ease-in-out;
+}
+.vinisto-wide-wine-arrow svg {
+	opacity: 0.75;
+}
+.vinisto-wide-wine-arrow:hover {
+	border: 2px solid rgba(var(--vinisto-color-gold), 1);
+	background-color: rgb(var(--vinisto-color));
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+}
+.vinisto-wide-wine-arrow:hover svg {
+	opacity: 1;
+	filter: brightness(0) invert(1);
+}
+.vinisto-wide-wine-arrow.vinisto-wide-wine-arrow--left {
+	transform: translateY(-50%);
+}
+
+/** Vinisto - náhled vína s možností přidat do košíku **/
+.vinisto-wine__item {
+	flex: 1 1 100%;
+	min-width: 12rem;
+	margin: 1.5rem 0 0.5rem;
+	border-radius: var(--vinisto-radius-small);
+	transition: box-shadow 300ms ease-in-out;
+	border: 1px solid rgba(40, 0, 68, 0.1);
+}
+.vinisto-wine__item:hover {
+	box-shadow: 2px 2px 6px 0px rgba(67, 41, 87, 0.4);
+}
+.vinisto-wine__item:hover .vinisto-wine__img-info__heart {
+	margin-bottom: 0.5rem;
+	height: auto;
+	opacity: 1;
+}
+.vinisto-wine__item:hover .vinisto-wine__img-labels {
+	opacity: 1;
+	z-index: 4;
+}
+.vinisto-wine__item:hover .vinisto-wine__bottom-label {
+	opacity: 1;
+}
+.vinisto-wine__item:hover .vinisto-wine__img-info {
+	opacity: 1;
+}
+.vinisto-wine__item.vinisto-wine__item--small {
+	display: flex;
+	position: relative;
+	flex: 0 0 17rem;
+	margin: 0 1rem 1rem 0;
+	background-color: rgb(var(--vinisto-color-light-gray));
+	border-radius: var(--vinisto-radius-small);
+	height: calc(50% - 0.5rem);
+	--bs-gutter-x: 1rem;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease-in-out;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__img-wrap {
+	position: static;
+	display: flex;
+	flex: 0 0 6.25rem;
+	justify-content: center;
+	align-items: center;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__info-wrap {
+	padding-top: 2rem;
+	padding-right: 0.5rem;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__img-labels {
+	left: auto;
+	right: -0.5rem;
+	margin-top: 0.5rem;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__img-label {
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 0.125rem 0.5rem;
+	font-size: 0.75rem;
+	margin-left: 0.125rem;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__img {
+	height: 240px;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__name {
+	justify-content: flex-start;
+	text-align: left;
+	margin-top: 0.75rem;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__review {
+	justify-content: flex-start;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__variety {
+	justify-content: flex-start;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__stock {
+	text-align: left;
+}
+.vinisto-wine__item.vinisto-wine__item--small .vinisto-wine__price {
+	text-align: left;
+}
+.vinisto-wine__item.vinisto-wine__item--small:hover {
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+}
+.vinisto-wine__item.vinisto-wine__item--small.vinisto-wine__item--active {
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+.slick-track .slick-slide {
+	padding: 0.5rem 0.5rem 0;
+}
+
+.vinisto-wine__img-wrap {
+	width: 100%;
+	position: relative;
+	padding-bottom: 0.5rem !important;
+	text-align: center;
+}
+
+.vinisto-wine__img {
+	position: relative;
+	height: 240px;
+	width: 100%;
+	margin-top: -1.5rem;
+	-o-object-fit: contain;
+	object-fit: contain;
+}
+
+.vinisto-wine__info-wrap {
+	width: 100%;
+}
+
+.vinisto-wine__img-labels {
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: calc(100% + 2px);
+	opacity: 0.3;
+	transition: opacity 300ms linear;
+}
+.vinisto-wine__img-labels:hover {
+	opacity: 1;
+}
+
+.vinisto-wine__img-info {
+	opacity: 0;
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	right: 0.5rem;
+	transition: opacity 300ms linear;
+}
+.vinisto-wine__img-info .vinisto-wine__img-info__heart {
+	transition: opacity 300ms linear;
+	opacity: 0;
+	height: 0;
+	margin-bottom: 0;
+}
+.vinisto-wine__img-info .vinisto-wine__img-info__heart.show {
+	height: auto;
+	opacity: 1;
+	margin-bottom: 0.5rem;
+}
+.vinisto-wine__img-info > * {
+	display: block;
+	margin-bottom: 0.5rem;
+}
+.vinisto-wine__img-info.full {
+	opacity: 1;
+}
+
+.vinisto-wine__img-label {
+	display: block;
+	color: rgb(var(--vinisto-color-white));
+	font-size: 1.0625rem;
+	padding: 0.0625rem 0.5rem;
+	white-space: nowrap;
+	text-align: left;
+}
+.vinisto-wine__img-label:first-child {
+	border-top-left-radius: var(--vinisto-radius-small);
+	border-top-right-radius: var(--vinisto-radius-small);
+}
+
+.vinisto-wine__variety__text {
+	font-size: 0.9375rem;
+}
+
+.vinisto-wine__img-label--new {
+	background: rgb(33, 104, 0);
+}
+
+.vinisto-wine__img-label--trend {
+	background: rgb(183, 15, 95);
+}
+
+.vinisto-wine__name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: rgb(var(--vinisto-color-dark));
+	font-weight: 500;
+	font-size: 1.125rem;
+	height: 2.75rem;
+	margin-bottom: 0.25rem;
+}
+
+.vinisto-wine__review {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 0.4375rem;
+	height: 0.625rem;
+}
+.vinisto-wine__review img,
+.vinisto-wine__review svg {
+	height: 100%;
+}
+
+.vinisto-wine__review__wrap-count {
+	color: rgb(var(--vinisto-color));
+	font-style: italic;
+	font-size: 0.875rem;
+	margin-left: 0.125rem;
+}
+
+.vinisto-wine__variety {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	color: rgb(var(--vinisto-color));
+	font-style: italic;
+	margin-bottom: 0.25rem;
+}
+.vinisto-wine__variety:hover {
+	color: rgb(var(--vinisto-color));
+}
+
+.vinisto-wine__stock {
+	text-align: center;
+	font-size: 0.8125rem;
+	margin-bottom: 0.125rem;
+	margin-top: 0.5rem;
+}
+
+.vinisto-wine__price {
+	text-align: center;
+	font-size: 1.625rem;
+	font-weight: 700;
+	margin-bottom: 0;
+	color: rgb(var(--vinisto-color-dark));
+}
+
+.vinisto-wine__price--vat {
+	text-align: center;
+	font-size: 0.8125rem;
+	margin-bottom: 0.25rem;
+}
+
+.vinisto-wine__price--vat__strong {
+	font-weight: 500;
+}
+
+.vinisto-wine__count {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0.5rem 0 0.25rem;
+}
+
+.vinisto-wine__description {
+	text-align: center;
+	font-size: 0.875rem;
+	padding: 0 1rem;
+}
+
+.vinisto-wine__count__minus,
+.vinisto-wine__count__plus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.875rem;
+	height: 1.875rem;
+	cursor: pointer;
+	background-color: rgb(var(--vinisto-color-white));
+	border: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+	border-radius: var(--vinisto-radius-small);
+	z-index: 2;
+	transition: 300ms linear;
+}
+.vinisto-wine__count__minus svg,
+.vinisto-wine__count__plus svg {
+	width: 1rem;
+}
+.vinisto-wine__count__minus:hover,
+.vinisto-wine__count__plus:hover {
+	background-color: rgb(var(--vinisto-color));
+}
+.vinisto-wine__count__minus:hover svg,
+.vinisto-wine__count__plus:hover svg {
+	filter: brightness(0) invert(1);
+}
+
+.vinisto-wine__count__amount {
+	width: 2.375rem;
+	-moz-appearance: textfield;
+	border: 1px solid rgba(40, 0, 68, 0.1);
+	border-radius: var(--vinisto-radius-small);
+	font-weight: 500;
+	font-size: 1.375rem;
+	text-align: center;
+	padding: 0 0.25rem;
+	height: 1.875rem;
+	z-index: 1;
+}
+.vinisto-wine__count__amount::-webkit-outer-spin-button,
+.vinisto-wine__count__amount::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.vinisto-wine__count__amount:focus,
+.vinisto-wine__count__amount:active {
+	border-color: #000000;
+}
+
+.vinisto-wine__count__amount-label {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	margin-right: 0.125rem;
+	margin-left: 0.25rem;
+}
+
+.vinisto-wine__add-to-cart__button {
+	width: 8rem;
+	padding: 0.438rem;
+	font-weight: 500;
+	font-size: 1.063rem;
+	margin-bottom: 0.5rem;
+}
+.vinisto-wine__add-to-cart__button.vinisto-bg-green:hover {
+	background-color: rgb(var(--vinisto-color-green-hover));
+}
+
+.vinisto-wine__bottom-label {
+	color: rgb(var(--vinisto-color-white));
+	background-color: rgb(var(--vinisto-color));
+	border-bottom-left-radius: var(--vinisto-radius-small);
+	border-bottom-right-radius: var(--vinisto-radius-small);
+	width: calc(100% + 2px);
+	margin-left: -1px;
+	margin-bottom: -1px;
+	padding: 0.0625rem 0.5rem;
+	opacity: 0.3;
+	transition: opacity 300ms linear;
+	font-size: 1.0625rem;
+}
+
+/** Vinisto - články **/
+.vinisto-articles-wrap {
+	display: flex;
+	border: 1px solid rgba(40, 0, 68, 0.1);
+	border-radius: var(--vinisto-radius-small);
+	margin: 1rem 0;
+	overflow: hidden;
+}
+
+.vinisto-articles__article {
+	flex: 1 1 auto;
+	padding: 0.5rem 1rem 0.75rem 1rem;
+}
+
+.vinisto-articles__img {
+	flex: 0 0 934px;
+}
+.vinisto-articles__img.vinisto-articles__img--left {
+	flex: 0 0 706px;
+	margin-top: 0;
+	margin-right: 0;
+	border: 1px solid rgba(40, 0, 68, 0.1);
+	border-radius: var(--vinisto-radius-small);
+	overflow: hidden;
+}
+.vinisto-articles__img img {
+	-o-object-fit: cover;
+	object-fit: cover;
+	width: 100%;
+	max-height: 250px;
+}
+
+.vinisto-articles__text {
+	font-size: 1.125rem;
+}
+
+.vinisto-review-preview__continue {
+	font-size: 1.125rem;
+	color: rgb(var(--vinisto-color));
+}
+
+.vinisto-address-modal {
+	display: flex;
+	gap: 1.5rem;
+}
+
+.vinisto-address-modal__personal,
+.vinisto-address-modal__company {
+	flex: 0 0 512px;
+}
+
+.vinisto-phone-wrap {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.vinisto-address-show-hide-company {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	border-bottom: 1px solid rgb(var(--vinisto-color-gold));
+	padding: 0.25rem 0;
+	margin-bottom: 1rem;
+}
+.vinisto-address-show-hide-company svg {
+	margin-left: 0.5rem;
+	transform: rotate(270deg);
+	transition: transform 0.3s ease-in-out;
+}
+.vinisto-address-show-hide-company.show svg {
+	transform: rotate(90deg);
+}
+
+.vinisto-address-ico-wrap {
+	display: flex;
+	gap: 1rem;
+}
+
+.vinisto-address-ico__btn {
+	white-space: nowrap;
+	font-size: 1.125rem;
+	padding: 0.4375rem 1rem;
+}
+
+.vinisto-address-bank-account {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.vinisto-address-bank-account__pre {
+	flex: 0 0 98px;
+}
+
+.vinisto-address-bank-account__code {
+	flex: 0 0 75px;
+}
+
+.vinisto-address-modal__company__heading {
+	font-weight: 500;
+	margin-top: 2.25rem;
+	margin-bottom: 0.25rem;
+}
+
+.vinisto-password-wrap {
+	position: relative;
+	width: 100%;
+	max-width: 22.875rem;
+}
+.vinisto-password-wrap .vinisto-popup__show-password {
+	display: flex;
+}
+
+.vinisto-radio-check {
+	display: flex;
+}
+.vinisto-radio-check__radio {
+	display: grid;
+	place-content: center;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	margin: 0;
+	color: rgb(var(--vinisto-color));
+	width: 1.25rem;
+	height: 1.25rem;
+	border: 1px solid rgba(var(--vinisto-color-gold), 0.5);
+	border-radius: 50%;
+	margin-right: 0.625rem;
+}
+.vinisto-radio-check__radio::before {
+	content: '';
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1rem 1rem rgb(var(--vinisto-color));
+}
+.vinisto-radio-check__radio:checked {
+	border: 1px solid rgb(var(--vinisto-color-gold));
+	box-shadow: inset 1px 1px 4px 0px rgba(40, 0, 68, 0.3);
+}
+.vinisto-radio-check__radio:checked::before {
+	transform: scale(1);
+}
+
+#supportBox-iframe {
+	bottom: 65px !important;
+}

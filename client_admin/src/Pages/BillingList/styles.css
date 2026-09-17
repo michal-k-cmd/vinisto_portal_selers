@@ -1,0 +1,35 @@
+.vinisto-admin-billing-status {
+	color: #000000;
+}
+.vinisto-admin-billing-status.PAID,
+.vinisto-admin-billing-status.CREATED {
+	color: green;
+}
+.vinisto-admin-billing-status.PAYMENT_IN_PROCCESS,
+.vinisto-admin-billing-status.IN_ISSUE {
+	color: orange;
+}
+.vinisto-admin-billing-status.CANCELED {
+	color: red;
+}
+
+.vinisto-admin-billing-action-btn {
+	margin-left: 0.5em;
+}
+
+.vinisto-admin-billing-table-icon {
+	display: flex;
+	justify-content: center;
+	border: none;
+	background: none;
+}
+.vinisto-admin-billing-table-icon img {
+	display: inline-block;
+	width: 42px;
+}
+
+.vinisto-buttons-gap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 0;
+}
