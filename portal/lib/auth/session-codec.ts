@@ -7,6 +7,10 @@ export type SessionSupplier = {
   id: string;
   /** Fakturační název prodejce (ve SPA `nameBilling`), fallback `nameWeb`. */
   name: string;
+  /** Země prodejce (CZ/SK/DE…) — původ zboží pro provize. */
+  countryCode?: string;
+  /** Prodejce vozí zboží na sklad sám (true), nebo ho vinisto vyzvedává (false). */
+  isShipping?: boolean;
 };
 
 export type PortalSession = {
@@ -43,7 +47,7 @@ const toBody = (session: PortalSession) => Buffer.from(JSON.stringify(session)).
 export function encodeSession(session: PortalSession, secret: string): string {
   const variants: Array<(s: PortalSession) => PortalSession> = [
     (s) => s,
-    (s) => ({ ...s, suppliers: s.suppliers.map((x) => ({ id: x.id, name: x.name.slice(0, 24) })) }),
+    (s) => ({ ...s, suppliers: s.suppliers.map((x) => ({ ...x, name: x.name.slice(0, 24) })) }),
     (s) => ({
       ...s,
       suppliers: s.suppliers.filter((x) => x.id === s.activeSupplierId).slice(0, 1),

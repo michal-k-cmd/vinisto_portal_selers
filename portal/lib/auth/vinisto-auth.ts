@@ -17,6 +17,8 @@ type PlatformSupplier = {
   id?: string | null;
   nameBilling?: string | null;
   nameWeb?: string | null;
+  countryCode?: string | null;
+  isShipping?: boolean | null;
 };
 
 type PlatformUser = {
@@ -39,7 +41,12 @@ export type LoginResult =
 function toSessionSuppliers(suppliers: PlatformSupplier[] | null | undefined): SessionSupplier[] {
   return (suppliers ?? [])
     .filter((s): s is PlatformSupplier & { id: string } => typeof s.id === "string" && s.id.length > 0)
-    .map((s) => ({ id: s.id, name: (s.nameBilling || s.nameWeb || s.id).trim() }));
+    .map((s) => ({
+      id: s.id,
+      name: (s.nameBilling || s.nameWeb || s.id).trim(),
+      countryCode: s.countryCode ?? undefined,
+      isShipping: s.isShipping ?? undefined,
+    }));
 }
 
 /** Uživatel + jeho prodejci podle hashe. Null = hash neplatný nebo bez prodejců. */
