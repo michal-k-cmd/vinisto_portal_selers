@@ -1,7 +1,4 @@
 packages:
     # - "apps/*"
-    - "admin"
     - "client_admin"
-    - "advisor"
-    - "eshop"
     - "packages/*"

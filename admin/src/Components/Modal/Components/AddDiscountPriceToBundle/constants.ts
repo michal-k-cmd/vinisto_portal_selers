@@ -1,7 +1,0 @@
-export enum DISCOUNT_TYPE {
-	AMOUNT = 'AMOUNT',
-	PERCENTAGE = 'PERCENTAGE',
-}
-
-export const PERCENTAGE_DISCOUNT_MIN = 2;
-export const PERCENTAGE_DISCOUNT_MAX = 55;

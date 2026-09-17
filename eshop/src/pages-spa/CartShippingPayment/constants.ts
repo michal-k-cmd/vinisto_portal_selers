@@ -1,2 +1,0 @@
-export const SKELETONS_NUM_DELIVERIES = 5;
-export const SKELETONS_NUM_PAYMENTS = 3;

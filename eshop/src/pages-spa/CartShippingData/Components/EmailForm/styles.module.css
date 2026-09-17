@@ -1,7 +1,0 @@
-.input:focus {
-	border-color: #68a910 !important;
-}
-
-.input[aria-invalid='true']:focus {
-	border-color: #ff0000 !important;
-}

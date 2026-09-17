@@ -1,8 +1,0 @@
-.addToFavorites {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	margin-top: 0.75rem;
-	padding-top: 1rem;
-	border-top: 1px solid rgba(var(--vinisto-color-darker-gray), 0.25);
-}

@@ -1,8 +1,0 @@
-.expandButton {
-  color: rgb(var(--vinisto-color));
-  font-size: 0.875rem;
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  gap: 0.5rem;
-}

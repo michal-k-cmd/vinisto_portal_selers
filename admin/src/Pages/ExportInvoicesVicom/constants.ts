@@ -1,1 +1,0 @@
-export const SUPPLIER_ID_VICOM = '63611bbb02355eb08b6d10c4';

@@ -1,2 +1,0 @@
-export const SKELETONS_NUM_BILLING_INFOS = 3;
-export const SKELETONS_NUM_ADDRESSES = 3;

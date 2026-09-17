@@ -1,7 +1,0 @@
-.wrap {
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-	gap: 1rem;
-	padding: 1rem;
-}

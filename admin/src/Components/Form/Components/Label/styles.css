@@ -1,8 +1,0 @@
-.vinisto-label--required::after {
-	content: '*';
-	margin-left: 0.25em;
-	color: rgb(var(--vinisto-color-red));
-}
-.vinisto-label--semibold {
-	font-weight: 500;
-}

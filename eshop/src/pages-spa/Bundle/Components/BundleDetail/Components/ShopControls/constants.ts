@@ -1,1 +1,0 @@
-export const SKELETONS_NUM_SUPPLIERS = 4;

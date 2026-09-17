@@ -1,8 +1,0 @@
-.vinisto-admin-table__date-range {
-	display: flex;
-	gap: 3px;
-}
-
-.vinisto-admin-table__date-range .react-datepicker-wrapper {
-	max-width: 120px;
-}

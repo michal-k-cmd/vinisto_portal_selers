@@ -24,11 +24,8 @@
     }
   },
   "scripts": {
-    "prepare": "cd .. && husky frontend/.husky",
-    "start:admin": "cd admin && pnpm start",
-    "start:advisor": "cd advisor && pnpm start",
+    "prepare": "husky",
     "start:client_admin": "cd client_admin && pnpm start",
-    "start:eshop": "cd eshop && pnpm start",
     "sync:fix": "syncpack fix-mismatches",
     "sync:lint": "syncpack lint-semver-ranges",
     "sync:list": "syncpack list-mismatches"

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg"
-  xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
-  <g>
-    <path d="M19.87,18.106,23.4,14.575a1.248,1.248,0,0,0-1.725-1.8l-.04.04-3.532,3.53L14.574,12.81a1.248,1.248,0,0,0-1.765,1.764l3.531,3.533-3.531,3.531a1.248,1.248,0,1,0,1.724,1.8l.04-.04,3.533-3.53L21.635,23.4a1.248,1.248,0,0,0,1.805-1.725l-.041-.04Z" transform="translate(-3.106 -3.106)" fill="red"/>
-    <circle cx="13.983" cy="13.983" r="13.983" transform="translate(1.017 1.017)" fill="none" stroke="red" stroke-width="2"/>
-  </g>
-</svg>
