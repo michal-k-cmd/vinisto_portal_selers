@@ -11,33 +11,12 @@ import {
   destinationCountryOptions,
   getAppliedFeeRules,
   getSupplierFeeValues,
-  SPECIFICATION_ID_KIND,
-  SPECIFICATION_ID_TYPE,
+  type AppliedFeeRule,
   type FeeRecord,
-  type FeeRule,
   type LogisticFeeRecord,
 } from "@/lib/platform/fees";
+import { monthYear, ruleConditions } from "@/lib/platform/fees-format";
 import { cn } from "@/lib/utils";
-
-function monthYear(sec: number | null | undefined): string {
-  if (!sec) return "neomezeně";
-  const d = new Date(sec * 1000);
-  return `${String(d.getMonth() + 1).padStart(2, "0")}. ${d.getFullYear()}`;
-}
-
-function conditions(rule: FeeRule): string[] {
-  const out: string[] = [];
-  const spec = (id: string) => rule.specifications?.find((s) => s.definitionId === id)?.allowedValues?.[0];
-  const typ = spec(SPECIFICATION_ID_TYPE);
-  const kind = spec(SPECIFICATION_ID_KIND);
-  if (typ) out.push(`Typ: ${typ}`);
-  if (kind) out.push(`Druh: ${kind}`);
-  if (rule.categoryNames?.length) out.push(`Kategorie: ${rule.categoryNames.join(", ")}`);
-  if (rule.supplierNames?.length) out.push(`Prodejce: ${rule.supplierNames.join(", ")}`);
-  if (rule.bundleNames?.length) out.push(`Produkt: ${rule.bundleNames.join(", ")}`);
-  if (rule.tagNames?.length) out.push(`Štítek: ${rule.tagNames.join(", ")}`);
-  return out;
-}
 
 function feeLines(fees: Record<string, FeeRecord | FeeRecord[] | LogisticFeeRecord[] | undefined> | null | undefined, integrations: Map<number, string>): string[] {
   if (!fees) return [];
@@ -75,7 +54,7 @@ export async function FeeRulesSection({
   integrations: Map<number, string>;
   baseParams: Record<string, string>;
 }) {
-  let rules: FeeRule[] = [];
+  let rules: AppliedFeeRule[] = [];
   let defaults: Awaited<ReturnType<typeof getSupplierFeeValues>> | null = null;
   let error: unknown;
   try {
@@ -148,12 +127,12 @@ export async function FeeRulesSection({
               )}
               {rules.map((rule, i) => (
                 <TableRow key={rule.id ?? i}>
-                  <TableCell className="text-xs">{conditions(rule).map((c) => <div key={c}>{c}</div>)}</TableCell>
+                  <TableCell className="text-xs">{ruleConditions(rule).map((c) => <div key={c}>{c}</div>)}</TableCell>
                   <TableCell className="whitespace-nowrap text-xs">
-                    {monthYear(rule.validFrom)} – {monthYear(rule.validTo)}
+                    {monthYear(rule.validFrom, "neomezeně")} – {monthYear(rule.validTo, "neomezeně")}
                   </TableCell>
                   <TableCell className="whitespace-nowrap text-xs">
-                    {rule.priceFrom == null && rule.priceTo == null ? "" : `${formatPrice(rule.priceFrom ?? 0)} – ${formatPrice(rule.priceTo ?? 0)}`}
+                    {!rule.bundlePriceFrom && !rule.bundlePriceTo ? "" : `${rule.bundlePriceFrom ? formatPrice(rule.bundlePriceFrom) : "neomezeně"} – ${rule.bundlePriceTo ? formatPrice(rule.bundlePriceTo) : "neomezeně"}`}
                   </TableCell>
                   <TableCell className="text-xs">{feeLines(rule.originFees, integrations).map((l) => <div key={l}>{l}</div>)}</TableCell>
                   <TableCell className="text-xs">{feeLines(rule.destinationFees, integrations).map((l) => <div key={l}>{l}</div>)}</TableCell>

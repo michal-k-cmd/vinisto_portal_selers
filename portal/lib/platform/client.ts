@@ -22,6 +22,12 @@ export type PlatformRequest = {
   timeoutMs?: number;
   /** Přebít hlavičky (např. `X-Api-Key: ""` pro services-api/integrations). */
   headers?: Record<string, string>;
+  /**
+   * Některé endpointy vrací `isError: true` a zároveň platná data (např.
+   * fee-rules, když jen část pravidel selže). Když vrátí true, tělo se
+   * vrátí místo vyhození chyby.
+   */
+  tolerateErrorEnvelope?: (data: unknown) => boolean;
 };
 
 const DEFAULT_TIMEOUT_MS = 12_000;
@@ -99,6 +105,11 @@ export async function platformRequest<T extends object = PlatformEnvelope>(
     }
 
     const envelope = data as PlatformEnvelope;
+    const tolerated = response.ok && envelope.isError && init.tolerateErrorEnvelope?.(data);
+    if (tolerated) {
+      console.warn(`[platform] ${method} ${pathForLog(url)} → isError s daty (tolerováno)`);
+      return data;
+    }
     if (!response.ok || envelope.isError) {
       const { message, items } = formatPlatformError(envelope.error);
       console.error(`[platform] ${method} ${pathForLog(url)} → HTTP ${response.status}: ${message}`);
