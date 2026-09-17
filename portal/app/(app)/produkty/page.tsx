@@ -9,7 +9,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { DataError } from "@/components/data-error";
 import { Pagination, pageFromParams } from "@/components/pagination";
 import { SortableHead } from "@/components/sortable-head";
-import { ProductSearchForm } from "@/components/products/search-form";
+import { SearchParamInput } from "@/components/search-param-input";
 import { VinistoPlusButton } from "@/components/products/vinisto-plus-dialog";
 import { activeSupplier, requireSession } from "@/lib/auth/server";
 import { formatPrice } from "@/lib/format";
@@ -118,7 +118,7 @@ export default async function ProduktyPage({ searchParams }: { searchParams: Pro
             );
           })}
         </nav>
-        <ProductSearchForm initial={q} />
+        <SearchParamInput param="q" initial={q} placeholder="Hledat podle názvu…" label="Hledat produkt" className="w-full sm:w-72" />
       </div>
 
       <h2 className="font-heading text-lg font-semibold">{heading}</h2>

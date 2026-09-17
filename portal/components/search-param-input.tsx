@@ -1,12 +1,27 @@
 "use client";
 
-// Fulltext nad názvem produktu — po 300 ms bez psaní přepíše ?q= v URL.
+// Textové pole svázané s query parametrem: po 300 ms bez psaní přepíše URL
+// (a vynuluje stránkování). Server komponenta stránky pak filtr aplikuje.
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Input } from "@/components/ui/input";
 
-export function ProductSearchForm({ initial }: { initial: string }) {
+export function SearchParamInput({
+  param,
+  initial,
+  placeholder,
+  label,
+  pageParam = "page",
+  className,
+}: {
+  param: string;
+  initial: string;
+  placeholder: string;
+  label: string;
+  pageParam?: string;
+  className?: string;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -20,9 +35,9 @@ export function ProductSearchForm({ initial }: { initial: string }) {
     }
     const timer = setTimeout(() => {
       const next = new URLSearchParams(searchParams.toString());
-      if (value.trim()) next.set("q", value.trim());
-      else next.delete("q");
-      next.delete("page");
+      if (value.trim()) next.set(param, value.trim());
+      else next.delete(param);
+      next.delete(pageParam);
       router.replace(`${pathname}?${next.toString()}`);
     }, 300);
     return () => clearTimeout(timer);
@@ -30,8 +45,13 @@ export function ProductSearchForm({ initial }: { initial: string }) {
   }, [value]);
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="w-full sm:max-w-xs">
-      <Input type="search" placeholder="Hledat podle názvu…" value={value} onChange={(e) => setValue(e.target.value)} aria-label="Hledat produkt" />
-    </form>
+    <Input
+      type="search"
+      placeholder={placeholder}
+      aria-label={label}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      className={className}
+    />
   );
 }
