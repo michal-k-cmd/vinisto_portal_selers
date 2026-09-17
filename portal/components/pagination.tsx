@@ -8,19 +8,22 @@ export function Pagination({
   pageSize,
   total,
   params,
+  paramName = "page",
 }: {
   page: number;
   pageSize: number;
   total: number;
   params: Record<string, string>;
+  /** název query parametru se stránkou (výchozí `page`) */
+  paramName?: string;
 }) {
   const pages = Math.max(1, Math.ceil(total / pageSize));
   if (pages <= 1) return null;
 
   const href = (p: number) => {
     const next = new URLSearchParams(params);
-    if (p <= 1) next.delete("page");
-    else next.set("page", String(p));
+    if (p <= 1) next.delete(paramName);
+    else next.set(paramName, String(p));
     const qs = next.toString();
     return qs ? `?${qs}` : "?";
   };

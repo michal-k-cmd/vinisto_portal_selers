@@ -49,7 +49,7 @@ type PlatformEnvelope = { isError?: boolean; error?: unknown };
  * při síťové chybě, timeoutu, ne-2xx odpovědi nebo `isError: true`.
  * Při HTTP 429 zkouší znovu s exponenciálním backoffem.
  */
-export async function platformRequest<T extends PlatformEnvelope = PlatformEnvelope>(
+export async function platformRequest<T extends object = PlatformEnvelope>(
   path: string,
   init: PlatformRequest = {},
 ): Promise<T> {
@@ -98,8 +98,9 @@ export async function platformRequest<T extends PlatformEnvelope = PlatformEnvel
       throw new PlatformApiError(`Platforma vinisto vrátila neplatnou odpověď (HTTP ${response.status}).`, response.status);
     }
 
-    if (!response.ok || data.isError) {
-      const { message, items } = formatPlatformError(data.error);
+    const envelope = data as PlatformEnvelope;
+    if (!response.ok || envelope.isError) {
+      const { message, items } = formatPlatformError(envelope.error);
       console.error(`[platform] ${method} ${pathForLog(url)} → HTTP ${response.status}: ${message}`);
       throw new PlatformApiError(
         response.ok || items.length > 0 ? message : `Platforma vinisto vrátila HTTP ${response.status}.`,
