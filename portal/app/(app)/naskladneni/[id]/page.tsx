@@ -12,7 +12,7 @@ import { ConfirmStockingButton } from "@/components/stocking/confirm-dialog";
 import { requireSession } from "@/lib/auth/server";
 import { formatDate } from "@/lib/format";
 import { SPECIFICATION_ID_BATCH, SPECIFICATION_ID_KIND, SPECIFICATION_ID_TYPE } from "@/lib/platform/fees";
-import { localize, stripHtml, type Bundle, type SpecificationDetail } from "@/lib/platform/products";
+import { findSpecification, localize, specificationText, stripHtml, type Bundle, type SpecificationDetail } from "@/lib/platform/products";
 import {
   DELIVERY_TIME_LABEL,
   DELIVERY_TYPE_LABEL,
@@ -32,17 +32,7 @@ const BOTTLES_IN_BOX = 6;
 const CONTACT = { phone: "+420 606 758 080", email: "prodejce@vinisto.cz" };
 
 function specValue(specs: SpecificationDetail[] | null | undefined, definitionId: string): string {
-  const spec = (specs ?? []).find(
-    (s) => s.definition?.id === definitionId || (s.value as { definitionId?: string } | null)?.definitionId === definitionId,
-  );
-  const v = spec?.value;
-  if (!v) return "–";
-  if (v.selectedValueName?.length) return localize(v.selectedValueName);
-  if (v.selectedValuesName?.length) return v.selectedValuesName.map((x) => localize(x)).join(", ");
-  const raw = v.value;
-  if (Array.isArray(raw)) return localize(raw);
-  if (raw == null || raw === "") return "–";
-  return String(raw);
+  return specificationText(findSpecification(specs, definitionId));
 }
 
 type Row = {

@@ -12,7 +12,7 @@ import { SearchParamInput } from "@/components/search-param-input";
 import { activeSupplier, requireSession } from "@/lib/auth/server";
 import { formatNumber } from "@/lib/format";
 import { SPECIFICATION_ID_BATCH } from "@/lib/platform/fees";
-import { localize, stripHtml, type SpecificationDetail } from "@/lib/platform/products";
+import { findSpecification, localize, specificationText, stripHtml, type SpecificationDetail } from "@/lib/platform/products";
 import { getSupplierProducts, getSupplierStatistics, WAREHOUSE_PAGE_SIZE, type SupplierProductItem } from "@/lib/platform/warehouse";
 
 export const metadata = { title: "Sklad" };
@@ -21,11 +21,7 @@ export const dynamic = "force-dynamic";
 const UNPAID_TIP = "Jde o kusy z již dodaných a vyfakturovaných objednávek, u kterých zatím čekáme na úhradu od zákazníka.";
 
 function batchOf(specs: SpecificationDetail[] | null | undefined): string {
-  const spec = (specs ?? []).find((s) => s.definition?.id === SPECIFICATION_ID_BATCH || (s.value as { definitionId?: string } | null)?.definitionId === SPECIFICATION_ID_BATCH);
-  const value = spec?.value?.value;
-  if (Array.isArray(value)) return localize(value, "");
-  if (typeof value === "string" || typeof value === "number") return String(value);
-  return "";
+  return specificationText(findSpecification(specs, SPECIFICATION_ID_BATCH), "");
 }
 
 function Kpi({ label, value, highlight, tip }: { label: string; value: string; highlight?: boolean; tip?: string }) {
