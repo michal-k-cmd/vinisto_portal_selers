@@ -9,10 +9,17 @@ export const B2C_PLATFORM_KEY = "0";
 export const B2B_PLATFORM_KEY = "1";
 
 function pct(value: number | null | undefined): string {
-  return `${value ?? 0}%`;
+  return `${value ?? 0} %`;
 }
 
-/** „{b2c}% / {b2b}%“ z mapy platformId → poplatek (prodejní pravidla). */
+/** Poplatek jako v adminu: „0 Kč + 20 %“ (pevná část jen když je nenulová). */
+export function feeText(rec: FeeRecord | null | undefined): string {
+  if (!rec) return pct(0);
+  const fixed = rec.fixedPrice ?? 0;
+  return fixed ? `${fixed} Kč + ${pct(rec.percentage)}` : pct(rec.percentage);
+}
+
+/** „{b2c} / {b2b}“ z mapy platformId → poplatek (prodejní pravidla). */
 export function salePercent(fees: Record<string, FeeRecord | FeeRecord[] | undefined> | null | undefined): string {
   if (!fees) return "";
   const pick = (key: string) => {
@@ -23,16 +30,32 @@ export function salePercent(fees: Record<string, FeeRecord | FeeRecord[] | undef
   const b2c = pick(B2C_PLATFORM_KEY);
   const b2b = pick(B2B_PLATFORM_KEY);
   if (b2c == null && b2b == null) return "";
-  return `${pct(b2c?.percentage)} / ${pct(b2b?.percentage)}`;
+  return `${feeText(b2c)} / ${feeText(b2b)}`;
 }
 
-/** „{b2c}% / {b2b}%“ z pole logistických poplatků podle platformId. */
+/** „{b2c} / {b2b}“ z pole logistických poplatků podle platformId. */
 export function logisticPercent(fees: LogisticFeeRecord[] | null | undefined): string {
   if (!fees || fees.length === 0) return "";
-  const b2c = fees.find((f) => f.platformId === 0)?.percentage;
-  const b2b = fees.find((f) => f.platformId === 1)?.percentage;
-  return `${pct(b2c)} / ${pct(b2b)}`;
+  const b2c = fees.find((f) => f.platformId === 0);
+  const b2b = fees.find((f) => f.platformId === 1);
+  return `${feeText(b2c)} / ${feeText(b2b)}`;
 }
+
+/** Rozdělí „b2c / b2b“ na dvojici (pro tabulky se dvěma řádky). */
+export function splitFee(value: string): [string, string] {
+  const i = value.indexOf(" / ");
+  if (i < 0) return [value, ""];
+  return [value.slice(0, i), value.slice(i + 3)];
+}
+
+export const FEE_RULE_STATE_LABEL: Record<string, string> = {
+  Active: "Aktivní",
+  Inactive: "Neaktivní",
+  Scheduled: "Naplánované",
+  Concept: "Koncept",
+  EndingSoon: "Končí",
+  Deleted: "Smazané",
+};
 
 /** „MM. YYYY“ v pražském čase; null/0 → fallback. */
 export function monthYear(sec: number | null | undefined, fallback = "Neomezeně"): string {
@@ -81,6 +104,9 @@ export function ruleConditions(rule: FeeRule | DynamicSaleFeeRule | AppliedFeeRu
 
 export type FeeTableRow = {
   key: string;
+  /** název pravidla z adminu (např. Vicom_Vína_CZ) */
+  name: string;
+  state: string;
   conditions: string[];
   validity: string;
   price: string;
@@ -97,6 +123,8 @@ export function feeTableRow(row: FeeRuleRow, index: number, resolve?: ConditionR
     const r = row.rule;
     return {
       key: r.id ?? `dyn-${index}`,
+      name: r.name ?? "",
+      state: r.state ?? "",
       conditions: ruleConditions(r, resolve),
       validity: validityRange(r.validFrom, r.validTo),
       price: priceRange(r.bundlePriceFrom, r.bundlePriceTo),
@@ -111,6 +139,8 @@ export function feeTableRow(row: FeeRuleRow, index: number, resolve?: ConditionR
   const base = sale ?? logistic;
   return {
     key: sale?.id ?? logistic?.id ?? `rule-${index}`,
+    name: sale?.name ?? logistic?.name ?? "",
+    state: sale?.state ?? logistic?.state ?? "",
     conditions: ruleConditions(sale ?? logistic, resolve),
     validity: base ? validityRange(base.validFrom, base.validTo) : "",
     price: base ? priceRange(base.bundlePriceFrom, base.bundlePriceTo) : "",
@@ -123,12 +153,14 @@ export function feeTableRow(row: FeeRuleRow, index: number, resolve?: ConditionR
 
 /** Poslední řádek tabulky — výchozí provize prodejce. */
 export function defaultFeeRow(values: SupplierFeeValues | null | undefined): FeeTableRow {
-  const sale = `${values?.defaultSaleFeeValue ?? 0}% / ${values?.defaultSaleFeeValueB2b ?? 0}%`;
-  const supplier = `${values?.defaultLogisticFeeSupplierTransport ?? 0}% / ${values?.defaultLogisticFeeSupplierTransport ?? 0}%`;
-  const vinisto = `${values?.defaultLogisticFeeVinistoTransport ?? 0}% / ${values?.defaultLogisticFeeVinistoTransport ?? 0}%`;
+  const sale = `${pct(values?.defaultSaleFeeValue)} / ${pct(values?.defaultSaleFeeValueB2b)}`;
+  const supplier = `${pct(values?.defaultLogisticFeeSupplierTransport)} / ${pct(values?.defaultLogisticFeeSupplierTransport)}`;
+  const vinisto = `${pct(values?.defaultLogisticFeeVinistoTransport)} / ${pct(values?.defaultLogisticFeeVinistoTransport)}`;
   return {
     key: "default",
-    conditions: ["Výchozí provize"],
+    name: "Výchozí provize",
+    state: "",
+    conditions: [],
     validity: "",
     price: "",
     domestic: sale,
