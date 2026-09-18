@@ -17,7 +17,7 @@ import { getDashboardSale, listSentStockingRequests, STOCKING_STATE_LABEL, type 
 import { getSupplierFeeRules, getSupplierFeeValues, type FeeRuleRow, type SupplierFeeValues } from "@/lib/platform/fees";
 import { defaultFeeRow, feeTableRow, type FeeTableRow } from "@/lib/platform/fees-format";
 import { B2B_PLATFORM, B2C_PLATFORM, computeBundlePrices, discountPercent } from "@/lib/platform/prices";
-import { listDiscountedBundles, localize, stripHtml, type Bundle } from "@/lib/platform/products";
+import { getSpecificationValueNames, listDiscountedBundles, localize, specValueResolver, stripHtml, type Bundle, type SpecValueResolver } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
 
 export const dynamic = "force-dynamic";
@@ -50,8 +50,8 @@ const MAX_RULE_ROWS = 6;
  * logistická z adminu, směr CZ → CZ) a výchozí sazby jako poslední řádek.
  * Stejný zdroj jako stránka Vyúčtování → Provize.
  */
-function ProvisionsCard({ rules, fees, error, isShipping, originCountry }: { rules: FeeRuleRow[]; fees: SupplierFeeValues | null; error: unknown; isShipping: boolean; originCountry: string }) {
-  const rows = rules.map(feeTableRow);
+function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve }: { rules: FeeRuleRow[]; fees: SupplierFeeValues | null; error: unknown; isShipping: boolean; originCountry: string; resolve: SpecValueResolver }) {
+  const rows = rules.map((r, i) => feeTableRow(r, i, resolve));
   const saleRows = rows.filter((r) => r.domestic);
   const logisticRows = rows.filter((r) => (isShipping ? r.logisticsSupplier : r.logisticsVinisto));
   const defaults = defaultFeeRow(fees);
@@ -188,7 +188,7 @@ export default async function PrehledPage({ searchParams }: { searchParams: Prom
     return qs ? `?${qs}` : "/";
   };
 
-  const [fees, rules, sale, stocking, discounted] = await Promise.all([
+  const [fees, rules, sale, stocking, discounted, specNames] = await Promise.all([
     getSupplierFeeValues({ supplierId: supplier.id, loginHash: session.loginHash, originCountry, destinationCountry: "CZ" })
       .then((data) => ({ data, error: null as unknown }))
       .catch((error) => ({ data: null, error })),
@@ -204,7 +204,9 @@ export default async function PrehledPage({ searchParams }: { searchParams: Prom
     listDiscountedBundles({ supplierId: supplier.id, page: discountsPage, pageSize: DISCOUNTS_PAGE_SIZE })
       .then((data) => ({ data, error: null as unknown }))
       .catch((error) => ({ data: null, error })),
+    getSpecificationValueNames(),
   ]);
+  const resolveSpec = specValueResolver(specNames);
 
   const saleData = sale.data;
   const bestSelling = saleData?.bundles ?? [];
@@ -221,7 +223,7 @@ export default async function PrehledPage({ searchParams }: { searchParams: Prom
 
       <div className="grid gap-4 xl:grid-cols-3">
         <div className="space-y-4">
-          <ProvisionsCard rules={rules.data} fees={fees.data} error={rules.error ?? fees.error} isShipping={isShipping} originCountry={originCountry} />
+          <ProvisionsCard rules={rules.data} fees={fees.data} error={rules.error ?? fees.error} isShipping={isShipping} originCountry={originCountry} resolve={resolveSpec} />
 
           <Card>
             <CardHeader className="pb-2">

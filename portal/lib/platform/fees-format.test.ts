@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { defaultFeeRow, destinationCountryOptions, feeTableRow, logisticPercent, monthYear, priceRange, salePercent, validityRange } from "./fees-format";
+import { defaultFeeRow, destinationCountryOptions, feeTableRow, logisticPercent, monthYear, priceRange, ruleConditions, salePercent, validityRange } from "./fees-format";
 
 test("salePercent: B2C / B2B z mapy platforem, chybějící = 0", () => {
   assert.equal(salePercent({ "0": { percentage: 12 }, "1": { percentage: 8 } }), "12% / 8%");
@@ -63,4 +63,11 @@ test("destinationCountryOptions: rotace podle země původu", () => {
   assert.deepEqual(destinationCountryOptions("SK"), ["SK", "DE", "CZ"]);
   assert.deepEqual(destinationCountryOptions("DE"), ["DE", "CZ", "SK"]);
   assert.deepEqual(destinationCountryOptions("AT"), ["AT", "CZ", "SK", "DE"]);
+});
+
+test("ruleConditions: slugy hodnot se překládají přes resolver", () => {
+  const rule = { specifications: [{ definitionId: "662aa758bf2647958787682d", allowedValues: ["doplnkovy-sortiment", "vina"] }] };
+  assert.deepEqual(ruleConditions(rule), ["Typ: doplnkovy-sortiment, vina"]);
+  const resolve = (id: string | null | undefined, slug: string) => (id === "662aa758bf2647958787682d" && slug === "vina" ? "Vína" : slug);
+  assert.deepEqual(ruleConditions(rule, resolve), ["Typ: doplnkovy-sortiment, Vína"]);
 });
