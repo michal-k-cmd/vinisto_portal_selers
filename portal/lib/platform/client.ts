@@ -22,6 +22,12 @@ export type PlatformRequest = {
   timeoutMs?: number;
   /** Přebít hlavičky (např. `X-Api-Key: ""` pro services-api/integrations). */
   headers?: Record<string, string>;
+  /**
+   * Některé endpointy vrací `isError: true` a zároveň platná data (např.
+   * fee-rules, když jen část pravidel selže). Když vrátí true, tělo se
+   * vrátí místo vyhození chyby.
+   */
+  tolerateErrorEnvelope?: (data: unknown) => boolean;
 };
 
 const DEFAULT_TIMEOUT_MS = 12_000;
@@ -49,7 +55,7 @@ type PlatformEnvelope = { isError?: boolean; error?: unknown };
  * při síťové chybě, timeoutu, ne-2xx odpovědi nebo `isError: true`.
  * Při HTTP 429 zkouší znovu s exponenciálním backoffem.
  */
-export async function platformRequest<T extends PlatformEnvelope = PlatformEnvelope>(
+export async function platformRequest<T extends object = PlatformEnvelope>(
   path: string,
   init: PlatformRequest = {},
 ): Promise<T> {
@@ -98,8 +104,14 @@ export async function platformRequest<T extends PlatformEnvelope = PlatformEnvel
       throw new PlatformApiError(`Platforma vinisto vrátila neplatnou odpověď (HTTP ${response.status}).`, response.status);
     }
 
-    if (!response.ok || data.isError) {
-      const { message, items } = formatPlatformError(data.error);
+    const envelope = data as PlatformEnvelope;
+    const tolerated = response.ok && envelope.isError && init.tolerateErrorEnvelope?.(data);
+    if (tolerated) {
+      console.warn(`[platform] ${method} ${pathForLog(url)} → isError s daty (tolerováno)`);
+      return data;
+    }
+    if (!response.ok || envelope.isError) {
+      const { message, items } = formatPlatformError(envelope.error);
       console.error(`[platform] ${method} ${pathForLog(url)} → HTTP ${response.status}: ${message}`);
       throw new PlatformApiError(
         response.ok || items.length > 0 ? message : `Platforma vinisto vrátila HTTP ${response.status}.`,

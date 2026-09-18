@@ -17,6 +17,9 @@ type PlatformSupplier = {
   id?: string | null;
   nameBilling?: string | null;
   nameWeb?: string | null;
+  countryCode?: string | null;
+  isShipping?: boolean | null;
+  couponPrefix?: string | null;
 };
 
 type PlatformUser = {
@@ -39,7 +42,12 @@ export type LoginResult =
 function toSessionSuppliers(suppliers: PlatformSupplier[] | null | undefined): SessionSupplier[] {
   return (suppliers ?? [])
     .filter((s): s is PlatformSupplier & { id: string } => typeof s.id === "string" && s.id.length > 0)
-    .map((s) => ({ id: s.id, name: (s.nameBilling || s.nameWeb || s.id).trim() }));
+    .map((s) => ({
+      id: s.id,
+      name: (s.nameBilling || s.nameWeb || s.id).trim(),
+      countryCode: s.countryCode ?? undefined,
+      isShipping: s.isShipping ?? undefined,
+    }));
 }
 
 /** Uživatel + jeho prodejci podle hashe. Null = hash neplatný nebo bez prodejců. */
@@ -56,6 +64,15 @@ export async function fetchAuthUserSupplier(loginHash: string): Promise<{
   const suppliers = toSessionSuppliers(user.suppliers);
   if (suppliers.length === 0) return null;
   return { userId: user.id ?? "", email: user.email ?? "", suppliers };
+}
+
+/** Prefix kódu slevových kupónů prodejce (není v session, dotáhne se živě). */
+export async function fetchSupplierCouponPrefix(loginHash: string, supplierId: string): Promise<string> {
+  const data = await platformRequest<UserReturn>(AUTH_SUPPLIER_PATH, {
+    query: { UserLoginHash: loginHash, hashType: HASH_TYPE },
+  });
+  const supplier = (data.user?.suppliers ?? []).find((s) => s.id === supplierId);
+  return supplier?.couponPrefix ?? "";
 }
 
 export async function loginAgainstVinisto(email: string, password: string): Promise<LoginResult> {

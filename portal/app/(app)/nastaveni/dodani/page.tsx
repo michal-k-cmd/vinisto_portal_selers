@@ -1,14 +1,25 @@
-import { SectionPlaceholder } from "@/components/section-placeholder";
+// Doprava zboží — způsob dovozu a svozová adresa (pickupAddress).
+
+import { AddressFields } from "@/components/settings/fields";
+import { DeliveryTypeSelect } from "@/components/settings/delivery-type-select";
+import { SectionForm } from "@/components/settings/section-form";
+import { loadSettings, SettingsSection } from "@/components/settings/settings-page";
+import { saveDeliveryAction } from "@/lib/platform/actions/settings";
 
 export const metadata = { title: "Dodací údaje" };
+export const dynamic = "force-dynamic";
 
-export default function Page() {
+export default async function DodaniPage() {
+  const { profile, error } = await loadSettings();
   return (
-    <SectionPlaceholder
-      title="Dodací údaje"
-      description="Adresa a podmínky pro svoz zboží do skladu."
-      etapa={5}
-      legacy="Nastavení → Dodací údaje"
-    />
+    <SettingsSection title="Doprava zboží" description="Způsob, jakým se vaše zboží dostává na sklad vinisto. Ovlivňuje výši logistické provize." error={error}>
+      {profile && (
+        <SectionForm action={saveDeliveryAction}>
+          <DeliveryTypeSelect initial={Boolean(profile.isShipping)}>
+            <AddressFields address={profile.pickupAddress} />
+          </DeliveryTypeSelect>
+        </SectionForm>
+      )}
+    </SettingsSection>
   );
 }
