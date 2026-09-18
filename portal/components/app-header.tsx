@@ -31,11 +31,11 @@ export function AppHeader({ supplierName }: { supplierName: string }) {
 
 			{/* Střed (přesně na rozhraní barev): název aplikace na zelené modře, jméno prodejce na modré zeleně */}
 			<div className="flex min-w-0 items-center">
-				<span className="shrink-0 pr-10 font-heading text-lg font-medium text-[var(--merkatos-blue)] md:text-xl">
+				<span className="shrink-0 pr-16 font-heading text-lg font-medium text-[var(--merkatos-blue)] md:text-xl">
 					portál prodejce
 				</span>
 				<span
-					className="hidden min-w-0 max-w-[30vw] truncate pl-10 font-heading text-lg font-medium text-[var(--vinisto-green)] md:block md:text-xl"
+					className="hidden min-w-0 max-w-[30vw] truncate pl-16 font-heading text-lg font-medium text-[var(--vinisto-green)] md:block md:text-xl"
 					title={supplierName}
 				>
 					{supplierName}
