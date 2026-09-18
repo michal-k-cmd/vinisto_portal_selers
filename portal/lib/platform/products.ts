@@ -12,21 +12,59 @@ export type BundleImage = {
   domainUrls?: Record<string, string | undefined> | null;
 };
 
+/** Platforma vrací texty buď jako string (slug), nebo jako LangValue[]. */
+export type TextOrLang = string | LangValue[] | null | undefined;
+
 export type SpecificationDetail = {
   definition?: {
     id?: string | null;
     name?: LangValue[] | null;
     orderDetail?: number | null;
-    unit?: string | null;
+    unit?: TextOrLang;
     specificationType?: string | null;
+    /** klíč = slug hodnoty (např. „ceska-republika“) → lidský název */
+    allowedValues?: Record<string, { name?: LangValue[] | null } | null> | null;
   } | null;
   value?: {
+    definitionId?: string | null;
     value?: LangValue[] | string | number | boolean | null;
-    selectedValueName?: LangValue[] | null;
-    selectedValuesName?: LangValue[][] | null;
+    selectedValueName?: TextOrLang;
+    selectedValuesName?: Array<string | LangValue[]> | null;
     specificationType?: string | null;
   } | null;
 };
+
+/** Text z hodnoty, která může být string i LangValue[]. */
+export function textOf(value: TextOrLang | number | boolean, fallback = ""): string {
+  if (value == null || value === "") return fallback;
+  if (Array.isArray(value)) return localize(value, fallback);
+  if (typeof value === "boolean") return value ? "Ano" : "Ne";
+  return String(value);
+}
+
+/** Hodnota specifikace pro zobrazení: slugy se přeloží přes allowedValues definice, čísla dostanou jednotku. */
+export function specificationText(spec: SpecificationDetail | null | undefined, fallback = "–"): string {
+  const v = spec?.value;
+  if (!v) return fallback;
+  const label = (item: string | LangValue[]) => {
+    if (Array.isArray(item)) return localize(item, "");
+    const named = spec?.definition?.allowedValues?.[item]?.name;
+    return named?.length ? localize(named, item) : item;
+  };
+  if (Array.isArray(v.selectedValuesName) && v.selectedValuesName.length) return v.selectedValuesName.map(label).filter(Boolean).join(", ") || fallback;
+  if (v.selectedValueName != null && v.selectedValueName !== "") return label(v.selectedValueName) || fallback;
+  const raw = v.value;
+  if (raw == null || raw === "") return fallback;
+  if (Array.isArray(raw)) return localize(raw, fallback);
+  if (typeof raw === "boolean") return raw ? "Ano" : "Ne";
+  const unit = textOf(spec?.definition?.unit);
+  return `${raw}${unit ? ` ${unit}` : ""}`;
+}
+
+/** Najde specifikaci podle ID definice (platforma ho dává do definition.id i value.definitionId). */
+export function findSpecification(specs: SpecificationDetail[] | null | undefined, definitionId: string): SpecificationDetail | undefined {
+  return (specs ?? []).find((s) => s.definition?.id === definitionId || s.value?.definitionId === definitionId);
+}
 
 /** Produkt (bundle) z platformy — jen pole, která portál používá. */
 export type Bundle = {

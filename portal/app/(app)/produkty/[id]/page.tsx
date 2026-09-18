@@ -36,9 +36,9 @@ import {
   IMAGE_SIZE,
   localize,
   priceLevelLabel,
+  specificationText,
   stripHtml,
   type Bundle,
-  type SpecificationDetail,
 } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
 
@@ -69,19 +69,6 @@ function bundleState(b: Bundle): BundleState {
 }
 
 const DISCOUNT_STATE_LABEL = { ONGOING: "Probíhá", PLANNED: "Naplánována", EXPIRED: "Ukončena" } as const;
-
-function specValue(spec: SpecificationDetail): string {
-  const v = spec.value;
-  if (!v) return "–";
-  if (v.selectedValuesName?.length) return v.selectedValuesName.map((x) => localize(x)).join(", ");
-  if (v.selectedValueName?.length) return localize(v.selectedValueName);
-  const raw = v.value;
-  if (Array.isArray(raw)) return localize(raw);
-  if (typeof raw === "boolean") return raw ? "Ano" : "Ne";
-  if (raw == null) return "–";
-  const unit = spec.definition?.unit ? ` ${spec.definition.unit}` : "";
-  return `${raw}${unit}`;
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -405,7 +392,7 @@ export default async function ProduktDetailPage({
                 {specs.map((s, i) => (
                   <div key={s.definition?.id ?? i} className="flex justify-between gap-3 border-b border-border py-1">
                     <dt className="text-muted-foreground">{localize(s.definition?.name)}</dt>
-                    <dd className="text-right">{specValue(s)}</dd>
+                    <dd className="text-right">{specificationText(s)}</dd>
                   </div>
                 ))}
               </dl>
