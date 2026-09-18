@@ -15,7 +15,7 @@ import { formatDate, formatNumber, formatPrice } from "@/lib/format";
 import { isFuture, nextMonth, parsePeriod, periodBounds, periodLabel, periodToParam, previousMonth, currentPeriod } from "@/lib/period";
 import { getDashboardSale, listSentStockingRequests, STOCKING_STATE_LABEL, type SaleData } from "@/lib/platform/dashboard";
 import { getSupplierFeeRules, getSupplierFeeValues, type FeeRuleRow, type SupplierFeeValues } from "@/lib/platform/fees";
-import { defaultFeeRow, feeTableRow, type FeeTableRow } from "@/lib/platform/fees-format";
+import { defaultFeeRow, feeTableRow, splitFee, type FeeTableRow } from "@/lib/platform/fees-format";
 import { B2B_PLATFORM, B2C_PLATFORM, computeBundlePrices, discountPercent } from "@/lib/platform/prices";
 import { getSpecificationValueNames, listDiscountedBundles, localize, specValueResolver, stripHtml, type Bundle, type SpecValueResolver } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
@@ -25,20 +25,39 @@ export const dynamic = "force-dynamic";
 const DISCOUNTS_PAGE_SIZE = 5;
 const DISCOUNT_EXPIRING_DAYS = 5;
 
-function splitPercent(value: string): [string, string] {
-  const [b2c = "–", b2b = "–"] = value.split(" / ");
-  return [b2c || "–", b2b || "–"];
+function FeePair({ label, value }: { label?: string; value: string }) {
+  const [b2c, b2b] = splitFee(value);
+  return (
+    <span className="flex items-center gap-2 whitespace-nowrap tabular-nums">
+      {label && <span className="w-24 shrink-0 text-xs text-muted-foreground">{label}</span>}
+      <span className="flex w-52 shrink-0 justify-between">
+        <span>{b2c || "–"}</span>
+        <span>{b2b || "–"}</span>
+      </span>
+    </span>
+  );
 }
 
-function ProvisionRow({ label, value, muted }: { label: React.ReactNode; value: string; muted?: boolean }) {
-  const [b2c, b2b] = splitPercent(value);
+/** Řádek pravidla: název + podmínky vlevo, poplatky (B2C / B2B) vpravo; prodej má domácí a zahraniční produkci. */
+function ProvisionRow({ row, sale, isShipping, muted }: { row: FeeTableRow; sale: boolean; isShipping: boolean; muted?: boolean }) {
+  const title = row.name || (row.conditions.length ? row.conditions[0] : "Obecné pravidlo");
   return (
-    <div className={cn("flex items-center justify-between gap-3 py-1.5 text-sm", muted && "text-muted-foreground")}>
-      <span className="min-w-0 truncate">{label}</span>
-      <span className="flex w-36 shrink-0 justify-between tabular-nums">
-        <span>{b2c}</span>
-        <span>{b2b}</span>
-      </span>
+    <div className={cn("flex flex-wrap items-start justify-between gap-x-3 gap-y-1 border-b border-border/60 py-2 text-sm last:border-0", muted && "text-muted-foreground")}>
+      <div className="min-w-0 flex-1">
+        <div className="truncate font-medium">{title}</div>
+        {row.conditions.length > 0 && <div className="truncate text-xs text-muted-foreground">{row.conditions.join(" · ")}</div>}
+        {row.validity && <div className="text-xs text-muted-foreground">{row.validity}</div>}
+      </div>
+      <div className="flex flex-col items-end gap-0.5">
+        {sale ? (
+          <>
+            <FeePair label="domácí" value={row.domestic} />
+            {row.foreign && row.foreign !== row.domestic && <FeePair label="zahraniční" value={row.foreign} />}
+          </>
+        ) : (
+          <FeePair value={isShipping ? row.logisticsSupplier : row.logisticsVinisto} />
+        )}
+      </div>
     </div>
   );
 }
@@ -56,13 +75,11 @@ function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve
   const logisticRows = rows.filter((r) => (isShipping ? r.logisticsSupplier : r.logisticsVinisto));
   const defaults = defaultFeeRow(fees);
   const header = (
-    <span className="flex w-36 shrink-0 justify-between text-xs font-medium text-muted-foreground">
+    <span className="flex w-52 shrink-0 justify-between text-xs font-medium text-muted-foreground">
       <span>B2C</span>
       <span>B2B</span>
     </span>
   );
-  const label = (r: FeeTableRow) => (r.conditions.length ? r.conditions.join(" · ") : "Obecné pravidlo");
-  const validity = (r: FeeTableRow) => (r.validity ? <span className="ml-1 text-xs text-muted-foreground">({r.validity})</span> : null);
   const more = (n: number) =>
     n > MAX_RULE_ROWS ? (
       <Link href="/vyuctovani/provize" className="block py-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
@@ -94,19 +111,10 @@ function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve
           </div>
           {saleRows.length === 0 && !error && <p className="py-1.5 text-xs text-muted-foreground">Žádné zvláštní prodejní pravidlo, platí výchozí provize.</p>}
           {saleRows.slice(0, MAX_RULE_ROWS).map((r) => (
-            <ProvisionRow
-              key={r.key}
-              label={
-                <>
-                  {label(r)}
-                  {validity(r)}
-                </>
-              }
-              value={r.domestic}
-            />
+            <ProvisionRow key={r.key} row={r} sale isShipping={isShipping} />
           ))}
           {more(saleRows.length)}
-          <ProvisionRow label="Výchozí provize" value={defaults.domestic} muted />
+          <ProvisionRow row={defaults} sale isShipping={isShipping} muted />
         </div>
         <div>
           <div className="flex items-center justify-between gap-3 border-b border-border pb-1">
@@ -124,19 +132,10 @@ function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve
           </div>
           {logisticRows.length === 0 && !error && <p className="py-1.5 text-xs text-muted-foreground">Žádné zvláštní logistické pravidlo, platí výchozí provize.</p>}
           {logisticRows.slice(0, MAX_RULE_ROWS).map((r) => (
-            <ProvisionRow
-              key={r.key}
-              label={
-                <>
-                  {label(r)}
-                  {validity(r)}
-                </>
-              }
-              value={isShipping ? r.logisticsSupplier : r.logisticsVinisto}
-            />
+            <ProvisionRow key={r.key} row={r} sale={false} isShipping={isShipping} />
           ))}
           {more(logisticRows.length)}
-          <ProvisionRow label="Výchozí provize" value={isShipping ? defaults.logisticsSupplier : defaults.logisticsVinisto} muted />
+          <ProvisionRow row={defaults} sale={false} isShipping={isShipping} muted />
         </div>
         <Link href="/vyuctovani/provize" className="inline-block text-xs underline-offset-2 hover:underline">
           Všechna provizní pravidla a směry prodeje ›

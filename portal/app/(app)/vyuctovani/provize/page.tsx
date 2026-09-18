@@ -7,7 +7,7 @@ import { DataError } from "@/components/data-error";
 import { InfoTip } from "@/components/info-tip";
 import { activeSupplier, requireSession } from "@/lib/auth/server";
 import { destinationCountryOptions, getSupplierFeeRules, getSupplierFeeValues, type FeeRuleRow, type SupplierFeeValues } from "@/lib/platform/fees";
-import { defaultFeeRow, feeTableRow } from "@/lib/platform/fees-format";
+import { defaultFeeRow, FEE_RULE_STATE_LABEL, feeTableRow, splitFee } from "@/lib/platform/fees-format";
 import { getSpecificationValueNames, specValueResolver } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +15,24 @@ export const metadata = { title: "Provize" };
 export const dynamic = "force-dynamic";
 
 const COUNTRIES = ["CZ", "SK", "DE"];
+
+/** Poplatek ve dvou řádcích: B2C a B2B (jako v adminu). */
+function FeeCell({ value }: { value: string }) {
+  if (!value) return <TableCell className="text-xs text-muted-foreground">–</TableCell>;
+  const [b2c, b2b] = splitFee(value);
+  return (
+    <TableCell className="whitespace-nowrap text-xs tabular-nums">
+      <div>
+        <span className="text-muted-foreground">B2C </span>
+        {b2c}
+      </div>
+      <div>
+        <span className="text-muted-foreground">B2B </span>
+        {b2b}
+      </div>
+    </TableCell>
+  );
+}
 
 export default async function ProvizePage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const sp = await searchParams;
@@ -65,29 +83,34 @@ export default async function ProvizePage({ searchParams }: { searchParams: Prom
           <Table>
             <TableHeader>
               <TableRow>
+                <TableHead>Pravidlo</TableHead>
                 <TableHead>Podmínky</TableHead>
                 <TableHead>Platnost od / do</TableHead>
                 <TableHead>Cena produktu od / do</TableHead>
-                <TableHead>Domácí produkce – prodej B2C / B2B</TableHead>
-                <TableHead>Zahraniční produkce – prodej B2C / B2B</TableHead>
-                <TableHead>Logistika – dovážíme na sklad B2C / B2B</TableHead>
-                <TableHead>Logistika – vozí vinisto B2C / B2B</TableHead>
+                <TableHead>Domácí produkce – prodej</TableHead>
+                <TableHead>Zahraniční produkce – prodej</TableHead>
+                <TableHead>Logistika – dovážíme na sklad</TableHead>
+                <TableHead>Logistika – vozí vinisto</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {rows.map((row) => (
                 <TableRow key={row.key} className={row.isDefault ? "bg-muted/40" : ""}>
                   <TableCell className={cn("text-xs", row.isDefault && "font-medium")}>
+                    <div className="font-medium">{row.name || (row.isDefault ? "Výchozí provize" : "–")}</div>
+                    {row.state && <div className={cn("text-[11px]", row.state === "Active" ? "text-vinisto-green" : "text-muted-foreground")}>{FEE_RULE_STATE_LABEL[row.state] ?? row.state}</div>}
+                  </TableCell>
+                  <TableCell className="text-xs">
                     {row.conditions.map((c) => (
                       <div key={c}>{c}</div>
                     ))}
                   </TableCell>
                   <TableCell className="whitespace-nowrap text-xs">{row.validity}</TableCell>
                   <TableCell className="whitespace-nowrap text-xs">{row.price}</TableCell>
-                  <TableCell className="whitespace-nowrap text-xs">{row.domestic}</TableCell>
-                  <TableCell className="whitespace-nowrap text-xs">{row.foreign}</TableCell>
-                  <TableCell className="whitespace-nowrap text-xs">{row.logisticsSupplier}</TableCell>
-                  <TableCell className="whitespace-nowrap text-xs">{row.logisticsVinisto}</TableCell>
+                  <FeeCell value={row.domestic} />
+                  <FeeCell value={row.foreign} />
+                  <FeeCell value={row.logisticsSupplier} />
+                  <FeeCell value={row.logisticsVinisto} />
                 </TableRow>
               ))}
             </TableBody>

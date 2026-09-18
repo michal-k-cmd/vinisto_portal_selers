@@ -9,6 +9,7 @@ export type FeeSpecification = { definitionId?: string | null; allowedValues?: s
 /** Základ každého pravidla (BaseFeeRule). */
 export type FeeRule = {
   id?: string | null;
+  name?: string | null;
   state?: string | null;
   validFrom?: number | null;
   validTo?: number | null;
