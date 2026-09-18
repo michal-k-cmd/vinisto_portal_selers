@@ -53,8 +53,29 @@ export async function clearSessionCookie(): Promise<void> {
   store.set(SESSION_COOKIE, "", { ...cookieOptions, maxAge: 0 });
 }
 
-/** Přečte a ověří session z cookie aktuálního requestu. */
+/** Je server nakonfigurovaný pro přihlašování? (SESSION_SECRET) */
+export function sessionConfigError(): string | null {
+  try {
+    sessionSecret();
+    return null;
+  } catch (error) {
+    return error instanceof Error ? error.message : String(error);
+  }
+}
+
+/**
+ * Přečte a ověří session z cookie aktuálního requestu. Bez cookie nebo bez
+ * nakonfigurovaného secretu vrací null (veřejné stránky se musí vykreslit;
+ * chybějící konfigurace se hlásí až při přihlášení).
+ */
 export async function readSession(): Promise<PortalSession | null> {
   const store = await cookies();
-  return decodeSession(store.get(SESSION_COOKIE)?.value);
+  const token = store.get(SESSION_COOKIE)?.value;
+  if (!token) return null;
+  try {
+    return decodeSession(token);
+  } catch (error) {
+    console.error("[session]", error instanceof Error ? error.message : error);
+    return null;
+  }
 }

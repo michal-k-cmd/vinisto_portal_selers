@@ -4,7 +4,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { loginAgainstVinisto } from "@/lib/auth/vinisto-auth";
-import { writeSessionCookie } from "@/lib/auth/session";
+import { sessionConfigError, writeSessionCookie } from "@/lib/auth/session";
 import { isSameOrigin } from "@/lib/auth/origin";
 
 export const dynamic = "force-dynamic";
@@ -19,6 +19,12 @@ export async function POST(request: NextRequest) {
   const password = typeof body?.password === "string" ? body.password : "";
   if (!email || !password) {
     return NextResponse.json({ error: "Vyplňte e-mail a heslo" }, { status: 400 });
+  }
+
+  const configError = sessionConfigError() ?? (!process.env.VINISTO_API_URL ? "Chybí VINISTO_API_URL." : null);
+  if (configError) {
+    console.error("[login] konfigurace:", configError);
+    return NextResponse.json({ error: `Server není nakonfigurovaný: ${configError} Nastavte ENV ve Vercelu.` }, { status: 500 });
   }
 
   const result = await loginAgainstVinisto(email, password);
