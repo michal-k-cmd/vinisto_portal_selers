@@ -25,64 +25,41 @@ export const dynamic = "force-dynamic";
 const DISCOUNTS_PAGE_SIZE = 5;
 const DISCOUNT_EXPIRING_DAYS = 5;
 
-function FeePair({ label, value }: { label?: string; value: string }) {
+function FeeCells({ value }: { value: string }) {
   const [b2c, b2b] = splitFee(value);
   return (
-    <span className="flex items-center gap-2 whitespace-nowrap tabular-nums">
-      {label && <span className="w-24 shrink-0 text-xs text-muted-foreground">{label}</span>}
-      <span className="flex w-52 shrink-0 justify-between">
-        <span>{b2c || "–"}</span>
-        <span>{b2b || "–"}</span>
-      </span>
-    </span>
+    <>
+      <TableCell className="whitespace-nowrap text-right tabular-nums">{b2c || "–"}</TableCell>
+      <TableCell className="whitespace-nowrap text-right tabular-nums">{b2b || "–"}</TableCell>
+    </>
   );
 }
 
-/** Řádek pravidla: název + podmínky vlevo, poplatky (B2C / B2B) vpravo; prodej má domácí a zahraniční produkci. */
-function ProvisionRow({ row, sale, isShipping, muted }: { row: FeeTableRow; sale: boolean; isShipping: boolean; muted?: boolean }) {
-  const title = row.name || (row.conditions.length ? row.conditions[0] : "Obecné pravidlo");
+function RuleCell({ row }: { row: FeeTableRow }) {
   return (
-    <div className={cn("flex flex-wrap items-start justify-between gap-x-3 gap-y-1 border-b border-border/60 py-2 text-sm last:border-0", muted && "text-muted-foreground")}>
-      <div className="min-w-0 flex-1">
-        <div className="truncate font-medium">{title}</div>
-        {row.conditions.length > 0 && <div className="truncate text-xs text-muted-foreground">{row.conditions.join(" · ")}</div>}
-        {row.validity && <div className="text-xs text-muted-foreground">{row.validity}</div>}
-      </div>
-      <div className="flex flex-col items-end gap-0.5">
-        {sale ? (
-          <>
-            <FeePair label="domácí" value={row.domestic} />
-            {row.foreign && row.foreign !== row.domestic && <FeePair label="zahraniční" value={row.foreign} />}
-          </>
-        ) : (
-          <FeePair value={isShipping ? row.logisticsSupplier : row.logisticsVinisto} />
-        )}
-      </div>
-    </div>
+    <TableCell className="min-w-48">
+      <div className={cn("font-medium", row.isDefault && "text-muted-foreground")}>{row.name || (row.conditions[0] ?? "Obecné pravidlo")}</div>
+      {row.conditions.length > 0 && <div className="text-xs text-muted-foreground">{row.conditions.join(" · ")}</div>}
+      {row.validity && <div className="text-xs text-muted-foreground">{row.validity}</div>}
+    </TableCell>
   );
 }
 
-const MAX_RULE_ROWS = 6;
+const MAX_RULE_ROWS = 8;
 
 /**
  * Skutečně aplikovaná provizní pravidla prodejce (dynamická + prodejní +
- * logistická z adminu, směr CZ → CZ) a výchozí sazby jako poslední řádek.
- * Stejný zdroj jako stránka Vyúčtování → Provize.
+ * logistická z adminu, směr země prodejce → CZ) a výchozí sazby jako poslední
+ * řádek. Stejný zdroj jako stránka Vyúčtování → Provize.
  */
 function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve }: { rules: FeeRuleRow[]; fees: SupplierFeeValues | null; error: unknown; isShipping: boolean; originCountry: string; resolve: SpecValueResolver }) {
   const rows = rules.map((r, i) => feeTableRow(r, i, resolve));
   const saleRows = rows.filter((r) => r.domestic);
   const logisticRows = rows.filter((r) => (isShipping ? r.logisticsSupplier : r.logisticsVinisto));
   const defaults = defaultFeeRow(fees);
-  const header = (
-    <span className="flex w-52 shrink-0 justify-between text-xs font-medium text-muted-foreground">
-      <span>B2C</span>
-      <span>B2B</span>
-    </span>
-  );
-  const more = (n: number) =>
+  const moreLink = (n: number) =>
     n > MAX_RULE_ROWS ? (
-      <Link href="/vyuctovani/provize" className="block py-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
+      <Link href="/vyuctovani/provize" className="block px-3 py-2 text-xs text-muted-foreground underline-offset-2 hover:underline">
         + {n - MAX_RULE_ROWS} dalších pravidel
       </Link>
     ) : null;
@@ -90,56 +67,108 @@ function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve
   return (
     <Card>
       <CardHeader className="pb-2">
-        <CardTitle className="flex items-center gap-2 text-base">
-          Moje provize
-          <InfoTip>
-            Provize na vinisto se skládá z poplatku za prodej a poplatku za logistiku. Zobrazují se pravidla platná pro směr prodeje {originCountry} → CZ;
-            ostatní směry najdete v sekci Vyúčtování → Provize. Logistické provize je možné upravit v nastavení v sekci{" "}
-            <Link href="/nastaveni/dodani" className="underline">
-              Doprava zboží
-            </Link>
-            . Změna proběhne od dalšího zúčtovacího období.
-          </InfoTip>
-        </CardTitle>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <CardTitle className="flex items-center gap-2 text-base">
+            Moje provize
+            <InfoTip>
+              Provize na vinisto se skládá z poplatku za prodej a poplatku za logistiku. Zobrazují se pravidla platná pro směr prodeje {originCountry} → CZ;
+              ostatní směry najdete v sekci Vyúčtování → Provize. Logistické provize je možné upravit v nastavení v sekci{" "}
+              <Link href="/nastaveni/dodani" className="underline">
+                Doprava zboží
+              </Link>
+              . Změna proběhne od dalšího zúčtovacího období.
+            </InfoTip>
+          </CardTitle>
+          <Link href="/vyuctovani/provize" className="text-xs text-muted-foreground underline-offset-2 hover:underline">
+            Všechna provizní pravidla a směry prodeje ›
+          </Link>
+        </div>
       </CardHeader>
-      <CardContent className="space-y-4 text-sm">
-        {error ? <DataError error={error} what="Provize" /> : null}
-        <div>
-          <div className="flex items-center justify-between gap-3 border-b border-border pb-1">
-            <span className="font-medium">Prodej</span>
-            {header}
+      <CardContent>
+        {error ? (
+          <DataError error={error} what="Provize" />
+        ) : (
+          <div className="grid gap-4 xl:grid-cols-[3fr_2fr]">
+            <div className="overflow-x-auto rounded-md border border-border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Prodej</TableHead>
+                    <TableHead colSpan={2} className="text-center">
+                      Domácí produkce
+                    </TableHead>
+                    <TableHead colSpan={2} className="text-center">
+                      Zahraniční produkce
+                    </TableHead>
+                  </TableRow>
+                  <TableRow>
+                    <TableHead className="text-xs font-normal">pravidlo</TableHead>
+                    <TableHead className="text-right text-xs font-normal">B2C</TableHead>
+                    <TableHead className="text-right text-xs font-normal">B2B</TableHead>
+                    <TableHead className="text-right text-xs font-normal">B2C</TableHead>
+                    <TableHead className="text-right text-xs font-normal">B2B</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {saleRows.slice(0, MAX_RULE_ROWS).map((r) => (
+                    <TableRow key={r.key}>
+                      <RuleCell row={r} />
+                      <FeeCells value={r.domestic} />
+                      <FeeCells value={r.foreign || r.domestic} />
+                    </TableRow>
+                  ))}
+                  <TableRow className="bg-muted/40">
+                    <RuleCell row={defaults} />
+                    <FeeCells value={defaults.domestic} />
+                    <FeeCells value={defaults.foreign} />
+                  </TableRow>
+                </TableBody>
+              </Table>
+              {moreLink(saleRows.length)}
+            </div>
+
+            <div className="overflow-x-auto rounded-md border border-border">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>
+                      Logistika{" "}
+                      <span className="font-normal text-muted-foreground">
+                        · {isShipping ? "dovážím na sklad" : "zboží se vyzvedává u mě"} (
+                        <Link href="/nastaveni/dodani" className="underline">
+                          upravit
+                        </Link>
+                        )
+                      </span>
+                    </TableHead>
+                    <TableHead className="text-right text-xs font-normal">B2C</TableHead>
+                    <TableHead className="text-right text-xs font-normal">B2B</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {logisticRows.slice(0, MAX_RULE_ROWS).map((r) => (
+                    <TableRow key={r.key}>
+                      <RuleCell row={r} />
+                      <FeeCells value={isShipping ? r.logisticsSupplier : r.logisticsVinisto} />
+                    </TableRow>
+                  ))}
+                  {logisticRows.length === 0 && (
+                    <TableRow>
+                      <TableCell colSpan={3} className="text-xs text-muted-foreground">
+                        Žádné zvláštní logistické pravidlo, platí výchozí provize.
+                      </TableCell>
+                    </TableRow>
+                  )}
+                  <TableRow className="bg-muted/40">
+                    <RuleCell row={defaults} />
+                    <FeeCells value={isShipping ? defaults.logisticsSupplier : defaults.logisticsVinisto} />
+                  </TableRow>
+                </TableBody>
+              </Table>
+              {moreLink(logisticRows.length)}
+            </div>
           </div>
-          {saleRows.length === 0 && !error && <p className="py-1.5 text-xs text-muted-foreground">Žádné zvláštní prodejní pravidlo, platí výchozí provize.</p>}
-          {saleRows.slice(0, MAX_RULE_ROWS).map((r) => (
-            <ProvisionRow key={r.key} row={r} sale isShipping={isShipping} />
-          ))}
-          {more(saleRows.length)}
-          <ProvisionRow row={defaults} sale isShipping={isShipping} muted />
-        </div>
-        <div>
-          <div className="flex items-center justify-between gap-3 border-b border-border pb-1">
-            <span className="font-medium">
-              Logistika{" "}
-              <span className="font-normal text-muted-foreground">
-                {isShipping ? "Dovážím na sklad" : "Zboží se vyzvedává u mě"} (
-                <Link href="/nastaveni/dodani" className="underline">
-                  upravit
-                </Link>
-                )
-              </span>
-            </span>
-            {header}
-          </div>
-          {logisticRows.length === 0 && !error && <p className="py-1.5 text-xs text-muted-foreground">Žádné zvláštní logistické pravidlo, platí výchozí provize.</p>}
-          {logisticRows.slice(0, MAX_RULE_ROWS).map((r) => (
-            <ProvisionRow key={r.key} row={r} sale={false} isShipping={isShipping} />
-          ))}
-          {more(logisticRows.length)}
-          <ProvisionRow row={defaults} sale={false} isShipping={isShipping} muted />
-        </div>
-        <Link href="/vyuctovani/provize" className="inline-block text-xs underline-offset-2 hover:underline">
-          Všechna provizní pravidla a směry prodeje ›
-        </Link>
+        )}
       </CardContent>
     </Card>
   );
@@ -147,16 +176,16 @@ function ProvisionsCard({ rules, fees, error, isShipping, originCountry, resolve
 
 function Tile({ label, value, change, info }: { label: string; value: string; change: number; info?: React.ReactNode }) {
   return (
-    <div className="flex-1 rounded-md bg-muted p-3">
+    <div className="rounded-lg border border-border bg-card p-4">
       <div className="flex items-center gap-1 text-xs text-muted-foreground">
         {label}
         {info && <InfoTip>{info}</InfoTip>}
       </div>
-      <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2">
-        <span className="text-2xl font-bold">{value}</span>
+      <div className="mt-1 flex flex-wrap items-end justify-between gap-2">
+        <span className="font-heading text-3xl font-bold">{value}</span>
         <span className="text-right">
           <PercentageChange value={change} />
-          <span className="block text-[11px] text-muted-foreground">Oproti předchozímu období</span>
+          <span className="block text-[11px] text-muted-foreground">oproti předchozímu období</span>
         </span>
       </div>
     </div>
@@ -211,142 +240,157 @@ export default async function PrehledPage({ searchParams }: { searchParams: Prom
   const bestSelling = saleData?.bundles ?? [];
   const nowSec = Date.now() / 1000;
 
+  const periodNav = (
+    <nav className="flex flex-wrap items-center gap-1 text-xs">
+      <Link href={withParam("obdobi", periodToParam(previousMonth(period)))} className="rounded-md border border-border px-2 py-1 hover:bg-accent" aria-label="Předchozí měsíc">
+        ‹
+      </Link>
+      <span className="min-w-32 text-center text-sm font-medium">{periodLabel(period)}</span>
+      {isFuture(nextMonth(period)) ? (
+        <span className="rounded-md border border-border px-2 py-1 opacity-50">›</span>
+      ) : (
+        <Link href={withParam("obdobi", periodToParam(nextMonth(period)))} className="rounded-md border border-border px-2 py-1 hover:bg-accent" aria-label="Další měsíc">
+          ›
+        </Link>
+      )}
+      <Link href={withParam("obdobi", String(currentPeriod().year))} className="rounded-md border border-border px-2 py-1 hover:bg-accent">
+        Tento rok
+      </Link>
+      <Link href={withParam("obdobi", undefined)} className="rounded-md border border-border px-2 py-1 hover:bg-accent">
+        Tento měsíc
+      </Link>
+    </nav>
+  );
+
   return (
-    <div className="space-y-4">
-      <div>
-        <h1 className="font-heading text-2xl font-bold">Přehled</h1>
-        <p className="text-sm text-muted-foreground">
-          {session.email} · prodejce <span className="font-medium text-foreground">{supplier.name}</span>
-        </p>
+    <div className="space-y-5">
+      {/* Titulek + období */}
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="font-heading text-2xl font-bold">Přehled</h1>
+          <p className="text-sm text-muted-foreground">
+            {session.email} · prodejce <span className="font-medium text-foreground">{supplier.name}</span>
+          </p>
+        </div>
+        {periodNav}
       </div>
 
-      <div className="grid gap-4 xl:grid-cols-3">
-        <div className="space-y-4">
-          <ProvisionsCard rules={rules.data} fees={fees.data} error={rules.error ?? fees.error} isShipping={isShipping} originCountry={originCountry} resolve={resolveSpec} />
+      {/* Prodeje za období — KPI na celou šířku */}
+      <section className="space-y-2">
+        <h2 className="font-heading text-base font-semibold">
+          Prodáno za období <span className="font-normal text-muted-foreground">· {periodLabel(period)}</span>
+        </h2>
+        {sale.error ? (
+          <DataError error={sale.error} what="Data o prodeji" />
+        ) : !saleData ? (
+          <p className="rounded-lg border border-border bg-card py-8 text-center text-sm text-muted-foreground">V tuto chvíli nemáme data o Vašem prodeji.</p>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-3">
+            <Tile label="Počet prodaných kusů" value={`${formatNumber(saleData.totalSoldPcs ?? 0)} ks`} change={saleData.totalSoldPcsPercentageDifference ?? 0} />
+            <Tile
+              label="Celkově prodáno za"
+              value={formatPrice(saleData.totalProfit ?? 0)}
+              change={saleData.totalProfitPercentageDifference ?? 0}
+              info={
+                <>
+                  Celkový objem prodejů na vinisto.cz očištěných o provize za prodej a logistiku. Detailní rozpad naleznete v sekci{" "}
+                  <Link href="/vyuctovani" className="underline">
+                    Faktury/Vyúčtování
+                  </Link>
+                  .
+                </>
+              }
+            />
+            <Tile label="Počet objednávek s mým zbožím" value={formatNumber(saleData.totalOrderCount ?? 0)} change={saleData.totalOrderCountPercentageDifference ?? 0} />
+          </div>
+        )}
+      </section>
 
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Aktuální požadavky na naskladnění</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {stocking.error ? (
-                <DataError error={stocking.error} what="Požadavky na naskladnění" />
-              ) : !stocking.data || stocking.data.items.length === 0 ? (
-                <p className="py-6 text-center text-sm text-muted-foreground">V tuto chvíli nemáte žádný aktivní požadavek</p>
-              ) : (
-                <div className="max-h-56 overflow-y-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Číslo požadavku</TableHead>
-                        <TableHead>Datum vystavení</TableHead>
-                        <TableHead>Stav</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {stocking.data.items.map((r) => (
-                        <TableRow key={r.id}>
-                          <TableCell>
-                            <Link href={`/naskladneni/${r.id}`} className="font-medium hover:underline">
-                              {r.requestNumber ?? r.id}
-                            </Link>
-                          </TableCell>
-                          <TableCell>{r.createdAt ? formatDate(r.createdAt * 1000) : ""}</TableCell>
-                          <TableCell className={cn(r.stockingState === "SENT" && "font-semibold")}>
-                            {STOCKING_STATE_LABEL[r.stockingState ?? ""] ?? r.stockingState ?? "–"}
-                            {r.stockingState === "SENT" && <span className="ml-1 inline-block size-2 rounded-full bg-[#ffb265]" aria-hidden />}
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+      {/* Provize — tabulky na celou šířku */}
+      <ProvisionsCard rules={rules.data} fees={fees.data} error={rules.error ?? fees.error} isShipping={isShipping} originCountry={originCountry} resolve={resolveSpec} />
 
-        <Card className="xl:col-span-2">
+      {/* Nejprodávanější produkty + naskladnění vedle sebe */}
+      <div className="grid gap-4 xl:grid-cols-2">
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-base">
+              Nejprodávanější produkty <span className="font-normal text-muted-foreground">· {periodLabel(period)}</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {sale.error || !saleData || bestSelling.length === 0 ? (
+              <p className="py-6 text-center text-sm text-muted-foreground">V tuto chvíli nemáme data o Vašem prodeji.</p>
+            ) : (
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Název</TableHead>
+                    <TableHead align="right">Prodaných kusů</TableHead>
+                    <TableHead />
+                    <TableHead align="right">Celkem za</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {bestSelling.map((b) => (
+                    <TableRow key={b.id}>
+                      <TableCell>
+                        <Link href={`/produkty/${b.id}`} className="font-medium hover:underline">
+                          {stripHtml(localize(b.bundleDetail?.name))}
+                        </Link>
+                      </TableCell>
+                      <TableCell align="right" className="text-right">{formatNumber(b.soldPcs ?? 0)} ks</TableCell>
+                      <TableCell>{typeof b.soldPcsPercentageDifference === "number" && b.soldPcsPercentageDifference > 0 && <PercentageChange value={b.soldPcsPercentageDifference} />}</TableCell>
+                      <TableCell align="right" className="text-right">{formatPrice(b.sumPrice ?? 0, "CZK", 2)}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card>
           <CardHeader className="pb-2">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <CardTitle className="text-base">Přehled mých prodejů</CardTitle>
-              <nav className="flex flex-wrap items-center gap-1 text-xs">
-                <Link href={withParam("obdobi", periodToParam(previousMonth(period)))} className="rounded-md border border-border px-2 py-1 hover:bg-accent" aria-label="Předchozí měsíc">
-                  ‹
-                </Link>
-                <span className="min-w-32 text-center font-medium">{periodLabel(period)}</span>
-                {isFuture(nextMonth(period)) ? (
-                  <span className="rounded-md border border-border px-2 py-1 opacity-50">›</span>
-                ) : (
-                  <Link href={withParam("obdobi", periodToParam(nextMonth(period)))} className="rounded-md border border-border px-2 py-1 hover:bg-accent" aria-label="Další měsíc">
-                    ›
-                  </Link>
-                )}
-                <Link href={withParam("obdobi", String(currentPeriod().year))} className="rounded-md border border-border px-2 py-1 hover:bg-accent">
-                  Tento rok
-                </Link>
-                <Link href={withParam("obdobi", undefined)} className="rounded-md border border-border px-2 py-1 hover:bg-accent">
-                  Tento měsíc
-                </Link>
-              </nav>
+              <CardTitle className="text-base">Aktuální požadavky na naskladnění</CardTitle>
+              <Link href="/naskladneni" className="text-xs text-muted-foreground underline-offset-2 hover:underline">
+                Všechny požadavky ›
+              </Link>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4">
-            {sale.error ? (
-              <DataError error={sale.error} what="Data o prodeji" />
-            ) : !saleData ? (
-              <p className="py-10 text-center text-sm text-muted-foreground">V tuto chvíli nemáme data o Vašem prodeji.</p>
+          <CardContent>
+            {stocking.error ? (
+              <DataError error={stocking.error} what="Požadavky na naskladnění" />
+            ) : !stocking.data || stocking.data.items.length === 0 ? (
+              <p className="py-6 text-center text-sm text-muted-foreground">V tuto chvíli nemáte žádný aktivní požadavek</p>
             ) : (
-              <>
-                <div className="text-sm font-medium">Prodáno za období</div>
-                <div className="flex flex-col gap-3 lg:flex-row">
-                  <Tile label="Počet kusů" value={`${formatNumber(saleData.totalSoldPcs ?? 0)} ks`} change={saleData.totalSoldPcsPercentageDifference ?? 0} />
-                  <Tile
-                    label="Celkově prodáno za"
-                    value={formatPrice(saleData.totalProfit ?? 0)}
-                    change={saleData.totalProfitPercentageDifference ?? 0}
-                    info={
-                      <>
-                        Celkový objem prodejů na vinisto.cz očištěných o provize za prodej a logistiku. Detailní rozpad naleznete v sekci{" "}
-                        <Link href="/vyuctovani" className="underline">
-                          Faktury/Vyúčtování
-                        </Link>
-                        .
-                      </>
-                    }
-                  />
-                  <Tile label="Počet objednávek s mým zbožím" value={formatNumber(saleData.totalOrderCount ?? 0)} change={saleData.totalOrderCountPercentageDifference ?? 0} />
-                </div>
-                <div className="text-sm font-medium">Nejprodávanější produkty</div>
-                {bestSelling.length === 0 ? (
-                  <p className="py-6 text-center text-sm text-muted-foreground">V tuto chvíli nemáme data o Vašem prodeji.</p>
-                ) : (
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>Název</TableHead>
-                        <TableHead align="right">Prodaných kusů</TableHead>
-                        <TableHead />
-                        <TableHead align="right">Celkem za</TableHead>
+              <div className="max-h-72 overflow-y-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Číslo požadavku</TableHead>
+                      <TableHead>Datum vystavení</TableHead>
+                      <TableHead>Stav</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {stocking.data.items.map((r) => (
+                      <TableRow key={r.id}>
+                        <TableCell>
+                          <Link href={`/naskladneni/${r.id}`} className="font-medium hover:underline">
+                            {r.requestNumber ?? r.id}
+                          </Link>
+                        </TableCell>
+                        <TableCell>{r.createdAt ? formatDate(r.createdAt * 1000) : ""}</TableCell>
+                        <TableCell className={cn(r.stockingState === "SENT" && "font-semibold")}>
+                          {STOCKING_STATE_LABEL[r.stockingState ?? ""] ?? r.stockingState ?? "–"}
+                          {r.stockingState === "SENT" && <span className="ml-1 inline-block size-2 rounded-full bg-[#ffb265]" aria-hidden />}
+                        </TableCell>
                       </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {bestSelling.map((b) => (
-                        <TableRow key={b.id}>
-                          <TableCell>
-                            <Link href={`/produkty/${b.id}`} className="font-medium hover:underline">
-                              {stripHtml(localize(b.bundleDetail?.name))}
-                            </Link>
-                          </TableCell>
-                          <TableCell align="right" className="text-right">{formatNumber(b.soldPcs ?? 0)} ks</TableCell>
-                          <TableCell>{typeof b.soldPcsPercentageDifference === "number" && b.soldPcsPercentageDifference > 0 && <PercentageChange value={b.soldPcsPercentageDifference} />}</TableCell>
-                          <TableCell align="right" className="text-right">{formatPrice(b.sumPrice ?? 0, "CZK", 2)}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                )}
-              </>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
             )}
           </CardContent>
         </Card>
