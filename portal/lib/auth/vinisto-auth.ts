@@ -85,13 +85,13 @@ export async function loginAgainstVinisto(email: string, password: string): Prom
   } catch (error) {
     // Platforma vrací isError i pro špatné heslo — to není výpadek.
     if (error instanceof PlatformApiError && (error.items.length > 0 || error.status === 200)) {
-      return { ok: false, reason: "bad_credentials" };
+      return { ok: false, reason: "bad_credentials", detail: `${error.code ?? error.message}, HTTP ${error.status ?? "?"}` };
     }
     return { ok: false, reason: "unavailable", detail: error instanceof Error ? error.message : undefined };
   }
 
   const loginHash = login.user?.loginHash;
-  if (!loginHash) return { ok: false, reason: "bad_credentials" };
+  if (!loginHash) return { ok: false, reason: "bad_credentials", detail: "platforma nevrátila loginHash" };
 
   let profile: Awaited<ReturnType<typeof fetchAuthUserSupplier>>;
   try {

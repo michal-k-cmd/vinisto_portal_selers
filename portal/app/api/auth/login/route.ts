@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
     if (result.reason === "bad_credentials") {
       // malé zpomalení proti hádání hesel
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      return NextResponse.json({ error: "Nesprávný e-mail nebo heslo" }, { status: 401 });
+      return NextResponse.json({ error: `Nesprávný e-mail nebo heslo${result.detail ? ` (${result.detail})` : ""}` }, { status: 401 });
     }
     if (result.reason === "no_suppliers") {
       return NextResponse.json(
