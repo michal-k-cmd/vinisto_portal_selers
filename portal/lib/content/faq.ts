@@ -133,7 +133,7 @@ export const FAQ: FaqSection[] = [
       {
         q: "Jak funguje zavážení zboží na vinisto?",
         a: [
-          "Zboží skladujeme na adrese Jankovcova 1057/6 na Praze 7. Při registraci si zvolíte, jaký způsob dopravy zboží na náš sklad Vám bude vyhovovat a orientační čas svozu. Tento způsob i čas lze kdykoliv změnit v nastavení v administrativním rozhraní nebo po domluvě s podporou pro prodejce.",
+          "Zboží skladujeme na adrese Sanderova 1366/26 na Praze 7. Při registraci si zvolíte, jaký způsob dopravy zboží na náš sklad Vám bude vyhovovat a orientační čas svozu. Tento způsob i čas lze kdykoliv změnit v nastavení v administrativním rozhraní nebo po domluvě s podporou pro prodejce.",
         ],
       },
       {
