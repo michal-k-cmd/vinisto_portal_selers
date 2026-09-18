@@ -58,10 +58,15 @@ export function priceRange(from: number | null | undefined, to: number | null | 
 }
 
 /** Podmínky pravidla jako řádky „Typ: …“, „Druh: …“, „Kategorie: …“. */
-export function ruleConditions(rule: FeeRule | DynamicSaleFeeRule | AppliedFeeRule | null | undefined): string[] {
+export type ConditionResolver = (definitionId: string | null | undefined, slug: string) => string;
+
+export function ruleConditions(rule: FeeRule | DynamicSaleFeeRule | AppliedFeeRule | null | undefined, resolve: ConditionResolver = (_, slug) => slug): string[] {
   if (!rule) return [];
   const out: string[] = [];
-  const spec = (id: string) => rule.specifications?.find((s) => s.definitionId === id)?.allowedValues?.[0];
+  const spec = (id: string) => {
+    const values = rule.specifications?.find((s) => s.definitionId === id)?.allowedValues ?? [];
+    return values.length ? values.map((v) => resolve(id, v)).join(", ") : undefined;
+  };
   const typ = spec(SPECIFICATION_ID_TYPE);
   const kind = spec(SPECIFICATION_ID_KIND);
   if (typ) out.push(`Typ: ${typ}`);
@@ -87,12 +92,12 @@ export type FeeTableRow = {
 };
 
 /** Převede řádek z API (dynamické pravidlo nebo dvojice sale/logistic) na buňky tabulky. */
-export function feeTableRow(row: FeeRuleRow, index: number): FeeTableRow {
+export function feeTableRow(row: FeeRuleRow, index: number, resolve?: ConditionResolver): FeeTableRow {
   if (row.kind === "dynamic") {
     const r = row.rule;
     return {
       key: r.id ?? `dyn-${index}`,
-      conditions: ruleConditions(r),
+      conditions: ruleConditions(r, resolve),
       validity: validityRange(r.validFrom, r.validTo),
       price: priceRange(r.bundlePriceFrom, r.bundlePriceTo),
       domestic: salePercent(r.originFees),
@@ -106,7 +111,7 @@ export function feeTableRow(row: FeeRuleRow, index: number): FeeTableRow {
   const base = sale ?? logistic;
   return {
     key: sale?.id ?? logistic?.id ?? `rule-${index}`,
-    conditions: ruleConditions(sale ?? logistic),
+    conditions: ruleConditions(sale ?? logistic, resolve),
     validity: base ? validityRange(base.validFrom, base.validTo) : "",
     price: base ? priceRange(base.bundlePriceFrom, base.bundlePriceTo) : "",
     domestic: salePercent(sale?.originFees),

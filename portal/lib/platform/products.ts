@@ -61,6 +61,45 @@ export function specificationText(spec: SpecificationDetail | null | undefined, 
   return `${raw}${unit ? ` ${unit}` : ""}`;
 }
 
+/** Překlad slugu hodnoty specifikace na název: (definitionId, slug) → „Doplňkový sortiment“. */
+export type SpecValueResolver = (definitionId: string | null | undefined, slug: string) => string;
+
+type SpecDefinition = { id?: string | null; allowedValues?: Record<string, { name?: LangValue[] | null } | null> | null };
+const SPEC_NAMES_TTL_MS = 10 * 60_000;
+let specNamesCache: { at: number; map: Map<string, Map<string, string>> } | null = null;
+
+/**
+ * GET product-api/admin/specifications — definice specifikací s názvy povolených hodnot
+ * (platforma v provizních pravidlech posílá jen slugy). Cache 10 minut na proces.
+ */
+export async function getSpecificationValueNames(): Promise<Map<string, Map<string, string>>> {
+  if (specNamesCache && Date.now() - specNamesCache.at < SPEC_NAMES_TTL_MS) return specNamesCache.map;
+  const map = new Map<string, Map<string, string>>();
+  try {
+    const data = await platformRequest<{ specifications?: SpecDefinition[] | null }>("product-api/admin/specifications", {
+      query: { Limit: 500, Language: "CZECH" },
+    });
+    for (const def of data.specifications ?? []) {
+      if (!def.id || !def.allowedValues) continue;
+      const values = new Map<string, string>();
+      for (const [slug, v] of Object.entries(def.allowedValues)) {
+        const name = localize(v?.name, "");
+        if (name && name !== "–") values.set(slug, name);
+      }
+      map.set(def.id, values);
+    }
+    specNamesCache = { at: Date.now(), map };
+  } catch (error) {
+    console.error("[products] definice specifikací se nepodařilo načíst:", error);
+  }
+  return map;
+}
+
+/** Resolver pro ruleConditions(): slug → název, jinak slug beze změny. */
+export function specValueResolver(names: Map<string, Map<string, string>>): SpecValueResolver {
+  return (definitionId, slug) => (definitionId ? names.get(definitionId)?.get(slug) : undefined) ?? slug;
+}
+
 /** Najde specifikaci podle ID definice (platforma ho dává do definition.id i value.definitionId). */
 export function findSpecification(specs: SpecificationDetail[] | null | undefined, definitionId: string): SpecificationDetail | undefined {
   return (specs ?? []).find((s) => s.definition?.id === definitionId || s.value?.definitionId === definitionId);

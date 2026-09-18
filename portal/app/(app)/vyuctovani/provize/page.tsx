@@ -8,6 +8,7 @@ import { InfoTip } from "@/components/info-tip";
 import { activeSupplier, requireSession } from "@/lib/auth/server";
 import { destinationCountryOptions, getSupplierFeeRules, getSupplierFeeValues, type FeeRuleRow, type SupplierFeeValues } from "@/lib/platform/fees";
 import { defaultFeeRow, feeTableRow } from "@/lib/platform/fees-format";
+import { getSpecificationValueNames, specValueResolver } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
 
 export const metadata = { title: "Provize" };
@@ -22,16 +23,18 @@ export default async function ProvizePage({ searchParams }: { searchParams: Prom
   const originCountry = supplier.countryCode && COUNTRIES.includes(supplier.countryCode) ? supplier.countryCode : "CZ";
   const destinationCountry = typeof sp.cil === "string" && COUNTRIES.includes(sp.cil) ? sp.cil : originCountry;
 
-  const [rules, values] = await Promise.all([
+  const [rules, values, specNames] = await Promise.all([
     getSupplierFeeRules({ supplierId: supplier.id, loginHash: session.loginHash, originCountry, destinationCountry })
       .then((data) => ({ data, error: null as unknown }))
       .catch((error) => ({ data: [] as FeeRuleRow[], error })),
     getSupplierFeeValues({ supplierId: supplier.id, loginHash: session.loginHash, originCountry, destinationCountry })
       .then((data) => ({ data, error: null as unknown }))
       .catch((error) => ({ data: null as SupplierFeeValues | null, error })),
+    getSpecificationValueNames(),
   ]);
 
-  const rows = [...rules.data.map(feeTableRow), defaultFeeRow(values.data)];
+  const resolve = specValueResolver(specNames);
+  const rows = [...rules.data.map((r, i) => feeTableRow(r, i, resolve)), defaultFeeRow(values.data)];
 
   return (
     <div className="space-y-4">

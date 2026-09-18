@@ -16,6 +16,7 @@ import {
   type LogisticFeeRecord,
 } from "@/lib/platform/fees";
 import { monthYear, ruleConditions } from "@/lib/platform/fees-format";
+import { getSpecificationValueNames, specValueResolver } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
 
 function feeLines(fees: Record<string, FeeRecord | FeeRecord[] | LogisticFeeRecord[] | undefined> | null | undefined, integrations: Map<number, string>): string[] {
@@ -57,14 +58,17 @@ export async function FeeRulesSection({
   let rules: AppliedFeeRule[] = [];
   let defaults: Awaited<ReturnType<typeof getSupplierFeeValues>> | null = null;
   let error: unknown;
+  let specNames = new Map<string, Map<string, string>>();
   try {
-    [rules, defaults] = await Promise.all([
+    [rules, defaults, specNames] = await Promise.all([
       getAppliedFeeRules({ bundleId, loginHash, sourceCountry, destinationCountry: targetCountry, showHistory }),
       getSupplierFeeValues({ supplierId, loginHash, originCountry: sourceCountry, destinationCountry: targetCountry }).catch(() => null),
+      getSpecificationValueNames(),
     ]);
   } catch (e) {
     error = e;
   }
+  const resolve = specValueResolver(specNames);
 
   const href = (overrides: Record<string, string | undefined>) => {
     const next = new URLSearchParams(baseParams);
@@ -127,7 +131,7 @@ export async function FeeRulesSection({
               )}
               {rules.map((rule, i) => (
                 <TableRow key={rule.id ?? i}>
-                  <TableCell className="text-xs">{ruleConditions(rule).map((c) => <div key={c}>{c}</div>)}</TableCell>
+                  <TableCell className="text-xs">{ruleConditions(rule, resolve).map((c) => <div key={c}>{c}</div>)}</TableCell>
                   <TableCell className="whitespace-nowrap text-xs">
                     {monthYear(rule.validFrom, "neomezeně")} – {monthYear(rule.validTo, "neomezeně")}
                   </TableCell>
