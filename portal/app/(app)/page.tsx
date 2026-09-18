@@ -14,7 +14,8 @@ import { activeSupplier, requireSession } from "@/lib/auth/server";
 import { formatDate, formatNumber, formatPrice } from "@/lib/format";
 import { isFuture, nextMonth, parsePeriod, periodBounds, periodLabel, periodToParam, previousMonth, currentPeriod } from "@/lib/period";
 import { getDashboardSale, listSentStockingRequests, STOCKING_STATE_LABEL, type SaleData } from "@/lib/platform/dashboard";
-import { getSupplierFeeValues, type SupplierFeeValues } from "@/lib/platform/fees";
+import { getSupplierFeeRules, getSupplierFeeValues, type FeeRuleRow, type SupplierFeeValues } from "@/lib/platform/fees";
+import { defaultFeeRow, feeTableRow, type FeeTableRow } from "@/lib/platform/fees-format";
 import { B2B_PLATFORM, B2C_PLATFORM, computeBundlePrices, discountPercent } from "@/lib/platform/prices";
 import { listDiscountedBundles, localize, stripHtml, type Bundle } from "@/lib/platform/products";
 import { cn } from "@/lib/utils";
@@ -24,39 +25,59 @@ export const dynamic = "force-dynamic";
 const DISCOUNTS_PAGE_SIZE = 5;
 const DISCOUNT_EXPIRING_DAYS = 5;
 
-const pct = (value: number | null | undefined) =>
-  `od ${Math.min(1, (value ?? 0) / 100).toLocaleString("cs-CZ", { style: "percent", minimumFractionDigits: 0, maximumFractionDigits: 2 })}`;
+function splitPercent(value: string): [string, string] {
+  const [b2c = "–", b2b = "–"] = value.split(" / ");
+  return [b2c || "–", b2b || "–"];
+}
 
-function ProvisionRow({ label, b2c, b2b }: { label: string; b2c: number | null | undefined; b2b: number | null | undefined }) {
+function ProvisionRow({ label, value, muted }: { label: React.ReactNode; value: string; muted?: boolean }) {
+  const [b2c, b2b] = splitPercent(value);
   return (
-    <div className="flex items-center justify-between gap-3 py-1.5 text-sm">
-      <span className="truncate">{label}</span>
+    <div className={cn("flex items-center justify-between gap-3 py-1.5 text-sm", muted && "text-muted-foreground")}>
+      <span className="min-w-0 truncate">{label}</span>
       <span className="flex w-36 shrink-0 justify-between tabular-nums">
-        <span>{pct(b2c)}</span>
-        <span>{pct(b2b)}</span>
+        <span>{b2c}</span>
+        <span>{b2b}</span>
       </span>
     </div>
   );
 }
 
-function ProvisionsCard({ fees, error, isShipping }: { fees: SupplierFeeValues | null; error: unknown; isShipping: boolean }) {
-  const logistic = fees?.feeValues?.supplierLogisticFeeValues ?? [];
-  const sale = fees?.feeValues?.supplierSaleFeeValues ?? [];
-  const defaultLogistic = isShipping ? fees?.defaultLogisticFeeSupplierTransport : fees?.defaultLogisticFeeVinistoTransport;
+const MAX_RULE_ROWS = 6;
+
+/**
+ * Skutečně aplikovaná provizní pravidla prodejce (dynamická + prodejní +
+ * logistická z adminu, směr CZ → CZ) a výchozí sazby jako poslední řádek.
+ * Stejný zdroj jako stránka Vyúčtování → Provize.
+ */
+function ProvisionsCard({ rules, fees, error, isShipping, originCountry }: { rules: FeeRuleRow[]; fees: SupplierFeeValues | null; error: unknown; isShipping: boolean; originCountry: string }) {
+  const rows = rules.map(feeTableRow);
+  const saleRows = rows.filter((r) => r.domestic);
+  const logisticRows = rows.filter((r) => (isShipping ? r.logisticsSupplier : r.logisticsVinisto));
+  const defaults = defaultFeeRow(fees);
   const header = (
     <span className="flex w-36 shrink-0 justify-between text-xs font-medium text-muted-foreground">
       <span>B2C</span>
       <span>B2B</span>
     </span>
   );
+  const label = (r: FeeTableRow) => (r.conditions.length ? r.conditions.join(" · ") : "Obecné pravidlo");
+  const validity = (r: FeeTableRow) => (r.validity ? <span className="ml-1 text-xs text-muted-foreground">({r.validity})</span> : null);
+  const more = (n: number) =>
+    n > MAX_RULE_ROWS ? (
+      <Link href="/vyuctovani/provize" className="block py-1 text-xs text-muted-foreground underline-offset-2 hover:underline">
+        + {n - MAX_RULE_ROWS} dalších pravidel
+      </Link>
+    ) : null;
+
   return (
     <Card>
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-base">
-          Moje nastavené provize
+          Moje provize
           <InfoTip>
-            Provize na vinisto se skládá z poplatku za prodej a poplatku za logistiku. Provize se počítají dle aktuálních smluvních podmínek.
-            Logistické provize je možné upravit v nastavení v sekci{" "}
+            Provize na vinisto se skládá z poplatku za prodej a poplatku za logistiku. Zobrazují se pravidla platná pro směr prodeje {originCountry} → CZ;
+            ostatní směry najdete v sekci Vyúčtování → Provize. Logistické provize je možné upravit v nastavení v sekci{" "}
             <Link href="/nastaveni/dodani" className="underline">
               Doprava zboží
             </Link>
@@ -66,6 +87,27 @@ function ProvisionsCard({ fees, error, isShipping }: { fees: SupplierFeeValues |
       </CardHeader>
       <CardContent className="space-y-4 text-sm">
         {error ? <DataError error={error} what="Provize" /> : null}
+        <div>
+          <div className="flex items-center justify-between gap-3 border-b border-border pb-1">
+            <span className="font-medium">Prodej</span>
+            {header}
+          </div>
+          {saleRows.length === 0 && !error && <p className="py-1.5 text-xs text-muted-foreground">Žádné zvláštní prodejní pravidlo, platí výchozí provize.</p>}
+          {saleRows.slice(0, MAX_RULE_ROWS).map((r) => (
+            <ProvisionRow
+              key={r.key}
+              label={
+                <>
+                  {label(r)}
+                  {validity(r)}
+                </>
+              }
+              value={r.domestic}
+            />
+          ))}
+          {more(saleRows.length)}
+          <ProvisionRow label="Výchozí provize" value={defaults.domestic} muted />
+        </div>
         <div>
           <div className="flex items-center justify-between gap-3 border-b border-border pb-1">
             <span className="font-medium">
@@ -80,28 +122,25 @@ function ProvisionsCard({ fees, error, isShipping }: { fees: SupplierFeeValues |
             </span>
             {header}
           </div>
-          {logistic.length === 0 && <p className="py-1.5 text-xs text-muted-foreground">V tuto chvíli nemáte žádné nastavené logistické provize.</p>}
-          {logistic.map((f, i) => (
+          {logisticRows.length === 0 && !error && <p className="py-1.5 text-xs text-muted-foreground">Žádné zvláštní logistické pravidlo, platí výchozí provize.</p>}
+          {logisticRows.slice(0, MAX_RULE_ROWS).map((r) => (
             <ProvisionRow
-              key={f.allowedValue ?? i}
-              label={f.allowedValue ?? "–"}
-              b2c={isShipping ? f.minVinistoTransportPercentage : f.minSupplierTransportPercentage}
-              b2b={isShipping ? f.minVinistoTransportPercentageB2b : f.minSupplierTransportPercentageB2b}
+              key={r.key}
+              label={
+                <>
+                  {label(r)}
+                  {validity(r)}
+                </>
+              }
+              value={isShipping ? r.logisticsSupplier : r.logisticsVinisto}
             />
           ))}
-          <ProvisionRow label="Výchozí provize" b2c={defaultLogistic} b2b={defaultLogistic} />
+          {more(logisticRows.length)}
+          <ProvisionRow label="Výchozí provize" value={isShipping ? defaults.logisticsSupplier : defaults.logisticsVinisto} muted />
         </div>
-        <div>
-          <div className="flex items-center justify-between gap-3 border-b border-border pb-1">
-            <span className="font-medium">Prodej</span>
-            {header}
-          </div>
-          {sale.length === 0 && <p className="py-1.5 text-xs text-muted-foreground">V tuto chvíli nemáte žádné nastavené prodejní provize.</p>}
-          {sale.map((f, i) => (
-            <ProvisionRow key={f.allowedValue ?? i} label={f.allowedValue ?? "–"} b2c={f.minB2cPercentage} b2b={f.minB2bPercentage} />
-          ))}
-          <ProvisionRow label="Výchozí provize" b2c={fees?.defaultSaleFeeValue} b2b={fees?.defaultSaleFeeValueB2b} />
-        </div>
+        <Link href="/vyuctovani/provize" className="inline-block text-xs underline-offset-2 hover:underline">
+          Všechna provizní pravidla a směry prodeje ›
+        </Link>
       </CardContent>
     </Card>
   );
@@ -149,10 +188,13 @@ export default async function PrehledPage({ searchParams }: { searchParams: Prom
     return qs ? `?${qs}` : "/";
   };
 
-  const [fees, sale, stocking, discounted] = await Promise.all([
+  const [fees, rules, sale, stocking, discounted] = await Promise.all([
     getSupplierFeeValues({ supplierId: supplier.id, loginHash: session.loginHash, originCountry, destinationCountry: "CZ" })
       .then((data) => ({ data, error: null as unknown }))
       .catch((error) => ({ data: null, error })),
+    getSupplierFeeRules({ supplierId: supplier.id, loginHash: session.loginHash, originCountry, destinationCountry: "CZ" })
+      .then((data) => ({ data, error: null as unknown }))
+      .catch((error) => ({ data: [] as FeeRuleRow[], error })),
     getDashboardSale({ supplierId: supplier.id, loginHash: session.loginHash, timeFrom, timeTo })
       .then((data) => ({ data, error: null as unknown }))
       .catch((error) => ({ data: null as SaleData | null, error })),
@@ -179,7 +221,7 @@ export default async function PrehledPage({ searchParams }: { searchParams: Prom
 
       <div className="grid gap-4 xl:grid-cols-3">
         <div className="space-y-4">
-          <ProvisionsCard fees={fees.data} error={fees.error} isShipping={isShipping} />
+          <ProvisionsCard rules={rules.data} fees={fees.data} error={rules.error ?? fees.error} isShipping={isShipping} originCountry={originCountry} />
 
           <Card>
             <CardHeader className="pb-2">
