@@ -77,6 +77,8 @@ Hodnoty jen v `.env.local` / Vercel ENV, nikdy do gitu.
 
 ## Cutover z `client_admin/`
 
+Deploy: Vercel projekt s Root Directory `portal`, nasazuje každý commit v `main`.
+
 1. Ve Vercel projektu portálu nastavit ENV výše (včetně SupportBox) a ověřit
    build z větve `main`.
 2. Přepnout doménu portálu prodejce na nový projekt; staré URL se
